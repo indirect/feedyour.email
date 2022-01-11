@@ -70,3 +70,7 @@ gem "rspec-rails", "~> 5.0"
 gem "griddler-postmark", "~> 1.0"
 
 gem "nilify_blanks", "~> 1.4"
+
+gem "tailwindcss-rails", "~> 2.0"
+
+gem "hotwire-livereload", "~> 1.0", :group => :development

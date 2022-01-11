@@ -78,6 +78,7 @@ GEM
     diff-lcs (1.5.0)
     digest (3.1.0)
     erubi (1.10.0)
+    ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
     griddler (1.5.2)
@@ -85,6 +86,9 @@ GEM
       rails (>= 3.2.0)
     griddler-postmark (1.0.0)
       griddler
+    hotwire-livereload (1.0.0)
+      listen (>= 3.0.0)
+      rails (>= 6.0.0)
     htmlentities (4.3.4)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
@@ -98,6 +102,9 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    listen (3.7.0)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.13.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -165,6 +172,9 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    rb-fsevent (0.11.0)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
     redis (4.5.1)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -185,6 +195,12 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.3)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
+    simple_form-tailwind (0.1.1)
+      railties (>= 4.0)
+      simple_form (>= 5.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -195,6 +211,12 @@ GEM
     stimulus-rails (1.0.2)
       railties (>= 6.0.0)
     strscan (3.0.1)
+    tailwindcss-rails (2.0.4-arm64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.4-x86_64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.4-x86_64-linux)
+      railties (>= 6.0.0)
     thor (1.2.1)
     timeout (0.2.0)
     turbo-rails (1.0.0)
@@ -220,6 +242,7 @@ DEPENDENCIES
   bootsnap
   debug
   griddler-postmark (~> 1.0)
+  hotwire-livereload (~> 1.0)
   importmap-rails
   jbuilder
   nilify_blanks (~> 1.4)
@@ -228,8 +251,10 @@ DEPENDENCIES
   rails (~> 7.0.1)
   redis (~> 4.0)
   rspec-rails (~> 5.0)
+  simple_form-tailwind (~> 0.1.1)
   sprockets-rails
   stimulus-rails
+  tailwindcss-rails (~> 2.0)
   turbo-rails
   tzinfo-data
   web-console
