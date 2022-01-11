@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :feeds
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  mount_griddler "/email/incoming"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :feeds
+  root "feeds#new"
 end

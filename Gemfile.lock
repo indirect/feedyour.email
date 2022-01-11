@@ -80,6 +80,12 @@ GEM
     erubi (1.10.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    griddler (1.5.2)
+      htmlentities
+      rails (>= 3.2.0)
+    griddler-postmark (1.0.0)
+      griddler
+    htmlentities (4.3.4)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.0.1)
@@ -207,6 +213,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
+  griddler-postmark (~> 1.0)
   importmap-rails
   jbuilder
   pg (~> 1.1)

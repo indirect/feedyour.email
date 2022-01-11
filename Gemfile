@@ -66,3 +66,5 @@ end
 
 
 gem "rspec-rails", "~> 5.0"
+
+gem "griddler-postmark", "~> 1.0"
