@@ -5,18 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= tag.meta property: "og:title", content: "Feed Your Email" %>
-    <%= tag.meta property: "og:image", content: "https://feedyouremail.arko.me/card.jpg" %>
-    <%= tag.meta property: "og:description", content: "Generate an email address you can use for any newsletter, and a corresponding feed you can use to read those emails." %>
-
-    <%= tag.meta property: "twitter:card",  content: "summary_large_image" %>
-    <%= tag.meta property: "twitter:title", content: "Feed Your Email" %>
-    <%= tag.meta property: "twitter:image", content: "https://feedyouremail.arko.me/card.jpg" %>
-    <%= tag.meta property: "twitter:description", content: "Generate an email address you can use for any newsletter, and a corresponding feed you can use to read those emails." %>
-    
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="alternate icon" href="/favicon.ico">
+    <%= sharing_meta_tags %>
 
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
