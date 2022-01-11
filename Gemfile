@@ -21,6 +21,7 @@ gem "jbuilder", "~> 2.11"
 gem "nilify_blanks", "~> 1.4"
 gem "pg", "~> 1.2"
 gem "puma", "~> 5.5"
+gem "rack-canonical-host", "~> 1.1", require: false
 gem "redis", "~> 4.5"
 gem "rspec-rails", "~> 5.0"
 gem "sprockets-rails", "~> 3.4"
