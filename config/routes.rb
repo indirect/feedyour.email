@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :posts
   mount_griddler "/email/incoming"
 
-  resources :feeds
+  resources :posts, only: [:show]
+  resources :feeds, only: [:new, :create, :show]
   root "feeds#new"
 end
