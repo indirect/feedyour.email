@@ -1,6 +1,6 @@
 atom_feed do |feed|
   feed.title @feed.name
-  feed.updated @feed.posts.last.updated_at
+  feed.updated @feed.posts.last&.updated_at || @feed.updated_at
 
   @feed.posts.limit(100).each do |post|
     feed.entry(post) do |entry|
