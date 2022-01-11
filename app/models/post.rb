@@ -6,6 +6,14 @@ class Post < ApplicationRecord
     SecureRandom.base36(length)
   end
 
+  def from_name
+    payload.dig("from", "name")
+  end
+
+  def from_email
+    payload.dig("from", "email")
+  end
+
   def title
     payload["subject"]
   end
