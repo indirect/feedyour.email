@@ -4,8 +4,11 @@ class EmailProcessor
   end
 
   def process
-    feed_id = @email.to.find{|t| t[:host] == "feedyour.email" }[:token]
+    to = @email.to.find{|t| t[:host] == "feedyour.email" }
+    feed_id = to[:token] if to
+    return unless feed_id
+
     feed_id = Feed.last.id if feed_id == "somefeed"
-    Feed.find(feed_id).posts.create!(payload: @email.to_h)
+    Feed.where(token: feed_id).first.posts.create!(payload: @email.to_h)
   end
 end
