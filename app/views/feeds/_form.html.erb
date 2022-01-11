@@ -1,22 +1,15 @@
 <%= form_with(model: feed) do |form| %>
-  <% if feed.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
+  <p class="mt-1 text-sm text-gray-500">
+    Generate an email address you can use for any newsletter, and a corresponding feed you can use to read those emails.
+  </p>
 
-      <ul>
-        <% feed.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <div class="mt-6 max-w-xs mx-auto">
+    <%= form.label :name, "Feed name (optional)", class: "block text-sm font-medium text-gray-700" %>
+    <div class="mt-1 flex">
+      <%= form.text_field :name, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <div class="mt-4 flex justify-center">
+      <%= form.submit "Create feed", class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>
