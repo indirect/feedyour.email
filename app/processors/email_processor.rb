@@ -4,6 +4,8 @@ class EmailProcessor
   end
 
   def process
-    Rails.logger.info "Got an email!\n\n#{@email.to_h.inspect}"
+    feed_id = @email.to.find{|t| t[:host] == "feedyour.email" }[:token]
+    feed_id = Feed.last.id if feed_id == "somefeed"
+    Feed.find(feed_id).posts.create!(payload: @email.to_h)
   end
 end

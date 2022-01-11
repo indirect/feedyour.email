@@ -60,7 +60,7 @@ class FeedsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_feed
-      @feed = Feed.find(params[:id])
+      @feed = Feed.where(token: params[:id]).first
     end
 
     # Only allow a list of trusted parameters through.
