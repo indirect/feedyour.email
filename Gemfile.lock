@@ -123,6 +123,9 @@ GEM
       digest
       net-protocol
       timeout
+    nilify_blanks (1.4.0)
+      activerecord (>= 4.0.0)
+      activesupport (>= 4.0.0)
     nio4r (2.5.8)
     nokogiri (1.13.0-arm64-darwin)
       racc (~> 1.4)
@@ -216,6 +219,7 @@ DEPENDENCIES
   griddler-postmark (~> 1.0)
   importmap-rails
   jbuilder
+  nilify_blanks (~> 1.4)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.1)

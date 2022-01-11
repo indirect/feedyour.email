@@ -68,3 +68,5 @@ end
 gem "rspec-rails", "~> 5.0"
 
 gem "griddler-postmark", "~> 1.0"
+
+gem "nilify_blanks", "~> 1.4"
