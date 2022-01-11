@@ -8,7 +8,7 @@ class Feed < ApplicationRecord
   end
 
   def name
-    read_attribute(:name) || "Feed Your Email #{token}"
+    read_attribute(:name) || "Feed Your Email #{token}" if token
   end
 
   def to_param
