@@ -1,14 +1,16 @@
-  <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-    <div class="text-center">
-      <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">
-        feed your email
-      </h2>
-      <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-        Send newsletters to your feed reader.
-      </p>
-    </div>
-    <div class="max-w-md mt-5 mx-auto text-xl text-gray-500">
-      <%= render "form", feed: @feed %>
-    </div>
+<div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+  <div class="text-center">
+    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">
+      feed your email
+    </h2>
+    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+      Send newsletters to your feed reader.
+    </p>
+    <p class="mt-1 text-md text-gray-500">
+      Generate an email address you can use for any newsletter, and a corresponding feed you can use to read those emails.
+    </p>
+  </div>
+  <div class="max-w-md mt-5 mx-auto text-xl text-gray-500">
+    <%= render "form", feed: @feed %>
   </div>
 </div>

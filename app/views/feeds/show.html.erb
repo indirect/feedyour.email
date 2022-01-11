@@ -1,10 +1,29 @@
-<p style="color: green"><%= notice %></p>
+<div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+  <div class="text-center">
+    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">
+      free your inbox
+    </h2>
+    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+      Your feed is ready.
+    </p>
 
-<%= render @feed %>
+    <div class="max-w-xl mt-5 mx-auto">
+      <div class="my-8">
+        <h4 class="block text-md font-bold text-gray-700">Email address</h4>
+        <pre class="my-2"><code class="bg-slate-100 border-slate-300 rounded px-4 py-2"><%= @feed.token %>@<%= request.host %></code></pre>
+        <p class="">Use this email address to sign up for the newsletter you want to read.</p>
+      </div>
 
-<div>
-  <%= link_to "Edit this feed", edit_feed_path(@feed) %> |
-  <%= link_to "Back to feeds", feeds_path %>
+      <div class="my-8">
+        <h4 class="block text-md font-bold text-gray-700">Feed URL</h4>
+        <pre class="my-2"><code class="bg-slate-100 border-slate-300 rounded px-4 py-2"><%= feed_url(@feed, format: "atom") %></code></pre>
+        <p><%= link_to "Subscribe to this feed", feed_url(@feed, format: "atom") %> in a feed reader to read the newsletter emails.</p>
+        <p>(If you don't have a feed reader, we like <%= link_to "Reeder", "https://reederapp.com" %> or <%= link_to "NetNewsWire", "https://netnewswire.com" %>.)
+      </div>
 
-  <%= button_to "Destroy this feed", @feed, method: :delete %>
+      <div class="my-4">
+        <p class=""><b>Don't share these addresses.</b> Anyone with the email address or the feed URL can you up for spam or cancel your subscriptions.</p>
+      </div>
+    </div>
+  </div>
 </div>

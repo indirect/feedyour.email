@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+a {
+  @apply underline;
+}
+
 /*
 
 @layer components {
