@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/r38y/griddler-postmark.git
+  revision: 4c34136f5d4649924bfaba625e10b18733ade61a
+  specs:
+    griddler-postmark (1.0.0)
+      griddler
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -84,8 +91,6 @@ GEM
     griddler (1.5.2)
       htmlentities
       rails (>= 3.2.0)
-    griddler-postmark (1.0.0)
-      griddler
     hotwire-livereload (1.0.0)
       listen (>= 3.0.0)
       rails (>= 6.0.0)
@@ -233,24 +238,23 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bootsnap
-  debug
-  griddler-postmark (~> 1.0)
+  bootsnap (~> 1.9)
+  debug (~> 1.4)
+  griddler-postmark (~> 1.0)!
   hotwire-livereload (~> 1.0)
-  importmap-rails
-  jbuilder
+  importmap-rails (~> 1.0)
+  jbuilder (~> 2.11)
   nilify_blanks (~> 1.4)
-  pg (~> 1.1)
-  puma (~> 5.0)
-  rails (~> 7.0.1)
-  redis (~> 4.0)
+  pg (~> 1.2)
+  puma (~> 5.5)
+  rails (~> 7.0)
+  redis (~> 4.5)
   rspec-rails (~> 5.0)
-  sprockets-rails
-  stimulus-rails
+  sprockets-rails (~> 3.4)
+  stimulus-rails (~> 1.0)
   tailwindcss-rails (~> 2.0)
-  turbo-rails
-  tzinfo-data
-  web-console
+  turbo-rails (~> 1.0)
+  web-console (~> 4.2)
 
 RUBY VERSION
    ruby 3.1.0p0
