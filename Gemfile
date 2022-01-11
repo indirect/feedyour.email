@@ -16,6 +16,7 @@ end
 
 gem "bootsnap", "~> 1.9", require: false
 gem "griddler-postmark", "~> 1.0", github: "r38y/griddler-postmark"
+gem "honeybadger", "~> 4.9"
 gem "importmap-rails", "~> 1.0"
 gem "jbuilder", "~> 2.11"
 gem "nilify_blanks", "~> 1.4"
