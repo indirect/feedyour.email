@@ -25,5 +25,16 @@
         <p class=""><b>Don't share these addresses.</b> Anyone with the email address or the feed URL can you up for spam or cancel your subscriptions.</p>
       </div>
     </div>
+	<div class="my-8">
+		<% if @feed.posts %>
+		<ul>
+			<% @feed.posts.each do | post | %>
+			<li>
+				<%= link_to post.title, post_path(post) %> (<%= post.created_at %>)
+			</li>
+			<% end %>
+		</ul>
+		<% end %>
+	</div>
   </div>
 </div>
