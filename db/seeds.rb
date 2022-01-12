@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+feed = Feed.find_or_create_by!(token: "somefeed")
+
+json = JSON.parse(Rails.root.join("spec/support/body.json").read)
+params = Griddler::Postmark::Adapter.normalize_params(json.deep_symbolize_keys)
+email = Griddler::Email.new(params)
+EmailProcessor.new(email).process(token: "somepost")

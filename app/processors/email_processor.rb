@@ -3,12 +3,13 @@ class EmailProcessor
     @email = email
   end
 
-  def process
+  def process(token: nil)
     return unless feed_token
 
     Post.create!(
       feed: Feed.where(token: feed_token).first,
-      payload: @email.to_h
+      payload: @email.to_h,
+      token: token
     )
   end
 
