@@ -6,6 +6,10 @@ class Post < ApplicationRecord
     SecureRandom.base36(length)
   end
 
+  def from
+    payload.dig("from", "full")
+  end
+
   def from_name
     payload.dig("from", "name")
   end

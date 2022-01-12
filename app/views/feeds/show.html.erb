@@ -1,4 +1,4 @@
-<div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="text-center">
     <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">
       free your inbox
@@ -22,19 +22,16 @@
       </div>
 
       <div class="my-4">
-        <p class=""><b>Don't share these addresses.</b> Anyone with the email address or the feed URL can you up for spam or cancel your subscriptions.</p>
+	<p>
+	  <b>Don't share these addresses.</b>
+	  Anyone with the email address or the feed URL can sign you up for spam or cancel your subscriptions.
+	</p>
       </div>
+
+      <div class="my-4">
+	<p>So far, your feed has captured <%= link_to pluralize(@feed.posts.count, "email"), feed_posts_path(@feed) %>.</p>
+      </div>
+
     </div>
-	<div class="my-8">
-		<% if @feed.posts %>
-		<ul>
-			<% @feed.posts.each do | post | %>
-			<li>
-				<%= link_to post.title, post_path(post) %> (<%= post.created_at %>)
-			</li>
-			<% end %>
-		</ul>
-		<% end %>
-	</div>
   </div>
 </div>
