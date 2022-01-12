@@ -6,6 +6,10 @@ a {
   @apply underline;
 }
 
+a.block {
+  @apply no-underline;
+}
+
 /*
 
 @layer components {
