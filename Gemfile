@@ -10,7 +10,9 @@ group :development, :test do
 end
 
 group :development do
+  gem "bundler-audit", "~> 0.9.0"
   gem "hotwire-livereload", "~> 1.0"
+  gem "standard", "~> 1.6"
   gem "web-console", "~> 4.2"
 end
 
