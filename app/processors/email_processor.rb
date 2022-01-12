@@ -7,7 +7,7 @@ class EmailProcessor
     return unless feed_token
 
     Post.create!(
-      feed: Feed.where(token: feed_token).first,
+      feed: Feed.where(token: feed_token).first || (Rails.env.development? && Feed.order(:updated_at).last),
       payload: @email.to_h,
       token: token
     )
