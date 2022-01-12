@@ -1,5 +1,5 @@
 class Feed < ApplicationRecord
-  has_many :posts, -> { order(:updated_at) }
+  has_many :posts, -> { order(updated_at: :desc) }
   has_secure_token :token
   nilify_blanks
 
