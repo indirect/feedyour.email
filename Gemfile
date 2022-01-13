@@ -6,15 +6,18 @@ ruby "3.1.0"
 gem "rails", "~> 7.0"
 
 group :development, :test do
-  gem "debug", "~> 1.4", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", "~> 1.4", platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
   gem "bundler-audit", "~> 0.9.0"
   gem "guard-rspec", "~> 4.7"
+  gem "guard-rubocop", "~> 1.5"
   gem "guard-shell", "~> 0.7.2"
-  gem "guard-standardrb", "~> 0.2.2"
   gem "hotwire-livereload", "~> 1.0"
+  gem "rubocop-gemfile", "~> 0.1.0.beta3"
+  gem "rubocop-rails", "~> 2.13"
+  gem "rubocop-rspec", "~> 2.7"
   gem "standard", "~> 1.6"
   gem "web-console", "~> 4.2"
 end

@@ -4,11 +4,6 @@ guard :shell do
   watch(%r{^config|lib/.*}) { `touch tmp/restart.txt` }
 end
 
-# Just make everything standard. Please. I don't want to talk about it.
-guard :standardrb, fix: false, all_on_start: false, progress: false do
-  watch(/.+\.rb$/)
-end
-
 # Run tests automatically as related files change
 guard :rspec, cmd: "bin/rspec", bundler_env: :inherit do
   require "guard/rspec/dsl"
@@ -47,4 +42,10 @@ guard :rspec, cmd: "bin/rspec", bundler_env: :inherit do
   # Capybara features specs
   watch(rails.view_dirs) { |m| rspec.spec.call("requests/#{m[1]}") }
   watch(rails.layouts) { |m| rspec.spec.call("requests/#{m[1]}") }
+end
+
+# Please tell me if the things are not standardized
+guard :rubocop do
+  watch(%r{.+\.rb$})
+  watch(%r{(?:.+/)?\.rubocop(?:_todo)?\.yml$}) { |m| File.dirname(m[0]) }
 end
