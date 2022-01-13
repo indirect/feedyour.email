@@ -16,10 +16,24 @@ bundle install
 brew services start postgresql
 brew services start redis
 bin/rails db:create db:migrate db:seed
-bin/dev
 ```
 
-## Pushing Posts via the Email Webhook
+## Development
+
+```sh
+# run a local rails server and tailwind rebuilder
+bin/dev
+# run tests and lints automatically on changes with guard
+bin/test
+# run all the tests once
+bin/rspec
+# fix lint issues
+bin/rubocop -a
+# or with all possible fixes, even those that might break the app
+bin/rubocop -A
+```
+
+### Pushing Posts via the Email Webhook
 
 `db:seed` creates a feed named somefeed ([localhost:3000/feeds/somefeed](http://localhost:3000/feeds/somefeed)) with a post named somepost ([localhost:3000/posts/somepost](http://localhost:3000/posts/somepost)) but you can also add posts yourself using `curl`. An example email is checked into the respository and can be loaded by running:
 

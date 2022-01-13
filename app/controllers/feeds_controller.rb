@@ -1,5 +1,4 @@
 class FeedsController < ApplicationController
-
   def new
     @feed = Feed.new
   end
@@ -18,10 +17,9 @@ class FeedsController < ApplicationController
     end
   end
 
-private
+  private
 
   def feed_params
-    params.fetch(:feed).permit(:name)
+    params.fetch(:feed, {}).permit(:name)
   end
-
 end

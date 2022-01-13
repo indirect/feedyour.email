@@ -13,7 +13,7 @@ module ApplicationHelper
       tag.meta(property: "og:locale", content: "en_US"),
       tag.meta(property: "og:type", content: "website"),
       # Twitter
-      tag.meta(property: "twitter:card",  content: "summary_large_image"),
+      tag.meta(property: "twitter:card", content: "summary_large_image"),
       tag.meta(property: "twitter:title", content: title),
       tag.meta(property: "twitter:description", content: description),
       tag.meta(property: "twitter:image", content: image),
@@ -21,7 +21,7 @@ module ApplicationHelper
       tag.meta(property: "twitter:creator", content: "@indirect"),
       # Icons
       tag.link(rel: "icon", type: "image/svg+xml", href: "/favicon.svg"),
-      tag.link(rel: "alternate icon", href: "/favicon.ico"),
-    ].join("\n").html_safe
+      tag.link(rel: "alternate icon", href: "/favicon.ico")
+    ].join("\n").html_safe # rubocop:disable Rails/OutputSafety
   end
 end
