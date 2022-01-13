@@ -1,5 +1,4 @@
 class EmailProcessor
-
   def initialize(email)
     @email = email
   end
@@ -16,8 +15,7 @@ class EmailProcessor
   end
 
   def feed_token
-    contact = @email.to.find{|t| t[:host] == "feedyour.email" }
+    contact = @email.to.find { |t| t[:host] == "feedyour.email" }
     contact && contact[:token]
   end
-
 end
