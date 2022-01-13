@@ -7,6 +7,12 @@ RSpec.describe Post, type: :model do
     expect(post.feed).to be_a(Feed)
   end
 
+  it "requires a feed" do
+    post.feed = nil
+    post.valid?
+    expect(post.errors[:feed]).to eq(["must exist"])
+  end
+
   it "generates a token" do
     expect(post.token).to eq(nil)
     expect { post.save! }.to change { post.token }
