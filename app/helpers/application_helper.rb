@@ -21,7 +21,7 @@ module ApplicationHelper
       tag.meta(property: "twitter:creator", content: "@indirect"),
       # Icons
       tag.link(rel: "icon", type: "image/svg+xml", href: "/favicon.svg"),
-      tag.link(rel: "alternate icon", href: "/favicon.ico"),
-    ].join("\n").html_safe
+      tag.link(rel: "alternate icon", href: "/favicon.ico")
+    ].join("\n").html_safe # rubocop:disable Rails/OutputSafety
   end
 end

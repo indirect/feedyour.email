@@ -1,4 +1,6 @@
 class EmailProcessor
+  cattr_accessor :default_to_newest_feed, default: false
+
   def initialize(email)
     @email = email
   end
@@ -11,7 +13,7 @@ class EmailProcessor
 
   def feed
     @feed ||= Feed.where(token: feed_token).first
-    @feed ||= Feed.order(:updated_at).last if Rails.env.development?
+    @feed ||= Feed.order(:updated_at).last if default_to_newest_feed
   end
 
   def feed_token

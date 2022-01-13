@@ -25,6 +25,7 @@ Lint/Env:
     - "**/*.rb"
   Exclude:
     - "**/config/environments/**/*"
+    - "**/config/initializers/**/*"
     - "**/config/application.rb"
     - "**/config/environment.rb"
     - "**/config/puma.rb"
