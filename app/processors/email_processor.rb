@@ -6,14 +6,11 @@ class EmailProcessor
   end
 
   def process(token: nil)
-    raise unless feed
-
     Post.create!(feed: feed, payload: @email.to_h, token: token)
   end
 
   def feed
-    @feed ||= Feed.where(token: feed_token).first
-    @feed ||= Feed.order(:updated_at).last if default_to_newest_feed
+    @feed ||= Feed.find_by(token: feed_token)
   end
 
   def feed_token
