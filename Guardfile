@@ -45,7 +45,7 @@ guard :rspec, cmd: "bin/rspec", bundler_env: :inherit do
 end
 
 # Please tell me if the things are not standardized
-guard :rubocop do
+guard :rubocop, cmd: "bin/rubocop", all_on_start: false do
   watch(%r{.+\.rb$})
   watch(%r{(?:.+/)?\.rubocop(?:_todo)?\.yml$}) { |m| File.dirname(m[0]) }
 end
