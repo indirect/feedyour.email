@@ -20,28 +20,17 @@ bin/rails db:create db:migrate db:seed
 
 ## Development
 
-To run a local server:
-
 ```sh
+# run a local rails server and tailwind rebuilder
 bin/dev
-```
-
-To run the tests/linters automatically on changes:
-
-```sh
+# run tests and lints automatically on changes with guard
 bin/test
-```
-
-To run all the tests once:
-
-```sh
+# run all the tests once
 bin/rspec
-```
-
-To try to fix lint issues:
-
-```sh
-bin/rubocop --fix
+# fix lint issues
+bin/rubocop -a
+# or with all possible fixes, even those that might break the app
+bin/rubocop -A
 ```
 
 ### Pushing Posts via the Email Webhook
