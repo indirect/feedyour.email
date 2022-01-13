@@ -5,7 +5,7 @@ class EmailProcessor
   end
 
   def process(token: nil)
-    return unless feed
+    raise unless feed
 
     Post.create!(feed: feed, payload: @email.to_h, token: token)
   end
