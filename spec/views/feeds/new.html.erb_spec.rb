@@ -7,7 +7,6 @@ RSpec.describe "feeds/new", type: :view do
 
   it "renders new feed form" do
     render
-    puts rendered
 
     assert_select "form[action=?][method=?]", feeds_path, "post" do
       assert_select "label[for=feed_name]"
