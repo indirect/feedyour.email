@@ -29,5 +29,4 @@ class Post < ApplicationRecord
   def to_param
     token
   end
-
 end
