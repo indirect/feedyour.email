@@ -11,6 +11,9 @@ end
 
 group :development do
   gem "bundler-audit", "~> 0.9.0"
+  gem "guard-rspec", "~> 4.7"
+  gem "guard-shell", "~> 0.7.2"
+  gem "guard-standardrb", "~> 0.2.2"
   gem "hotwire-livereload", "~> 1.0"
   gem "standard", "~> 1.6"
   gem "web-console", "~> 4.2"
