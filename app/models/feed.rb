@@ -1,5 +1,6 @@
 class Feed < ApplicationRecord
-  has_many :posts, -> { order(updated_at: :desc) }
+  has_many :posts, -> { order(updated_at: :desc) },
+    dependent: :destroy, inverse_of: :feed
   has_secure_token :token
   nilify_blanks
 
@@ -14,5 +15,4 @@ class Feed < ApplicationRecord
   def to_param
     token
   end
-
 end
