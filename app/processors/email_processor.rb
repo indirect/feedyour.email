@@ -15,7 +15,7 @@ class EmailProcessor
   end
 
   def feed
-    Feed.find_by(token: feed_token)
+    Feed.find_by!(token: feed_token)
   end
 
   def feed_token
