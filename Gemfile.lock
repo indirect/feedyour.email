@@ -117,6 +117,7 @@ GEM
       rubocop
       smart_properties
     erubi (1.10.0)
+    feedvalidator (0.2.2)
     ffi (1.15.5)
     formatador (0.3.0)
     globalid (1.0.0)
@@ -356,6 +357,7 @@ DEPENDENCIES
   bundler-audit (~> 0.9.0)
   debug (~> 1.4)
   erb_lint (~> 0.1.1)
+  feedvalidator (~> 0.2.2)
   griddler-postmark (~> 1.0)!
   guard-erb_lint!
   guard-rspec (~> 4.7)

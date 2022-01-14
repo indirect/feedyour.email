@@ -1,13 +1,36 @@
 require "rails_helper"
 
 RSpec.describe "/feeds", type: :request do
-  let(:valid_attributes) {}
+  let(:valid_attributes) { {token: "somefeed"} }
+  let(:feed) { Feed.create! valid_attributes }
 
   describe "GET /show" do
     it "renders a successful response" do
-      feed = Feed.create! valid_attributes
       get feed_url(feed)
       expect(response).to be_successful
+    end
+  end
+
+  describe "GET .atom" do
+    require "support/assert_valid_feed"
+    include W3C::FeedValidator::Assertions
+
+    context "without a post" do
+      it "is valid according to W3C" do
+        get feed_url(feed, format: :atom)
+        assert_valid_feed
+      end
+    end
+
+    context "with a post" do
+      it "is valid according to W3C" do
+        payload = Rails.root.join("spec", "support", "body.json").read
+        expect {
+          EmailProcessor.for_payload(payload).process
+        }.to change { feed.posts.count }
+        get feed_url(feed, format: :atom)
+        assert_valid_feed
+      end
     end
   end
 

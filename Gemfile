@@ -7,6 +7,7 @@ gem "rails", "~> 7.0"
 
 group :development, :test do
   gem "debug", "~> 1.4", platforms: %i[mri mingw x64_mingw]
+  gem "feedvalidator", "~> 0.2.2", require: false
 end
 
 group :development do
