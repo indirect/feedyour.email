@@ -9,7 +9,6 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_DATABASE: rails
           POSTGRES_USER: rails
           POSTGRES_PASSWORD: password
 
