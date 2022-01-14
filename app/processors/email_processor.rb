@@ -1,17 +1,15 @@
 class EmailProcessor
-  cattr_accessor :default_to_newest_feed, default: false
   attr_writer :feed
 
-  def self.for_payload(payload, feed: nil)
+  def self.for_payload(payload)
     json = JSON.parse(payload)
     params = Griddler::Postmark::Adapter.normalize_params(json.deep_symbolize_keys)
     email = Griddler::Email.new(params)
-    new(email, feed: feed)
+    new(email)
   end
 
   def initialize(email, feed: nil)
     @email = email
-    @feed = feed
   end
 
   def process(token: nil)

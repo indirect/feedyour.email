@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "/feeds", type: :request do
-  let(:valid_attributes) {}
+  let(:valid_attributes) { {token: "somefeed"} }
   let(:feed) { Feed.create! valid_attributes }
 
   describe "GET /show" do
@@ -26,7 +26,7 @@ RSpec.describe "/feeds", type: :request do
       it "is valid according to W3C" do
         payload = Rails.root.join("spec", "support", "body.json").read
         expect {
-          EmailProcessor.for_payload(payload, feed: feed).process
+          EmailProcessor.for_payload(payload).process
         }.to change { feed.posts.count }
         get feed_url(feed, format: :atom)
         assert_valid_feed
