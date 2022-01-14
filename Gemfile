@@ -22,6 +22,7 @@ group :development do
   gem "web-console", "~> 4.2"
 end
 
+gem "better_html", "~> 1.0"
 gem "bootsnap", "~> 1.9", require: false
 gem "griddler-postmark", "~> 1.0", github: "r38y/griddler-postmark"
 gem "honeybadger", "~> 4.9"
