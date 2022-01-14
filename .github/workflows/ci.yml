@@ -1,53 +1,45 @@
 name: CI
-on: [push]
-
+on: [pull_request]
 jobs:
-  linters:
-    name: Linters
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup Ruby and install gems
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-
-      - name: Run linters
-        run: |
-          bin/rubocop
-      - name: Run security checks
-        run: |
-          bin/bundler-audit --update
-
-  tests:
-    name: Tests
+  build:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:11-alpine
+        image: postgres:11
+        ports:
+          - 5432:5432
         env:
-          POSTGRES_USER: feedyour_email
-          POSTGRES_DB: feedyour_email_test
-          POSTGRES_PASSWORD: ""
-        ports: ["5432:5432"]
-
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v1
 
-      - name: Setup Ruby and install gems
-        uses: ruby/setup-ruby@v1
+      - uses: actions/setup-ruby@v1
         with:
-          bundler-cache: true
+          ruby-version: 2.5.5
 
-      - name: Setup test database
+      - name: Install dependent libraries
+        run: sudo apt-get install libpq-dev
+
+      - name: Bundle install
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+
+      - name: Setup Database
+        run: |
+          cp config/database.yml.github-actions config/database.yml
+          bundle exec rake db:create
+          bundle exec rake db:schema:load
         env:
           RAILS_ENV: test
-          PGHOST: localhost
-          PGUSER: feedyour_email
-        run: bin/rails db:setup
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
 
-      - name: Run tests
-        run: bin/rspec
+      - name: Run RSpec
+        run: COVERAGE=true bundle exec rspec  --require rails_helper
+        env:
+          RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
