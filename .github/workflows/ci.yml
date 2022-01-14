@@ -22,11 +22,6 @@ jobs:
       - name: Install dependent libraries
         run: sudo apt-get install libpq-dev
 
-      - name: Bundle install
-        run: |
-          gem install bundler
-          bundle install --jobs 4 --retry 3
-
       - name: Setup Database
         run: |
           cp config/database.yml.github-actions config/database.yml
@@ -38,7 +33,7 @@ jobs:
           POSTGRES_PASSWORD: postgres
 
       - name: Run RSpec
-        run: COVERAGE=true bundle exec rspec  --require rails_helper
+        run: bin/rspec
         env:
           RAILS_ENV: test
           POSTGRES_USER: postgres
