@@ -1,0 +1,37 @@
+---
+glob: "**/*.{html,text,js}{+*,}.erb"
+exclude:
+  - '**/vendor/**/*'
+  - '**/node_modules/**/*'
+EnableDefaultLinters: true
+linters:
+  ErbSafety:
+    enabled: true
+    better_html_config: .better-html.yml
+  Rubocop:
+    enabled: true
+    rubocop_config:
+      inherit_from:
+        - .rubocop.yml
+      Layout/InitialIndentation:
+        Enabled: false # This rule removes the "<%" e "<%="  from the code, if enabled.
+      Layout/TrailingEmptyLines:
+        Enabled: false
+      Layout/TrailingWhitespace:
+        Enabled: false  # This rule removes the "<%" e "<%="  from the code, if enabled.
+      Layout/LeadingEmptyLines:
+        Enabled: false
+      # Enabling this adds a frozen string literal magic comment to every block.
+      Style/FrozenStringLiteralComment:
+        Enabled: false
+      # erb_lint reports errors with this cop.
+      Style/MultilineTernaryOperator:
+        Enabled: false
+      # False flags for view files. ViewComponents should never see this, though, as they should never need to assign in a view.
+      Lint/UselessAssignment:
+        Exclude:
+          - "app/views/**/*"
+      # Empty blocks have utility in views, e.g. for resetting content_for and
+      # rendering slots without args.
+      Lint/EmptyBlock:
+        Enabled: false

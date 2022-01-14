@@ -22,14 +22,14 @@
       </div>
 
       <div class="my-4">
-	<p>
-	  <b>Don't share these addresses.</b>
-	  Anyone with the email address or the feed URL can sign you up for spam or cancel your subscriptions.
-	</p>
+        <p>
+          <b>Don't share these addresses.</b>
+          Anyone with the email address or the feed URL can sign you up for spam or cancel your subscriptions.
+        </p>
       </div>
 
       <div class="my-4">
-	<p>So far, your feed has captured <%= link_to pluralize(@feed.posts.count, "email"), feed_posts_path(@feed) %>.</p>
+  <p>So far, your feed has captured <%= link_to pluralize(@feed.posts.count, "email"), feed_posts_path(@feed) %>.</p>
       </div>
 
     </div>

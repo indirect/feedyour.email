@@ -56,4 +56,10 @@ group :test_lint, halt_on_fail: true do
     watch(%r{.+\.rb$})
     watch(%r{(?:.+/)?\.rubocop(?:_todo)?\.yml$}) { |m| File.dirname(m[0]) }
   end
+
+  # Also lint the erb files for template issues
+  guard :erb_lint, all_on_start: false do
+    watch(/.+\.erb$/)
+    watch(/.+\.html$/)
+  end
 end
