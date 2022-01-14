@@ -19,7 +19,6 @@ jobs:
           bundler-cache: true
       - name: Run RSpec
         run: |
-          cp config/database.yml.github-actions config/database.yml
           bin/rails db:create db:schema:load
           bin/rspec
         env:
