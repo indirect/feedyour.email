@@ -4,6 +4,12 @@ guard :shell do
   watch(%r{^config|lib/.*}) { `touch tmp/restart.txt` }
 end
 
+# Audit dependencies for security issues as they change
+guard :shell do
+  watch("Gemfile.lock") { `bin/bundler-audit --update` }
+end
+
+# Run tests, then lint if tests pass
 group :test_lint, halt_on_fail: true do
   # Run tests automatically as related files change
   guard :rspec, cmd: "bin/rspec", bundler_env: :inherit do
