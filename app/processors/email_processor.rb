@@ -1,6 +1,4 @@
 class EmailProcessor
-  attr_writer :feed
-
   def self.for_payload(payload)
     json = JSON.parse(payload)
     params = Griddler::Postmark::Adapter.normalize_params(json.deep_symbolize_keys)
@@ -17,7 +15,7 @@ class EmailProcessor
   end
 
   def feed
-    @feed ||= Feed.find_by(token: feed_token)
+    Feed.find_by(token: feed_token)
   end
 
   def feed_token
