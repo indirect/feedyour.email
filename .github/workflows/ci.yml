@@ -9,8 +9,8 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: rails
+          POSTGRES_PASSWORD: password
 
     steps:
       - uses: actions/checkout@v1
@@ -24,5 +24,6 @@ jobs:
           bin/rspec
         env:
           RAILS_ENV: test
-          PGUSER: postgres
-          PGPASSWORD: postgres
+          PGDATABASE: rails_test
+          PGUSER: rails
+          PGPASSWORD: password
