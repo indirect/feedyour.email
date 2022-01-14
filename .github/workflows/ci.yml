@@ -1,53 +1,28 @@
 name: CI
 on: [push]
-
 jobs:
-  linters:
-    name: Linters
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup Ruby and install gems
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-
-      - name: Run linters
-        run: |
-          bin/standardrb
-      - name: Run security checks
-        run: |
-          bin/bundler-audit --update
-
-  tests:
-    name: Tests
+  build:
     runs-on: ubuntu-latest
     services:
       postgres:
         image: postgres:11-alpine
+        ports:
+          - 5432:5432
         env:
-          POSTGRES_USER: feedyour_email
           POSTGRES_DB: feedyour_email_test
-          POSTGRES_PASSWORD: ""
-        ports: ["5432:5432"]
+          POSTGRES_USER: rails
+          POSTGRES_PASSWORD: password
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup Ruby and install gems
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v1
+      - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-
-      - name: Setup test database
+      - name: Run RSpec
+        run: |
+          bin/rails db:schema:load
+          bin/rspec
         env:
           RAILS_ENV: test
-          PGHOST: localhost
-          PGUSER: feedyour_email
-        run: bin/rails db:setup
-
-      - name: Run tests
-        run: bin/rspec
+          PGUSER: rails
+          PGPASSWORD: password

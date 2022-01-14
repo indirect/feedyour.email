@@ -1,4 +1,4 @@
-atom_feed do |feed|
+atom_feed root_url: feed_posts_url(@feed) do |feed|
   feed.title @feed.name
   feed.updated @feed.posts.last&.updated_at || @feed.updated_at
 
