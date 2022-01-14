@@ -9,7 +9,7 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_DATABASE: feedyour_email_test
+          POSTGRES_DB: feedyour_email_test
           POSTGRES_USER: rails
           POSTGRES_PASSWORD: password
 
