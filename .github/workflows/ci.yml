@@ -1,7 +1,7 @@
 name: CI
 on: [push]
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -12,7 +12,6 @@ jobs:
           POSTGRES_DB: rails_test
           POSTGRES_USER: rails
           POSTGRES_PASSWORD: password
-
     steps:
       - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
@@ -25,3 +24,17 @@ jobs:
         env:
           RAILS_ENV: test
           DATABASE_URL: postgres://rails:password@localhost:5432/rails_test
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Run linters
+        run: |
+          bin/bundler-audit --update
+          bin/rubocop
+          bin/erblint --lint-all
+        env:
+          RAILS_ENV: test
