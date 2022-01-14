@@ -9,6 +9,7 @@ jobs:
         ports:
           - 5432:5432
         env:
+          POSTGRES_DATABASE: feedyour_email_test
           POSTGRES_USER: rails
           POSTGRES_PASSWORD: password
 
@@ -19,10 +20,9 @@ jobs:
           bundler-cache: true
       - name: Run RSpec
         run: |
-          bin/rails db:create db:schema:load
+          bin/rails db:schema:load
           bin/rspec
         env:
           RAILS_ENV: test
-          PGDATABASE: rails
           PGUSER: rails
           PGPASSWORD: password

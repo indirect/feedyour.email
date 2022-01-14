@@ -11,5 +11,3 @@ test:
   <<: *default
   host: localhost
   database: feedyour_email_test
-  username: rails
-  password: password
