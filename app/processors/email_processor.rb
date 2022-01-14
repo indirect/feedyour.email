@@ -6,11 +6,7 @@ class EmailProcessor
   end
 
   def process(token: nil)
-    Post.create!(feed: feed, payload: @email.to_h, token: token)
-  end
-
-  def feed
-    @feed ||= Feed.find_by(token: feed_token)
+    Post.create!(feed: Feed.find_by(token: feed_token), payload: @email.to_h, token: token)
   end
 
   def feed_token

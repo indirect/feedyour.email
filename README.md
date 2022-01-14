@@ -40,5 +40,3 @@ bin/rubocop -A
 ``` sh
 curl -vvv http://localhost:3000/email/incoming -d "@spec/support/body.json" -H "Content-Type: application/json"
 ```
-
-For convenience, emails with `To:` headers that don't match a feed will be added to the newest feed when `Rails.env.development?`.
