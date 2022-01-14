@@ -9,7 +9,7 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_DB: feedyour_email_test
+          POSTGRES_DB: rails_test
           POSTGRES_USER: rails
           POSTGRES_PASSWORD: password
 
@@ -24,5 +24,4 @@ jobs:
           bin/rspec
         env:
           RAILS_ENV: test
-          PGUSER: rails
-          PGPASSWORD: password
+          DATABASE_URL: postgres://rails:password@localhost:5432/rails_test
