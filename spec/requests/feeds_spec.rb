@@ -21,6 +21,17 @@ RSpec.describe "/feeds", type: :request do
         assert_valid_feed
       end
     end
+
+    context "with a post" do
+      it "is valid according to W3C" do
+        payload = Rails.root.join("spec", "support", "body.json").read
+        expect {
+          EmailProcessor.for_payload(payload, feed: feed).process
+        }.to change { feed.posts.count }
+        get feed_url(feed, format: :atom)
+        assert_valid_feed
+      end
+    end
   end
 
   describe "GET /new" do
