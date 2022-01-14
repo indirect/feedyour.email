@@ -23,6 +23,7 @@ Lint/Env:
   Enabled: true
   Include:
     - "**/*.rb"
+    - "**/*.builder"
   Exclude:
     - "**/config/environments/**/*"
     - "**/config/initializers/**/*"
