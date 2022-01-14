@@ -6,7 +6,7 @@ class EmailProcessor
     new(email)
   end
 
-  def initialize(email, feed: nil)
+  def initialize(email)
     @email = email
   end
 
