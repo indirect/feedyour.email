@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2022_01_15_193900) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
+    t.datetime "last_fetched", precision: 6
+    t.index ["last_fetched"], name: "index_feeds_on_last_fetched"
     t.index ["token"], name: "index_feeds_on_token", unique: true
   end
 

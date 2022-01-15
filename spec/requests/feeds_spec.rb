@@ -32,6 +32,13 @@ RSpec.describe "/feeds", type: :request do
         assert_valid_feed
       end
     end
+
+    it "updates last_fetched" do
+      feed.update(last_fetched: nil)
+      get feed_url(feed, format: :atom)
+      feed.reload
+      expect(feed.last_fetched).not_to be_nil
+    end
   end
 
   describe "GET /new" do
