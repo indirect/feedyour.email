@@ -8,7 +8,7 @@ RSpec.describe Feed, type: :model do
   end
 
   it "generates a token" do
-    expect(feed.token).to eq(nil)
+    expect(feed.token).to be_nil
     expect { feed.save! }.to change { feed.token }
   end
 
