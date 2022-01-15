@@ -18,6 +18,18 @@ RSpec.describe Post, type: :model do
     expect { post.save! }.to change { post.token }
   end
 
+  it "enforces uniqueness on tokens" do
+    conflicting_post = Post.new(feed: Feed.new)
+    conflicting_post.token = "somepost"
+    conflicting_post.save!
+
+    post.token = "somepost"
+    expect { post.save! }.to raise_error(ActiveRecord::RecordNotUnique)
+
+    post.token = "SomePost"
+    expect { post.save! }.to raise_error(ActiveRecord::RecordNotUnique)
+  end
+
   it "has a from" do
     post.payload = {"from" => {"full" => "person"}}
     expect(post.from).to eq("person")
