@@ -33,8 +33,8 @@ RSpec.describe "/feeds", type: :request do
       end
     end
 
-    it "updates last_fetched" do
-      feed.last_fetched = 2.years.ago
+    it "updates last_fetched_at" do
+      feed.last_fetched_at = 2.years.ago
       expect(feed.expired?).to be_truthy
       get feed_url(feed, format: :atom)
       feed.reload
