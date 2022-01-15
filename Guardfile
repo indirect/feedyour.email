@@ -5,8 +5,8 @@ guard :shell do
 end
 
 # Audit dependencies for security issues as they change
-guard :shell do
-  watch("Gemfile.lock") { `bin/bundler-audit --update` }
+guard :bundler_audit, run_on_start: false do
+  watch("Gemfile.lock")
 end
 
 # Run tests, then lint if tests pass
