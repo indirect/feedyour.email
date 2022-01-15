@@ -37,7 +37,7 @@ RSpec.describe Feed, type: :model do
   end
 
   it "is expired when not fetched for over a year" do
-    feed.update(last_fetched: 2.years.ago)
+    feed.last_fetched = 2.years.ago
     expect(feed.expired?).to be_truthy
   end
 end
