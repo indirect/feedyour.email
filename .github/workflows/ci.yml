@@ -46,13 +46,13 @@ jobs:
           category: rubocop
       - name: Brakeman code scan
         id: brakeman
-        run: bin/brakeman -q -w2 -f sarif -o brakeman.sarif.json
+        run: bin/brakeman -q -w2 -o brakeman.sarif -o /dev/stdout --color
         if: always()
       - name: Upload Brakeman
         uses: github/codeql-action/upload-sarif@v1
         if: always() && steps.brakeman.outcome == 'failure' 
         with:
-          sarif_file: brakeman.sarif.json
+          sarif_file: brakeman.sarif
           category: brakeman
       - name: Audit dependencies
         run: bin/bundler-audit --update
