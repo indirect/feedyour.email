@@ -36,6 +36,8 @@ jobs:
           bundler-cache: true
       - name: Audit dependencies
         run: bin/bundler-audit --update
+      - name: Audit application code
+        run: bin/brakeman -q -w2
       - name: Lint Ruby files
         run: bin/rubocop
       - name: Lint ERB files

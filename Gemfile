@@ -23,6 +23,7 @@ group :development do
   gem "rubocop-rspec", "~> 2.7", require: false
   gem "standard", "~> 1.6", require: false
   gem "web-console", "~> 4.2"
+  gem "brakeman", "~> 5.2", require: false
 end
 
 gem "better_html", "~> 1.0"
