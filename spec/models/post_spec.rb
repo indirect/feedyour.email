@@ -23,11 +23,8 @@ RSpec.describe Post, type: :model do
     conflicting_post.token = "somepost"
     conflicting_post.save!
 
-    post.token = "somepost"
-    expect { post.save! }.to raise_error(ActiveRecord::RecordNotUnique)
-
-    post.token = "SomePost"
-    expect { post.save! }.to raise_error(ActiveRecord::RecordNotUnique)
+    expect { post.update!(token: "somepost") }.to raise_error(ActiveRecord::RecordNotUnique)
+    expect { post.update!(token: "SomePost") }.to raise_error(ActiveRecord::RecordNotUnique)
   end
 
   it "has a from" do
