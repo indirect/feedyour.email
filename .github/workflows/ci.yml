@@ -36,24 +36,26 @@ jobs:
           bundler-cache: true
       - name: Rubocop code scan
         continue-on-error: true
-        run: bin/rubocop --require code_scanning --format CodeScanning::SarifFormatter -o output.sarif.json
+        run: bin/rubocop --require code_scanning --format CodeScanning::SarifFormatter -o rubocop.sarif.json
       - name: Upload SARIF
         uses: github/codeql-action/upload-sarif@v1
         with:
-          sarif_file: output.sarif.json
+          sarif_file: rubocop.sarif.json
+          category: rubocop
       - name: Brakeman code scan
         continue-on-error: true
-        run: bin/brakeman -q -w2 -f sarif -o output.sarif.json
+        run: bin/brakeman -q -w2 -f sarif -o brakeman.sarif.json
       - name: Upload SARIF
         uses: github/codeql-action/upload-sarif@v1
         with:
-          sarif_file: output.sarif.json
+          sarif_file: brakeman.sarif.json
+          category: brakeman
       - name: Audit dependencies
         run: bin/bundler-audit --update
         continue-on-error: true
       - name: Lint ERB files
         run: bin/erblint --lint-all
         continue-on-error: true
-      - name: "Check results"
+      - name: Check results
         if: failure()
         run: exit 1
