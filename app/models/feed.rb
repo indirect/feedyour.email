@@ -17,6 +17,6 @@ class Feed < ApplicationRecord
   end
 
   def expired?
-    (last_fetched || created_at) + 1.year < Time.current
+    (last_fetched || created_at || Time.zone.now) + 1.year < Time.current
   end
 end

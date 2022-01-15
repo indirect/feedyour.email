@@ -27,4 +27,17 @@ RSpec.describe Feed, type: :model do
     feed.name = "somename"
     expect(feed.name).to eq("somename")
   end
+
+  it "is not expired when new" do
+    expect(feed.created_at).to be_nil
+    expect(feed.last_fetched).to be_nil
+    expect(feed.expired?).to be_falsey
+    expect { feed.save! }.to change { feed.created_at }
+    expect(feed.expired?).to be_falsey
+  end
+
+  it "is expired when not fetched for over a year" do
+    feed.update(last_fetched: 2.years.ago)
+    expect(feed.expired?).to be_truthy
+  end
 end

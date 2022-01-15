@@ -34,25 +34,11 @@ RSpec.describe "/feeds", type: :request do
     end
 
     it "updates last_fetched" do
-      feed.update(last_fetched: nil)
+      feed.update(last_fetched: 2.years.ago)
+      expect(feed.expired?).to be_truthy
       get feed_url(feed, format: :atom)
       feed.reload
-      expect(feed.last_fetched).not_to be_nil
       expect(feed.expired?).to be_falsey
-    end
-
-    context "when new" do
-      it "is not expired" do
-        feed.update(last_fetched: nil)
-        expect(feed.expired?).to be_falsey
-      end
-    end
-
-    context "when not fetched for a year" do
-      it "is expired" do
-        feed.update(last_fetched: 2.years.ago)
-        expect(feed.expired?).to be_truthy
-      end
     end
   end
 
