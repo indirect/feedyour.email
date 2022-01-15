@@ -42,7 +42,7 @@ jobs:
         if: always()
       - name: Upload Rubocop
         uses: github/codeql-action/upload-sarif@v1
-        if: always() && steps["Rubocop code scan"].outcome == 'failure' 
+        if: always() && steps['Rubocop code scan'].outcome == 'failure' 
         with:
           sarif_file: rubocop.sarif
           category: rubocop
@@ -54,7 +54,7 @@ jobs:
         if: always()
       - name: Upload Brakeman
         uses: github/codeql-action/upload-sarif@v1
-        if: always() && steps["Brakeman code scan"].outcome == 'failure' 
+        if: always() && steps['Brakeman code scan'].outcome == 'failure' 
         with:
           sarif_file: brakeman.sarif
           category: brakeman
