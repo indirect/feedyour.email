@@ -12,6 +12,15 @@ RSpec.describe Feed, type: :model do
     expect { feed.save! }.to change { feed.token }
   end
 
+  it "enforces uniqueness on tokens" do
+    conflicting_feed = Feed.new
+    conflicting_feed.token = "somefeed"
+    conflicting_feed.save!
+
+    expect { feed.update!(token: "somefeed") }.to raise_error(ActiveRecord::RecordNotUnique)
+    expect { feed.update!(token: "SomeFeed") }.to raise_error(ActiveRecord::RecordNotUnique)
+  end
+
   it "uses the token in a fallback name" do
     feed.token = "abc123"
     expect(feed.name).to eq("Feed Your Email abc123")
