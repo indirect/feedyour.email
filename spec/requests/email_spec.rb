@@ -8,7 +8,7 @@ RSpec.describe "/email", type: :request do
     it "creates a post" do
       expect(feed).to be
       expect {
-        payload = Rails.root.join("spec", "support", "body.json").read
+        payload = Rails.root.join("spec/support/body.json").read
         headers = {"CONTENT_TYPE" => "application/json"}
         post "/email/incoming", params: payload, headers: headers
         expect(response).to be_successful
@@ -18,7 +18,7 @@ RSpec.describe "/email", type: :request do
     context "without a feed" do
       it "does not create a post" do
         expect {
-          payload = Rails.root.join("spec", "support", "body.json").read
+          payload = Rails.root.join("spec/support/body.json").read
           headers = {"CONTENT_TYPE" => "application/json"}
           post "/email/incoming", params: payload, headers: headers
         }.to raise_error(ActiveRecord::RecordNotFound)

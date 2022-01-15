@@ -8,7 +8,7 @@
 
 Feed.find_or_create_by!(token: "somefeed", name: "Money Stuff")
 
-json = JSON.parse(Rails.root.join("spec", "support", "body.json").read)
+json = JSON.parse(Rails.root.join("spec/support/body.json").read)
 params = Griddler::Postmark::Adapter.normalize_params(json.deep_symbolize_keys)
 email = Griddler::Email.new(params)
 EmailProcessor.new(email).process(token: "somepost")

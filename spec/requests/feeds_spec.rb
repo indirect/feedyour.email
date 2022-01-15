@@ -24,7 +24,7 @@ RSpec.describe "/feeds", type: :request do
 
     context "with a post" do
       it "is valid according to W3C" do
-        payload = Rails.root.join("spec", "support", "body.json").read
+        payload = Rails.root.join("spec/support/body.json").read
         expect {
           EmailProcessor.for_payload(payload).process
         }.to change { feed.posts.count }

@@ -4,7 +4,7 @@ require "better_html/test_helper/safe_erb_tester"
 RSpec.describe "view validation" do
   include BetterHtml::TestHelper::SafeErbTester
 
-  erb_files = Rails.root.join("app", "views")
+  erb_files = Rails.root.join("app/views")
     .glob("**/{*.htm,*.html,*.htm.erb,*.html.erb,*.html+*.erb}")
 
   erb_files.each do |filename|

@@ -82,7 +82,7 @@ Rails/Exit:
 
 Rails/FilePath:
   Enabled: true
-  EnforcedStyle: arguments
+  EnforcedStyle: slashes
 
 Rails/FindBy:
   Enabled: true
