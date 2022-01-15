@@ -40,7 +40,7 @@ jobs:
         if: always()
       - name: Upload Rubocop
         uses: github/codeql-action/upload-sarif@v1
-        if: ${{ steps.rubocop.outcome == "failure" }}
+        if: steps.rubocop.outcome == 'failure' 
         with:
           sarif_file: rubocop.sarif.json
           category: rubocop
@@ -50,7 +50,7 @@ jobs:
         if: always()
       - name: Upload Brakeman
         uses: github/codeql-action/upload-sarif@v1
-        if: ${{ steps.brakeman.outcome == "failure" }}
+        if: steps.brakeman.outcome == 'failure' 
         with:
           sarif_file: brakeman.sarif.json
           category: brakeman
