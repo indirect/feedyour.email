@@ -15,4 +15,8 @@ class Feed < ApplicationRecord
   def to_param
     token
   end
+
+  def expired?
+    (last_fetched || created_at) + 1.year < Time.current
+  end
 end
