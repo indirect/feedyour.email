@@ -253,3 +253,5 @@ Rails/WhereExists: # new in 2.7
   Enabled: true
 Rails/WhereNot: # new in 2.8
   Enabled: true
+Rails/SkipsModelValidations:
+  Enabled: false
