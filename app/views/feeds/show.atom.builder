@@ -1,5 +1,3 @@
-@feed.update(last_fetched_at: Time.zone.now)
-
 atom_feed root_url: feed_posts_url(@feed) do |atom|
   atom.title @feed.name
   atom.updated @feed.posts.last&.updated_at || @feed.updated_at
