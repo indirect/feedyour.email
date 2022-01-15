@@ -6,7 +6,10 @@ RSpec.describe "/feeds", type: :request do
 
   describe "GET /show" do
     it "renders a successful response" do
-      get feed_url(feed)
+      expect {
+        get feed_url(feed)
+      }.to_not change { feed.reload.last_fetched_at }
+
       expect(response).to be_successful
     end
   end
@@ -28,17 +31,12 @@ RSpec.describe "/feeds", type: :request do
         expect {
           EmailProcessor.for_payload(payload).process
         }.to change { feed.posts.count }
-        get feed_url(feed, format: :atom)
+
+        expect {
+          get feed_url(feed, format: :atom)
+        }.to change { feed.reload.last_fetched_at }
         assert_valid_feed
       end
-    end
-
-    it "updates last_fetched_at" do
-      feed.last_fetched_at = 2.years.ago
-      expect(feed.expired?).to be_truthy
-      get feed_url(feed, format: :atom)
-      feed.reload
-      expect(feed.expired?).to be_falsey
     end
   end
 
