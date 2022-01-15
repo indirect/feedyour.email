@@ -255,4 +255,4 @@ Rails/WhereNot: # new in 2.8
   Enabled: true
 Rails/SkipsModelValidations:
   Enabled: true
-  AllowedMethods: %w[touch]
+  AllowedMethods: ["touch"]
