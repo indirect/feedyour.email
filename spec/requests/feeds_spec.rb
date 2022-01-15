@@ -6,7 +6,10 @@ RSpec.describe "/feeds", type: :request do
 
   describe "GET /show" do
     it "renders a successful response" do
-      get feed_url(feed)
+      expect {
+        get feed_url(feed)
+      }.to_not change { feed.reload.fetched_at }
+
       expect(response).to be_successful
     end
   end
@@ -28,7 +31,10 @@ RSpec.describe "/feeds", type: :request do
         expect {
           EmailProcessor.for_payload(payload).process
         }.to change { feed.posts.count }
-        get feed_url(feed, format: :atom)
+
+        expect {
+          get feed_url(feed, format: :atom)
+        }.to change { feed.reload.fetched_at }
         assert_valid_feed
       end
     end

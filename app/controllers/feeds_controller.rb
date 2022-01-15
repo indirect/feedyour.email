@@ -5,6 +5,7 @@ class FeedsController < ApplicationController
 
   def show
     @feed = Feed.where(token: params[:id]).first
+    @feed.touch(:fetched_at) if request.format == :atom
   end
 
   def create

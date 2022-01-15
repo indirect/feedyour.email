@@ -14,7 +14,7 @@ RSpec.describe Post, type: :model do
   end
 
   it "generates a token" do
-    expect(post.token).to eq(nil)
+    expect(post.token).to be_nil
     expect { post.save! }.to change { post.token }
   end
 

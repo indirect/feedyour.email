@@ -15,4 +15,14 @@ class Feed < ApplicationRecord
   def to_param
     token
   end
+
+  def fetched_at
+    read_attribute(:fetched_at) || created_at
+  end
+
+  def expired?
+    return false unless fetched_at
+
+    Time.current.after? fetched_at.next_year
+  end
 end

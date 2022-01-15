@@ -135,6 +135,9 @@ GEM
       pry (>= 0.13.0)
       shellany (~> 0.0)
       thor (>= 0.18.1)
+    guard-bundler-audit (0.1.5)
+      bundler-audit (>= 0.6.0)
+      guard (~> 2.0)
     guard-compat (1.2.1)
     guard-rspec (4.7.3)
       guard (~> 2.1)
@@ -356,6 +359,7 @@ DEPENDENCIES
   erb_lint (~> 0.1.1)
   feedvalidator (~> 0.2.2)
   griddler-postmark (~> 1.0)!
+  guard-bundler-audit (~> 0.1.5)
   guard-erb_lint!
   guard-rspec (~> 4.7)
   guard-rubocop (~> 1.5)
