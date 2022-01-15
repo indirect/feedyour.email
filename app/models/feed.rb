@@ -16,13 +16,13 @@ class Feed < ApplicationRecord
     token
   end
 
-  def last_fetched_at
-    read_attribute(:last_fetched_at) || created_at
+  def fetched_at
+    read_attribute(:fetched_at) || created_at
   end
 
   def expired?
-    return false unless last_fetched_at
+    return false unless fetched_at
 
-    Time.current.after? last_fetched_at.next_year
+    Time.current.after? fetched_at.next_year
   end
 end

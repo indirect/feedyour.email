@@ -8,7 +8,7 @@ RSpec.describe "/feeds", type: :request do
     it "renders a successful response" do
       expect {
         get feed_url(feed)
-      }.to_not change { feed.reload.last_fetched_at }
+      }.to_not change { feed.reload.fetched_at }
 
       expect(response).to be_successful
     end
@@ -34,7 +34,7 @@ RSpec.describe "/feeds", type: :request do
 
         expect {
           get feed_url(feed, format: :atom)
-        }.to change { feed.reload.last_fetched_at }
+        }.to change { feed.reload.fetched_at }
         assert_valid_feed
       end
     end
