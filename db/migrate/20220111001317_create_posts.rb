@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration[7.0]
     create_table :posts do |t|
       t.belongs_to :feed
       t.jsonb :payload
+      t.citext :token, :citext, null: false, unique: true
 
       t.timestamps
     end
