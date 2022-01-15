@@ -16,8 +16,13 @@ class Feed < ApplicationRecord
     token
   end
 
-  def expired?
-    (last_fetched_at || created_at || Time.zone.now) + 1.year < Time.current
+  def last_fetched_at
+    read_attribute(:last_fetched_at) || created_at
   end
 
+  def expired?
+    return false unless last_fetched_at
+
+    Time.current.after? last_fetched_at.next_year
+  end
 end
