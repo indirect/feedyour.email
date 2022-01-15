@@ -198,58 +198,58 @@ Rails/Validation:
     - app/models/**/*.rb
 
 Rails/ActiveRecordCallbacksOrder: # new in 2.7
-  Enabled: false
+  Enabled: true
 Rails/AddColumnIndex: # new in 2.11
-  Enabled: false
+  Enabled: true
 Rails/AfterCommitOverride: # new in 2.8
-  Enabled: false
+  Enabled: true
 Rails/AttributeDefaultBlockValue: # new in 2.9
-  Enabled: false
+  Enabled: true
 Rails/CompactBlank: # new in 2.13
-  Enabled: false
+  Enabled: true
 Rails/DurationArithmetic: # new in 2.13
-  Enabled: false
+  Enabled: true
 Rails/EagerEvaluationLogMessage: # new in 2.11
-  Enabled: false
+  Enabled: true
 Rails/ExpandedDateRange: # new in 2.11
-  Enabled: false
+  Enabled: true
 Rails/FindById: # new in 2.7
-  Enabled: false
+  Enabled: true
 Rails/I18nLocaleAssignment: # new in 2.11
-  Enabled: false
+  Enabled: true
 Rails/Inquiry: # new in 2.7
-  Enabled: false
+  Enabled: true
 Rails/MailerName: # new in 2.7
-  Enabled: false
+  Enabled: true
 Rails/MatchRoute: # new in 2.7
-  Enabled: false
+  Enabled: true
 Rails/NegateInclude: # new in 2.7
-  Enabled: false
+  Enabled: true
 Rails/Pluck: # new in 2.7
-  Enabled: false
+  Enabled: true
 Rails/PluckInWhere: # new in 2.7
-  Enabled: false
+  Enabled: true
 Rails/RedundantPresenceValidationOnBelongsTo: # new in 2.13
-  Enabled: false
+  Enabled: true
 Rails/RedundantTravelBack: # new in 2.12
-  Enabled: false
+  Enabled: true
 Rails/RenderInline: # new in 2.7
-  Enabled: false
+  Enabled: true
 Rails/RenderPlainText: # new in 2.7
-  Enabled: false
+  Enabled: true
 Rails/RootJoinChain: # new in 2.13
-  Enabled: false
+  Enabled: true
 Rails/ShortI18n: # new in 2.7
-  Enabled: false
+  Enabled: true
 Rails/SquishedSQLHeredocs: # new in 2.8
-  Enabled: false
+  Enabled: true
 Rails/TimeZoneAssignment: # new in 2.10
-  Enabled: false
+  Enabled: true
 Rails/UnusedIgnoredColumns: # new in 2.11
-  Enabled: false
+  Enabled: true
 Rails/WhereEquals: # new in 2.9
-  Enabled: false
+  Enabled: true
 Rails/WhereExists: # new in 2.7
-  Enabled: false
+  Enabled: true
 Rails/WhereNot: # new in 2.8
-  Enabled: false
+  Enabled: true
