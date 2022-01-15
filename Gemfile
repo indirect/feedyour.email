@@ -14,6 +14,7 @@ end
 group :development do
   gem "brakeman", "~> 5.2", require: false
   gem "bundler-audit", "~> 0.9.0", require: false
+  gem "code-scanning-rubocop", "~> 0.5.0", require: false
   gem "erb_lint", "~> 0.1.1", require: false
   gem "guard-bundler-audit", "~> 0.1.5", require: false
   gem "guard-erb_lint", github: "Driversnote-Dev/guard-erb_lint", require: false
