@@ -29,7 +29,7 @@ RSpec.describe "/feeds", type: :request do
       it "is valid according to W3C" do
         payload = Rails.root.join("spec/support/body.json").read
         expect {
-          EmailProcessor.for_payload(payload).process
+          EmailProcessor.from_payload(payload).process
         }.to change { feed.posts.count }
 
         expect {

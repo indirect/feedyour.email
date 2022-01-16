@@ -29,15 +29,25 @@ RSpec.describe Feed, type: :model do
   end
 
   it "is not expired when new" do
-    expect(feed.created_at).to be_nil
-    expect(feed.fetched_at).to be_nil
-    expect(feed.expired?).to be_falsey
+    expect(feed).to_not be_expired
     expect { feed.save! }.to change { feed.created_at }
-    expect(feed.expired?).to be_falsey
+    expect(feed).to_not be_expired
   end
 
   it "is expired when not fetched for over a year" do
     feed.fetched_at = 2.years.ago
-    expect(feed.expired?).to be_truthy
+    expect(feed).to be_expired
+  end
+
+  describe "favicon_url" do
+    it "requires a domain" do
+      feed.domain = nil
+      expect(feed.favicon_url).to eq(nil)
+    end
+
+    it "includes the domain" do
+      feed.domain = "arko.net"
+      expect(feed.favicon_url).to eq("https://www.google.com/s2/favicons?domain=arko.net")
+    end
   end
 end

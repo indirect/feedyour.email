@@ -1,5 +1,5 @@
 class EmailProcessor
-  def self.for_payload(payload)
+  def self.from_payload(payload)
     json = JSON.parse(payload)
     params = Griddler::Postmark::Adapter.normalize_params(json.deep_symbolize_keys)
     email = Griddler::Email.new(params)
@@ -11,6 +11,7 @@ class EmailProcessor
   end
 
   def process(token: nil)
+    feed.update!(domain: @email.from[:host])
     Post.create!(feed: feed, payload: @email.to_h, token: token)
   end
 
