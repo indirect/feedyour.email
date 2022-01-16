@@ -3,11 +3,11 @@ require "rails_helper"
 RSpec.describe Feed, type: :model do
   subject(:feed) { Feed.new }
 
-  fit "has posts" do
+  it "has posts" do
     expect(feed.posts).to eq([])
   end
 
-  it "generates a token", focus: true do
+  it "generates a token" do
     expect(feed.token).to be_nil
     expect { feed.save! }.to change { feed.token }
   end
