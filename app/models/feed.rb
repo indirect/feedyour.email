@@ -28,14 +28,17 @@ class Feed < ApplicationRecord
   end
 
   def domain
+    return unless last_post
+
     {
-      'mail.bloombergview.com': "bloomberg.com",
-      'nl.npr.org': "npr.org"
-    }.fetch(last_post&.domain, last_post&.domain)
+      "mail.bloombergview.com" => "bloomberg.com",
+      "nl.npr.org" => "npr.org"
+    }.fetch(last_post.domain, last_post.domain)
   end
 
   def favicon_url
     return unless domain
+
     URI("https://www.google.com/s2/favicons").tap do |u|
       u.query = "domain=#{domain}"
     end.to_s
