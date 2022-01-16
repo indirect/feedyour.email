@@ -6,6 +6,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.where(token: params[:id]).first
-    render html: @post.payload["raw_html"]
+
+    # rubocop:disable Rails/OutputSafety
+    render html: @post.payload["raw_html"].html_safe
+    # rubocop:enable Rails/OutputSafety
   end
 end
