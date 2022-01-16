@@ -13,7 +13,8 @@ jobs:
       DB: rails_test
       USER: rails
       PASSWORD: password
-      PORT: 5432
+      RAILS_ENV: test
+      DATABASE_URL: "postgres://${{env.USER}}:${{env.PASSWORD}}@localhost:5432/${{env.DB}}"
     services:
       postgres:
         image: postgres:11-alpine
@@ -34,15 +35,9 @@ jobs:
       # Add or replace database setup steps here
       - name: Set up database schema
         run: bin/rails db:schema:load
-        env:
-          RAILS_ENV: test
-          DATABASE_URL: "postgres://${{env.USER}}:${{env.PASSWORD}}@localhost:${{env.PORT}}/${{env.DB}}"
       # Add or replace test runners here
       - name: Run tests
         run: bin/rake
-        env:
-          RAILS_ENV: test
-          DATABASE_URL: "postgres://${{env.USER}}:${{env.PASSWORD}}@localhost:${{env.PORT}}/${{env.DB}}"
 
   lint:
     runs-on: ubuntu-latest
