@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_15_193900) do
+ActiveRecord::Schema.define(version: 2022_01_16_013306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2022_01_15_193900) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.datetime "fetched_at", precision: 6
+    t.text "domain"
     t.index ["fetched_at"], name: "index_feeds_on_fetched_at"
     t.index ["token"], name: "index_feeds_on_token", unique: true
   end
