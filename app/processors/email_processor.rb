@@ -1,7 +1,7 @@
 class EmailProcessor
   def initialize(email = nil, payload: nil)
-    raise ArgumentError unless email || payload
-    @email = payload ? parse_payload(payload) : email
+    raise ArgumentError unless !email ^ !payload
+    @email = email || email_from_payload(payload)
   end
 
   def process(token: nil)
