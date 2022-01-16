@@ -23,7 +23,7 @@ module ApplicationHelper
 
     # Icons
     if content_for?(:page_favicon)
-      links << tag.link(rel: "shortcut icon", href: content_for(:page_favicon))
+      links << tag.link(rel: "icon", href: content_for(:page_favicon))
     else
       links << tag.link(rel: "icon", type: "image/svg+xml", href: "/favicon.svg")
       links << tag.link(rel: "alternate icon", href: "/favicon.ico")
