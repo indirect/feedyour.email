@@ -1,10 +1,4 @@
 module ApplicationHelper
-  # rubocop:disable Rails/HelperInstanceVariable
-
-  def page_favicon(value)
-    @page_favicon = value
-  end
-
   def sharing_meta_tags(title: "Feed Your Email")
     description = "Generate an email address you can use for any newsletter, and a corresponding feed you can use to read those emails."
     image = root_url + "card.jpg"
@@ -28,8 +22,8 @@ module ApplicationHelper
     ]
 
     # Icons
-    if @page_favicon
-      links << tag.link(rel: "shortcut icon", href: @page_favicon)
+    if content_for?(:page_favicon)
+      links << tag.link(rel: "shortcut icon", href: content_for(:page_favicon))
     else
       links << tag.link(rel: "icon", type: "image/svg+xml", href: "/favicon.svg")
       links << tag.link(rel: "alternate icon", href: "/favicon.ico")
@@ -37,6 +31,4 @@ module ApplicationHelper
 
     links.join("\n").html_safe # rubocop:disable Rails/OutputSafety
   end
-
-  # rubocop:enable Rails/HelperInstanceVariable
 end
