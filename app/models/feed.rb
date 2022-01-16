@@ -1,6 +1,8 @@
 class Feed < ApplicationRecord
   has_many :posts, -> { order(updated_at: :desc) },
     dependent: :destroy, inverse_of: :feed
+  has_one :last_post, -> { order(updated_at: :desc) },
+    class_name: "Post", dependent: nil, inverse_of: :feed
   has_secure_token :token
   nilify_blanks
 
@@ -26,10 +28,9 @@ class Feed < ApplicationRecord
   end
 
   def favicon_url
-    return unless domain
-
+    return unless last_post.domain
     URI("https://www.google.com/s2/favicons").tap do |u|
-      u.query = "domain=#{domain}"
+      u.query = "domain=#{last_post.domain}"
     end.to_s
   end
 end

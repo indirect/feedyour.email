@@ -40,13 +40,9 @@ RSpec.describe Feed, type: :model do
   end
 
   describe "favicon_url" do
-    it "requires a domain" do
-      feed.domain = nil
+    it "requires a post" do
       expect(feed.favicon_url).to eq(nil)
-    end
-
-    it "includes the domain" do
-      feed.domain = "arko.net"
+      EmailProcessor.new(payload: Rails.root.join("spec/support/body.json")).process
       expect(feed.favicon_url).to eq("https://www.google.com/s2/favicons?domain=arko.net")
     end
   end

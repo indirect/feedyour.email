@@ -5,8 +5,8 @@ RSpec.describe EmailProcessor, type: :processor do
 
   let(:payload) { Rails.root.join("spec/support/body.json").read }
 
-  it "updates the feed domain" do
+  it "creates a post on the feed" do
     feed = Feed.create!(token: "somefeed")
-    expect { processor.process }.to change { feed.reload.domain }
+    expect { processor.process }.to change { feed.reload.posts }
   end
 end
