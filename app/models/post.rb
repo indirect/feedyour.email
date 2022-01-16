@@ -18,6 +18,10 @@ class Post < ApplicationRecord
     payload.dig("from", "email")
   end
 
+  def domain
+    payload.dig("from", "host")
+  end
+
   def title
     payload["subject"]
   end
