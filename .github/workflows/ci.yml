@@ -18,7 +18,7 @@ jobs:
       postgres:
         image: postgres:11-alpine
         ports:
-          - "${{env.PORT}}:${{env.PORT}}"
+          - "5432:5432"
         env:
           POSTGRES_DB: ${{env.DB}}
           POSTGRES_USER: ${{env.USER}}
