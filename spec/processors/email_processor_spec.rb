@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe EmailProcessor, type: :processor do
-  subject(:processor) { EmailProcessor.from_payload(payload) }
+  subject(:processor) { EmailProcessor.new(payload: payload) }
 
   let(:payload) { Rails.root.join("spec/support/body.json").read }
 
