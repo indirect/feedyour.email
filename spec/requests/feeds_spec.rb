@@ -6,6 +6,7 @@ RSpec.describe "/feeds", type: :request do
 
   describe "GET /show" do
     it "renders a successful response" do
+      3.times { create :user }
       expect {
         get feed_url(feed)
       }.to_not change { feed.reload.fetched_at }
