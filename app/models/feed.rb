@@ -27,10 +27,16 @@ class Feed < ApplicationRecord
     Time.current.after? fetched_at.next_year
   end
 
+  def domain
+    {
+      'mail.bloombergview.com': "bloomberg.com"
+    }.fetch(last_post&.domain, last_post&.domain)
+  end
+
   def favicon_url
-    return unless last_post&.domain
+    return unless domain
     URI("https://www.google.com/s2/favicons").tap do |u|
-      u.query = "domain=#{last_post.domain}"
+      u.query = "domain=#{domain}"
     end.to_s
   end
 end
