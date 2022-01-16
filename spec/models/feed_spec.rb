@@ -13,12 +13,15 @@ RSpec.describe Feed, type: :model do
   end
 
   it "enforces uniqueness on tokens" do
-    conflicting_feed = Feed.new
-    conflicting_feed.token = "somefeed"
-    conflicting_feed.save!
+    feed.update!(token: "somefeed")
 
-    expect { feed.update!(token: "somefeed") }.to raise_error(ActiveRecord::RecordNotUnique)
-    expect { feed.update!(token: "SomeFeed") }.to raise_error(ActiveRecord::RecordNotUnique)
+    expect {
+      Feed.create!(token: "somefeed")
+    }.to raise_error(ActiveRecord::RecordNotUnique)
+
+    expect {
+      Feed.create!(token: "SomeFeed")
+    }.to raise_error(ActiveRecord::RecordNotUnique)
   end
 
   it "uses the token in a fallback name" do
@@ -41,9 +44,12 @@ RSpec.describe Feed, type: :model do
 
   describe "favicon_url" do
     it "requires a post" do
+      feed.update!(token: "somefeed")
       expect(feed.favicon_url).to eq(nil)
-      EmailProcessor.new(payload: Rails.root.join("spec/support/body.json")).process
-      expect(feed.favicon_url).to eq("https://www.google.com/s2/favicons?domain=arko.net")
+      expect {
+        payload = Rails.root.join("spec/support/body.json").read
+        EmailProcessor.new(payload: payload).process
+      }.to change { feed.reload.favicon_url }
     end
   end
 end

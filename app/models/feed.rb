@@ -28,7 +28,7 @@ class Feed < ApplicationRecord
   end
 
   def favicon_url
-    return unless last_post.domain
+    return unless last_post&.domain
     URI("https://www.google.com/s2/favicons").tap do |u|
       u.query = "domain=#{last_post.domain}"
     end.to_s

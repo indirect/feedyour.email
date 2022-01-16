@@ -2,11 +2,15 @@ require "rails_helper"
 
 RSpec.describe "feeds/show.atom", type: :view do
   before do
-    @feed = Feed.create!(token: "abc123", name: "somename", domain: "example.com")
+    @feed = Feed.create!(token: "abc123", name: "somename")
     @feed.posts.create!(token: "post", payload: {
       subject: "post title",
       raw_html: "<h1>post!</h1>",
-      from: {name: "Adora", email: "adora@princess.alliance"}
+      from: {
+        name: "Adora",
+        email: "adora@princess.alliance",
+        host: "princess.alliance"
+      }
     })
     assign :feed, @feed
   end
@@ -16,7 +20,7 @@ RSpec.describe "feeds/show.atom", type: :view do
 
     assert_select "feed" do
       assert_select "title", "somename"
-      assert_select "icon", "https://www.google.com/s2/favicons?domain=example.com"
+      assert_select "icon", "https://www.google.com/s2/favicons?domain=princess.alliance"
       assert_select "entry" do
         assert_select "title", "post title"
         assert_select "content[type=html]", "<h1>post!</h1>"
