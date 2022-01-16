@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 2022_01_16_032122) do
   create_table "posts", force: :cascade do |t|
     t.bigint "feed_id"
     t.jsonb "payload"
-    t.citext "token", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.citext "token", null: false
     t.index ["feed_id", "updated_at"], name: "index_posts_on_feed_id_and_updated_at", order: { updated_at: :desc }
     t.index ["feed_id"], name: "index_posts_on_feed_id"
     t.index ["token"], name: "index_posts_on_token", unique: true
