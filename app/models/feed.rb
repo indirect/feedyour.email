@@ -22,7 +22,6 @@ class Feed < ApplicationRecord
 
   def expired?
     return false unless fetched_at
-
     Time.current.after? fetched_at.next_year
   end
 
