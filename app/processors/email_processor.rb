@@ -1,5 +1,5 @@
 class EmailProcessor
-  def self.for_payload(payload)
+  def self.from_payload(payload)
     json = JSON.parse(payload)
     params = Griddler::Postmark::Adapter.normalize_params(json.deep_symbolize_keys)
     email = Griddler::Email.new(params)
