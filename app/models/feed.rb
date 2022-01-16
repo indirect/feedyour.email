@@ -29,7 +29,8 @@ class Feed < ApplicationRecord
 
   def domain
     {
-      'mail.bloombergview.com': "bloomberg.com"
+      'mail.bloombergview.com': "bloomberg.com",
+      'nl.npr.org': "npr.org"
     }.fetch(last_post&.domain, last_post&.domain)
   end
 
