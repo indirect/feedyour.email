@@ -25,4 +25,12 @@ class Feed < ApplicationRecord
 
     Time.current.after? fetched_at.next_year
   end
+
+  def favicon_url
+    return unless domain
+
+    URI("https://www.google.com/s2/favicons").tap do |u|
+      u.query = "domain=#{domain}"
+    end.to_s
+  end
 end

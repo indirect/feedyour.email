@@ -38,4 +38,16 @@ RSpec.describe Feed, type: :model do
     feed.fetched_at = 2.years.ago
     expect(feed).to be_expired
   end
+
+  describe "favicon_url" do
+    it "requires a domain" do
+      feed.domain = nil
+      expect(feed.favicon_url).to eq(nil)
+    end
+
+    it "includes the domain" do
+      feed.domain = "arko.net"
+      expect(feed.favicon_url).to eq("https://www.google.com/s2/favicons?domain=arko.net")
+    end
+  end
 end
