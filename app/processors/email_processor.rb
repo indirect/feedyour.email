@@ -11,6 +11,7 @@ class EmailProcessor
   end
 
   def process(token: nil)
+    feed.update!(domain: @email.from[:host])
     Post.create!(feed: feed, payload: @email.to_h, token: token)
   end
 
