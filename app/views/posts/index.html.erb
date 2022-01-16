@@ -1,63 +1,36 @@
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  <div class="text-center">
-    <p class="my-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-      <%= @feed.name %>
-    </p>
-  </div>
+<div class="mx-auto">
+  <p class="text-center my-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+    <%= @feed.name %>
+  </p>
 
 <div class="mt-8 bg-white shadow sm:rounded-md">
   <ul role="list" class="divide-y divide-gray-200">
     <% @posts.each do |post| %>
     <li>
       <%= link_to post_path(post), class: "block hover:bg-gray-50", data: {turbo: false} do %>
-        <div class="flex items-center px-4 py-4 sm:px-6">
-          <div class="min-w-0 flex-1 flex items-center">
-            <div class="min-w-0 flex-1 px-4 flex">
-              <div>
-                <p class="text-sm font-medium text-indigo-600 truncate">
-                  <%= post.title %>
-                </p>
-                <p class="mt-1 flex items-center text-sm text-gray-500">
-                  <!-- Heroicon name: solid/mail -->
-                  <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                  </svg>
-                  <span class="truncate"><%= post.from %></span>
-                </p>
-              </div>
-              <div class="ml-8 flex">
-                <p class="self-center text-right text-sm text-gray-400">
-                  <%= time_tag post.updated_at do %>
-                    <%= post.updated_at.to_date.to_formatted_s(:short) %><br>
-                    <%= post.updated_at.year %>
-                  <% end %>
-                </p>
-              </div>
-            </div>
+        <div class="grid grid-flow-col auto-cols-auto gap-4 px-4 py-2 md:py-4">
+          <div class="col-span-10">
+            <p class="text-sm font-medium text-indigo-600 truncate">
+              <%= post.title %>
+            </p>
+            <p class="mt-1 flex items-center text-sm text-gray-500">
+              <!-- Heroicon name: solid/mail -->
+              <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              <span class="truncate"><%= post.from %></span>
+            </p>
           </div>
-          <div>
-            <!-- Heroicon name: solid/chevron-right -->
-            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-            </svg>
+          <div class="text-right text-sm text-gray-400">
+            <%= time_tag post.updated_at do %>
+              <%= post.updated_at.to_date.to_formatted_s(:short) %><br>
+              <%= post.updated_at.year %>
+            <% end %>
           </div>
         </div>
       <% end %>
     </li>
   <% end %>
   </ul>
-</div>
-
-    <div class="my-8">
-      <% if @posts %>
-        <ul>
-          <% @posts.each do | post | %>
-            <li>
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
-  </div>
 </div>
