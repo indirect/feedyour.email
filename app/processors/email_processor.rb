@@ -1,13 +1,7 @@
 class EmailProcessor
-  def self.from_payload(payload)
-    json = JSON.parse(payload)
-    params = Griddler::Postmark::Adapter.normalize_params(json.deep_symbolize_keys)
-    email = Griddler::Email.new(params)
-    new(email)
-  end
-
-  def initialize(email)
-    @email = email
+  def initialize(email = nil, payload: nil)
+    raise ArgumentError unless email || payload
+    @email = payload ? parse_payload(payload) : email
   end
 
   def process(token: nil)
@@ -22,5 +16,13 @@ class EmailProcessor
   def feed_token
     contact = @email.to.find { |t| t[:host] == "feedyour.email" }
     contact && contact[:token]
+  end
+
+  private
+
+  def email_from_payload(payload)
+    json = JSON.parse(payload).deep_symbolize_keys
+    params = Griddler::Postmark::Adapter.normalize_params(json)
+    Griddler::Email.new(params)
   end
 end
