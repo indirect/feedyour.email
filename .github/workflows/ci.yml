@@ -26,4 +26,4 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: indirect/lint-rails@79ad28660f81c9ae83737654f3d143a81f9a9ad1
+      - uses: indirect/lint-rails@1c20334486060f12769d8c3cb67d877759984651
