@@ -18,8 +18,11 @@ jobs:
           POSTGRES_DB: rails_test
           POSTGRES_USER: rails
           POSTGRES_PASSWORD: password
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
     steps:
-      - uses: indirect/test-rails@e08602a530b81fc19dafb01976c6bfca07015570
+      - uses: indirect/test-rails@5ef835f5762453ea68f38cc6b7c4694dcffb484d
   lint:
     runs-on: ubuntu-latest
     steps:
