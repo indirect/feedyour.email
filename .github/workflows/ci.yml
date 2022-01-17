@@ -9,7 +9,7 @@ on: [push, pull_request]
 jobs:
   test:
     steps:
-      - uses: indirect/test-rails
+      - uses: indirect/test-rails@255dac821494626241316793f0c52698df9208ca
   lint:
     steps:
-      - uses: indirect/lint-rails
+      - uses: indirect/lint-rails@6be6f27b3f8824ec3b7e86cb238b7246be90a48b
