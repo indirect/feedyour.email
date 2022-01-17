@@ -5,31 +5,28 @@
 ## Getting Started
 
 ``` sh
-brew install chruby ruby-install postgresql redis
-ruby-install ruby 3.1.0
-
-# fish users: `brew install chruby-fish` instead
-source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
-
-chruby 3.1.0
-bundle install
-brew services start postgresql
-brew services start redis
-bin/rails db:create db:migrate db:seed
+# Install Homebrew, Ruby, and gems, set up database
+bin/setup
 ```
 
 ## Development
 
 ```sh
-# run a local rails server and tailwind rebuilder
+# Run a Rails server and Tailwind watcher
 bin/dev
+```
+
+## Testing & Linting
+
+```sh
 # run tests and lints automatically on changes with guard
 bin/test
-# run all the tests once
-bin/rspec
-# fix lint issues
-bin/rubocop -a
-# or with all possible fixes, even those that might break the app
+```
+
+### Fixing linter issues
+
+```sh
+# Run automatic lint fixers
 bin/rubocop -A
 ```
 
