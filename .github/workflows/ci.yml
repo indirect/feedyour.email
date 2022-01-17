@@ -22,7 +22,7 @@ jobs:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
     steps:
-      - uses: indirect/test-rails@5ef835f5762453ea68f38cc6b7c4694dcffb484d
+      - uses: indirect/test-rails@92b9927e14e2f22c976a3d93a2fb6d946e066ebd
   lint:
     runs-on: ubuntu-latest
     steps:
