@@ -102,8 +102,8 @@ GEM
       parser (>= 2.4)
       smart_properties
     bindex (0.8.1)
-    bootsnap (1.9.4)
-      msgpack (~> 1.0)
+    bootsnap (1.10.1)
+      msgpack (~> 1.2)
     brakeman (5.2.0)
     builder (3.2.4)
     bundler-audit (0.9.0.1)
@@ -362,7 +362,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_html (~> 1.0)
-  bootsnap (~> 1.9)
+  bootsnap (~> 1.10)
   brakeman (~> 5.2)
   bundler-audit (~> 0.9.0)
   code-scanning-rubocop (~> 0.5.0)!
