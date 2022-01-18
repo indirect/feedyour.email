@@ -8,3 +8,5 @@
     <%= render @posts %>
   </ul>
 </div>
+
+<%= turbo_stream_from @feed, :posts %>
