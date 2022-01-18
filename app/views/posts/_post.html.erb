@@ -1,4 +1,4 @@
-<%= tag.li id: dom_id(post) do %>
+<%= tag.li id: dom_id(post), data: {stream_enter_class: "slide-down"} do %>
   <%= link_to post_path(post), class: "block hover:bg-gray-50", data: {turbo: false} do %>
     <div class="grid grid-flow-col auto-cols-auto gap-4 px-4 py-2 md:py-4">
       <div class="col-span-10">
