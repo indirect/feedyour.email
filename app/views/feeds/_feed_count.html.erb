@@ -1,0 +1,3 @@
+<%= tag.div id: dom_id(feed, "count"), class: "my-4", data: {stream_enter_class: "highlight"} do %>
+  <p>So far, your feed has captured <%= link_to pluralize(feed.posts.count, "email"), feed_posts_path(feed) %>.</p>
+<% end %>

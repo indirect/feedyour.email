@@ -6,7 +6,29 @@
     Your feed is ready.
   </p>
 
-  <%= render @feed %>
+  <%= tag.div id: dom_id(@feed), class: "max-w-xl mt-5 mx-auto" do %>
+    <div class="my-8">
+      <h4 class="block text-md font-bold text-gray-700">Email address</h4>
+      <pre class="my-2"><code class="bg-slate-100 border-slate-300 rounded px-4 py-2"><%= @feed.token %>@<%= request.host %></code></pre>
+      <p class="">Use this email address to sign up for the newsletter you want to read.</p>
+    </div>
+
+    <div class="my-8">
+      <h4 class="block text-md font-bold text-gray-700">Feed URL</h4>
+      <pre class="my-2"><code class="bg-slate-100 border-slate-300 rounded px-4 py-2"><%= feed_url(@feed, format: "atom") %></code></pre>
+      <p><%= link_to "Subscribe to this feed", feed_url(@feed, format: "atom") %> in a feed reader to read the newsletter emails.</p>
+      <p>(If you don't have a feed reader, we like <%= link_to "Reeder", "https://reederapp.com" %> or <%= link_to "NetNewsWire", "https://netnewswire.com" %>.)
+    </div>
+
+    <div class="my-4">
+      <p>
+        <b>Don't share these addresses.</b>
+        Anyone with the email address or the feed URL can sign you up for spam or cancel your subscriptions.
+      </p>
+    </div>
+
+    <%= render "feed_count", feed: @feed %>
+  <% end %>
 </div>
 
 <%= turbo_stream_from @feed %>
