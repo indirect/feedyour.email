@@ -69,5 +69,4 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.hosts << "feedyouremail.arko.me"
-  config.hosts << "feedyouremail.test"
 end

@@ -1,11 +1,16 @@
 class EmailProcessor
+  include ActionView::RecordIdentifier
+
   def initialize(email = nil, payload: nil)
     raise ArgumentError unless !email ^ !payload
     @email = email || email_from_payload(payload)
   end
 
   def process(token: nil)
-    Post.create!(feed: feed, payload: @email.to_h, token: token)
+    post = Post.create!(feed: feed, payload: @email.to_h, token: token)
+
+    post.broadcast_prepend_to(feed, :posts)
+    feed.broadcast_replace_to(feed, target: dom_id(feed, "count"), partial: "feeds/feed_count", locals: {feed: feed})
   end
 
   def feed
