@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   def index
-    @feed = Feed.find_by(token: params[:feed_id])
+    @feed = Feed.find_by!(token: params[:feed_id])
     @posts = @feed.posts
   end
 
   def show
-    @post = Post.where(token: params[:id]).first
+    @post = Post.find_by!(token: params[:id])
 
     # rubocop:disable Rails/OutputSafety
     render html: @post.payload["raw_html"].html_safe
