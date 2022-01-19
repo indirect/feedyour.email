@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     get "posts", to: "posts#index"
   end
 
+  get "favicon", to: "feeds#favicon", constraints: {format: :ico}
   root to: "feeds#new"
 end

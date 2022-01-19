@@ -8,6 +8,12 @@ class FeedsController < ApplicationController
     @feed.touch(:fetched_at) if request.format == :atom
   end
 
+  def favicon
+    return redirect_to helpers.asset_path("favicon.ico") if request.subdomain.blank?
+
+    redirect_to Feed.find_by!(token: request.subdomain).favicon_url, allow_other_host: true
+  end
+
   def create
     @feed = Feed.new(feed_params)
 
