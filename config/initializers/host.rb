@@ -1,6 +1,6 @@
-host = ENV.key?("HEROKU_APP_NAME") ? "#{ENV["HEROKU_APP_NAME"]}.herokuapp.com" : ENV["HOST"]
+def set_up_host(host)
+  return unless host
 
-if host
   Rails.application.config.hosts << host << /.+?\.#{host}/
 
   # How many domain segments should we ignore? All but the first.
@@ -21,3 +21,5 @@ if host
     ].each { |opts| opts[:host] = host }
   end
 end
+
+set_up_host(ENV["HOST"])
