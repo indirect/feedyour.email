@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @feed = Feed.find_by!(token: params[:feed_id])
+    @feed = Feed.find_by!(token: params[:feed_id] || request.subdomain)
     @posts = @feed.posts
   end
 

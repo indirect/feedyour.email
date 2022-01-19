@@ -4,7 +4,7 @@ class FeedsController < ApplicationController
   end
 
   def show
-    @feed = Feed.find_by!(token: params[:id])
+    @feed = Feed.find_by!(token: params[:id] || request.subdomain)
     @feed.touch(:fetched_at) if request.format == :atom
   end
 

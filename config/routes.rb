@@ -6,5 +6,11 @@ Rails.application.routes.draw do
     resources :posts, only: [:index]
   end
 
-  root "feeds#new"
+  scope as: "subdomain", constraints: {subdomain: /.+/} do
+    root to: "feeds#show"
+    get "feed", to: "feeds#show", constraints: {format: :atom}
+    get "posts", to: "posts#index"
+  end
+
+  root to: "feeds#new"
 end
