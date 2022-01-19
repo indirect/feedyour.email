@@ -9,7 +9,7 @@
   <%= tag.div id: dom_id(@feed), class: "max-w-xl mt-5 mx-auto" do %>
     <div class="my-8">
       <h4 class="block text-md font-bold text-gray-700">Email address</h4>
-      <pre class="my-2"><code class="bg-slate-100 border-slate-300 rounded px-4 py-2"><%= @feed.token %>@<%= request.host %></code></pre>
+      <pre class="my-2"><code class="bg-slate-100 border-slate-300 rounded px-4 py-2"><%= @feed.token %>@<%= request.domain %></code></pre>
       <p class="">Use this email address to sign up for the newsletter you want to read.</p>
     </div>
 
