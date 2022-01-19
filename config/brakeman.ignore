@@ -1,0 +1,26 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "762dbf98af935a01c13ae40dd287b6b98dd8177b18c1e8c156de4a38d7ef9e05",
+      "check_name": "Redirect",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/feeds_controller.rb",
+      "line": 14,
+      "link": "https://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(Feed.find_by!(:token => request.subdomain).favicon_url, :allow_other_host => true)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "FeedsController",
+        "method": "favicon"
+      },
+      "user_input": "Feed.find_by!(:token => request.subdomain).favicon_url",
+      "confidence": "High",
+      "note": "This is deliberate."
+    }
+  ],
+  "updated": "2022-01-18 23:51:47 -0800",
+  "brakeman_version": "5.2.0"
+}
