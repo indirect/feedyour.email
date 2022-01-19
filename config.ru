@@ -2,6 +2,6 @@
 require_relative "config/environment"
 require "rack/canonical_host"
 
-use Rack::CanonicalHost, ENV["HOST"] if ENV.key?("HOST")
+use Rack::CanonicalHost, ENV["HOST"], if: /\Awww/ if ENV.key?("HOST")
 run Rails.application
 Rails.application.load_server
