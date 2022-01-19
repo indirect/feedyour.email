@@ -1,0 +1,2 @@
+#!/bin/sh
+HEROKU_APP=feedyouremail-staging exec "${HEROKU_COMMAND:-heroku}" "$@"
