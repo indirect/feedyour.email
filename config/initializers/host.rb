@@ -1,5 +1,5 @@
 if ENV.key?("HOST")
-  Rails.application.config.hosts << ENV["HOST"]
+  Rails.application.config.hosts << ENV["HOST"] << /.+?\.#{ENV["HOST"]}/
 
   Rails.application.config.after_initialize do
     ApplicationController.renderer.defaults.merge!(http_host: ENV["HOST"], https: true)
