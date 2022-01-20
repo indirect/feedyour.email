@@ -1,0 +1,33 @@
+#!/bin/bash
+
+curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+apt install -y python3-pip python3-venv
+
+python3 -m venv /opt/certbot/
+/opt/certbot/bin/pip install --upgrade pip
+/opt/certbot/bin/pip install certbot certbot-plugin-gandi
+
+# install the certbot plugin for heroku
+curl -LO https://github.com/gboudreau/certbot-heroku/archive/master.zip
+unzip master.zip && rm master.zip
+cd certbot-heroku-master
+/opt/certbot/bin/pip install .
+
+/opt/certbot/bin/certbot plugins
+
+# Write the Gandi API key for the certbot plugin
+printf 'dns_gandi_api_key=%s\n' $GANDI_API_KEY > /tmp/config.ini && chmod 400 /tmp/config.ini
+
+/opt/certbot/bin/certbot certonly \
+  --agree-tos \
+  --no-eff-email \
+  --email andre@arko.net \
+  --authenticator dns-gandi \
+  --dns-gandi-credentials /tmp/config.ini \
+  -d '*.feedyour.email'
+
+export HEROKU_APP=feedyouremail
+heroku certs:add \
+  /etc/letsencrypt/live/feedyour.email/fullchain.pem \
+  /etc/letsencrypt/live/feedyour.email/privkey.pem
+# hangs here waiting for user interaction
