@@ -31,4 +31,8 @@ module ApplicationHelper
 
     links.join("\n").html_safe # rubocop:disable Rails/OutputSafety
   end
+
+  def subdomain_feed_url(feed)
+    super(subdomain: feed.token, format: "atom")
+  end
 end
