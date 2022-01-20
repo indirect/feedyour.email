@@ -1,5 +1,6 @@
 def set_up_host(host)
-  return unless host
+  raise if Rails.env.production? && host.nil?
+  return if host.nil?
 
   Rails.application.config.hosts << host << /.+?\.#{host}/
 
