@@ -7,6 +7,8 @@ class EmailProcessor
   end
 
   def process(token: nil)
+    return if postmark_test?
+
     post = Post.create!(feed: feed, payload: @email.to_h, token: token)
 
     post.broadcast_prepend_to(feed, :posts)
@@ -28,5 +30,10 @@ class EmailProcessor
     json = JSON.parse(payload).deep_symbolize_keys
     params = Griddler::Postmark::Adapter.normalize_params(json)
     Griddler::Email.new(params)
+  end
+
+  def postmark_test?
+    @email.from[:email] == "support@postmarkapp.com" &&
+      @email.to.find { |t| t[:email] == "mailbox+SampleHash@inbound.postmarkapp.com" }
   end
 end
