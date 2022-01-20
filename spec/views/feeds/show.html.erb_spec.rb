@@ -15,7 +15,7 @@ RSpec.describe "feeds/show", type: :view do
     render
 
     assert_select "code", "abc123@test.host"
-    assert_select "code", "http://test.host/feeds/abc123.atom"
-    assert_select "a[href~='/feeds/abc123/posts']"
+    assert_select "code", "http://abc123.test.host/feed.atom"
+    assert_select "a[href$='abc123.test.host/posts']"
   end
 end
