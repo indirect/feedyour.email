@@ -35,4 +35,8 @@ module ApplicationHelper
   def subdomain_feed_url(feed)
     super(subdomain: feed.token, format: "atom")
   end
+
+  def subdomain_posts_url(feed)
+    super(subdomain: feed.token)
+  end
 end

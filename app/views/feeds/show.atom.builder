@@ -1,4 +1,4 @@
-atom_feed root_url: subdomain_posts_url(subdomain: @feed.token) do |atom|
+atom_feed root_url: subdomain_posts_url(@feed) do |atom|
   atom.title @feed.name
   atom.updated @feed.posts.last&.updated_at || @feed.updated_at
   atom.icon @feed.favicon_url if @feed.favicon_url
