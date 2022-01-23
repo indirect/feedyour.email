@@ -31,4 +31,8 @@ module ApplicationHelper
 
     links.join("\n").html_safe # rubocop:disable Rails/OutputSafety
   end
+
+  def gravatar_url(email)
+    "https://secure.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}"
+  end
 end
