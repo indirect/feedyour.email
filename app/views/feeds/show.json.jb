@@ -1,8 +1,10 @@
 {
   version: "https://jsonfeed.org/version/1",
   title: @feed.name,
-  home_page_url: feed_posts_url(@feed),
   feed_url: feed_url(@feed, format: :json),
+  home_page_url: feed_posts_url(@feed),
+  icon: @feed.favicon_url,
+  favicon: @feed.favicon_url,
   items: @feed.posts.limit(100).map do |post|
     {
       id: post.token,
@@ -17,7 +19,4 @@
       content_html: post.html
     }
   end
-}.tap do |json|
-  json[:icon] = @feed.favicon_url if @feed.favicon_url
-  json[:favicon] = @feed.favicon_url if @feed.favicon_url
-end
+}.compact
