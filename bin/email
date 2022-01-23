@@ -16,6 +16,7 @@ if [[ -z "$POST" ]]; then
 fi
 
 set -x
-curl -vvv "$URL/email/incoming" \
+curl -s -vvv "$URL/email/incoming" \
   -d "@$POST" \
-  -H "Content-Type: application/json"
+  -H "Content-Type: application/json" \
+  -o /dev/null
