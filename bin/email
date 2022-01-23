@@ -12,7 +12,7 @@ if [[ -z "$URL" ]]; then
 fi
 
 if [[ -z "$POST" ]]; then
-  POST= "spec/support/body.json"
+  POST="spec/support/body.json"
 fi
 
 set -x
