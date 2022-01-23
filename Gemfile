@@ -44,3 +44,5 @@ gem "redis", "~> 4.5"
 gem "sprockets-rails", "~> 3.4"
 gem "tailwindcss-rails", "~> 2.0"
 gem "turbo-rails", "~> 1.0"
+
+gem "jb", "~> 0.8.0"
