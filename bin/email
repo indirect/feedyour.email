@@ -4,10 +4,10 @@ URL="$1"
 POST="$2"
 
 if [[ -z "$URL" ]]; then
-   if curl -Is http://localhost:3000 > /dev/null; then
-    URL="http://localhost:3000"
-  else
+   if curl -Is http://feedyouremail.test > /dev/null; then
     URL="http://feedyouremail.test"
+  else
+    URL="http://localhost:3000"
   fi
 fi
 
