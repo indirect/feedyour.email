@@ -47,6 +47,6 @@ class Feed < ApplicationRecord
         url: "https://#{domain}",
         size: "48"
       }.to_query
-    end.to_s.html_safe
+    end.to_s.html_safe # rubocop:disable Rails/OutputSafety
   end
 end
