@@ -1,7 +1,10 @@
 module ApplicationHelper
   def sharing_meta_tags(title: "Feed Your Email")
     if content_for?(:page_favicon)
-      return tag.link(rel: "icon", href: content_for(:page_favicon))
+      return [
+        tag.link(rel: "icon", type: "image/jpeg", href: content_for(:page_favicon)),
+        tag.link(rel: "apple-touch-icon", type: "image/jpeg", href: content_for(:page_favicon))
+      ].join("\n").html_safe # rubocop:disable Rails/OutputSafety
     end
 
     description = "Generate an email address you can use for any newsletter, and a corresponding feed you can use to read those emails."
