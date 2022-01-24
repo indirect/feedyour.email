@@ -43,9 +43,9 @@ RSpec.describe Feed, type: :model do
   end
 
   describe "favicon_url" do
-    it "requires a post" do
+    it "updates on post arriving" do
       feed.update!(token: "somefeed")
-      expect(feed.favicon_url).to eq(nil)
+      expect(feed.favicon_url).to eq("/favicon.ico")
       expect {
         payload = Rails.root.join("spec/support/body.json").read
         EmailProcessor.new(payload: payload).process
