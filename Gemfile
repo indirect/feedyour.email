@@ -37,7 +37,7 @@ gem "bootsnap", "~> 1.10", require: false
 gem "griddler-postmark", "~> 1.0", github: "r38y/griddler-postmark"
 gem "importmap-rails", "~> 1.0"
 gem "nilify_blanks", "~> 1.4"
-gem "pg", "~> 1.2"
+gem "pg", "~> 1.3"
 gem "puma", "~> 5.5"
 gem "rack-canonical-host", "~> 1.1", require: false
 gem "redis", "~> 4.5"
