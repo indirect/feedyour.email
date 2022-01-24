@@ -37,10 +37,16 @@ class Feed < ApplicationRecord
   end
 
   def favicon_url
-    return unless domain
+    return "/favicon.ico" unless domain
 
-    URI("https://www.google.com/s2/favicons").tap do |u|
-      u.query = "domain=#{domain}"
-    end.to_s
+    URI("https://t0.gstatic.com/faviconV2").tap do |u|
+      u.query = {
+        client: "SOCIAL",
+        type: "FAVICON",
+        fallback_opts: "TYPE,SIZE,URL",
+        url: "https://#{domain}",
+        size: "48"
+      }.to_query
+    end.to_s.html_safe # rubocop:disable Rails/OutputSafety
   end
 end

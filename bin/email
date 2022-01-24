@@ -1,0 +1,22 @@
+#!/bin/bash
+
+URL="$1"
+POST="$2"
+
+if [[ -z "$URL" ]]; then
+   if curl -Is http://feedyouremail.test > /dev/null; then
+    URL="http://feedyouremail.test"
+  else
+    URL="http://localhost:3000"
+  fi
+fi
+
+if [[ -z "$POST" ]]; then
+  POST="spec/support/body.json"
+fi
+
+set -x
+curl -s -vvv "$URL/email/incoming" \
+  -d "@$POST" \
+  -H "Content-Type: application/json" \
+  -o /dev/null

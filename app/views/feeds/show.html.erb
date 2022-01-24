@@ -1,4 +1,4 @@
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<div class="mx-auto text-center">
   <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">
     free your inbox
   </h2>
@@ -9,18 +9,26 @@
   <%= tag.div id: dom_id(@feed), class: "max-w-xl mt-5 mx-auto" do %>
     <div class="my-8">
       <h4 class="block text-md font-bold text-gray-700">Email address</h4>
-      <pre class="my-2"><code class="bg-slate-100 border-slate-300 rounded px-4 py-2"><%= @feed.token %>@<%= request.host %></code></pre>
-      <p class="">Use this email address to sign up for the newsletter you want to read.</p>
+      <pre class="my-2 bg-slate-100 border-slate-300 rounded px-3 p-2 overflow-x-scroll"><code><%= @feed.token %>@<%= request.host %></code></pre>
+      <p>Use this email address to sign up for the newsletter you want to read.</p>
+    </div>
+
+    <div id="feed-link" class="my-8">
+      <h4 class="block text-md font-bold text-gray-700">Subscribe to feed</h4>
+      <p><%= link_to "Subscribe to this feed", feed_url(@feed, format: "json", protocol: "feed") %> in your feed reader. (If you don't have a feed reader, we like <%= link_to "Reeder", "https://reederapp.com" %> or <%= link_to "NetNewsWire", "https://netnewswire.com" %>.)
+      <p class="text-sm"><%= link_to "Subscribe link didn't work?", "#", class: "toggle-feed-url" %></p>
+    </div>
+
+    <div id="feed-url" class="my-8 hidden">
+      <h4 class="block text-md font-bold text-gray-700">Feed URLs</h4>
+      <p>If the subscribe link above doesn't work, here's the feed URL.</p>
+      <pre class="my-2 bg-slate-100 border-slate-300 rounded px-3 p-2 overflow-x-scroll"><code><%= feed_url(@feed, format: "json") %></code></pre>
+      <p>Or, if your feed reader doesn't support JSON Feeds:</p>
+      <pre class="my-2 bg-slate-100 border-slate-300 rounded px-3 p-2 overflow-x-scroll"><code><%= feed_url(@feed, format: "atom") %></code></pre>
+      <p class="text-sm"><%= link_to "Back to subscribe link", "#", class: "toggle-feed-url" %></p>
     </div>
 
     <div class="my-8">
-      <h4 class="block text-md font-bold text-gray-700">Feed URL</h4>
-      <pre class="my-2"><code class="bg-slate-100 border-slate-300 rounded px-4 py-2"><%= feed_url(@feed, format: "atom") %></code></pre>
-      <p><%= link_to "Subscribe to this feed", feed_url(@feed, format: "atom") %> in a feed reader to read the newsletter emails.</p>
-      <p>(If you don't have a feed reader, we like <%= link_to "Reeder", "https://reederapp.com" %> or <%= link_to "NetNewsWire", "https://netnewswire.com" %>.)
-    </div>
-
-    <div class="my-4">
       <p>
         <b>Don't share these addresses.</b>
         Anyone with the email address or the feed URL can sign you up for spam or cancel your subscriptions.

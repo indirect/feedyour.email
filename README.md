@@ -30,10 +30,12 @@ bin/test
 bin/rubocop -A
 ```
 
-### Pushing Posts via the Email Webhook
+### Adding posts in development
 
-`db:seed` creates a feed named somefeed ([localhost:3000/feeds/somefeed](http://localhost:3000/feeds/somefeed)) with a post named somepost ([localhost:3000/posts/somepost](http://localhost:3000/posts/somepost)) but you can also add posts yourself using `curl`. An example email is checked into the respository and can be loaded by running:
+`db:seed` creates a feed named somefeed ([localhost:3000/feeds/somefeed](http://localhost:3000/feeds/somefeed)) with a post named somepost ([localhost:3000/posts/somepost](http://localhost:3000/posts/somepost)).
 
-``` sh
-curl -vvv http://localhost:3000/email/incoming -d "@spec/support/body.json" -H "Content-Type: application/json"
+You can also add posts yourself by hitting the Postmark inbound webhook:
+
+```
+bin/email [HOST=localhost:3000] [POST=spec/support/body.json]
 ```

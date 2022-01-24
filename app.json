@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "postdeploy": "bin/rake db:schema:load db:seed"
+  },
+  "env": {
+    "RAILS_ENV": "production",
+    "RACK_ENV": "production"
+  },
+  "addons": [
+    "heroku-postgresql",
+    "heroku-redis"
+  ]
+}

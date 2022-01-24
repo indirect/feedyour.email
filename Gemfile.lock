@@ -92,6 +92,8 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    assert_json (0.4.1)
+      activesupport
     ast (2.4.2)
     better_html (1.0.16)
       actionview (>= 4.0)
@@ -172,6 +174,9 @@ GEM
     io-wait (0.2.1)
     irb (1.4.1)
       reline (>= 0.3.0)
+    jb (0.8.0)
+    json-schema (2.8.1)
+      addressable (>= 2.4)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -212,8 +217,6 @@ GEM
       activesupport (>= 4.0.0)
     nio4r (2.5.8)
     nokogiri (1.13.1-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.1-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
@@ -361,6 +364,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  assert_json (~> 0.4.1)
   better_html (~> 1.0)
   bootsnap (~> 1.10)
   brakeman (~> 5.2)
@@ -378,6 +382,8 @@ DEPENDENCIES
   honeybadger (~> 4.10)
   hotwire-livereload (~> 1.1)
   importmap-rails (~> 1.0)
+  jb (~> 0.8.0)
+  json-schema (~> 2.8)
   lograge (~> 0.11.2)
   nilify_blanks (~> 1.4)
   pg (~> 1.3)

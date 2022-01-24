@@ -1,6 +1,8 @@
 require "rails_helper"
+require_relative "../support/validate_json_feed"
 
 RSpec.describe "/feeds", type: :request do
+  include ValidateJsonFeed
   let(:valid_attributes) { {token: "somefeed"} }
   let(:feed) { Feed.create! valid_attributes }
 
@@ -14,7 +16,7 @@ RSpec.describe "/feeds", type: :request do
     end
   end
 
-  describe "GET .atom" do
+  describe "GET /show.atom" do
     require "support/assert_valid_feed"
     include W3C::FeedValidator::Assertions
 
@@ -36,6 +38,29 @@ RSpec.describe "/feeds", type: :request do
           get feed_url(feed, format: :atom)
         }.to change { feed.reload.fetched_at }
         assert_valid_feed
+      end
+    end
+  end
+
+  describe "GET /show.json" do
+    context "without a post" do
+      it "is valid by the JSON Feed schema" do
+        get feed_url(feed, format: :json)
+        expect(validate_json_feed).to eq([])
+      end
+    end
+
+    context "with a post" do
+      it "is valid by the JSON Feed schema" do
+        payload = Rails.root.join("spec/support/body.json").read
+        expect {
+          EmailProcessor.new(payload: payload).process
+        }.to change { feed.posts.count }
+
+        expect {
+          get feed_url(feed, format: :json)
+        }.to change { feed.reload.fetched_at }
+        expect(validate_json_feed).to eq([])
       end
     end
   end

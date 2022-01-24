@@ -1,0 +1,22 @@
+{
+  version: "https://jsonfeed.org/version/1",
+  title: @feed.name,
+  feed_url: feed_url(@feed, format: :json),
+  home_page_url: feed_posts_url(@feed),
+  icon: @feed.favicon_url,
+  favicon: @feed.favicon_url,
+  items: @feed.posts.limit(100).map do |post|
+    {
+      id: post.token,
+      url: post_url(post),
+      title: post.title,
+      date_published: post.created_at,
+      author: {
+        name: post.from_name,
+        url: "mailto:#{post.from_email}",
+        avatar: gravatar_url(post.from_email)
+      },
+      content_html: post.html
+    }
+  end
+}.compact

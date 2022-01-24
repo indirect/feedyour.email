@@ -27,3 +27,11 @@ document.addEventListener("turbo:before-stream-render", function(event) {
     }
   }
 })
+
+document.querySelectorAll(".toggle-feed-url").forEach(el => {
+  el.addEventListener("click", e => {
+    document.querySelector("#feed-url").classList.toggle("hidden")
+    document.querySelector("#feed-link").classList.toggle("hidden")
+    e.preventDefault()
+  }, false)
+})
