@@ -27,5 +27,4 @@ jobs:
               owner: repository.owner,
               pull_number: pullRequest.number,
               repo: repository.repo,
-          })
-
+            })
