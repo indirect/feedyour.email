@@ -10,10 +10,6 @@ a.block {
   @apply no-underline;
 }
 
-.code-block {
-  @apply my-2 bg-slate-100 border-slate-300 rounded px-3 p-2 overflow-x-scroll;
-}
-
 /*
 
 @layer components {
