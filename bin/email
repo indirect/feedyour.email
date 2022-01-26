@@ -1,18 +1,22 @@
 #!/bin/bash
 
-URL="$1"
-POST="$2"
+FEED="$1"
+URL="$2"
 
 if [[ -z "$URL" ]]; then
-   if curl -Is http://feedyouremail.test > /dev/null; then
-    URL="http://feedyouremail.test"
+   if curl -Is https://feedyouremail.test > /dev/null; then
+    URL="https://feedyouremail.test"
   else
     URL="http://localhost:3000"
   fi
 fi
 
-if [[ -z "$POST" ]]; then
+if [[ -z "$FEED" ]]; then
   POST="spec/support/body.json"
+else
+  cp spec/support/body.json tmp/body.json
+  sed -i.bak "s/somefeed/$FEED/g" tmp/body.json
+  POST="tmp/body.json"
 fi
 
 set -x
