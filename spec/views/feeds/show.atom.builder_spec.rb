@@ -20,7 +20,7 @@ RSpec.describe "feeds/show.atom", type: :view do
 
     assert_select "feed" do
       assert_select "title", "somename"
-      assert_select "icon", "https://t0.gstatic.com/faviconV2?client=SOCIAL&fallback_opts=TYPE%2CSIZE%2CURL&size=48&type=FAVICON&url=https%3A%2F%2Fprincess.alliance"
+      assert_select "icon", "https://icon.horse/icon/princess.alliance"
       assert_select "entry" do
         assert_select "title", "post title"
         assert_select "content[type=html]", "<h1>post!</h1>"
