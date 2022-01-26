@@ -1,10 +1,9 @@
 name: "Merge updates"
 on:
   workflow_run:
-    types:
-      - "completed"
-    workflows:
-      - "CI"
+    workflows: ["CI"]
+    types: ["completed"]
+    branches: ["dependabot/**"]
 jobs:
   merge:
     name: "Merge"
