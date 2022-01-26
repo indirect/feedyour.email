@@ -42,6 +42,27 @@ RSpec.describe Feed, type: :model do
     expect(feed).to be_expired
   end
 
+  describe "domain" do
+    it "updates on post arriving" do
+      feed.update!(token: "somefeed")
+      expect(feed.domain).to eq(nil)
+      expect {
+        payload = Rails.root.join("spec/support/body.json").read
+        EmailProcessor.new(payload: payload).process
+      }.to change { feed.reload.domain }
+    end
+
+    it "handles substacks" do
+      feed.save!
+      feed.posts.create!(from: {
+        host: "substack.com",
+        email: "todayintabs@substack.com"
+      })
+
+      expect(feed.domain).to eq("todayintabs.substack.com")
+    end
+  end
+
   describe "favicon_url" do
     it "updates on post arriving" do
       feed.update!(token: "somefeed")

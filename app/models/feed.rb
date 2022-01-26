@@ -29,6 +29,7 @@ class Feed < ApplicationRecord
 
   def domain
     return unless last_post
+    return last_post.from_email.tr("@", ".") if last_post.domain == "substack.com"
 
     {
       "mail.bloombergview.com" => "bloomberg.com",
