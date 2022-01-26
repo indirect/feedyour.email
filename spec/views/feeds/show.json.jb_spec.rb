@@ -29,7 +29,7 @@ RSpec.describe "feeds/show.json", type: :view do
           has :author do
             has :name, "Adora"
             has :url, "mailto:adora@princess.alliance"
-            has :avatar, "https://secure.gravatar.com/avatar/a8e1c3915c3366d6a1b42901426e74c1"
+            has :avatar, "https://icon.horse/icon/princess.alliance"
           end
         end
       end
