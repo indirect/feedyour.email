@@ -9,7 +9,7 @@
     {
       id: post.token,
       url: post_url(post),
-      title: post.title,
+      title: post.subject,
       date_published: post.created_at,
       author: {
         name: post.from_name,
