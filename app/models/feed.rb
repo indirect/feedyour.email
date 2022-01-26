@@ -38,7 +38,7 @@ class Feed < ApplicationRecord
   end
 
   def favicon_url
-    return "/favicon.ico" unless domain
+    return unless domain
 
     URI("https://t0.gstatic.com/faviconV2").tap do |u|
       u.query = {

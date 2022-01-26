@@ -1,6 +1,8 @@
 module ApplicationHelper
   def sharing_meta_tags(title: "Feed Your Email")
     if content_for?(:page_favicon)
+      return if content_for(:page_favicon).nil?
+
       return [
         tag.link(rel: "icon", type: "image/jpeg", href: content_for(:page_favicon)),
         tag.link(rel: "apple-touch-icon", type: "image/jpeg", href: content_for(:page_favicon))
