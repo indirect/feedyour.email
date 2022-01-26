@@ -29,6 +29,7 @@ class Feed < ApplicationRecord
 
   def domain
     return unless last_post
+    return last_post.from_email.tr("@", ".") if last_post.domain == "substack.com"
 
     {
       "mail.bloombergview.com" => "bloomberg.com",
@@ -37,16 +38,8 @@ class Feed < ApplicationRecord
   end
 
   def favicon_url
-    return "/favicon.ico" unless domain
+    return unless domain
 
-    URI("https://t0.gstatic.com/faviconV2").tap do |u|
-      u.query = {
-        client: "SOCIAL",
-        type: "FAVICON",
-        fallback_opts: "TYPE,SIZE,URL",
-        url: "https://#{domain}",
-        size: "48"
-      }.to_query
-    end.to_s.html_safe # rubocop:disable Rails/OutputSafety
+    "https://icon.horse/icon/#{domain}".html_safe # rubocop:disable Rails/OutputSafety
   end
 end

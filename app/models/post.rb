@@ -1,12 +1,13 @@
 class Post < ApplicationRecord
   belongs_to :feed
   has_secure_token :token
+  store_accessor :payload, :from, :subject, :raw_html
 
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length)
   end
 
-  def from
+  def from_full
     payload.dig("from", "full")
   end
 
@@ -20,10 +21,6 @@ class Post < ApplicationRecord
 
   def domain
     payload.dig("from", "host")
-  end
-
-  def title
-    payload["subject"]
   end
 
   def html

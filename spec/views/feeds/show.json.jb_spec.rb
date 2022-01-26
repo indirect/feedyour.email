@@ -19,7 +19,7 @@ RSpec.describe "feeds/show.json", type: :view do
     assert_json(render) do
       has :title, "somename"
       has :home_page_url, "http://test.host/feeds/abc123/posts"
-      has :icon, "https://t0.gstatic.com/faviconV2?client=SOCIAL&fallback_opts=TYPE%2CSIZE%2CURL&size=48&type=FAVICON&url=https%3A%2F%2Fprincess.alliance"
+      has :icon, "https://icon.horse/icon/princess.alliance"
       has :items do
         item 0 do
           has :id, "post"
@@ -29,7 +29,7 @@ RSpec.describe "feeds/show.json", type: :view do
           has :author do
             has :name, "Adora"
             has :url, "mailto:adora@princess.alliance"
-            has :avatar, "https://secure.gravatar.com/avatar/a8e1c3915c3366d6a1b42901426e74c1"
+            has :avatar, "https://icon.horse/icon/princess.alliance"
           end
         end
       end

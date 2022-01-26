@@ -1,9 +1,11 @@
 module ApplicationHelper
   def sharing_meta_tags(title: "Feed Your Email")
     if content_for?(:page_favicon)
+      return if content_for(:page_favicon).nil?
+
       return [
-        tag.link(rel: "icon", type: "image/jpeg", href: content_for(:page_favicon)),
-        tag.link(rel: "apple-touch-icon", type: "image/jpeg", href: content_for(:page_favicon))
+        tag.link(rel: "icon", href: content_for(:page_favicon)),
+        tag.link(rel: "apple-touch-icon", href: content_for(:page_favicon))
       ].join("\n").html_safe # rubocop:disable Rails/OutputSafety
     end
 
@@ -30,9 +32,5 @@ module ApplicationHelper
       # Icons
       tag.link(rel: "icon", type: "image/svg+xml", href: "/favicon.svg")
     ].join("\n").html_safe # rubocop:disable Rails/OutputSafety
-  end
-
-  def gravatar_url(email)
-    "https://secure.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}"
   end
 end
