@@ -41,7 +41,7 @@ gem "importmap-rails", "~> 1.0"
 gem "jb", "~> 0.8.0"
 gem "nilify_blanks", "~> 1.4"
 gem "pg", "~> 1.3"
-gem "puma", "~> 5.5"
+gem "puma", "~> 5.6"
 gem "rack-canonical-host", "~> 1.1", require: false
 gem "redis", "~> 4.5"
 gem "sprockets-rails", "~> 3.4"
