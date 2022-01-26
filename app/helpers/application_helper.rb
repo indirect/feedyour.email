@@ -31,8 +31,4 @@ module ApplicationHelper
       tag.link(rel: "icon", type: "image/svg+xml", href: "/favicon.svg")
     ].join("\n").html_safe # rubocop:disable Rails/OutputSafety
   end
-
-  def gravatar_url(email)
-    "https://secure.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}"
-  end
 end
