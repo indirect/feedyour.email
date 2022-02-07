@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/r38y/griddler-postmark.git
-  revision: 4c34136f5d4649924bfaba625e10b18733ade61a
+  revision: 55904355a44066d94c24b49613a22e1face387a5
   specs:
     griddler-postmark (1.0.0)
       griddler
@@ -165,7 +165,7 @@ GEM
       rails (>= 6.0.0)
     html_tokenizer (0.0.7)
     htmlentities (4.3.4)
-    i18n (1.9.0)
+    i18n (1.9.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.0.2)
       actionpack (>= 6.0.0)
@@ -359,7 +359,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.5.3)
+    zeitwerk (2.5.4)
 
 PLATFORMS
   universal-darwin-21
