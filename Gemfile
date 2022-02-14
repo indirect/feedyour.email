@@ -43,7 +43,7 @@ gem "nilify_blanks", "~> 1.4"
 gem "pg", "~> 1.3"
 gem "puma", "~> 5.6"
 gem "rack-canonical-host", "~> 1.1", require: false
-gem "redis", "~> 4.5"
+gem "redis", "~> 4.6"
 gem "sprockets-rails", "~> 3.4"
 gem "tailwindcss-rails", "~> 2.0"
 gem "turbo-rails", "~> 1.0"
