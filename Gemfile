@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "3.1.0"
+ruby Pathname.new(__dir__).join(".ruby-version").read
 gem "rails", "~> 7.0"
 
 group :development, :test do
