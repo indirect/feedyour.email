@@ -16,7 +16,7 @@
         url: "mailto:#{post.from_email}",
         avatar: @feed.favicon_url
       },
-      content_html: post.html
+      content_html: post.html_body
     }
   end
 }.compact

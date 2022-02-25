@@ -27,29 +27,25 @@ RSpec.describe Post, type: :model do
     expect { post.update!(token: "SomePost") }.to raise_error(ActiveRecord::RecordNotUnique)
   end
 
-  it "has a from_full" do
-    post.payload = {"from" => {"full" => "person"}}
-    expect(post.from_full).to eq("person")
-  end
-
-  it "has a from_name" do
-    post.payload = {"from" => {"name" => "person"}}
-    expect(post.from_name).to eq("person")
-  end
-
-  it "has a from_email" do
-    post.payload = {"from" => {"email" => "person"}}
-    expect(post.from_email).to eq("person")
+  it "has a from" do
+    post.update! from: "Alice Example <alice@example.com>"
+    address = Mail::Address.new("Alice Example <alice@example.com>")
+    expect(post.reload.from).to eq(address)
   end
 
   it "has a subject" do
-    post.payload = {"subject" => "some subject, huh"}
+    post.subject = "some subject, huh"
     expect(post.subject).to eq("some subject, huh")
   end
 
-  it "has html" do
-    post.payload = {"raw_html" => "<h1>hi</h1>"}
-    expect(post.html).to eq("<h1>hi</h1>")
+  it "has an html_body" do
+    post.html_body = "<h1>hi</h1>"
+    expect(post.html_body).to eq("<h1>hi</h1>")
+  end
+
+  it "has a text_body" do
+    post.text_body = "plaintext hi"
+    expect(post.text_body).to eq("plaintext hi")
   end
 end
 

@@ -10,7 +10,7 @@ atom_feed root_url: feed_posts_url(@feed) do |atom|
         author.email post.from_email
       end
       entry.title(post.subject)
-      entry.content(post.html, type: "html")
+      entry.content(post.html_body, type: "html")
     end
   end
 end

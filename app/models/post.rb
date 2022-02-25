@@ -1,30 +1,23 @@
 class Post < ApplicationRecord
   belongs_to :feed
   has_secure_token :token
-  store_accessor :payload, :from, :subject, :raw_html
+  serialize :from, Mail::Address
+  delegate :domain, to: :from
 
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length)
   end
 
-  def from_full
-    payload.dig("from", "full")
+  def from=(from)
+    write_attribute :from, Mail::Address.wrap(from)
   end
 
   def from_name
-    payload.dig("from", "name")
+    from.display_name
   end
 
   def from_email
-    payload.dig("from", "email")
-  end
-
-  def domain
-    payload.dig("from", "host")
-  end
-
-  def html
-    payload["raw_html"]
+    from.address
   end
 
   def to_param
@@ -37,7 +30,11 @@ end
 # Table name: posts
 #
 #  id         :bigint           not null, primary key
+#  from       :string
+#  html_body  :string
 #  payload    :jsonb
+#  subject    :string
+#  text_body  :string
 #  token      :citext           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
