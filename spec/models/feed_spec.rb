@@ -54,11 +54,7 @@ RSpec.describe Feed, type: :model do
 
     it "handles substacks" do
       feed.save!
-      feed.posts.create!(from: {
-        host: "substack.com",
-        email: "todayintabs@substack.com"
-      })
-
+      feed.posts.create!(from: "todayintabs@substack.com")
       expect(feed.domain).to eq("todayintabs.substack.com")
     end
   end
