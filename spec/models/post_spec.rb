@@ -58,7 +58,11 @@ end
 # Table name: posts
 #
 #  id         :bigint           not null, primary key
+#  from       :string
+#  html_body  :string
 #  payload    :jsonb
+#  subject    :string
+#  text_body  :string
 #  token      :citext           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
