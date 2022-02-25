@@ -93,4 +93,7 @@ Rails.application.configure do
 
   # Concise request logging
   config.lograge.enabled = true
+
+  # Prepare the ingress controller used to receive mail
+  config.action_mailbox.ingress = :postmark
 end
