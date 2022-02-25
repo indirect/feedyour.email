@@ -31,3 +31,21 @@ class Post < ApplicationRecord
     token
   end
 end
+
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :bigint           not null, primary key
+#  payload    :jsonb
+#  token      :citext           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  feed_id    :bigint
+#
+# Indexes
+#
+#  index_posts_on_feed_id                 (feed_id)
+#  index_posts_on_feed_id_and_updated_at  (feed_id,updated_at DESC)
+#  index_posts_on_token                   (token) UNIQUE
+#
