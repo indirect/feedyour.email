@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "3.1.0"
+ruby Pathname.new(__dir__).join(".ruby-version").read
 gem "rails", "~> 7.0"
 
 group :development, :test do
@@ -13,8 +13,8 @@ end
 group :development do
   gem "brakeman", "~> 5.2", require: false
   gem "bundler-audit", "~> 0.9.0", require: false
-  gem "code-scanning-rubocop", "~> 0.5.0", require: false,
-    github: "indirect/code-scanning-rubocop", branch: "sarif-validation"
+  gem "code-scanning-rubocop", "~> 0.6.1", require: false,
+    github: "arthurnn/code-scanning-rubocop"
   gem "erb_lint", "~> 0.1.1", require: false
   gem "guard-bundler-audit", "~> 0.1.5", require: false
   gem "guard-erb_lint", github: "Driversnote-Dev/guard-erb_lint", require: false
@@ -41,9 +41,9 @@ gem "importmap-rails", "~> 1.0"
 gem "jb", "~> 0.8.0"
 gem "nilify_blanks", "~> 1.4"
 gem "pg", "~> 1.3"
+gem "propshaft", "~> 0.6.4"
 gem "puma", "~> 5.6"
 gem "rack-canonical-host", "~> 1.1", require: false
 gem "redis", "~> 4.6"
-gem "sprockets-rails", "~> 3.4"
 gem "tailwindcss-rails", "~> 2.0"
 gem "turbo-rails", "~> 1.0"

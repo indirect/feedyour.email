@@ -26,7 +26,7 @@ jobs:
           RAILS_ENV: test
           DATABASE_URL: postgres://rails:password@localhost:5432/rails_test
       - name: Run tests
-        run: bin/rake
+        run: bin/rake assets:precompile spec
         env:
           RAILS_ENV: test
           DATABASE_URL: postgres://rails:password@localhost:5432/rails_test
