@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_23_084201) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_25_091921) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -78,6 +78,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_23_084201) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.citext "token", null: false
+    t.string "from"
+    t.string "subject"
+    t.string "html_body"
+    t.string "text_body"
     t.index ["feed_id", "updated_at"], name: "index_posts_on_feed_id_and_updated_at", order: { updated_at: :desc }
     t.index ["feed_id"], name: "index_posts_on_feed_id"
     t.index ["token"], name: "index_posts_on_token", unique: true
