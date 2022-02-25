@@ -74,3 +74,20 @@ RSpec.describe Feed, type: :model do
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: feeds
+#
+#  id         :bigint           not null, primary key
+#  fetched_at :datetime
+#  name       :string
+#  token      :citext           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_feeds_on_fetched_at  (fetched_at)
+#  index_feeds_on_token       (token) UNIQUE
+#
