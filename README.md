@@ -27,7 +27,7 @@ bin/test
 
 ```sh
 # Run automatic lint fixers
-bin/rubocop -A
+bin/fix
 ```
 
 ### Adding posts in development
