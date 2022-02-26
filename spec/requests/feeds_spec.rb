@@ -28,12 +28,10 @@ RSpec.describe "/feeds", type: :request do
     end
 
     context "with a post" do
-      it "is valid according to W3C" do
-        payload = Rails.root.join("spec/support/body.json").read
-        expect {
-          EmailProcessor.new(payload: payload).process
-        }.to change { feed.posts.count }
+      fixtures :all
+      let(:feed) { feeds(:one) }
 
+      it "is valid according to W3C" do
         expect {
           get feed_url(feed, format: :atom)
         }.to change { feed.reload.fetched_at }
@@ -51,12 +49,10 @@ RSpec.describe "/feeds", type: :request do
     end
 
     context "with a post" do
-      it "is valid by the JSON Feed schema" do
-        payload = Rails.root.join("spec/support/body.json").read
-        expect {
-          EmailProcessor.new(payload: payload).process
-        }.to change { feed.posts.count }
+      fixtures :all
+      let(:feed) { feeds(:one) }
 
+      it "is valid by the JSON Feed schema" do
         expect {
           get feed_url(feed, format: :json)
         }.to change { feed.reload.fetched_at }

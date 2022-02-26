@@ -44,11 +44,10 @@ RSpec.describe Feed, type: :model do
 
   describe "domain" do
     it "updates on post arriving" do
-      feed.update!(token: "somefeed")
+      feed.save!
       expect(feed.domain).to eq(nil)
       expect {
-        payload = Rails.root.join("spec/support/body.json").read
-        EmailProcessor.new(payload: payload).process
+        feed.posts.create!(from: "alice@example.com")
       }.to change { feed.reload.domain }
     end
 
@@ -61,11 +60,10 @@ RSpec.describe Feed, type: :model do
 
   describe "favicon_url" do
     it "updates on post arriving" do
-      feed.update!(token: "somefeed")
+      feed.save!
       expect(feed.favicon_url).to eq(nil)
       expect {
-        payload = Rails.root.join("spec/support/body.json").read
-        EmailProcessor.new(payload: payload).process
+        feed.posts.create!(from: "alice@example.com")
       }.to change { feed.reload.favicon_url }
     end
   end
