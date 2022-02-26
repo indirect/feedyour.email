@@ -1,0 +1,1884 @@
+Return-Path: <delivery_20220222134609.26793341.322530@mx.sailthru.com>
+Received: by p-pm-inbound03a-aws-useast1a.inbound.postmarkapp.com (Postfix, from userid 996)
+	id ADA3C40551E; Tue, 22 Feb 2022 18:46:12 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+	p-pm-inbound03a-aws-useast1a
+X-Spam-Status: No
+X-Spam-Score: -5.1
+X-Spam-Tests: DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,HTML_MESSAGE,LOTS_OF_MONEY,
+	RCVD_IN_DNSWL_HI,RCVD_IN_MSPIKE_H3,RCVD_IN_MSPIKE_WL,SPF_HELO_NONE,SPF_PASS,
+	T_SCC_BODY_TEXT_LINE
+Received-SPF: pass (mx.sailthru.com: Sender is authorized to use 'delivery_20220222134609.26793341.322530@mx.sailthru.com' in 'mfrom' identity (mechanism 'include:aspmx.sailthru.com' matched)) receiver=p-pm-inbound03a-aws-useast1a; identity=mailfrom; envelope-from="delivery_20220222134609.26793341.322530@mx.sailthru.com"; helo=pmta29.sailthru.com; client-ip=192.64.237.222
+Received: from pmta29.sailthru.com (pmta29.sailthru.com [192.64.237.222])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by p-pm-inbound03a-aws-useast1a.inbound.postmarkapp.com (Postfix) with ESMTPS id D521A40553E
+	for <rnbz7cl5oymjtzs7fs9cc5a1@feedyour.email>; Tue, 22 Feb 2022 18:46:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed; s=sailthru; d=mail.bloombergview.com;
+ h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:List-Unsubscribe;
+ i=noreply@mail.bloombergview.com;
+ bh=ezRzhqn6777CdbnvVF4IrH9XTboWw2JcnwR+TqQtXIo=;
+ b=S3/NPU83qEAWOxzrkdAvvibxEo6txybHXImslScSI1O7Em8E4pRonDRyYUWC41mvv7m8wGBaAJ5s
+   PKbnytkddfyvb3MgMnDxihBQtbl6OoQvrcO+iuV0wOL3cRLredJ29hvphtoysNQF8NV1nFPBkDn1
+   BBiOjGFzhxM6cyaEuas=
+Received: from njmta-90.sailthru.com (173.228.155.90) by pmta29.sailthru.com id h2knn22sd4se for <rnbz7cl5oymjtzs7fs9cc5a1@feedyour.email>; Tue, 22 Feb 2022 13:46:09 -0500 (envelope-from <delivery_20220222134609.26793341.322530@mx.sailthru.com>)
+Received: from nj1-madforest.flt (172.18.20.33) by njmta-90.sailthru.com id h2knn21qqbsj for <rnbz7cl5oymjtzs7fs9cc5a1@feedyour.email>; Tue, 22 Feb 2022 13:46:09 -0500 (envelope-from <delivery_20220222134609.26793341.322530@mx.sailthru.com>)
+Date: Tue, 22 Feb 2022 13:46:09 -0500 (EST)
+From: Matt Levine <noreply@mail.bloombergview.com>
+To: abc123@feedyour.email
+Message-ID: <20220222134609.26793341.322530@sailthru.com>
+Subject: Money Stuff: Bored Apes Go to Court
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_617505_304633689.1645555569532"
+Precedence: bulk
+X-Feedback-ID: 6358:26793341:campaign:sailthru
+X-TM-ID: 20220222134609.26793341.322530
+X-Info: Message sent by sailthru.com customer Bloomberg Business
+X-Info: We do not permit unsolicited commercial email
+X-Info: Please report abuse by forwarding complete headers to
+X-Info: abuse@sailthru.com
+X-Mailer: sailthru.com
+X-JMailer: nj1-madforest.flt
+X-Unsubscribe-Web: https://link.mail.bloombergbusiness.com/oc/61dd51d2c9e68a7e69607853fy9vh.6wv6/dc956c0d
+List-Unsubscribe: <https://link.mail.bloombergbusiness.com/oc/61dd51d2c9e68a7e69607853fy9vh.6wv6/dc956c0d>, <mailto:unsubscribe_20220222134609.26793341.322530@mx.sailthru.com>
+X-rpcampaign: stjko26793341
+
+------=_Part_617505_304633689.1645555569532
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+
+
+ =20
+ =20
+   =20
+     =20
+       =20
+     =20
+   =20
+ =20
+ =20
+   =20
+     =20
+        Apes goneHere is a lawsuit in which a guy (the plaintiff, Timothy M=
+cKimmy) is suing a non-fungible token exchange (the defendant, OpenSea) f
+     =20
+   =20
+ =20
+ =20
+   =20
+     =20
+ =20
+   =20
+     =20
+       =20
+     =20
+   =20
+ =20
+
+
+       =20
+         =20
+         =20
+       =20
+       =20
+         =20
+           =20
+         =20
+       =20
+     =20
+ =20
+   =20
+     =20
+       =20
+     =20
+   =20
+ =20
+
+
+     =20
+     =20
+   =20
+ =20
+ =20
+ =20
+   =20
+     =20
+       =20
+         =20
+ =20
+   =20
+      Apes gone
+   =20
+ =20
+Here is=C2=A0a lawsuit in which a guy (the plaintiff, Timothy McKimmy) is s=
+uing=C2=A0a non-fungible token exchange (the defendant, OpenSea)=C2=A0for a=
+llegedly negligently causing him to lose=C2=A0his NFT in the Bored Ape Yach=
+t Club collection. He would like his ape back:Plaintiff is the rightful own=
+er of Bored Ape #3475. On or about February 7, 2022, Plaintiff=E2=80=99s Bo=
+red Ape was stolen, listed, and sold to another individual on Defendant [Op=
+enSea]=E2=80=99s platform. Plaintiff did not list his Bored Ape for sale on=
+ the marketplace. Defendant=E2=80=99s security vulnerability allowed an out=
+side party to illegally enter through OpenSea=E2=80=99s code and access Pla=
+intiff=E2=80=99s NFT wallet, in order to list and sell Plaintiff=E2=80=99s =
+Bored Ape at a literal fraction of the value (at .01 ETH). Essentially, Ope=
+nSea=E2=80=99s vulnerabilities allowed others to enter through its code and=
+ force the listing of an NFT. This is through no fault of the owner.After t=
+his forced entry through OpenSea code, and immediate purchase/sale, it was =
+then immediately resold at 99 ETH, which is still vastly below value, based=
+ on the rarity of the Bored Ape. ...Prior to the filing of this lawsuit, Pl=
+aintiff attempted to resolve the issue numerous times with Defendant. Defen=
+dant ignored Plaintiff. Defendant claimed to be =E2=80=9Cactively investiga=
+ting=E2=80=9D the issue, yet as of the filing of this Complaint, Defendant =
+has failed to reverse the transaction, return the Bored Ape, and/or provide=
+ any adequate remedy=C2=A0Plaintiff also attempted to resolve the issue wit=
+h the individual who currently possesses Plaintiff=E2=80=99s Bored Ape. The=
+ individual refused to return it.Plaintiff=E2=80=99s Bored Ape has signific=
+ant value; this is unquestionable. For example, Justin Bieber purchased Bor=
+ed Ape #3001 for 500 ETH, or $1.3 million at the time of the transaction. B=
+ieber=E2=80=99s Bored Ape has a rarity score of only 53.66 and a rarity ran=
+k of #9777. In contrast, Plaintiff=E2=80=99s Bored Ape has a rarity score o=
+f 138.52 and a rarity rank of #1392. It is in the=C2=A0top 14% rarity, and =
+it is significantly rarer than Bieber=E2=80=99s. Thus, Plaintiff=E2=80=99s =
+Bored Ape=E2=80=99s value is arguably in the millions of dollars and growin=
+g as each day passes.I know this is normal now, this is just life in 2022, =
+this ship has sailed. Still, imagine telling a federal judge =E2=80=9Csee, =
+my cartoon ape is vastly more valuable than Justin Bieber=E2=80=99s because=
+ it is in the top 14% rarity, so please award me millions of dollars of dam=
+ages against the exchange that negligently allowed someone to buy my ape fo=
+r 0.01 ETH.=E2=80=9D =E2=80=9CWhat is an ETH,=E2=80=9D the judge might reas=
+onably ask. =E2=80=9CThe ape is a computer image, what does it mean that so=
+meone else possesses it, or that it is rare,=E2=80=9D the judge might reaso=
+nably ask. =E2=80=9CWhy can=E2=80=99t you just right-click and save it, the=
+n you=E2=80=99d have your ape back,=E2=80=9D the judge might reasonably ask=
+. =E2=80=9CWho is Justin Bieber,=E2=80=9D the judge might reasonably ask.=
+=E2=80=9CWhat do you mean that you are the rightful owner of Bored Ape #347=
+5 when the blockchain shows definitively that it was transferred out of you=
+r wallet to someone else, who now demonstrably owns it,=E2=80=9D you or I (=
+not the judge)=C2=A0might reasonably ask, but that ship has also sailed. Ev=
+eryone understands now that:=09NFTs are a kind of property.=09Possessing th=
+ose NFTs on the blockchain =E2=80=94=C2=A0having them in your crypto wallet=
+, having the private keys that allow you to transfer them=C2=A0=E2=80=94=C2=
+=A0is=C2=A0not=C2=A0the same thing as ownership of that property, though it=
+ is an important indicator of ownership. (Just as possessing a bicycle is g=
+enerally a good sign that you own it, but=C2=A0not definitive proof; =E2=80=
+=9Cyou stole my bicycle, give it back=E2=80=9D is a coherent sentence, as i=
+s =E2=80=9Cyou stole my NFT, give it back.=E2=80=9D)=09Outside authorities =
+=E2=80=94=C2=A0OpenSea and other centralized intermediaries, but also U.S. =
+federal courts =E2=80=94=C2=A0can decide who owns an NFT, even if the block=
+chain says something different.=09For most practical purposes, what the out=
+side authorities say about ownership matters more than what the blockchain =
+says.All of that seems fine, really, but the path by which we have arrived =
+here is strange. The idea of crypto was to create a sort of property that c=
+ould be evidenced through code, where ownership was decentralized and permi=
+ssionless rather than intermediated through some traditional=C2=A0authority=
+. And=C2=A0it worked, and NFTs became worth millions of dollars, which made=
+ them far too valuable to be subjected to the uncertainty of decentralized =
+permissionless ownership. And so now if someone takes your apes on the bloc=
+kchain, you can try to get them back in federal court. =E2=80=9CWhy is this=
+ my problem,=E2=80=9D the judge might reasonably ask.Elsewhere in the endle=
+ss stealing of NFTs:The co-founder of OpenSea said the non-fungible token m=
+arketplace is investigating a =E2=80=9Cphishing attack,=E2=80=9D which does=
+n=E2=80=99t appear to be active.=E2=80=9CWe don=E2=80=99t believe it=E2=80=
+=99s connected to the OpenSea website,=E2=80=9D Devin Finzer, who is also i=
+ts chief executive officer, said on Twitter. =E2=80=9CIt appears 32 users t=
+hus far have signed a malicious payload from an attacker, and some of their=
+ NFTs were stolen.=E2=80=9DI have to say, I do not personally understand wh=
+y people would pay a million dollars for a Bored Ape, but I gather that the=
+y value=C2=A0some sort of feeling of community plus bragging rights on Twit=
+ter. But by this point surely the club of people who have had their Bored A=
+pes stolen is roughly as high-profile, exclusive and hyped as the club of p=
+eople who own Bored Apes? If you get your ape stolen you should be able to =
+mint an NFT =E2=80=9Cof=E2=80=9D I Got My Bored Ape Stolen, and then you ca=
+n hang out in the I Got My Bored Ape Stolen Yacht Club with all the other a=
+rt-world influencers and venture capitalists and probably Justin Bieber in =
+like a week.=C2=A0Or you can sell your IGMBASYC NFT for a million dollars, =
+unless someone steals it first.
+ =20
+    =20
+      =20
+        =20
+      =20
+   =20
+ =20
+ =20
+   =20
+     =20
+     =20
+       =20
+         =20
+            =20
+              =20
+                =20
+              =20
+           =20
+         =20
+       =20
+     =20
+     =20
+   =20
+ =20
+
+
+ =20
+    =20
+      =20
+        =20
+      =20
+   =20
+ =20
+ =20
+   =20
+     =20
+     =20
+       =20
+         =20
+            =20
+              =20
+                =20
+              =20
+           =20
+         =20
+       =20
+     =20
+     =20
+   =20
+ =20
+
+
+ =20
+   =20
+      Market structure
+   =20
+ =20
+The way some financial products work is that they are listed on an exchange=
+ and traded electronically, and if you want to buy some you press a button =
+and your order goes to the exchange and a bunch of robots compete to fill i=
+t in a millisecond at some algorithmically determined price. The way some o=
+ther financial products work is that they are traded by like six banks, and=
+ if you want to buy some you call one of the six traders who trades them, a=
+nd if three of those traders are on vacation or at lunch the entire market =
+goes haywire. Here=E2=80=99s a fun Bloomberg News story about  inflation tr=
+ading at big banks:Banks and hedge funds across Wall Street and London have=
+ been hiring to keep up, according to Canice Hogan, founder of recruitment =
+firm Shadowhound Ltd. in the U.K. capital. But there are a limited number o=
+f specialists in this increasingly complicated world, he said.=C2=A0That=E2=
+=80=99s especially true in the bazaar for sterling-based inflation products=
+. Last summer, a handful of job moves in London had an impact on market liq=
+uidity, according to a senior inflation trader at one of the world=E2=80=99=
+s biggest banks who requested anonymity.=C2=A0Guy Winkworth, who led Europe=
+an inflation trading at Morgan Stanley, left for Deutsche Bank AG. James Bu=
+cknall moved from the German bank to NatWest Group Plc, while Su Liu, who o=
+versaw sterling rates trading at BNP Paribas SA, moved to Citigroup Inc.=C2=
+=A0=E2=80=9CAt least half of the market was on gardening leave,=E2=80=9D sa=
+id Hogan. =E2=80=9CWith such a small pool of talent, this means that the me=
+rry-go-round of movement was more obvious.=E2=80=9DA good exercise for the =
+reader is: Can you design a trading strategy to take advantage of this dyna=
+mic? I will attempt a sketch:=09You run a hedge fund and you hire the infla=
+tion trader at the best bank.=09That bank replaces her by hiring the inflat=
+ion trader from the second-best bank, which replaces him by hiring the infl=
+ation trader from the third-best bank, etc.=09Everyone has three months of =
+gardening leave.=09During those three months, while there are no inflation =
+traders and their phones are covered by trainees on other desks, you buy lo=
+ts of inflation-linked bonds, pushing up their prices significantly due to =
+the lack of liquidity.=09The three months end, everyone=E2=80=99s back at t=
+heir desks, and you sell the bonds into a liquid orderly market without hav=
+ing much effect on their new, higher prices.It=E2=80=99s not quite right, b=
+ut I feel like it=E2=80=99s in the right ballpark? The basic idea is to man=
+ipulate the market in one direction when it=E2=80=99s easy to move prices, =
+and then trade out of your position=C2=A0when it=E2=80=99s hard to move pri=
+ces. The best part would be reading the headlines in the financial press =
+=E2=80=94=C2=A0Bond Market Distrusts Fed, Predicts Runaway Inflation =E2=80=
+=94=C2=A0and chuckling to yourself =E2=80=9Cno, that=E2=80=99s just because=
+ we hired Jane and she=E2=80=99s skiing this month.=E2=80=9D It is in gener=
+al hard to know which financial prices reflect a consensus among informed p=
+rofessionals=C2=A0about underlying economic reality and which financial pri=
+ces reflect, like, five traders were out late drinking last night so the ma=
+rket today is broken.=C2=A0
+ =20
+   =20
+     =20
+       =20
+     =20
+   =20
+ =20
+
+
+ =20
+   =20
+      McDonald=E2=80=99s
+   =20
+ =20
+There are two basic sorts of shareholder activism in the U.S. In one kind, =
+which I am going to call =E2=80=9Cbig activism,=E2=80=9D a hedge fund manag=
+er buys a largeish stake in a public company (often about 5% to 9%, though =
+generally less at a really big company) and tries to get it to make big cha=
+nges. Sometimes the activist works via private negotiations, press releases=
+, etc., but if the company says no then ultimately the activist will mount =
+a proxy fight. She will nominate several candidates for the company=E2=80=
+=99s board of directors, write a proxy statement supporting their candidacy=
+, and launch a campaign to convince other big shareholders to vote for her =
+slate. This will cost her millions of dollars to pay lawyers, proxy solicit=
+ors, public-relations consultants and other professionals. If her slate win=
+s a majority of the votes, she wins: Director elections are binding, and if=
+ her candidates win then they join the board of directors (and the company=
+=E2=80=99s candidates get kicked off). Then her candidates can implement wh=
+atever big changes she was arguing for. Given the high stakes of this proce=
+ss, many proxy fights settle: The company offers the activist a few board s=
+eats and/or some other concessions in order to avoid a contested vote.The r=
+easons=C2=A0the activist spends all this money are:=09She thinks=C2=A0the s=
+tock will go up if the company does the thing she wants, and=09She owns a l=
+ot of the stock, so if it goes up she=E2=80=99ll make money.The reasons the=
+ activist buys all that stock are:=09If she owns the shares, she can vote f=
+or her slate, which will help her win the proxy fight, and=09The whole poin=
+t of this is to own a lot of shares to make money when she wins and the sto=
+ck goes up.In the other kind of activism, which I will call =E2=80=9Csmall =
+activism,=E2=80=9D an individual investor, labor union pension fund, religi=
+ous order or other ideologically motivated person buys 100 shares of stock =
+in some company that is doing something she doesn=E2=80=99t like, and then =
+files a =E2=80=9Cshareholder proposal=E2=80=9D asking the company to do som=
+ething different. In general this will relate to some sort of environmental=
+, social or governance thing; the activist will want the company to pollute=
+ less or have more diverse leaders or have a board chair who is not its chi=
+ef executive officer.=C2=A0The company generally has to include this propos=
+al in its own proxy statement,[1] and the shareholders get to vote on it. T=
+his comes with relatively little=C2=A0expense for the activist: She doesn=
+=E2=80=99t prepare her own proxy statement or hire director candidates or i=
+ncur a lot of legal or solicitation expenses.=C2=A0The downside is that the=
+ proposal is usually of the form =E2=80=9Cthe shareholders humbly, but non-=
+bindingly, request the company to consider writing a report about the possi=
+ble benefits of doing the thing.=E2=80=9D Even if all the shareholders vote=
+ for the activist=E2=80=99s proposal, (1) the proposal often will not=C2=A0=
+demand that the company change any substantive behavior and (2) the company=
+ can ignore it anyway.Traditionally, the big activists ask companies to do =
+financial or strategic things =E2=80=94=C2=A0spin off a division, look for =
+a merger, do a big stock buyback, get into a new line of business or get ou=
+t of an old one,=C2=A0etc. =E2=80=94=C2=A0because those are the things that=
+ make the stock go up, while small activists=C2=A0ask companies to do ESG t=
+hings, because those are the things that can be addressed in shareholder pr=
+oposals and that labor unions and religious orders and individual hobbyists=
+ care about. But big institutions increasingly care about ESG things, and t=
+here are good arguments that doing good ESG things can make a company=E2=80=
+=99s stock go up. (Because good ESG things increase cash flows in the long =
+run, or just because ESG investors will buy more of the stock.) So you migh=
+t expect to see more ESG-focused big activism these days, and indeed there =
+has been some. We  talked last year about Dan Loeb=E2=80=99s efforts to get=
+ Royal Dutch Shell Plc to split up, which in many ways is a traditional big=
+ activist effort =E2=80=94=C2=A0Loeb is an activist hedge fund manager, he=
+=C2=A0built a $750 million stake in Shell, he wants a corporate split-up =
+=E2=80=94=C2=A0but uses ESG arguments.But there is also a hybrid form of ac=
+tivism in which hedge funds use the tools of big activism =E2=80=94=C2=A0th=
+reatening letters and investor presentations and=C2=A0board nominations and=
+ proxy fights =E2=80=94=C2=A0without=C2=A0building a big stake first. We al=
+so  talked last year about an ESG-focused proxy fight at Exxon Mobil Corp.,=
+ which the activist (Engine No. 1 LLC) won, despite only owning a smallish =
+sliver of shares. This was a weird fight, I pointed out: Engine No. 1 spent=
+ some $30 million on a proxy fight that could not possibly pay off for it f=
+inancially.  There was an explanation, of course: Engine No. 1 is a newish =
+manager trying to attract investors, and having a high-profile proxy-fight =
+win is very good for business.[2]And now=C2=A0here=E2=80=99s this:Carl Icah=
+n has launched a proxy fight for two board seats at McDonald=E2=80=99s Corp=
+., as the activist investor pushes the fast-food chain to require its suppl=
+iers to change their treatment of pigs.Mr. Icahn has a very small McDonald=
+=E2=80=99s stake and had been in talks with the company alongside the Human=
+e Society of the United States for several weeks, The Wall Street Journal r=
+eported earlier this month.After the Journal reported Sunday that Mr. Icahn=
+ had nominated two directors, McDonald=E2=80=99s confirmed it in a statemen=
+t and said the board would evaluate his nominees.At issue is McDonald=E2=80=
+=99s suppliers=E2=80=99 use of so-called gestation crates, which are small =
+cages used to constrain pregnant pigs.In 2012, McDonald=E2=80=99s pledged t=
+o stop buying pork by 2022 from producers who use the crates. Few knew at t=
+he time that Mr. Icahn quietly had pushed for the changes behind the scenes=
+.Now, 10 years later, Mr. Icahn and the Humane Society are arguing that McD=
+onald=E2=80=99s failed to follow through and changed its interpretation of =
+the pledge. McDonald=E2=80=99s now often has its producers move pigs out of=
+ the containers only after confirming they are pregnant, which many wait to=
+ do so until the sows are four to six weeks into their 16-week pregnancies.=
+Icahn apparently owns 200 shares of McDonald=E2=80=99s, worth about $50,000=
+, which is not nothing, but which=C2=A0is=C2=A0nothing to Carl Icahn (whose=
+ net worth Bloomberg puts at $23.6 billion) or McDonald=E2=80=99s (which ha=
+s a market capitalization of about $190 billion). In a practical sense=C2=
+=A0Carl Icahn is mounting a proxy fight at McDonald=E2=80=99s=C2=A0without =
+owning the stock; he is doing it for personal and humanitarian reasons, not=
+ for financial reasons. It is the hobbyist sort of activism =E2=80=94=C2=A0=
+small stake, ESG issue, personal interest =E2=80=94=C2=A0but done via an ex=
+pensive proxy fight. Potentially, I mean; I am not sure that Icahn will put=
+ as much money into this as he does into proxy fights where he has a larger=
+ stake. But if he does, he definitely will not make it up on the stock pric=
+e.I assume there won=E2=80=99t be=C2=A0too=C2=A0much of this; it is unusual=
+ for someone to simultaneously be (1) a billionaire professional hedge fund=
+ activist with the money and skill to contest a proxy fight at a large publ=
+ic company and also (2) interested in pushing for change at a company for p=
+urely humanitarian reasons. Still! The lesson of Engine No. 1, and of the f=
+ocus on ESG in general, is that it is possible to win a proxy fight without=
+ owning very many shares yourself, if you can appeal to the ESG interests o=
+f big institutional shareholders. I am not sure I=E2=80=99d expect Carl Ica=
+hn to win a proxy fight here, but a few years ago I would have been shocked=
+ to see him even start one. Now the ESG proxy fight seems almost normal.
+ =20
+   =20
+      Oh Elon
+   =20
+ =20
+Yeah I mean fine, fair:Tesla CEO Elon Musk accused the Securities and Excha=
+nge Commission of harassment in a calculated effort to =E2=80=9Cchill=E2=80=
+=9D his right to free speech in its oversight of his communications with sh=
+areholders as part of a 2018 agreement that settled civil securities charge=
+s against the billionaire.Musk and Tesla thought settling the charges would=
+ end the agency=E2=80=99s =E2=80=9Charassment=E2=80=9D of Musk and allow th=
+e court, not the agency to monitor his compliance, Musk=E2=80=99s lawyer wr=
+ote in a new court filing Thursday. =E2=80=9CBut the SEC has broken its pro=
+mises,=E2=80=9D he wrote, alleging that the agency has been =E2=80=9Cweapon=
+izing the consent decree by using it to try to muzzle and harass Mr. Musk a=
+nd Tesla.=E2=80=9DBack in 2019, while the SEC was still trying to enforce i=
+ts settlement requiring a Tesla Inc. lawyer to review Musk=E2=80=99s tweets=
+, I  wrote some imaginary dialogue between Musk and that lawyer. I imagined=
+ the lawyer telling Musk not to send an arguably material tweet, not becaus=
+e it unambiguously violated the settlement but because come on man:[Lawyer]=
+:=C2=A0The world is not as black and white as many tech founders wish it wa=
+s, and the legal system is not just a list of unambiguous written rules app=
+lied in a mechanical fashion. Whether you like it or not, regulators and co=
+urts operate in large areas of discretion; they have lots of ways to make l=
+ife more difficult for you and for the=C2=A0company that you manage as a fi=
+duciary for others, and they are used to being treated with a certain amoun=
+t of deference by the people they regulate. Here they have you dead to righ=
+ts on a technicality=E2=80=94you didn=E2=80=99t get=C2=A0your =E2=80=9C500,=
+000 cars=E2=80=9D tweet=C2=A0pre-approved, as you promised you would, and i=
+t had to be corrected=E2=80=94and how they respond to that will depend on y=
+our overall attitude and behavior. My job as a lawyer is not just to look u=
+p rules and show them to you; it is to make predictions, grounded in resear=
+ch but also in experience and a certain professional connoisseurship,=C2=A0=
+about how officials will react to particular fact patterns, and to advise y=
+ou on the wisest course of action in shaping their reaction. (This is somet=
+imes called =E2=80=9Clegal realism.=E2=80=9D) My expert advice to you is th=
+at the benefit to you, and to your company and its workers and shareholders=
+, of sending out these inscrutable late-night tweets is very low, while the=
+ risk of further antagonizing the SEC and the courts seems pretty high. I a=
+m not giving you a formal legal opinion that it is illegal for you to tweet=
+ =E2=80=9CCalifornia.=E2=80=9D I am just telling you that it=E2=80=99s dumb=
+.Musk:=C2=A0Well are they going to put me in jail for sending these tweets?=
+[Lawyer]:=C2=A0I mean, probably not, no.Musk:=C2=A0I have a big drill you k=
+now.[Lawyer]:=C2=A0I know.Musk:=C2=A0That=E2=80=99s a kind of legal realism=
+ too.Man, I thought I was being pretty smart there, but Musk is much smarte=
+r. My calculation =E2=80=94=C2=A0which I put into the mouth of this imagine=
+d lawyer =E2=80=94=C2=A0is that the SEC has a lot of discretionary power an=
+d does not like being disrespected; it is better to err on the side of bein=
+g nice to them in order to obtain more freedom to do the things that you ac=
+tually want to do. If the SEC doesn=E2=80=99t like you, they can do a lot t=
+o wear you down.But I did not reckon with the fact that Musk also has a lot=
+ of discretionary power and does not like being disrespected, and if he doe=
+sn=E2=80=99t like the SEC he can do a lot to wear=C2=A0them=C2=A0down too. =
+He has apparently tried to destroy the careers of the SEC enforcement lawye=
+rs who went after him, and he has at least as much power to pester them in =
+court as they do to pester him. Surely the outcome of the Musk/SEC fight is=
+ much less =E2=80=9CMusk has been deterred from carelessly tweeting materia=
+l things about Tesla=E2=80=9D and much more =E2=80=9Cthe SEC has been deter=
+red from going after Musk.=E2=80=9D That=E2=80=99s a kind of legal realism =
+too.
+ =20
+   =20
+      Everything is securities fraud
+   =20
+ =20
+I  often say that every bad thing that happens at a public company can be c=
+haracterized as securities fraud: =E2=80=9CYou didn=E2=80=99t tell us about=
+ the bad thing,=E2=80=9D shareholders say, =E2=80=9Cso we bought the stock =
+and it went down and we were deceived.=E2=80=9D Covid-19 is, among other th=
+ings, a bad thing that happened to pretty much every public company: Most s=
+tocks went down in March 2020 due to Covid-19, and you could have a range o=
+f theories about how each company deceived its shareholders about the poten=
+tial impact of a pandemic, etc. But here is an article finding only 54 secu=
+rities-fraud lawsuits against U.S. public companies about Covid-19, includi=
+ng only seven against S&P 500 companies.[3] The lesson is perhaps that I am=
+ exaggerating about=C2=A0everything=C2=A0being securities fraud: If some un=
+foreseen exogenous bad event hits every company at the same time, they won=
+=E2=80=99t=C2=A0all=C2=A0get securities fraud lawsuits; you need something =
+extra to turn a universal bad thing into a specific company=E2=80=99s secur=
+ities fraud.
+ =20
+   =20
+      Modern dating
+   =20
+ =20
+If you meet a man on a dating app, and he is charming and attentive but you=
+ never meet in person due to Covid, and then he offers to help you make mon=
+ey in crypto trading, should you =E2=80=A6=C2=A0I mean =E2=80=A6=C2=A0is th=
+at attractive? Is it romantic? You=E2=80=99re having a nice conversation an=
+d then he=E2=80=99s like =E2=80=9Cenough about you, let=E2=80=99s talk abou=
+t yield farming opportunities in DeFi=E2=80=9D? I=C2=A0suppose tastes diffe=
+r. Anyway it is definitely definitely definitely definitely definitely a sc=
+am:So when the man, who went by the name Ze Zhao, told Ms. Vu, who works in=
+ customer service for a security company, that he could help her make money=
+ by trading Bitcoin and other cryptocurrencies, she was intrigued.=E2=80=9C=
+I=E2=80=99d heard a lot about crypto in the news,=E2=80=9D she said. =E2=80=
+=9CI=E2=80=99m a curious person, and he actually was very knowledgeable abo=
+ut the whole trading process.=E2=80=9DBut the man wasn=E2=80=99t trying to =
+help Ms. Vu invest her money. He was entrapping her in an increasingly popu=
+lar type of financial scam, she said, one that combines the age-old allure =
+of romance with the newer temptation of overnight cryptocurrency riches.Etc=
+.:Jan Santiago, the deputy director of the Global Anti-Scam Organization, a=
+ nonprofit that represents victims of online cryptocurrency scams, said tha=
+t unlike typical romance scams =E2=80=94 which generally target older, less=
+ tech-savvy adults =E2=80=94 these scammers appear to be going after younge=
+r and more educated women on dating apps like Tinder, Bumble and Hinge.=E2=
+=80=9CIt=E2=80=99s mostly millennials who are getting scammed,=E2=80=9D Mr.=
+ Santiago said.Jane Lee, a researcher at the online fraud-prevention firm S=
+ift, began looking into crypto dating scams last year. She signed up for se=
+veral popular dating apps and quickly matched with men who tried to offer h=
+er investing advice.=E2=80=9CPeople are lonely from the pandemic, and crypt=
+o is super hot right now,=E2=80=9D she said. =E2=80=9CThe combination of th=
+e two has really made this a successful scam.=E2=80=9DI am not surprised th=
+at people are getting scammed out of crypto, that is the whole point of cry=
+pto, but are the kids these days really offering investing advice on the fi=
+rst date? This makes me feel old.
+ =20
+   =20
+      Things happen
+   =20
+ =20
+SOFR Leads Race to Replace Libor as Interest-Rate Benchmark.=C2=A0The Feder=
+al Funds Market, Pre- and Post-2008. Volkswagen Is in Advanced Talks on Pot=
+ential  Porsche IPO. Oil majors and commodity traders at risk from new sanc=
+tions on Russia. Swiss banks=E2=80=99 struggles to move on from murky past =
+hit by documents leak. Exodus From Bond Funds Is Mitigating the Stock Marke=
+t=E2=80=99s Swoon. US companies add environmental and social targets to exe=
+cutive bonuses. For White-Collar Workers, It=E2=80=99s Prime Time to Get a =
+Big Raise. HSBC  Boosts Bonuses 31% in =E2=80=98Extraordinarily Competitive=
+=E2=80=99 Market.  Mortgage Businesses Seen Laying Off Thousands as Volume =
+Drops. Allianz  Fires Fund Managers After Multibillion-Dollar Blowup. Chick=
+en Industry Officials Prepare for Retrial in Price-Fixing Case. It=E2=80=99=
+s Time for Bitcoin to Become a Better Tool for  Laundering Money. The DAO h=
+acker? Porsches and  Lamborghinis Lost at Sea May Be Worth $155 Million. Pi=
+zza Zugzwang. Truth Social sort of launched.If you'd like to get=C2=A0Money=
+=C2=A0Stuff=C2=A0in handy email form, right in your inbox, please=C2=A0subs=
+cribe at this link. Or you can subscribe to Money Stuff and other great Blo=
+omberg newsletters here. Thanks![1] In fact there are a number of reasons t=
+hat the company could decline to include the proposal, and there will often=
+ be some legal jostling in which the company asks the U.S. Securities and E=
+xchange Commission to allow it to omit the proposal, and the proponent trie=
+s to keep it in. The exclusions are in SEC Rule 14a-8; companies can omit p=
+roposals for reasons like =E2=80=9Cthe proposal deals with a matter relatin=
+g to the company's ordinary business operations.=E2=80=9D[2] Also the expen=
+ses of proxy fight *winners* are traditionally reimbursed by the company, t=
+hough it=E2=80=99s still a big risk.[3] The list is =E2=80=9CCarnival Corpo=
+ration, Citrix Systems, Norwegian Cruise Line Holdings, Occidental Petroleu=
+m, Royal Caribbean Cruises, Tyson Foods, and Wells Fargo.=E2=80=9D The crui=
+se lines are pretty obvious. Wells Fargo, though?
+       =20
+     =20
+   =20
+ =20
+
+
+ =20
+   =20
+       =20
+         =20
+            Follow Us
+           =20
+             =20
+           =20
+           =20
+             =20
+           =20
+           =20
+             =20
+           =20
+         =20
+         =20
+         =20
+           =20
+              Get the newsletter
+           =20
+         =20
+       =20
+   =20
+ =20
+
+
+ =20
+   =20
+     =20
+     =20
+ =20
+   =20
+     =20
+       =20
+     =20
+   =20
+ =20
+
+
+
+
+ =20
+   =20
+     =20
+       =20
+       =20
+Like Money Stuff?=C2=A0|=C2=A0
+Get=C2=A0unlimited access to Bloomberg.com, where you'll find trusted, data=
+-based journalism in 120 countries around the world and expert analysis fro=
+m exclusive daily newsletters.
+
+Before it=E2=80=99s here, it=E2=80=99s on the=C2=A0Bloomberg=C2=A0Terminal.=
+=C2=A0Find out more about how the Terminal delivers information and analysi=
+s that financial professionals can=E2=80=99t find anywhere else.=C2=A0Learn=
+ more.
+
+     =20
+   =20
+ =20
+
+
+
+       =20
+           You received this message because you are subscribed to Bloomber=
+g's Money Stuff newsletter.
+       =20
+       =20
+          Unsubscribe | Bloomberg.com | Contact Us
+       =20
+       =20
+         =20
+           =20
+             =20
+               =20
+                 =20
+                   =20
+                 =20
+               =20
+               =20
+                  |
+               =20
+               =20
+                 =20
+                   =20
+                 =20
+               =20
+             =20
+           =20
+         =20
+       =20
+       =20
+          Bloomberg L.P. 731 Lexington, New York, NY, 10022
+       =20
+     =20
+   =20
+ =20
+ =20
+
+ =20
+   =20
+     =20
+     =20
+     =20
+     =20
+     =20
+   =20
+ =20
+
+
+
+<a href=3D""><img src=3D"https://link.mail.bloombergbusiness.com/img/61dd51=
+d2c9e68a7e69607853fy9vh.6wv6/9479631e.gif" alt=3D"" border=3D"0" /></a>
+
+------=_Part_617505_304633689.1645555569532
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns=3D"http://www.w3.org/199=
+9/xhtml" style=3D"width: 100%;">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" />
+<meta name=3D"viewport" content=3D"initial-scale=3D1" />
+<title>Money Stuff</title>
+<!--[if (mso)|(mso 16)]>
+<style type=3D"text/css">a {text-decoration: none;}</style>
+<![endif]-->
+<style>body {
+width: 100%; -webkit-font-smoothing: antialiased; font-family: Helvetica, A=
+rial, sans-serif; font-size: 16px; line-height: 150%; margin: 0; padding: 0=
+;
+}
+img {
+max-width: 550px;
+}
+.body-component a:visited {
+color: #000000; text-decoration: none !important; border-bottom: 1px solid =
+#000000; background-color: #ccc;
+}
+.body-component h1 a:visited {
+text-decoration: none; color: #000000;
+}
+@media only screen and (max-width: 480px) {       =20
+.lihide {           =20
+display: none !important;       =20
+}       =20
+.lishow {           =20
+display: block !important;           =20
+width: auto !important;           =20
+overflow: visible !important;           =20
+float: none !important;           =20
+max-height: inherit !important;           =20
+line-height: inherit !important;       =20
+}   =20
+}
+</style></head>
+<body style=3D"width: 100%; -webkit-font-smoothing: antialiased; font-famil=
+y: Helvetica, Arial, sans-serif; font-size: 16px; line-height: 150%; margin=
+: 0; padding: 0;">
+<table id=3D"wrapper" class=3D"wrapper" width=3D"100%" align=3D"center" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"-webkit-font-smoothi=
+ng: antialiased; font-family: Helvetica, Arial, sans-serif; font-size: 16px=
+; max-width: 550px; width: 100% !important;">
+<!--[if mso]>
+<center>
+<tr><td>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"550">
+<![endif]-->
+<tr>
+<td class=3D"sailthru-variables" style=3D"border-collapse: collapse; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt;">
+<div style=3D"display: none; max-height: 0px; overflow: hidden;">
+</div>
+</td>
+</tr>
+<tr>
+<td class=3D"preview-text" style=3D"border-collapse: collapse; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;">
+<div style=3D"display: none; max-height: 0px; overflow: hidden;">
+Apes goneHere is a lawsuit in which a guy (the plaintiff, Timothy McKimmy) =
+is suing a non-fungible token exchange (the defendant, OpenSea) f
+</div>
+</td>
+</tr>
+<tr>
+<td class=3D"logo-wrapper" style=3D"border-collapse: collapse; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt; padding-bottom: 15px;">
+<table class=3D"liveintent-flex-ad" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" align=3D"center">
+<tr>
+<td colspan=3D"2">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTg3NyZsaT0yNjc5MzM0MSZtPTM5Z=
+DZiOTliNDk3MjY2NzAzZjlkZDgxMjFhMjEyMDRjJnA9MjcxMTU4NzEmc3RwZT1kZWZhdWx0Jg/6=
+1dd51d2c9e68a7e69607853Bb00efe6d" rel=3D"nofollow">
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825877&amp;li=3D26793341&amp;=
+m=3D39d6b99b497266703f9dd8121a21204c&amp;p=3D27115871&amp;stpe=3Ddefault&am=
+p;" border=3D"0" width=3D"550" style=3D"width: 100%; max-width: 550px; disp=
+lay:block" />
+</a>
+</td>
+</tr>
+</table>
+<table class=3D"logo" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0">
+<tr>
+<td align=3D"center" class=3D"view-in-browser" style=3D"border-collapse: co=
+llapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 20px 0px 10p=
+x;">
+</td>
+</tr>
+<tr>
+<td align=3D"center" class=3D"logo-container" style=3D"border-collapse: col=
+lapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 5px;">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2F1dGhvcnMvQVJiVFFsUkxSakUvbWF0d=
+Ghldy1zLWxldmluZT9jbXBpZD1CQkQwMjIyMjJfTU9ORVlTVFVGRiZ1dG1fbWVkaXVtPWVtYWls=
+JnV0bV9zb3VyY2U9bmV3c2xldHRlciZ1dG1fdGVybT0yMjAyMjImdXRtX2NhbXBhaWduPW1vbmV=
+5c3R1ZmY/61dd51d2c9e68a7e69607853B02969a79"><!--[if mso]>
+<table width=3D"550"><tr><td><img alt=3D"Bloomberg" src=3D"https://assets.b=
+wbx.io/images/users/iqjWHBFdfxIU/ije72WSHsgD4/v0/-1x-1.png" width=3D"550" /=
+></td></tr></table>
+<div style=3D"display:none">
+<![endif]--><img class=3D"logo-image" src=3D"https://assets.bwbx.io/images/=
+users/iqjWHBFdfxIU/ije72WSHsgD4/v0/-1x-1.png" border=3D"0" alt=3D"Bloomberg=
+" style=3D"max-width: 550px; width: 100%; display: block;" /><!--[if mso]>
+</div>
+<![endif]--></a>
+</td>
+</tr>
+</table><table class=3D"liveintent-sponsored-logo" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" align=3D"center">
+<tr>
+<td colspan=3D"2">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTg4MSZsaT0yNjc5MzM0MSZtPTM5Z=
+DZiOTliNDk3MjY2NzAzZjlkZDgxMjFhMjEyMDRjJnA9MjcxMTU4NzEmc3RwZT1kZWZhdWx0Jg/6=
+1dd51d2c9e68a7e69607853C6efe1447" rel=3D"nofollow">
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825881&amp;li=3D26793341&amp;=
+m=3D39d6b99b497266703f9dd8121a21204c&amp;p=3D27115871&amp;stpe=3Ddefault&am=
+p;" border=3D"0" width=3D"108" style=3D"width: 108px !important; display:bl=
+ock" />
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style=3D"border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt;">
+<table class=3D"body-component" width=3D"100%" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0">
+<tr>
+<td class=3D"body-component__content" style=3D"border-collapse: collapse; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt; line-height: 150%; padding: 0 =
+10px;">
+<table class=3D"header" width=3D"100%" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0">
+<tr>
+<td class=3D"body-header-container" style=3D"border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<h2 style=3D"font-weight: bold; font-family: &quot;Arial Black&quot;, Arial=
+, Helvetica, sans-serif; letter-spacing: -1px; font-size: 20px; border-bott=
+om-width: 1px; border-bottom-style: dotted; margin: 0px; padding: 16px 0px =
+5px;">Apes gone</h2>
+</td>
+</tr>
+</table><p style=3D"margin: 16px 0;">Here is=C2=A0<a href=3D"https://link.m=
+ail.bloombergbusiness.com/click/26793341.322530/aHR0cHM6Ly9hc3NldHMuYndieC5=
+pby9kb2N1bWVudHMvdXNlcnMvaXFqV0hCRmRmeElVL3J6d25fbnBrSVM5ay92MA/61dd51d2c9e=
+68a7e69607853B7b605e68" itemprop=3D"StoryLink" itemscope=3D"itemscope" targ=
+et=3D"_blank" style=3D"color: #000000; text-decoration: none !important; bo=
+rder-bottom-width: 1px; border-bottom-color: #000000; border-bottom-style: =
+solid; background-color: #ccc;">a lawsuit</a> in which a guy (the plaintiff=
+, Timothy McKimmy) is suing=C2=A0a non-fungible token exchange (the defenda=
+nt, OpenSea)=C2=A0for allegedly negligently causing him to lose=C2=A0his NF=
+T in the Bored Ape Yacht Club collection. He would like his ape back:</p><b=
+lockquote><p style=3D"margin: 16px 0;">Plaintiff is the rightful owner of B=
+ored Ape #3475. On or about February 7, 2022, Plaintiff=E2=80=99s Bored Ape=
+ was stolen, listed, and sold to another individual on Defendant [OpenSea]=
+=E2=80=99s platform. Plaintiff did not list his Bored Ape for sale on the m=
+arketplace. Defendant=E2=80=99s security vulnerability allowed an outside p=
+arty to illegally enter through OpenSea=E2=80=99s code and access Plaintiff=
+=E2=80=99s NFT wallet, in order to list and sell Plaintiff=E2=80=99s Bored =
+Ape at a literal fraction of the value (at .01 ETH). Essentially, OpenSea=
+=E2=80=99s vulnerabilities allowed others to enter through its code and for=
+ce the listing of an NFT. This is through no fault of the owner.</p><p styl=
+e=3D"margin: 16px 0;">After this forced entry through OpenSea code, and imm=
+ediate purchase/sale, it was then immediately resold at 99 ETH, which is st=
+ill vastly below value, based on the rarity of the Bored Ape. ...</p><p sty=
+le=3D"margin: 16px 0;">Prior to the filing of this lawsuit, Plaintiff attem=
+pted to resolve the issue numerous times with Defendant. Defendant ignored =
+Plaintiff. Defendant claimed to be =E2=80=9Cactively investigating=E2=80=9D=
+ the issue, yet as of the filing of this Complaint, Defendant has failed to=
+ reverse the transaction, return the Bored Ape, and/or provide any adequate=
+ remedy=C2=A0</p><p style=3D"margin: 16px 0;">Plaintiff also attempted to r=
+esolve the issue with the individual who currently possesses Plaintiff=E2=
+=80=99s Bored Ape. The individual refused to return it.</p><p style=3D"marg=
+in: 16px 0;">Plaintiff=E2=80=99s Bored Ape has significant value; this is u=
+nquestionable. For example, Justin Bieber purchased Bored Ape #3001 for 500=
+ ETH, or $1.3 million at the time of the transaction. Bieber=E2=80=99s Bore=
+d Ape has a rarity score of only 53.66 and a rarity rank of #9777. In contr=
+ast, Plaintiff=E2=80=99s Bored Ape has a rarity score of 138.52 and a rarit=
+y rank of #1392. It is in the=C2=A0top 14% rarity, and it is significantly =
+rarer than Bieber=E2=80=99s. Thus, Plaintiff=E2=80=99s Bored Ape=E2=80=99s =
+value is arguably in the millions of dollars and growing as each day passes=
+.</p></blockquote><p style=3D"margin: 16px 0;">I know this is normal now, t=
+his is just life in 2022, this ship has sailed. Still, imagine telling a fe=
+deral judge =E2=80=9Csee, my cartoon ape is vastly more valuable than Justi=
+n Bieber=E2=80=99s because it is in the top 14% rarity, so please award me =
+millions of dollars of damages against the exchange that negligently allowe=
+d someone to buy my ape for 0.01 ETH.=E2=80=9D =E2=80=9CWhat is an ETH,=E2=
+=80=9D the judge might reasonably ask. =E2=80=9CThe ape is a computer image=
+, what does it mean that someone else possesses it, or that it is rare,=E2=
+=80=9D the judge might reasonably ask. =E2=80=9CWhy can=E2=80=99t you just =
+right-click and save it, then you=E2=80=99d have your ape back,=E2=80=9D th=
+e judge might reasonably ask. =E2=80=9CWho is Justin Bieber,=E2=80=9D the j=
+udge might reasonably ask.</p><p style=3D"margin: 16px 0;">=E2=80=9CWhat do=
+ you mean that you are the rightful owner of Bored Ape #3475 when the block=
+chain shows definitively that it was transferred out of your wallet to some=
+one else, who now demonstrably owns it,=E2=80=9D you or I (not the judge)=
+=C2=A0might reasonably ask, but that ship has also sailed. Everyone underst=
+ands now that:</p><ol style=3D"list-style-type: decimal; padding-left: 40px=
+; margin: 16px 0;">=09<li style=3D"margin-bottom: 5px;">NFTs are a kind of =
+property.</li>=09<li style=3D"margin-bottom: 5px;">Possessing those NFTs on=
+ the blockchain =E2=80=94=C2=A0having them in your crypto wallet, having th=
+e private keys that allow you to transfer them=C2=A0=E2=80=94=C2=A0is=C2=A0=
+<em>not=C2=A0</em>the same thing as ownership of that property, though it i=
+s an important indicator of ownership. (Just as possessing a bicycle is gen=
+erally a good sign that you own it, but=C2=A0not definitive proof; =E2=80=
+=9Cyou stole my bicycle, give it back=E2=80=9D is a coherent sentence, as i=
+s =E2=80=9Cyou stole my NFT, give it back.=E2=80=9D)</li>=09<li style=3D"ma=
+rgin-bottom: 5px;">Outside authorities =E2=80=94=C2=A0OpenSea and other cen=
+tralized intermediaries, but also U.S. federal courts =E2=80=94=C2=A0<a hre=
+f=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aHR0cHM6=
+Ly93d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2FydGljbGVzLzIwMjItMDEtMTAvd2ViMy10YWt=
+lcy10cnVzdC10b28_Y21waWQ9QkJEMDIyMjIyX01PTkVZU1RVRkYmdXRtX21lZGl1bT1lbWFpbC=
+Z1dG1fc291cmNlPW5ld3NsZXR0ZXImdXRtX3Rlcm09MjIwMjIyJnV0bV9jYW1wYWlnbj1tb25le=
+XN0dWZm/61dd51d2c9e68a7e69607853Bbe32d080" itemprop=3D"StoryLink" itemscope=
+=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-decoration: =
+none !important; border-bottom-width: 1px; border-bottom-color: #000000; bo=
+rder-bottom-style: solid; background-color: #ccc;">can decide who owns an N=
+FT</a>, even if the blockchain says something different.</li>=09<li style=
+=3D"margin-bottom: 5px;">For most practical purposes, what the outside auth=
+orities say about ownership matters more than what the blockchain says.</li=
+></ol><p style=3D"margin: 16px 0;">All of that seems fine, really, but the =
+path by which we have arrived here is strange. The idea of crypto was to cr=
+eate a sort of property that could be evidenced through code, where ownersh=
+ip was decentralized and permissionless rather than intermediated through s=
+ome traditional=C2=A0authority. And=C2=A0<em>it worked</em>, and NFTs becam=
+e worth millions of dollars, which made them far too valuable to be subject=
+ed to the uncertainty of decentralized permissionless ownership. And so now=
+ if someone takes your apes on the blockchain, you can try to get them back=
+ in federal court. =E2=80=9CWhy is this my problem,=E2=80=9D the judge migh=
+t reasonably ask.</p><p style=3D"margin: 16px 0;">Elsewhere in the endless =
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly93d3cudGhlYmxvY2tjcnlwdG8uY29tL2xpbmtlZC8xMzQ4MzIvb3BlbnNlYS1pcy1pb=
+nZlc3RpZ2F0aW5nLXJ1bW9ycy1vZi1hLW11bHRpLW1pbGxpb24tZG9sbGFyLW5mdC1leHBsb2l0=
+/61dd51d2c9e68a7e69607853B51485d7d" itemprop=3D"StoryLink" itemscope=3D"ite=
+mscope" target=3D"_blank" style=3D"color: #000000; text-decoration: none !i=
+mportant; border-bottom-width: 1px; border-bottom-color: #000000; border-bo=
+ttom-style: solid; background-color: #ccc;">stealing of NFTs</a>:</p><block=
+quote><p style=3D"margin: 16px 0;">The co-founder of OpenSea said the non-f=
+ungible token marketplace is investigating a =E2=80=9Cphishing attack,=E2=
+=80=9D which doesn=E2=80=99t appear to be active.</p><p style=3D"margin: 16=
+px 0;">=E2=80=9CWe don=E2=80=99t believe it=E2=80=99s connected to the Open=
+Sea website,=E2=80=9D Devin Finzer, who is also its chief executive officer=
+, said on Twitter. =E2=80=9CIt appears 32 users thus far have signed a mali=
+cious payload from an attacker, and some of their NFTs were stolen.=E2=80=
+=9D</p></blockquote><p style=3D"margin: 16px 0;">I have to say, I do not pe=
+rsonally understand why people would pay a million dollars for a Bored Ape,=
+ but I gather that they value=C2=A0some sort of feeling of community plus b=
+ragging rights on Twitter. But by this point surely the club of people who =
+have had their Bored Apes stolen is roughly as high-profile, exclusive and =
+hyped as the club of people who own Bored Apes? If you get your ape stolen =
+you should be able to mint an NFT =E2=80=9Cof=E2=80=9D I Got My Bored Ape S=
+tolen, and then you can hang out in the I Got My Bored Ape Stolen Yacht Clu=
+b with all the other art-world influencers and venture capitalists and prob=
+ably Justin Bieber in like a week.=C2=A0Or you can sell your IGMBASYC NFT f=
+or a million dollars, unless someone steals it first.</p><table class=3D"li=
+veintent-sponsored-content" width=3D"auto" cellpadding=3D"0" cellspacing=3D=
+"0">
+<tr>
+<td colspan=3D"2" align=3D"left" valign=3D"top" style=3D"padding:0 0px">=20
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTkyOSZsaT0yNjc5MzM0MSZtPTM5Z=
+DZiOTliNDk3MjY2NzAzZjlkZDgxMjFhMjEyMDRjJnA9MjcxMTU4NzEmc3RwZT1kZWZhdWx0Jg/6=
+1dd51d2c9e68a7e69607853D095df910" target=3D"_blank">=20
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825929&amp;li=3D26793341&amp;=
+m=3D39d6b99b497266703f9dd8121a21204c&amp;p=3D27115871&amp;stpe=3Ddefault&am=
+p;li_coord=3Ddesktop&amp;collapse_width=3D550&amp;" width=3D"550" border=3D=
+"0" style=3D"display:block;height:auto;width:100%;max-width:550px;" alt=3D"=
+" class=3D"lihide" />=20
+</a>=20
+</td>
+</tr>
+<tr>
+<td colspan=3D"2" align=3D"left" valign=3D"top">
+<!--[if !mso]><!-->
+<div style=3D"display:none; float:left; overflow:hidden; width:0; max-heigh=
+t:0; line-height:0;" class=3D"lishow">
+<table width=3D"auto" cellpadding=3D"0" cellspacing=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top" style=3D"padding:0 0px">=20
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTkyOSZsaT0yNjc5MzM0MSZtPTM5Z=
+DZiOTliNDk3MjY2NzAzZjlkZDgxMjFhMjEyMDRjJnA9MjcxMTU4NzEmc3RwZT1kZWZhdWx0Jg/6=
+1dd51d2c9e68a7e69607853E095df910" target=3D"_blank">=20
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825929&amp;li=3D26793341&amp;=
+m=3D39d6b99b497266703f9dd8121a21204c&amp;p=3D27115871&amp;stpe=3Ddefault&am=
+p;li_coord=3Dmobile&amp;collapse_width=3D550&amp;" width=3D"100%" border=3D=
+"0" style=3D"display:block;height:auto;" alt=3D"" />=20
+</a>=20
+</td>
+</tr>
+</table>
+</div>
+<!--<![endif]-->
+</td>
+</tr>
+</table>
+<table class=3D"liveintent-sponsored-content" width=3D"auto" cellpadding=3D=
+"0" cellspacing=3D"0">
+<tr>
+<td colspan=3D"2" align=3D"left" valign=3D"top" style=3D"padding:0 0px">=20
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTkzMyZsaT0yNjc5MzM0MSZtPTM5Z=
+DZiOTliNDk3MjY2NzAzZjlkZDgxMjFhMjEyMDRjJnA9MjcxMTU4NzEmc3RwZT1kZWZhdWx0Jg/6=
+1dd51d2c9e68a7e69607853Fbebc20de" target=3D"_blank">=20
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825933&amp;li=3D26793341&amp;=
+m=3D39d6b99b497266703f9dd8121a21204c&amp;p=3D27115871&amp;stpe=3Ddefault&am=
+p;li_coord=3Ddesktop&amp;collapse_width=3D550&amp;" width=3D"550" border=3D=
+"0" style=3D"display:block;height:auto;width:100%;max-width:550px;" alt=3D"=
+" class=3D"lihide" />=20
+</a>=20
+</td>
+</tr>
+<tr>
+<td colspan=3D"2" align=3D"left" valign=3D"top">
+<!--[if !mso]><!-->
+<div style=3D"display:none; float:left; overflow:hidden; width:0; max-heigh=
+t:0; line-height:0;" class=3D"lishow">
+<table width=3D"auto" cellpadding=3D"0" cellspacing=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top" style=3D"padding:0 0px">=20
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTkzMyZsaT0yNjc5MzM0MSZtPTM5Z=
+DZiOTliNDk3MjY2NzAzZjlkZDgxMjFhMjEyMDRjJnA9MjcxMTU4NzEmc3RwZT1kZWZhdWx0Jg/6=
+1dd51d2c9e68a7e69607853Gbebc20de" target=3D"_blank">=20
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825933&amp;li=3D26793341&amp;=
+m=3D39d6b99b497266703f9dd8121a21204c&amp;p=3D27115871&amp;stpe=3Ddefault&am=
+p;li_coord=3Dmobile&amp;collapse_width=3D550&amp;" width=3D"100%" border=3D=
+"0" style=3D"display:block;height:auto;" alt=3D"" />=20
+</a>=20
+</td>
+</tr>
+</table>
+</div>
+<!--<![endif]-->
+</td>
+</tr>
+</table>
+<table class=3D"header" width=3D"100%" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0">
+<tr>
+<td class=3D"body-header-container" style=3D"border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<h2 style=3D"font-weight: bold; font-family: &quot;Arial Black&quot;, Arial=
+, Helvetica, sans-serif; letter-spacing: -1px; font-size: 20px; border-bott=
+om-width: 1px; border-bottom-style: dotted; margin: 0px; padding: 16px 0px =
+5px;">Market structure</h2>
+</td>
+</tr>
+</table><p style=3D"margin: 16px 0;">The way some financial products work i=
+s that they are listed on an exchange and traded electronically, and if you=
+ want to buy some you press a button and your order goes to the exchange an=
+d a bunch of robots compete to fill it in a millisecond at some algorithmic=
+ally determined price. The way some other financial products work is that t=
+hey are traded by like six banks, and if you want to buy some you call one =
+of the six traders who trades them, and if three of those traders are on va=
+cation or at lunch the entire market goes haywire. Here=E2=80=99s a fun Blo=
+omberg News story about <a href=3D"https://link.mail.bloombergbusiness.com/=
+click/26793341.322530/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2ZlYXR1cmVzL=
+zIwMjItMDItMjEvaG93LXdhbGwtc3RyZWV0LXByb3MtZnJvbS1nb2xkbWFuLXRvLWpwbW9yZ2Fu=
+LWFyZS13aW5uaW5nLXRoZS1pbmZsYXRpb24tdHJhZGU_Y21waWQ9QkJEMDIyMjIyX01PTkVZU1R=
+VRkYmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPW5ld3NsZXR0ZXImdXRtX3Rlcm09MjIwMj=
+IyJnV0bV9jYW1wYWlnbj1tb25leXN0dWZm/61dd51d2c9e68a7e69607853B777b93ca" itemp=
+rop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"color:=
+ #000000; text-decoration: none !important; border-bottom-width: 1px; borde=
+r-bottom-color: #000000; border-bottom-style: solid; background-color: #ccc=
+;"> inflation trading at big banks</a>:</p><blockquote><p style=3D"margin: =
+16px 0;">Banks and hedge funds across Wall Street and London have been hiri=
+ng to keep up, according to Canice Hogan, founder of recruitment firm Shado=
+whound Ltd. in the U.K. capital. But there are a limited number of speciali=
+sts in this increasingly complicated world, he said.=C2=A0</p><p style=3D"m=
+argin: 16px 0;">That=E2=80=99s especially true in the bazaar for sterling-b=
+ased inflation products. Last summer, a handful of job moves in London had =
+an impact on market liquidity, according to a senior inflation trader at on=
+e of the world=E2=80=99s biggest banks who requested anonymity.=C2=A0</p><p=
+ style=3D"margin: 16px 0;">Guy Winkworth, who led European inflation tradin=
+g at Morgan Stanley, left for Deutsche Bank AG. James Bucknall moved from t=
+he German bank to NatWest Group Plc, while Su Liu, who oversaw sterling rat=
+es trading at BNP Paribas SA, moved to Citigroup Inc.=C2=A0</p><p style=3D"=
+margin: 16px 0;">=E2=80=9CAt least half of the market was on gardening leav=
+e,=E2=80=9D said Hogan. =E2=80=9CWith such a small pool of talent, this mea=
+ns that the merry-go-round of movement was more obvious.=E2=80=9D</p></bloc=
+kquote><p style=3D"margin: 16px 0;">A good exercise for the reader is: Can =
+you design a trading strategy to take advantage of this dynamic? I will att=
+empt a sketch:</p><ol style=3D"list-style-type: decimal; padding-left: 40px=
+; margin: 16px 0;">=09<li style=3D"margin-bottom: 5px;">You run a hedge fun=
+d and you hire the inflation trader at the best bank.</li>=09<li style=3D"m=
+argin-bottom: 5px;">That bank replaces her by hiring the inflation trader f=
+rom the second-best bank, which replaces him by hiring the inflation trader=
+ from the third-best bank, etc.</li>=09<li style=3D"margin-bottom: 5px;">Ev=
+eryone has three months of gardening leave.</li>=09<li style=3D"margin-bott=
+om: 5px;">During those three months, while there are no inflation traders a=
+nd their phones are covered by trainees on other desks, you buy lots of inf=
+lation-linked bonds, pushing up their prices significantly due to the lack =
+of liquidity.</li>=09<li style=3D"margin-bottom: 5px;">The three months end=
+, everyone=E2=80=99s back at their desks, and you sell the bonds into a liq=
+uid orderly market without having much effect on their new, higher prices.<=
+/li></ol><p style=3D"margin: 16px 0;">It=E2=80=99s not quite right, but I f=
+eel like it=E2=80=99s in the right ballpark? The basic idea is to manipulat=
+e the market in one direction when it=E2=80=99s easy to move prices, and th=
+en trade out of your position=C2=A0when it=E2=80=99s hard to move prices. T=
+he best part would be reading the headlines in the financial press =E2=80=
+=94=C2=A0Bond Market Distrusts Fed, Predicts Runaway Inflation =E2=80=94=C2=
+=A0and chuckling to yourself =E2=80=9Cno, that=E2=80=99s just because we hi=
+red Jane and she=E2=80=99s skiing this month.=E2=80=9D It is in general har=
+d to know which financial prices reflect a consensus among informed profess=
+ionals=C2=A0about underlying economic reality and which financial prices re=
+flect, like, five traders were out late drinking last night so the market t=
+oday is broken.=C2=A0</p><table class=3D"liveintent-flex-ad" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" align=3D"center">
+<tr>
+<td colspan=3D"2">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTg4NSZsaT0yNjc5MzM0MSZtPTM5Z=
+DZiOTliNDk3MjY2NzAzZjlkZDgxMjFhMjEyMDRjJnA9MjcxMTU4NzEmc3RwZT1kZWZhdWx0Jg/6=
+1dd51d2c9e68a7e69607853H77901680" rel=3D"nofollow">
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825885&amp;li=3D26793341&amp;=
+m=3D39d6b99b497266703f9dd8121a21204c&amp;p=3D27115871&amp;stpe=3Ddefault&am=
+p;" border=3D"0" width=3D"550" style=3D"width: 100%; max-width: 550px; disp=
+lay:block" />
+</a>
+</td>
+</tr>
+</table>
+<table class=3D"header" width=3D"100%" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0">
+<tr>
+<td class=3D"body-header-container" style=3D"border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<h2 style=3D"font-weight: bold; font-family: &quot;Arial Black&quot;, Arial=
+, Helvetica, sans-serif; letter-spacing: -1px; font-size: 20px; border-bott=
+om-width: 1px; border-bottom-style: dotted; margin: 0px; padding: 16px 0px =
+5px;">McDonald=E2=80=99s</h2>
+</td>
+</tr>
+</table><p style=3D"margin: 16px 0;">There are two basic sorts of sharehold=
+er activism in the U.S. In one kind, which I am going to call =E2=80=9Cbig =
+activism,=E2=80=9D a hedge fund manager buys a largeish stake in a public c=
+ompany (often about 5% to 9%, though generally less at a really big company=
+) and tries to get it to make big changes. Sometimes the activist works via=
+ private negotiations, press releases, etc., but if the company says no the=
+n ultimately the activist will mount a proxy fight. She will nominate sever=
+al candidates for the company=E2=80=99s board of directors, write a proxy s=
+tatement supporting their candidacy, and launch a campaign to convince othe=
+r big shareholders to vote for her slate. This will cost her millions of do=
+llars to pay lawyers, proxy solicitors, public-relations consultants and ot=
+her professionals. If her slate wins a majority of the votes, she wins: Dir=
+ector elections are binding, and if her candidates win then they join the b=
+oard of directors (and the company=E2=80=99s candidates get kicked off). Th=
+en her candidates can implement whatever big changes she was arguing for. G=
+iven the high stakes of this process, many proxy fights settle: The company=
+ offers the activist a few board seats and/or some other concessions in ord=
+er to avoid a contested vote.</p><p style=3D"margin: 16px 0;">The reasons=
+=C2=A0the activist spends all this money are:</p><ol style=3D"list-style-ty=
+pe: decimal; padding-left: 40px; margin: 16px 0;">=09<li style=3D"margin-bo=
+ttom: 5px;">She thinks=C2=A0the stock will go up if the company does the th=
+ing she wants, and</li>=09<li style=3D"margin-bottom: 5px;">She owns a lot =
+of the stock, so if it goes up she=E2=80=99ll make money.</li></ol><p style=
+=3D"margin: 16px 0;">The reasons the activist buys all that stock are:</p><=
+ol style=3D"list-style-type: decimal; padding-left: 40px; margin: 16px 0;">=
+=09<li style=3D"margin-bottom: 5px;">If she owns the shares, she can vote f=
+or her slate, which will help her win the proxy fight, and</li>=09<li style=
+=3D"margin-bottom: 5px;">The whole point of this is to own a lot of shares =
+to make money when she wins and the stock goes up.</li></ol><p style=3D"mar=
+gin: 16px 0;">In the other kind of activism, which I will call =E2=80=9Csma=
+ll activism,=E2=80=9D an individual investor, labor union pension fund, rel=
+igious order or other ideologically motivated person buys 100 shares of sto=
+ck in some company that is doing something she doesn=E2=80=99t like, and th=
+en files a =E2=80=9Cshareholder proposal=E2=80=9D asking the company to do =
+something different. In general this will relate to some sort of environmen=
+tal, social or governance thing; the activist will want the company to poll=
+ute less or have more diverse leaders or have a board chair who is not its =
+chief executive officer.=C2=A0The company generally has to include this pro=
+posal in its own proxy statement,[1] and the shareholders get to vote on it=
+. This comes with relatively little=C2=A0expense for the activist: She does=
+n=E2=80=99t prepare her own proxy statement or hire director candidates or =
+incur a lot of legal or solicitation expenses.=C2=A0The downside is that th=
+e proposal is usually of the form =E2=80=9Cthe shareholders humbly, but non=
+-bindingly, request the company to consider writing a report about the poss=
+ible benefits of doing the thing.=E2=80=9D Even if all the shareholders vot=
+e for the activist=E2=80=99s proposal, (1) the proposal often will not=C2=
+=A0demand that the company change any substantive behavior and (2) the comp=
+any can ignore it anyway.</p><p style=3D"margin: 16px 0;">Traditionally, th=
+e big activists ask companies to do financial or strategic things =E2=80=94=
+=C2=A0spin off a division, look for a merger, do a big stock buyback, get i=
+nto a new line of business or get out of an old one,=C2=A0etc. =E2=80=94=C2=
+=A0because those are the things that make the stock go up, while small acti=
+vists=C2=A0ask companies to do ESG things, because those are the things tha=
+t can be addressed in shareholder proposals and that labor unions and relig=
+ious orders and individual hobbyists care about. But big institutions incre=
+asingly care about ESG things, and there are good arguments that doing good=
+ ESG things can make a company=E2=80=99s stock go up. (Because good ESG thi=
+ngs increase cash flows in the long run, or just because ESG investors will=
+ buy more of the stock.) So you might expect to see more ESG-focused big ac=
+tivism these days, and indeed there has been some. We <a href=3D"https://li=
+nk.mail.bloombergbusiness.com/click/26793341.322530/aHR0cHM6Ly93d3cuYmxvb21=
+iZXJnLmNvbS9vcGluaW9uL2FydGljbGVzLzIwMjEtMTAtMjgvZGFuLWxvZWItd2FudHMtYS1jbG=
+Vhbi1zaGVsbC1hbmQtYS1kaXJ0eS1zaGVsbD9jbXBpZD1CQkQwMjIyMjJfTU9ORVlTVFVGRiZ1d=
+G1fbWVkaXVtPWVtYWlsJnV0bV9zb3VyY2U9bmV3c2xldHRlciZ1dG1fdGVybT0yMjAyMjImdXRt=
+X2NhbXBhaWduPW1vbmV5c3R1ZmY/61dd51d2c9e68a7e69607853B9928ea3d" itemprop=3D"=
+StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #00000=
+0; text-decoration: none !important; border-bottom-width: 1px; border-botto=
+m-color: #000000; border-bottom-style: solid; background-color: #ccc;"> tal=
+ked last year</a> about Dan Loeb=E2=80=99s efforts to get Royal Dutch Shell=
+ Plc to split up, which in many ways is a traditional big activist effort =
+=E2=80=94=C2=A0Loeb is an activist hedge fund manager, he=C2=A0built a $750=
+ million stake in Shell, he wants a corporate split-up =E2=80=94=C2=A0but u=
+ses ESG arguments.</p><p style=3D"margin: 16px 0;">But there is also a hybr=
+id form of activism in which hedge funds use the tools of big activism =E2=
+=80=94=C2=A0threatening letters and investor presentations and=C2=A0board n=
+ominations and proxy fights =E2=80=94=C2=A0<em>without=C2=A0</em>building a=
+ big stake first. We also <a href=3D"https://link.mail.bloombergbusiness.co=
+m/click/26793341.322530/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2FydGl=
+jbGVzLzIwMjEtMDUtMjcvZXh4b24tbG9zdC1hLWNsaW1hdGUtcHJveHktZmlnaHQ_Y21waWQ9Qk=
+JEMDIyMjIyX01PTkVZU1RVRkYmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPW5ld3NsZXR0Z=
+XImdXRtX3Rlcm09MjIwMjIyJnV0bV9jYW1wYWlnbj1tb25leXN0dWZm/61dd51d2c9e68a7e696=
+07853B5c283151" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_b=
+lank" style=3D"color: #000000; text-decoration: none !important; border-bot=
+tom-width: 1px; border-bottom-color: #000000; border-bottom-style: solid; b=
+ackground-color: #ccc;"> talked last year</a> about an ESG-focused proxy fi=
+ght at Exxon Mobil Corp., which the activist (Engine No. 1 LLC) won, despit=
+e only owning a smallish sliver of shares. This was a weird fight, I pointe=
+d out: Engine No. 1 spent some $30 million on a proxy fight that could not =
+possibly pay off for it financially. <a href=3D"https://link.mail.bloomberg=
+business.com/click/26793341.322530/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGlu=
+aW9uL2FydGljbGVzLzIwMjEtMDYtMDEvaXQtcy1nb29kLXRvLXdpbi1hLXByb3h5LWZpZ2h0P2N=
+tcGlkPUJCRDAyMjIyMl9NT05FWVNUVUZGJnV0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1uZX=
+dzbGV0dGVyJnV0bV90ZXJtPTIyMDIyMiZ1dG1fY2FtcGFpZ249bW9uZXlzdHVmZg/61dd51d2c9=
+e68a7e69607853Ba9deed6c" itemprop=3D"StoryLink" itemscope=3D"itemscope" tar=
+get=3D"_blank" style=3D"color: #000000; text-decoration: none !important; b=
+order-bottom-width: 1px; border-bottom-color: #000000; border-bottom-style:=
+ solid; background-color: #ccc;"> There was an explanation</a>, of course: =
+Engine No. 1 is a newish manager trying to attract investors, and having a =
+high-profile proxy-fight win is very good for business.[2]</p><p style=3D"m=
+argin: 16px 0;">And now=C2=A0<a href=3D"https://link.mail.bloombergbusiness=
+.com/click/26793341.322530/aHR0cHM6Ly93d3cud3NqLmNvbS9hcnRpY2xlcy9pY2Fobi1u=
+b21pbmF0ZXMtdHdvLXRvLW1jZG9uYWxkcy1ib2FyZC1zb3VyY2VzLXNheS0xMTY0NTM5MDI3Nz9=
+tb2Q9aXRwX3dzaiZydT15YWhvbw/61dd51d2c9e68a7e69607853B42b979a9" itemprop=3D"=
+StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #00000=
+0; text-decoration: none !important; border-bottom-width: 1px; border-botto=
+m-color: #000000; border-bottom-style: solid; background-color: #ccc;">here=
+=E2=80=99s this</a>:</p><blockquote><p style=3D"margin: 16px 0;">Carl Icahn=
+ has launched a proxy fight for two board seats at McDonald=E2=80=99s Corp.=
+, as the activist investor pushes the fast-food chain to require its suppli=
+ers to change their treatment of pigs.</p><p style=3D"margin: 16px 0;">Mr. =
+Icahn has a very small McDonald=E2=80=99s stake and had been in talks with =
+the company alongside the Humane Society of the United States for several w=
+eeks, The Wall Street Journal reported earlier this month.</p><p style=3D"m=
+argin: 16px 0;">After the Journal reported Sunday that Mr. Icahn had nomina=
+ted two directors, McDonald=E2=80=99s confirmed it in a statement and said =
+the board would evaluate his nominees.</p><p style=3D"margin: 16px 0;">At i=
+ssue is McDonald=E2=80=99s suppliers=E2=80=99 use of so-called gestation cr=
+ates, which are small cages used to constrain pregnant pigs.</p><p style=3D=
+"margin: 16px 0;">In 2012, McDonald=E2=80=99s pledged to stop buying pork b=
+y 2022 from producers who use the crates. Few knew at the time that Mr. Ica=
+hn quietly had pushed for the changes behind the scenes.</p><p style=3D"mar=
+gin: 16px 0;">Now, 10 years later, Mr. Icahn and the Humane Society are arg=
+uing that McDonald=E2=80=99s failed to follow through and changed its inter=
+pretation of the pledge. McDonald=E2=80=99s now often has its producers mov=
+e pigs out of the containers only after confirming they are pregnant, which=
+ many wait to do so until the sows are four to six weeks into their 16-week=
+ pregnancies.</p></blockquote><p style=3D"margin: 16px 0;">Icahn <a href=3D=
+"https://link.mail.bloombergbusiness.com/click/26793341.322530/aHR0cHM6Ly93=
+d3cuc2VjLmdvdi9BcmNoaXZlcy9lZGdhci9kYXRhLzYzOTA4LzAwMDA5NTAxMDMyMjAwMjg3OC9=
+kcDE2NzQ3Nl9kZWZhMTRhLmh0bQ/61dd51d2c9e68a7e69607853B7bd82ec5" itemprop=3D"=
+StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #00000=
+0; text-decoration: none !important; border-bottom-width: 1px; border-botto=
+m-color: #000000; border-bottom-style: solid; background-color: #ccc;">appa=
+rently owns</a> 200 shares of McDonald=E2=80=99s, worth about $50,000, whic=
+h is not nothing, but which=C2=A0<em>is</em>=C2=A0nothing to Carl Icahn (wh=
+ose net worth Bloomberg puts at $23.6 billion) or McDonald=E2=80=99s (which=
+ has a market capitalization of about $190 billion). In a practical sense=
+=C2=A0Carl Icahn is mounting a proxy fight at McDonald=E2=80=99s=C2=A0<em>w=
+ithout owning the stock</em>; he is doing it for personal and humanitarian =
+reasons, not for financial reasons. It is the hobbyist sort of activism =E2=
+=80=94=C2=A0small stake, ESG issue, personal interest =E2=80=94=C2=A0but do=
+ne via an expensive proxy fight. Potentially, I mean; I am not sure that Ic=
+ahn will put as much money into this as he does into proxy fights where he =
+has a larger stake. But if he does, he definitely will not make it up on th=
+e stock price.</p><p style=3D"margin: 16px 0;">I assume there won=E2=80=99t=
+ be=C2=A0<em>too=C2=A0</em>much of this; it is unusual for someone to simul=
+taneously be (1) a billionaire professional hedge fund activist with the mo=
+ney and skill to contest a proxy fight at a large public company and also (=
+2) interested in pushing for change at a company for purely humanitarian re=
+asons. Still! The lesson of Engine No. 1, and of the focus on ESG in genera=
+l, is that it is possible to win a proxy fight without owning very many sha=
+res yourself, if you can appeal to the ESG interests of big institutional s=
+hareholders. I am not sure I=E2=80=99d expect Carl Icahn to win a proxy fig=
+ht here, but a few years ago I would have been shocked to see him even star=
+t one. Now the ESG proxy fight seems almost normal.</p><table class=3D"head=
+er" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td class=3D"body-header-container" style=3D"border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<h2 style=3D"font-weight: bold; font-family: &quot;Arial Black&quot;, Arial=
+, Helvetica, sans-serif; letter-spacing: -1px; font-size: 20px; border-bott=
+om-width: 1px; border-bottom-style: dotted; margin: 0px; padding: 16px 0px =
+5px;">Oh Elon</h2>
+</td>
+</tr>
+</table><p style=3D"margin: 16px 0;">Yeah <a href=3D"https://link.mail.bloo=
+mbergbusiness.com/click/26793341.322530/aHR0cHM6Ly93d3cuY25iYy5jb20vMjAyMi8=
+wMi8xNy90ZXNsYS1jZW8tbXVzay1hY2N1c2VzLXNlYy1vZi1jYWxjdWxhdGVkLWVmZm9ydC10by=
+1jaGlsbC1oaXMtcmlnaHQtdG8tZnJlZS1zcGVlY2guaHRtbA/61dd51d2c9e68a7e69607853Bf=
+7d3cded" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" s=
+tyle=3D"color: #000000; text-decoration: none !important; border-bottom-wid=
+th: 1px; border-bottom-color: #000000; border-bottom-style: solid; backgrou=
+nd-color: #ccc;">I mean fine, fair</a>:</p><blockquote><p style=3D"margin: =
+16px 0;">Tesla CEO Elon Musk accused the Securities and Exchange Commission=
+ of harassment in a calculated effort to =E2=80=9Cchill=E2=80=9D his right =
+to free speech in its oversight of his communications with shareholders as =
+part of a 2018 agreement that settled civil securities charges against the =
+billionaire.</p><p style=3D"margin: 16px 0;">Musk and Tesla thought settlin=
+g the charges would end the agency=E2=80=99s =E2=80=9Charassment=E2=80=9D o=
+f Musk and allow the court, not the agency to monitor his compliance, Musk=
+=E2=80=99s lawyer wrote in a new court filing Thursday. =E2=80=9CBut the SE=
+C has broken its promises,=E2=80=9D he wrote, alleging that the agency has =
+been =E2=80=9Cweaponizing the consent decree by using it to try to muzzle a=
+nd harass Mr. Musk and Tesla.=E2=80=9D</p></blockquote><p style=3D"margin: =
+16px 0;">Back in 2019, while the SEC was still trying to enforce its settle=
+ment requiring a Tesla Inc. lawyer to review Musk=E2=80=99s tweets, I <a hr=
+ef=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aHR0cHM=
+6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2FydGljbGVzLzIwMTktMDItMjcvd2hvLWNhbi=
+1zYXktd2hhdC1jYWxpZm9ybmlhLW1lYW5zP2NtcGlkPUJCRDAyMjIyMl9NT05FWVNUVUZGJnV0b=
+V9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1uZXdzbGV0dGVyJnV0bV90ZXJtPTIyMDIyMiZ1dG1f=
+Y2FtcGFpZ249bW9uZXlzdHVmZg/61dd51d2c9e68a7e69607853B51684b5d" itemprop=3D"S=
+toryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000=
+; text-decoration: none !important; border-bottom-width: 1px; border-bottom=
+-color: #000000; border-bottom-style: solid; background-color: #ccc;"> wrot=
+e some imaginary dialogue</a> between Musk and that lawyer. I imagined the =
+lawyer telling Musk not to send an arguably material tweet, not because it =
+unambiguously violated the settlement but because come on man:</p><blockquo=
+te><p style=3D"margin: 16px 0;"><strong>[Lawyer]:</strong>=C2=A0The world i=
+s not as black and white as many tech founders wish it was, and the legal s=
+ystem is not just a list of unambiguous written rules applied in a mechanic=
+al fashion. Whether you like it or not, regulators and courts operate in la=
+rge areas of discretion; they have lots of ways to make life more difficult=
+ for you and for the=C2=A0company that you manage as a fiduciary for others=
+, and they are used to being treated with a certain amount of deference by =
+the people they regulate. Here they have you dead to rights on a technicali=
+ty=E2=80=94you didn=E2=80=99t get=C2=A0<a href=3D"https://link.mail.bloombe=
+rgbusiness.com/click/26793341.322530/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcG=
+luaW9uL2FydGljbGVzLzIwMTktMDItMjAvZWxvbi1tdXNrLWNhbi10LWhlbHAtaGltc2VsZj9jb=
+XBpZD1CQkQwMjIyMjJfTU9ORVlTVFVGRiZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9zb3VyY2U9bmV3=
+c2xldHRlciZ1dG1fdGVybT0yMjAyMjImdXRtX2NhbXBhaWduPW1vbmV5c3R1ZmY/61dd51d2c9e=
+68a7e69607853Beacb5fc1" target=3D"_blank" style=3D"color: #000000; text-dec=
+oration: none !important; border-bottom-width: 1px; border-bottom-color: #0=
+00000; border-bottom-style: solid; background-color: #ccc;">your =E2=80=9C5=
+00,000 cars=E2=80=9D tweet</a>=C2=A0pre-approved, as you promised you would=
+, and it had to be corrected=E2=80=94and how they respond to that will depe=
+nd on your overall attitude and behavior. My job as a lawyer is not just to=
+ look up rules and show them to you; it is to make predictions, grounded in=
+ research but also in experience and a certain professional connoisseurship=
+,=C2=A0about how officials will react to particular fact patterns, and to a=
+dvise you on the wisest course of action in shaping their reaction. (This i=
+s sometimes called =E2=80=9C<a href=3D"https://link.mail.bloombergbusiness.=
+com/click/26793341.322530/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2Fyd=
+GljbGVzLzIwMTYtMTEtMDkvYnJhbWJsZXMtcGFydG5lcnMtYW5kLW9wdGlvbnM_Y21waWQ9QkJE=
+MDIyMjIyX01PTkVZU1RVRkYmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPW5ld3NsZXR0ZXI=
+mdXRtX3Rlcm09MjIwMjIyJnV0bV9jYW1wYWlnbj1tb25leXN0dWZm/61dd51d2c9e68a7e69607=
+853B4ae7c631" target=3D"_blank" style=3D"color: #000000; text-decoration: n=
+one !important; border-bottom-width: 1px; border-bottom-color: #000000; bor=
+der-bottom-style: solid; background-color: #ccc;">legal realism</a>.=E2=80=
+=9D) My expert advice to you is that the benefit to you, and to your compan=
+y and its workers and shareholders, of sending out these inscrutable late-n=
+ight tweets is very low, while the risk of further antagonizing the SEC and=
+ the courts seems pretty high. I am not giving you a formal legal opinion t=
+hat it is illegal for you to tweet =E2=80=9CCalifornia.=E2=80=9D I am just =
+telling you that it=E2=80=99s dumb.</p><p style=3D"margin: 16px 0;"><strong=
+>Musk:</strong>=C2=A0Well are they going to put me in jail for sending thes=
+e tweets?</p><p style=3D"margin: 16px 0;"><strong>[Lawyer]:</strong>=C2=A0I=
+ mean, probably not, no.</p><p style=3D"margin: 16px 0;"><strong>Musk:</str=
+ong>=C2=A0I have a big drill you know.</p><p style=3D"margin: 16px 0;"><str=
+ong>[Lawyer]:</strong>=C2=A0I know.</p><p style=3D"margin: 16px 0;"><strong=
+>Musk:</strong>=C2=A0That=E2=80=99s a kind of legal realism too.</p></block=
+quote><p style=3D"margin: 16px 0;">Man, I thought I was being pretty smart =
+there, but Musk is much smarter. My calculation =E2=80=94=C2=A0which I put =
+into the mouth of this imagined lawyer =E2=80=94=C2=A0is that the SEC has a=
+ lot of discretionary power and does not like being disrespected; it is bet=
+ter to err on the side of being nice to them in order to obtain more freedo=
+m to do the things that you actually want to do. If the SEC doesn=E2=80=99t=
+ like you, they can do a lot to wear you down.</p><p style=3D"margin: 16px =
+0;">But I did not reckon with the fact that Musk also has a lot of discreti=
+onary power and does not like being disrespected, and if he doesn=E2=80=99t=
+ like the SEC he can do a lot to wear=C2=A0<em>them=C2=A0</em>down too. He =
+has <a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.32253=
+0/aHR0cHM6Ly93d3cud3NqLmNvbS9hcnRpY2xlcy9lbG9uLW11c2tzLXRlc2xhLWFza2VkLWxhd=
+y1maXJtLXRvLWZpcmUtYXNzb2NpYXRlLWhpcmVkLWZyb20tc2VjLTExNjQyMjY1MDA3/61dd51d=
+2c9e68a7e69607853B3e637226" itemprop=3D"StoryLink" itemscope=3D"itemscope" =
+target=3D"_blank" style=3D"color: #000000; text-decoration: none !important=
+; border-bottom-width: 1px; border-bottom-color: #000000; border-bottom-sty=
+le: solid; background-color: #ccc;">apparently tried</a> to destroy the car=
+eers of the SEC enforcement lawyers who went after him, and he has at least=
+ as much power to pester them in court as they do to pester him. Surely the=
+ outcome of the Musk/SEC fight is much less =E2=80=9CMusk has been deterred=
+ from carelessly tweeting material things about Tesla=E2=80=9D and much mor=
+e =E2=80=9Cthe SEC has been deterred from going after Musk.=E2=80=9D That=
+=E2=80=99s a kind of legal realism too.</p><table class=3D"header" width=3D=
+"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td class=3D"body-header-container" style=3D"border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<h2 style=3D"font-weight: bold; font-family: &quot;Arial Black&quot;, Arial=
+, Helvetica, sans-serif; letter-spacing: -1px; font-size: 20px; border-bott=
+om-width: 1px; border-bottom-style: dotted; margin: 0px; padding: 16px 0px =
+5px;">Everything is securities fraud</h2>
+</td>
+</tr>
+</table><p style=3D"margin: 16px 0;">I <a href=3D"https://link.mail.bloombe=
+rgbusiness.com/click/26793341.322530/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcG=
+luaW9uL2FydGljbGVzLzIwMjEtMDItMDMvZ29sZG1hbi1zYWNocy1nb2VzLXRvLXN1cHJlbWUtY=
+291cnQtaGVkZ2UtZnVuZHMtd29uLW9uLWdhbWVzdG9wLWtrcG9lNndzP2NtcGlkPUJCRDAyMjIy=
+Ml9NT05FWVNUVUZGJnV0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1uZXdzbGV0dGVyJnV0bV9=
+0ZXJtPTIyMDIyMiZ1dG1fY2FtcGFpZ249bW9uZXlzdHVmZg/61dd51d2c9e68a7e69607853B9d=
+2cd7e5" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" st=
+yle=3D"color: #000000; text-decoration: none !important; border-bottom-widt=
+h: 1px; border-bottom-color: #000000; border-bottom-style: solid; backgroun=
+d-color: #ccc;"> often say</a> that every bad thing that happens at a publi=
+c company can be characterized as securities fraud: =E2=80=9CYou didn=E2=80=
+=99t tell us about the bad thing,=E2=80=9D shareholders say, =E2=80=9Cso we=
+ bought the stock and it went down and we were deceived.=E2=80=9D Covid-19 =
+is, among other things, a bad thing that happened to pretty much every publ=
+ic company: Most stocks went down in March 2020 due to Covid-19, and you co=
+uld have a range of theories about how each company deceived its shareholde=
+rs about the potential impact of a pandemic, etc. But here is <a href=3D"ht=
+tps://link.mail.bloombergbusiness.com/click/26793341.322530/aHR0cHM6Ly9jbHN=
+ibHVlc2t5Lmxhdy5jb2x1bWJpYS5lZHUvMjAyMi8wMi8yMS9pc3MtZGlzY3Vzc2VzLXNoYXJlaG=
+9sZGVyLWNsYXNzLWFjdGlvbnMtcmVsYXRlZC10by1jb3ZpZC0xOS8/61dd51d2c9e68a7e69607=
+853Ba68a2423" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_bla=
+nk" style=3D"color: #000000; text-decoration: none !important; border-botto=
+m-width: 1px; border-bottom-color: #000000; border-bottom-style: solid; bac=
+kground-color: #ccc;">an article</a> finding only 54 securities-fraud lawsu=
+its against U.S. public companies about Covid-19, including only seven agai=
+nst S&amp;P 500 companies.[3] The lesson is perhaps that I am exaggerating =
+about=C2=A0<em>everything=C2=A0</em>being securities fraud: If some unfores=
+een exogenous bad event hits every company at the same time, they won=E2=80=
+=99t=C2=A0<em>all=C2=A0</em>get securities fraud lawsuits; you need somethi=
+ng extra to turn a universal bad thing into a specific company=E2=80=99s se=
+curities fraud.</p><table class=3D"header" width=3D"100%" border=3D"0" cell=
+spacing=3D"0" cellpadding=3D"0">
+<tr>
+<td class=3D"body-header-container" style=3D"border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<h2 style=3D"font-weight: bold; font-family: &quot;Arial Black&quot;, Arial=
+, Helvetica, sans-serif; letter-spacing: -1px; font-size: 20px; border-bott=
+om-width: 1px; border-bottom-style: dotted; margin: 0px; padding: 16px 0px =
+5px;">Modern dating</h2>
+</td>
+</tr>
+</table><p style=3D"margin: 16px 0;">If you meet a man on a dating app, and=
+ he is charming and attentive but you never meet in person due to Covid, an=
+d then he offers to help you make money in crypto trading, should you =E2=
+=80=A6=C2=A0I mean =E2=80=A6=C2=A0is that attractive? Is it romantic? You=
+=E2=80=99re having a nice conversation and then he=E2=80=99s like =E2=80=9C=
+enough about you, let=E2=80=99s talk about yield farming opportunities in D=
+eFi=E2=80=9D? I=C2=A0suppose tastes differ. Anyway it is definitely definit=
+ely definitely definitely <a href=3D"https://link.mail.bloombergbusiness.co=
+m/click/26793341.322530/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyMi8wMi8yMS90ZWN=
+obm9sb2d5L2NyeXB0by1zY2FtbWVycy1uZXctdGFyZ2V0LWRhdGluZy1hcHBzLmh0bWw/61dd51=
+d2c9e68a7e69607853Be68af5fb" itemprop=3D"StoryLink" itemscope=3D"itemscope"=
+ target=3D"_blank" style=3D"color: #000000; text-decoration: none !importan=
+t; border-bottom-width: 1px; border-bottom-color: #000000; border-bottom-st=
+yle: solid; background-color: #ccc;">definitely a scam</a>:</p><blockquote>=
+<p style=3D"margin: 16px 0;">So when the man, who went by the name Ze Zhao,=
+ told Ms. Vu, who works in customer service for a security company, that he=
+ could help her make money by trading Bitcoin and other cryptocurrencies, s=
+he was intrigued.</p><p style=3D"margin: 16px 0;">=E2=80=9CI=E2=80=99d hear=
+d a lot about crypto in the news,=E2=80=9D she said. =E2=80=9CI=E2=80=99m a=
+ curious person, and he actually was very knowledgeable about the whole tra=
+ding process.=E2=80=9D</p><p style=3D"margin: 16px 0;">But the man wasn=E2=
+=80=99t trying to help Ms. Vu invest her money. He was entrapping her in an=
+ increasingly popular type of financial scam, she said, one that combines t=
+he age-old allure of romance with the newer temptation of overnight cryptoc=
+urrency riches.</p></blockquote><p style=3D"margin: 16px 0;">Etc.:</p><bloc=
+kquote><p style=3D"margin: 16px 0;">Jan Santiago, the deputy director of th=
+e Global Anti-Scam Organization, a nonprofit that represents victims of onl=
+ine cryptocurrency scams, said that unlike typical romance scams =E2=80=94 =
+which generally target older, less tech-savvy adults =E2=80=94 these scamme=
+rs appear to be going after younger and more educated women on dating apps =
+like Tinder, Bumble and Hinge.</p><p style=3D"margin: 16px 0;">=E2=80=9CIt=
+=E2=80=99s mostly millennials who are getting scammed,=E2=80=9D Mr. Santiag=
+o said.</p><p style=3D"margin: 16px 0;">Jane Lee, a researcher at the onlin=
+e fraud-prevention firm Sift, began looking into crypto dating scams last y=
+ear. She signed up for several popular dating apps and quickly matched with=
+ men who tried to offer her investing advice.</p><p style=3D"margin: 16px 0=
+;">=E2=80=9CPeople are lonely from the pandemic, and crypto is super hot ri=
+ght now,=E2=80=9D she said. =E2=80=9CThe combination of the two has really =
+made this a successful scam.=E2=80=9D</p></blockquote><p style=3D"margin: 1=
+6px 0;">I am not surprised that people are getting scammed out of crypto, t=
+hat is the whole point of crypto, but are the kids these days really offeri=
+ng investing advice on the first date? This makes me feel old.</p><table cl=
+ass=3D"header" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">
+<tr>
+<td class=3D"body-header-container" style=3D"border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<h2 style=3D"font-weight: bold; font-family: &quot;Arial Black&quot;, Arial=
+, Helvetica, sans-serif; letter-spacing: -1px; font-size: 20px; border-bott=
+om-width: 1px; border-bottom-style: dotted; margin: 0px; padding: 16px 0px =
+5px;">Things happen</h2>
+</td>
+</tr>
+</table><p style=3D"margin: 16px 0;"><a href=3D"https://link.mail.bloomberg=
+business.com/click/26793341.322530/aHR0cHM6Ly93d3cud3NqLmNvbS9hcnRpY2xlcy9z=
+b2ZyLWxlYWRzLXJhY2UtdG8tcmVwbGFjZS1saWJvci1hcy1pbnRlcmVzdC1yYXRlLWJlbmNobWF=
+yay0xMTY0NTQwODkwNT9tb2Q9bGVhZF9mZWF0dXJlX2JlbG93X2FfcG9zMQ/61dd51d2c9e68a7=
+e69607853B141a71d6" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=
+=3D"_blank" style=3D"color: #000000; text-decoration: none !important; bord=
+er-bottom-width: 1px; border-bottom-color: #000000; border-bottom-style: so=
+lid; background-color: #ccc;">SOFR</a> Leads Race to Replace Libor as Inter=
+est-Rate Benchmark.=C2=A0The <a href=3D"https://link.mail.bloombergbusiness=
+.com/click/26793341.322530/aHR0cHM6Ly93d3cubmJlci5vcmcvcGFwZXJzL3cyOTc2MiNm=
+cm9tcnNz/61dd51d2c9e68a7e69607853Be5279f3a" itemprop=3D"StoryLink" itemscop=
+e=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-decoration:=
+ none !important; border-bottom-width: 1px; border-bottom-color: #000000; b=
+order-bottom-style: solid; background-color: #ccc;">Federal Funds Market</a=
+>, Pre- and Post-2008. Volkswagen Is in Advanced Talks on Potential <a href=
+=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aHR0cHM6L=
+y93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjItMDItMjIvdm9sa3N3YWdlbi1p=
+cy1pbi1hZHZhbmNlZC10YWxrcy1vbi1wb3RlbnRpYWwtcG9yc2NoZS1pcG8_Y21waWQ9QkJEMDI=
+yMjIyX01PTkVZU1RVRkYmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPW5ld3NsZXR0ZXImdX=
+RtX3Rlcm09MjIwMjIyJnV0bV9jYW1wYWlnbj1tb25leXN0dWZm/61dd51d2c9e68a7e69607853=
+B89d2e338" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank"=
+ style=3D"color: #000000; text-decoration: none !important; border-bottom-w=
+idth: 1px; border-bottom-color: #000000; border-bottom-style: solid; backgr=
+ound-color: #ccc;"> Porsche IPO</a>. Oil majors and commodity traders at ri=
+sk from <a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.3=
+22530/aHR0cHM6Ly93d3cuZnQuY29tL2NvbnRlbnQvYTQ4NmMxMTQtNmJiMC00N2E5LWIwMTUtM=
+jFhY2RhZWVjYjcz/61dd51d2c9e68a7e69607853Be34e5ba7" itemprop=3D"StoryLink" i=
+temscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-deco=
+ration: none !important; border-bottom-width: 1px; border-bottom-color: #00=
+0000; border-bottom-style: solid; background-color: #ccc;">new sanctions on=
+ Russia</a>. Swiss banks=E2=80=99 struggles to move on from <a href=3D"http=
+s://link.mail.bloombergbusiness.com/click/26793341.322530/aHR0cHM6Ly93d3cuZ=
+nQuY29tL2NvbnRlbnQvZjRjM2JlNmMtNmM5OC00N2UwLTlkN2MtNzRiNGQ0MDY0YmE1/61dd51d=
+2c9e68a7e69607853B43562041" itemprop=3D"StoryLink" itemscope=3D"itemscope" =
+target=3D"_blank" style=3D"color: #000000; text-decoration: none !important=
+; border-bottom-width: 1px; border-bottom-color: #000000; border-bottom-sty=
+le: solid; background-color: #ccc;">murky past</a> hit by documents leak. E=
+xodus From <a href=3D"https://link.mail.bloombergbusiness.com/click/2679334=
+1.322530/aHR0cHM6Ly93d3cud3NqLmNvbS9hcnRpY2xlcy9leG9kdXMtZnJvbS1ib25kLWZ1bm=
+RzLWlzLW1pdGlnYXRpbmctdGhlLXN0b2NrLW1hcmtldHMtc3dvb24tMTE2NDU0Mzk0MDE_bW9kP=
+Wl0cF93c2omcnU9eWFob28/61dd51d2c9e68a7e69607853B5ace6e84" itemprop=3D"Story=
+Link" itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; te=
+xt-decoration: none !important; border-bottom-width: 1px; border-bottom-col=
+or: #000000; border-bottom-style: solid; background-color: #ccc;">Bond Fund=
+s</a> Is Mitigating the Stock Market=E2=80=99s Swoon. US companies add envi=
+ronmental and social targets to <a href=3D"https://link.mail.bloombergbusin=
+ess.com/click/26793341.322530/aHR0cHM6Ly93d3cuZnQuY29tL2NvbnRlbnQvODYxMDIxM=
+TEtMzM2MS00M2U2LThlODYtM2RjNmRmZTdiYjZm/61dd51d2c9e68a7e69607853B1d4b651b" =
+itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"c=
+olor: #000000; text-decoration: none !important; border-bottom-width: 1px; =
+border-bottom-color: #000000; border-bottom-style: solid; background-color:=
+ #ccc;">executive bonuses</a>. For White-Collar Workers, It=E2=80=99s Prime=
+ Time to <a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.=
+322530/aHR0cHM6Ly93d3cud3NqLmNvbS9hcnRpY2xlcy9mb3Itd2hpdGUtY29sbGFyLXdvcmtl=
+cnMtaXRzLXByaW1lLXRpbWUtdG8tZ2V0LWEtYmlnLXJhaXNlLTExNjQ1NDM5NDAwP21vZD1ocF9=
+sZWFkX3BvczM/61dd51d2c9e68a7e69607853B8a029332" itemprop=3D"StoryLink" item=
+scope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-decorat=
+ion: none !important; border-bottom-width: 1px; border-bottom-color: #00000=
+0; border-bottom-style: solid; background-color: #ccc;">Get a Big Raise</a>=
+. HSBC <a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.32=
+2530/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjItMDItMjIvaH=
+NiYy1ib29zdHMtYm9udXNlcy0zMS1pbi1leHRyYW9yZGluYXJpbHktY29tcGV0aXRpdmUtbWFya=
+2V0P2NtcGlkPUJCRDAyMjIyMl9NT05FWVNUVUZGJnV0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJj=
+ZT1uZXdzbGV0dGVyJnV0bV90ZXJtPTIyMDIyMiZ1dG1fY2FtcGFpZ249bW9uZXlzdHVmZg/61dd=
+51d2c9e68a7e69607853B0ac208dc" itemprop=3D"StoryLink" itemscope=3D"itemscop=
+e" target=3D"_blank" style=3D"color: #000000; text-decoration: none !import=
+ant; border-bottom-width: 1px; border-bottom-color: #000000; border-bottom-=
+style: solid; background-color: #ccc;"> Boosts Bonuses 31%</a> in =E2=80=98=
+Extraordinarily Competitive=E2=80=99 Market. <a href=3D"https://link.mail.b=
+loombergbusiness.com/click/26793341.322530/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNv=
+bS9uZXdzL2FydGljbGVzLzIwMjItMDItMjIvbW9ydGdhZ2UtYnVzaW5lc3Nlcy1zZWVuLWxheWl=
+uZy1vZmYtdGhvdXNhbmRzLWFzLXZvbHVtZS1kcm9wcz9jbXBpZD1CQkQwMjIyMjJfTU9ORVlTVF=
+VGRiZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9zb3VyY2U9bmV3c2xldHRlciZ1dG1fdGVybT0yMjAyM=
+jImdXRtX2NhbXBhaWduPW1vbmV5c3R1ZmY/61dd51d2c9e68a7e69607853Bfc71d972" itemp=
+rop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"color:=
+ #000000; text-decoration: none !important; border-bottom-width: 1px; borde=
+r-bottom-color: #000000; border-bottom-style: solid; background-color: #ccc=
+;"> Mortgage Businesses</a> Seen Laying Off Thousands as Volume Drops. Alli=
+anz <a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.32253=
+0/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjItMDItMjEvYWxsa=
+WFuei1maXJlcy1mdW5kLW1hbmFnZXJzLWFmdGVyLW11bHRpYmlsbGlvbi1kb2xsYXItYmxvd3Vw=
+P2NtcGlkPUJCRDAyMjIyMl9NT05FWVNUVUZGJnV0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1=
+uZXdzbGV0dGVyJnV0bV90ZXJtPTIyMDIyMiZ1dG1fY2FtcGFpZ249bW9uZXlzdHVmZg/61dd51d=
+2c9e68a7e69607853B0d72b7f1" itemprop=3D"StoryLink" itemscope=3D"itemscope" =
+target=3D"_blank" style=3D"color: #000000; text-decoration: none !important=
+; border-bottom-width: 1px; border-bottom-color: #000000; border-bottom-sty=
+le: solid; background-color: #ccc;"> Fires Fund Managers</a> After Multibil=
+lion-Dollar Blowup. <a href=3D"https://link.mail.bloombergbusiness.com/clic=
+k/26793341.322530/aHR0cHM6Ly93d3cud3NqLmNvbS9hcnRpY2xlcy9jaGlja2VuLWluZHVzd=
+HJ5LW9mZmljaWFscy1wcmVwYXJlLWZvci1yZXRyaWFsLWluLXByaWNlLWZpeGluZy1jYXNlLTEx=
+NjQ1NDU5MjAwP21vZD1pdHBfd3NqJnJ1PXlhaG9v/61dd51d2c9e68a7e69607853B2e1f982e"=
+ itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"=
+color: #000000; text-decoration: none !important; border-bottom-width: 1px;=
+ border-bottom-color: #000000; border-bottom-style: solid; background-color=
+: #ccc;">Chicken Industry</a> Officials Prepare for Retrial in Price-Fixing=
+ Case. It=E2=80=99s Time for Bitcoin to Become a Better Tool for <a href=3D=
+"https://link.mail.bloombergbusiness.com/click/26793341.322530/aHR0cHM6Ly93=
+d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjItMDItMTcvaXQtcy10aW1lLWZvci1=
+iaXRjb2luLXRvLWJlY29tZS1hLWJldHRlci10b29sLWZvci1sYXVuZGVyaW5nLW1vbmV5P2NtcG=
+lkPUJCRDAyMjIyMl9NT05FWVNUVUZGJnV0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1uZXdzb=
+GV0dGVyJnV0bV90ZXJtPTIyMDIyMiZ1dG1fY2FtcGFpZ249bW9uZXlzdHVmZg/61dd51d2c9e68=
+a7e69607853B8b78d95f" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=
+=3D"_blank" style=3D"color: #000000; text-decoration: none !important; bord=
+er-bottom-width: 1px; border-bottom-color: #000000; border-bottom-style: so=
+lid; background-color: #ccc;"> Laundering Money</a>. The DAO <a href=3D"htt=
+ps://link.mail.bloombergbusiness.com/click/26793341.322530/aHR0cHM6Ly93d3cu=
+Zm9yYmVzLmNvbS9zaXRlcy9sYXVyYXNoaW4vMjAyMi8wMi8yMi9leGNsdXNpdmUtYXVzdHJpYW4=
+tcHJvZ3JhbW1lci1hbmQtZXgtY3J5cHRvLWNlby1saWtlbHktc3RvbGUtMTEtYmlsbGlvbi1vZi=
+1ldGhlci8_dXRtX2NhbXBhaWduPWZvcmJlcyZ1dG1fc291cmNlPXR3aXR0ZXImdXRtX21lZGl1b=
+T1zb2NpYWwmdXRtX3Rlcm09VmFsZXJpZSZzaD03NzYyNzQzNzdmNTg/61dd51d2c9e68a7e6960=
+7853B2519974d" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_bl=
+ank" style=3D"color: #000000; text-decoration: none !important; border-bott=
+om-width: 1px; border-bottom-color: #000000; border-bottom-style: solid; ba=
+ckground-color: #ccc;">hacker</a>? Porsches and <a href=3D"https://link.mai=
+l.bloombergbusiness.com/click/26793341.322530/aHR0cHM6Ly93d3cuYmxvb21iZXJnL=
+mNvbS9uZXdzL2FydGljbGVzLzIwMjItMDItMjEvcG9yc2NoZXMtYW5kLWxhbWJvcmdoaW5pcy1s=
+b3N0LWF0LXNlYS1tYXktYmUtd29ydGgtMTU1LW1pbGxpb24_Y21waWQ9QkJEMDIyMjIyX01PTkV=
+ZU1RVRkYmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPW5ld3NsZXR0ZXImdXRtX3Rlcm09Mj=
+IwMjIyJnV0bV9jYW1wYWlnbj1tb25leXN0dWZm/61dd51d2c9e68a7e69607853Ba96de5bc" i=
+temprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"co=
+lor: #000000; text-decoration: none !important; border-bottom-width: 1px; b=
+order-bottom-color: #000000; border-bottom-style: solid; background-color: =
+#ccc;"> Lamborghinis Lost at Sea</a> May Be Worth $155 Million. Pizza <a hr=
+ef=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aHR0cHM=
+6Ly93d3cucXVhbnRhbWFnYXppbmUub3JnL3p1Z3p3YW5nLWluLWNoZXNzLW1hdGgtYW5kLXBpen=
+phcy0yMDIyMDIyMi8/61dd51d2c9e68a7e69607853B160e0428" itemprop=3D"StoryLink"=
+ itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-de=
+coration: none !important; border-bottom-width: 1px; border-bottom-color: #=
+000000; border-bottom-style: solid; background-color: #ccc;">Zugzwang</a>. =
+Truth Social <a href=3D"https://link.mail.bloombergbusiness.com/click/26793=
+341.322530/aHR0cHM6Ly93d3cuYnVzaW5lc3NpbnNpZGVyLmNvbS9kb25hbGQtdHJ1bXAtdHJ1=
+dGgtc29jaWFsLWFwcC1pbml0aWFsLXJldmlldy1zaWduLXVwLXdhaXRsaXN0ZWQtMjAyMi0y/61=
+dd51d2c9e68a7e69607853Bffe9a2ca" itemprop=3D"StoryLink" itemscope=3D"itemsc=
+ope" target=3D"_blank" style=3D"color: #000000; text-decoration: none !impo=
+rtant; border-bottom-width: 1px; border-bottom-color: #000000; border-botto=
+m-style: solid; background-color: #ccc;">sort of launched</a>.</p><p style=
+=3D"margin: 16px 0;"><span class=3D"news-designed-for-consumer-media"><em>I=
+f you'd like to get=C2=A0Money=C2=A0Stuff=C2=A0in handy email form, right i=
+n your inbox, please=C2=A0<a href=3D"https://link.mail.bloombergbusiness.co=
+m/click/26793341.322530/aHR0cDovL2xpbmsubWFpbC5ibG9vbWJlcmdidXNpbmVzcy5jb20=
+vam9pbi80d20vbW9uZXlzdHVmZi1zaWdudXAmaGFzaD01NDIyMzAwMWNhM2ZmY2Y0MGYyNjI5Yz=
+I1YWNlYTY3YQ/61dd51d2c9e68a7e69607853B789e05da" target=3D"_blank" style=3D"=
+color: #000000; text-decoration: none !important; border-bottom-width: 1px;=
+ border-bottom-color: #000000; border-bottom-style: solid; background-color=
+: #ccc;">subscribe at this link</a>. Or you can subscribe to Money Stuff an=
+d other great Bloomberg newsletters <a href=3D"https://link.mail.bloombergb=
+usiness.com/click/26793341.322530/aHR0cHM6Ly9sb2dpbi5ibG9vbWJlcmcuY29tL25ld=
+3NsZXR0ZXJz/61dd51d2c9e68a7e69607853Bc29d0733" itemprop=3D"StoryLink" items=
+cope=3D"itemscope" style=3D"color: #000000; text-decoration: none !importan=
+t; border-bottom-width: 1px; border-bottom-color: #000000; border-bottom-st=
+yle: solid; background-color: #ccc;">here</a>. Thanks!</em></span></p><p st=
+yle=3D"margin: 16px 0;"><em>[1] In fact there are a number of reasons that =
+the company could decline to include the proposal, and there will often be =
+some legal jostling in which the company asks the U.S. Securities and Excha=
+nge Commission to allow it to omit the proposal, and the proponent tries to=
+ keep it in. The exclusions are in <a href=3D"https://link.mail.bloombergbu=
+siness.com/click/26793341.322530/aHR0cHM6Ly93d3cubGF3LmNvcm5lbGwuZWR1L2Nmci=
+90ZXh0LzE3LzI0MC4xNGEtOA/61dd51d2c9e68a7e69607853B1b72cd5a" itemprop=3D"Sto=
+ryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; =
+text-decoration: none !important; border-bottom-width: 1px; border-bottom-c=
+olor: #000000; border-bottom-style: solid; background-color: #ccc;">SEC Rul=
+e 14a-8</a>; companies can omit proposals for reasons like =E2=80=9Cthe pro=
+posal deals with a matter relating to the company's ordinary business opera=
+tions.=E2=80=9D</em></p><p style=3D"margin: 16px 0;"><em>[2] Also the expen=
+ses of proxy fight *winners* are traditionally reimbursed by the company, t=
+hough it=E2=80=99s still a big risk.</em></p><p style=3D"margin: 16px 0;"><=
+em>[3] The list is =E2=80=9CCarnival Corporation, Citrix Systems, Norwegian=
+ Cruise Line Holdings, Occidental Petroleum, Royal Caribbean Cruises, Tyson=
+ Foods, and Wells Fargo.=E2=80=9D The cruise lines are pretty obvious. Well=
+s Fargo, though?</em></p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class=3D"component-wrapper" style=3D"border-collapse: collapse; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt; padding: 20px 10px;">
+<table class=3D"social-component" width=3D"100%" style=3D"width: 100%;">
+<tr>
+<td style=3D"border-top-width: 1px; border-top-style: dotted; border-bottom=
+-width: 1px; border-bottom-style: dotted; border-collapse: collapse; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt; text-transform: uppercase; font-fam=
+ily: Arial; font-size: 12px; font-weight: normal; font-style: normal; font-=
+stretch: normal; line-height: 1.17; letter-spacing: normal; padding: 9px 0;=
+">
+<span style=3D"margin-right: 4px; vertical-align: middle;">Follow Us</span>
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly93d3cuZmFjZWJvb2suY29tL2Jsb29tYmVyZ29waW5pb24/61dd51d2c9e68a7e69607=
+853B9715d251" style=3D"text-decoration: none; color: #000;">
+<img src=3D"https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i74qcvoJlmqM/v=
+0/-1x-1.png" width=3D"20" height=3D"20" style=3D"max-width: 550px; vertical=
+-align: middle; width: 20px !important; height: 20px !important;" />
+</a>
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9ibG9vbWJlcmdvcGluaW9uLw/61dd51d2c9e68a7e69=
+607853Bc45116c1" style=3D"text-decoration: none; color: #000;">
+<img src=3D"https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iJGFAUI9aUUg/v=
+0/-1x-1.png" width=3D"20" height=3D"20" style=3D"max-width: 550px; vertical=
+-align: middle; width: 20px !important; height: 20px !important;" />
+</a>
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly90d2l0dGVyLmNvbS9ib3Bpbmlvbg/61dd51d2c9e68a7e69607853Be724fe24" sty=
+le=3D"text-decoration: none; color: #000;">
+<img src=3D"https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ijPrci.tuuHU/v=
+0/-1x-1.png" width=3D"20" height=3D"20" style=3D"max-width: 550px; vertical=
+-align: middle; width: 20px !important; height: 20px !important;" />
+</a>
+</td>
+<td style=3D"border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt; text-transform: uppercase; font-family: Arial; font-size: 12px; =
+font-weight: normal; font-style: normal; font-stretch: normal; line-height:=
+ 1.17; letter-spacing: normal; padding: 9px 0 9px 3px;"></td>
+<td style=3D"border-top-width: 1px; border-top-style: dotted; border-bottom=
+-width: 1px; border-bottom-style: dotted; border-collapse: collapse; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt; text-transform: uppercase; font-fam=
+ily: Arial; font-size: 12px; font-weight: normal; font-style: normal; font-=
+stretch: normal; line-height: 1.17; letter-spacing: normal; padding: 9px 0;=
+">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9hY2NvdW50L25ld3NsZXR0ZXJzL21vbmV5LXN0dWZmP=
+3NvdXJjZT1OTHNoYXJl/61dd51d2c9e68a7e69607853Bfb50d003" style=3D"text-decora=
+tion: none; color: #000;">
+Get the newsletter
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class=3D"footer-wrapper" style=3D"border-collapse: collapse; mso-table-=
+lspace: 0pt; mso-table-rspace: 0pt; padding: 0px 10px;">
+<table class=3D"liveintent-flex-ad" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" align=3D"center">
+<tr>
+<td colspan=3D"2">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTg4OSZsaT0yNjc5MzM0MSZtPTM5Z=
+DZiOTliNDk3MjY2NzAzZjlkZDgxMjFhMjEyMDRjJnA9MjcxMTU4NzEmc3RwZT1kZWZhdWx0Jg/6=
+1dd51d2c9e68a7e69607853Ib97aa4df" rel=3D"nofollow">
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825889&amp;li=3D26793341&amp;=
+m=3D39d6b99b497266703f9dd8121a21204c&amp;p=3D27115871&amp;stpe=3Ddefault&am=
+p;" border=3D"0" width=3D"550" style=3D"width: 100%; max-width: 550px; disp=
+lay:block" />
+</a>
+</td>
+</tr>
+</table>
+<table class=3D"editorial-tout" style=3D"font-family: Helvetica, Arial, san=
+s-serif; font-size: 16px; line-height: 150%;">
+<tbody>
+<tr>
+<td class=3D"editorial-tout-container" style=3D"padding-top: 16px; padding-=
+bottom: 16px;">
+<div class=3D"tout-label"></div>
+<div class=3D"tout-text">
+<p style=3D"margin: 0px;"><em><strong>Like Money Stuff?</strong></em>=C2=A0=
+|<em>=C2=A0<a href=3D"https://link.mail.bloombergbusiness.com/click/2679334=
+1.322530/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9zdWJzY3JpcHRpb25zP3V0bV9zb3VyY2=
+U9bmV3c2xldHRlciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1tb25leXN0dWZm/61dd=
+51d2c9e68a7e69607853B361080da" itemprop=3D"StoryLink" itemscope=3D"itemscop=
+e">
+Get=C2=A0unlimited access to Bloomberg.com</a>, where you'll find trusted, =
+data-based journalism in 120 countries around the world and expert analysis=
+ from exclusive daily newsletters.</em></p>
+<p style=3D"margin: 0px;">Before it=E2=80=99s here, it=E2=80=99s on the=C2=
+=A0Bloomberg=C2=A0Terminal.=C2=A0Find out more about how the Terminal deliv=
+ers information and analysis that financial professionals can=E2=80=99t fin=
+d anywhere else.=C2=A0<a href=3D"https://link.mail.bloombergbusiness.com/cl=
+ick/15638356.78421/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9wcm9mZXNzaW9uYWwvc29s=
+dXRpb24vYmxvb21iZXJnLXRlcm1pbmFsLw/55088ec43b35d034698d38aeBe3d4e6ab">Learn=
+ more</a>.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class=3D"footer" width=3D"100%" align=3D"center" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0">
+<tr>
+<td class=3D"footer-container" align=3D"center" style=3D"font-size: 13px; f=
+ont-family: Helvetica, Arial, sans-serif; color: #666666; border-collapse: =
+collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 20px 0px 1=
+0px;"> You received this message because you are subscribed to Bloomberg's =
+Money Stuff newsletter.</td>
+</tr>
+<tr>
+<td align=3D"center" style=3D"font-size: 13px; font-family: Helvetica, Aria=
+l, sans-serif; color: #666666; border-collapse: collapse; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt;"><a href=3D"https://link.mail.bloombergbusines=
+s.com/click/26793341.322530/aHR0cHM6Ly9sb2dpbi5ibG9vbWJlcmcuY29tL25ld3NsZXR=
+0ZXJzP3NvdXJjZT1uZXdzbGV0dGVyX3Vuc3ViJmVtYWlsPXJuYno3Y2w1b3ltanR6czdmczljYz=
+VhMSU0MGZlZWR5b3VyLmVtYWlsJmhhc2g9M2MwNGRjOWMwODQ1ZGFlYWNiMjc4MjY2MTVhZTE4O=
+Tg/61dd51d2c9e68a7e69607853C7ce4e993" style=3D"color: #666666; text-decorat=
+ion: none;" alias=3D"Unsubscribe">Unsubscribe</a> | <a href=3D"https://link=
+.mail.bloombergbusiness.com/click/26793341.322530/aHR0cDovL2Jsb29tYmVyZy5jb=
+20/61dd51d2c9e68a7e69607853B1e304eda" style=3D"color: #666666; text-decorat=
+ion: none;" target=3D"_blank">Bloomberg.com</a> | <a href=3D"https://link.m=
+ail.bloombergbusiness.com/click/26793341.322530/aHR0cDovL3d3dy5ibG9vbWJlcmc=
+uY29tL2ZlZWRiYWNrP2FsY21waWQ9bW9zdHBvcA/61dd51d2c9e68a7e69607853Bbc8c7ee0" =
+style=3D"color: #666666; text-decoration: none;" target=3D"_blank">Contact =
+Us</a></td>
+</tr>
+<tr>
+<td align=3D"center" style=3D"border-collapse: collapse; mso-table-lspace: =
+0pt; mso-table-rspace: 0pt;">
+<table class=3D"liveintent-logos">
+<tr>
+<td style=3D"border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt;">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly93d3cubGl2ZWludGVudC5jb20vcG93ZXJlZC1ieQ/61dd51d2c9e68a7e69607853Bc=
+6a939f0" target=3D"_blank">
+<img class=3D"li-powered-by-logo outlook-format-exclude" height=3D"18" src=
+=3D"https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i7ESRvr8wb2g/v0/-1x-1.=
+png" border=3D"0" alt=3D"Ads Powered By Liveintent" style=3D"max-width: 550=
+px; height: 18px !important;" />
+</a>
+</td>
+<td style=3D"font-size: 13px; font-family: Helvetica, Arial, sans-serif; co=
+lor: #666666; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-r=
+space: 0pt;">
+|
+</td>
+<td style=3D"border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt;">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/26793341.322530/aH=
+R0cHM6Ly93d3cubGl2ZWludGVudC5jb20vYWQtY2hvaWNlcw/61dd51d2c9e68a7e69607853Be=
+92bd6c8" target=3D"_blank">
+<img class=3D"li-ad-choices-logo outlook-format-exclude" height=3D"18" src=
+=3D"https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iHu0LhjyABMM/v0/-1x-1.=
+png" border=3D"0" alt=3D"Ad Choices" style=3D"max-width: 550px; height: 18p=
+x !important;" />
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td height=3D"20" align=3D"center" style=3D"font-size: 13px; font-family: H=
+elvetica, Arial, sans-serif; color: #666666; border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">Bloomberg L.P. 731 Lexington, N=
+ew York, NY, 10022</td>
+</tr>
+</table>
+</td>
+</tr>
+<!--[if mso]>
+</td></tr>
+</table>
+</center>
+<![endif]-->
+</table><table class=3D"liveintent-safe-rtb" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" width=3D"40" height=3D"6">
+<tbody>
+<tr>
+<td><img src=3D"https://sli.bloomberg.com/imp?s=3D126552500&amp;li=3D267933=
+41&amp;m=3D39d6b99b497266703f9dd8121a21204c&amp;p=3D27115871&amp;stpe=3Dpix=
+el&amp;" width=3D"2" height=3D"6" border=3D"0" /></td>
+<td><img src=3D"https://sli.bloomberg.com/imp?s=3D126552501&amp;li=3D267933=
+41&amp;m=3D39d6b99b497266703f9dd8121a21204c&amp;p=3D27115871&amp;stpe=3Dpix=
+el&amp;" width=3D"2" height=3D"6" border=3D"0" /></td>
+<td><img src=3D"https://sli.bloomberg.com/imp?s=3D126552502&amp;li=3D267933=
+41&amp;m=3D39d6b99b497266703f9dd8121a21204c&amp;p=3D27115871&amp;stpe=3Dpix=
+el&amp;" width=3D"2" height=3D"6" border=3D"0" /></td>
+<td><img src=3D"https://sli.bloomberg.com/imp?s=3D126552503&amp;li=3D267933=
+41&amp;m=3D39d6b99b497266703f9dd8121a21204c&amp;p=3D27115871&amp;stpe=3Dpix=
+el&amp;" width=3D"2" height=3D"6" border=3D"0" /></td>
+<td><img src=3D"https://sli.bloomberg.com/imp?s=3D126552504&amp;li=3D267933=
+41&amp;m=3D39d6b99b497266703f9dd8121a21204c&amp;p=3D27115871&amp;stpe=3Dpix=
+el&amp;" width=3D"2" height=3D"6" border=3D"0" /></td>
+</tr>
+</tbody>
+</table>
+<custom name=3D"opencounter" type=3D"tracking"></custom>
+<a href=3D""><img src=3D"https://link.mail.bloombergbusiness.com/img/61dd51=
+d2c9e68a7e69607853fy9vh.6wv6/9479631e.gif" alt=3D"" border=3D"0" /></a>
+</body>
+</html>
+
+------=_Part_617505_304633689.1645555569532--
