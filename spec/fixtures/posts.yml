@@ -1,0 +1,7 @@
+one:
+  id: 1
+  feed_id: 1
+  from: <%= Mail::Address.new('Adora <adora@princess.alliance>').to_yaml.inspect %>
+  html_body: "<h1>a post!</h1>"
+  subject: "post title"
+  token: "post_token"
