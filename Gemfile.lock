@@ -14,13 +14,6 @@ GIT
     code-scanning-rubocop (0.6.1)
       rubocop (~> 1.0)
 
-GIT
-  remote: https://github.com/r38y/griddler-postmark.git
-  revision: 55904355a44066d94c24b49613a22e1face387a5
-  specs:
-    griddler-postmark (1.0.0)
-      griddler
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -135,9 +128,6 @@ GEM
     formatador (0.3.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    griddler (1.5.2)
-      htmlentities
-      rails (>= 3.2.0)
     guard (2.18.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -166,7 +156,6 @@ GEM
       listen (>= 3.0.0)
       rails (>= 6.0.0)
     html_tokenizer (0.0.7)
-    htmlentities (4.3.4)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.0.3)
@@ -374,7 +363,6 @@ DEPENDENCIES
   debug (~> 1.4)
   erb_lint (~> 0.1.1)
   feedvalidator (~> 0.2.2)
-  griddler-postmark (~> 1.0)!
   guard-bundler-audit (~> 0.1.5)
   guard-erb_lint!
   guard-rspec (~> 4.7)
