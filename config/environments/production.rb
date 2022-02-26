@@ -96,4 +96,5 @@ Rails.application.configure do
 
   # Prepare the ingress controller used to receive mail
   config.action_mailbox.ingress = :postmark
+  config.action_mailbox.incinerate_after = 1.minute
 end
