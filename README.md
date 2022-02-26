@@ -34,8 +34,4 @@ bin/fix
 
 `db:seed` creates a feed named somefeed ([localhost:3000/feeds/somefeed](http://localhost:3000/feeds/somefeed)) with a post named somepost ([localhost:3000/posts/somepost](http://localhost:3000/posts/somepost)).
 
-You can also add posts yourself by hitting the Postmark inbound webhook:
-
-```
-bin/email [HOST=localhost:3000] [POST=spec/support/body.json]
-```
+You can also add posts yourself using the [Rails mailbox tools](http://localhost:3000/rails/conductor/action_mailbox/inbound_emails/).
