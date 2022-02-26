@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   end
 
   def from=(from)
-    write_attribute :from, Mail::Address.wrap(from)
+    write_attribute :from, parse_from(from)
   end
 
   def from_name
@@ -22,6 +22,17 @@ class Post < ApplicationRecord
 
   def to_param
     token
+  end
+
+  private
+
+  def parse_from(from)
+    Mail::Address.wrap(from)
+  rescue Mail::Field::IncompleteParseError
+    # hacky workaround for improperly quoted names
+    from.match(/(.*?) <(.*)>/) do |m|
+      Mail::Address.new("\"#{m[1]}\" <#{m[2]}>")
+    end
   end
 end
 
