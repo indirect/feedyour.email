@@ -27,7 +27,7 @@ class PostMailbox < ApplicationMailbox
   end
 
   def feed_token
-    mail.to_addresses.find { |a| a.domain == "feedyour.email" }&.local ||
+    mail.recipients_addresses.find { |a| a.domain == "feedyour.email" }&.local ||
       raise("Unknown address #{mail.to_addresses.inspect}")
   end
 
