@@ -1,9 +1,8 @@
 require "rails_helper"
-require_relative "../support/validate_json_feed"
-require_relative "../support/validate_atom_feed"
+require "support/validate_feed"
 
 RSpec.describe "/feeds", type: :request do
-  include ValidateJsonFeed
+  include ValidateFeed
   let(:valid_attributes) { {token: "somefeed"} }
   let(:feed) { Feed.create! valid_attributes }
 
