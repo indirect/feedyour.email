@@ -22,9 +22,9 @@
 
     <div id="feed-link" class="my-8">
       <h4 class="block text-md font-bold text-gray-700">Feed URLs</h4>
-      <p>If the subscribe link doesn't work, here's the feed URL.</p>
+      <p>If the subscribe link doesn't work, here's the JSON feed URL.</p>
       <%= render "clipboard_code_block", code: feed_url(@feed, format: "json") %>
-      <p class="mt-2">Or, if your feed reader doesn't support JSON Feeds:</p>
+      <p class="mt-2">Or, if your feed reader prefers Atom Feeds:</p>
       <%= render "clipboard_code_block", code: feed_url(@feed, format: "atom") %>
     </div>
 
