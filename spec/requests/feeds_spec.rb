@@ -1,5 +1,6 @@
 require "rails_helper"
 require_relative "../support/validate_json_feed"
+require "xml/libxml"
 
 RSpec.describe "/feeds", type: :request do
   include ValidateJsonFeed
@@ -17,13 +18,15 @@ RSpec.describe "/feeds", type: :request do
   end
 
   describe "GET /show.atom" do
-    require "support/assert_valid_feed"
-    include W3C::FeedValidator::Assertions
+    include LibXML
 
     context "without a post" do
-      it "is valid according to W3C" do
+      it "is valid according to RNG" do
+        relaxng_document = XML::Document.file('spec/support/atom.rng.xml')
+        relaxng_schema = XML::RelaxNG.document(relaxng_document)
+
         get feed_url(feed, format: :atom)
-        assert_valid_feed
+        XML::Document.string(response.body).validate_relaxng(relaxng_schema)
       end
     end
 
@@ -31,11 +34,14 @@ RSpec.describe "/feeds", type: :request do
       fixtures :all
       let(:feed) { feeds(:one) }
 
-      it "is valid according to W3C" do
+      it "is valid according to RNG" do
+        relaxng_document = XML::Document.file('spec/support/atom.rng.xml')
+        relaxng_schema = XML::RelaxNG.document(relaxng_document)
+
         expect {
           get feed_url(feed, format: :atom)
         }.to change { feed.reload.fetched_at }
-        assert_valid_feed
+        XML::Document.string(response.body).validate_relaxng(relaxng_schema)
       end
     end
   end

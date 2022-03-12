@@ -5,7 +5,7 @@ gem "rails", "~> 7.0"
 group :development, :test do
   gem "assert_json", "~> 0.4.1", require: false
   gem "debug", "~> 1.4", platforms: %i[mri mingw x64_mingw]
-  gem "feedvalidator", "~> 0.2.2", require: false
+  gem "libxml-ruby", "~> 3.2.2"
   gem "json-schema", "~> 2.8", require: false
   gem "rspec-rails", "~> 5.1"
 end
