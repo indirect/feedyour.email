@@ -20,7 +20,7 @@ RSpec.describe "/feeds", type: :request do
     context "without a post" do
       it "is valid according to RNG" do
         get feed_url(feed, format: :atom)
-        validate_atom_feed
+        expect(response.body).to be_valid_atom_feed
       end
     end
 
@@ -32,7 +32,7 @@ RSpec.describe "/feeds", type: :request do
         expect {
           get feed_url(feed, format: :atom)
         }.to change { feed.reload.fetched_at }
-        validate_atom_feed
+        expect(response.body).to be_valid_atom_feed
       end
     end
   end
@@ -41,7 +41,7 @@ RSpec.describe "/feeds", type: :request do
     context "without a post" do
       it "is valid by the JSON Feed schema" do
         get feed_url(feed, format: :json)
-        expect(validate_json_feed).to eq([])
+        expect(response.body).to be_valid_json_feed
       end
     end
 
@@ -53,7 +53,7 @@ RSpec.describe "/feeds", type: :request do
         expect {
           get feed_url(feed, format: :json)
         }.to change { feed.reload.fetched_at }
-        expect(validate_json_feed).to eq([])
+        expect(response.body).to be_valid_json_feed
       end
     end
   end
