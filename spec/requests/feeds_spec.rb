@@ -22,7 +22,7 @@ RSpec.describe "/feeds", type: :request do
 
     context "without a post" do
       it "is valid according to RNG" do
-        relaxng_document = XML::Document.file('spec/support/atom.rng.xml')
+        relaxng_document = XML::Document.file("spec/support/atom.rng.xml")
         relaxng_schema = XML::RelaxNG.document(relaxng_document)
 
         get feed_url(feed, format: :atom)
@@ -35,7 +35,7 @@ RSpec.describe "/feeds", type: :request do
       let(:feed) { feeds(:one) }
 
       it "is valid according to RNG" do
-        relaxng_document = XML::Document.file('spec/support/atom.rng.xml')
+        relaxng_document = XML::Document.file("spec/support/atom.rng.xml")
         relaxng_schema = XML::RelaxNG.document(relaxng_document)
 
         expect {
