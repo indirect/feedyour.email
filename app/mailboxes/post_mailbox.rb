@@ -9,8 +9,8 @@ class PostMailbox < ApplicationMailbox
       token: token,
       from: mail.from_address,
       subject: mail.subject,
-      html_body: mail.html_part.decoded,
-      text_body: mail.text_part.decoded
+      html_body: mail.html_part&.decoded,
+      text_body: mail.text_part&.decoded
     )
 
     post.broadcast_prepend_to(feed, :posts)
