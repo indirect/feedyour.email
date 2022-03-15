@@ -28,10 +28,22 @@ class PostMailbox < ApplicationMailbox
 
   def feed_token
     mail.recipients_addresses.find { |a| a.domain == "feedyour.email" }&.local ||
-      raise("Unknown address #{mail.to_addresses.inspect}")
+      received_header_token || raise("Unknown address! #{mail.to_addresses.map(&:to_s).inspect}")
   end
 
   private
+
+  def received_header_token
+    tokens = mail.header
+      .select { |h| h.name == "Received" }
+      .map { |h| h.value.scan(/for <(.*?)@feedyour.email>/) }
+      .flatten
+      .uniq
+
+    return nil if tokens.size.zero?
+    return tokens.first if tokens.size == 1
+    raise("Too many feeds! #{tokens.inspect}")
+  end
 
   def postmark_test?
     mail.from.include?("support@postmarkapp.com") &&
