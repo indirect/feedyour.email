@@ -78,4 +78,17 @@ RSpec.describe PostMailbox, type: :mailbox do
       }.to raise_error('Too many feeds! ["abc123", "def456"]')
     }.to_not change { feed.posts.count }
   end
+
+  it "errors when no feed emails are found" do
+    mail = Mail.new(
+      from: "support@postmarkapp.com",
+      to: "postmarkapp@numist.net"
+    )
+
+    expect {
+      expect {
+        process(mail)
+      }.to raise_error('Unknown address! ["postmarkapp@numist.net"]')
+    }.to_not change { feed.posts.count }
+  end
 end
