@@ -1,0 +1,955 @@
+Return-Path: <pm_bounces@pmbounces.postmarkapp.com>
+Received: by p-pm-inbound03c-aws-useast1c.inbound.postmarkapp.com (Postfix, from userid 996)
+	id 3F5AF406E2F; Mon, 21 Mar 2022 20:55:41 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+	p-pm-inbound03c-aws-useast1c
+X-Spam-Status: No
+X-Spam-Score: -5.3
+X-Spam-Tests: DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,
+	HTML_FONT_LOW_CONTRAST,HTML_MESSAGE,MIME_HTML_ONLY,RCVD_IN_DNSWL_HI,SPF_FAIL,
+	SPF_HELO_PASS,T_SCC_BODY_TEXT_LINE
+Received-SPF: fail (pmbounces.postmarkapp.com: Sender is not authorized by default to use 'pm_bounces@pmbounces.postmarkapp.com' in 'mfrom' identity (mechanism '-all' matched)) receiver=p-pm-inbound03c-aws-useast1c; identity=mailfrom; envelope-from="pm_bounces@pmbounces.postmarkapp.com"; helo=forward4-smtp.messagingengine.com; client-ip=66.111.4.238
+Received: from forward4-smtp.messagingengine.com (forward4-smtp.messagingengine.com [66.111.4.238])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by p-pm-inbound03c-aws-useast1c.inbound.postmarkapp.com (Postfix) with ESMTPS id F0996406E39
+	for <abc123@feedyour.email>; Mon, 21 Mar 2022 20:55:40 +0000 (UTC)
+Received: from mailredirect.nyi.internal (imap52.nyi.internal [10.202.2.102])
+	by mailforward.nyi.internal (Postfix) with ESMTP id CC2F21940A30
+	for <abc123@feedyour.email>; Mon, 21 Mar 2022 16:55:40 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+	by mailredirect.nyi.internal (Postfix) with ESMTP id CB17B1EA0062
+	for <abc123@feedyour.email>; Mon, 21 Mar 2022 16:55:40 -0400 (EDT)
+X-Sieve-Action: redirect
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	 by sloti52n12 (Cyrus 3.5.0-alpha0-4907-g25ce6f34a9-fm-20220311.001-g25ce6f34) with LMTPA;
+	 Mon, 21 Mar 2022 16:55:40 -0400
+X-Cyrus-Session-Id: sloti52n12-1647896140-348507-2-11331962758129683226
+X-Sieve: CMU Sieve 3.0
+X-Resolved-to: person@example.com
+X-Delivered-to: postmarkapp@example.com
+X-Mail-from: pm_bounces@pmbounces.postmarkapp.com
+Received: from mx1 ([10.202.2.200])
+  by compute3.internal (LMTPProxy); Mon, 21 Mar 2022 16:55:40 -0400
+Received: from mx1.messagingengine.com (localhost [127.0.0.1])
+	by mailmx.nyi.internal (Postfix) with ESMTP id A245A66009F
+	for <postmarkapp@example.com>; Mon, 21 Mar 2022 16:55:40 -0400 (EDT)
+Received: from mx1.messagingengine.com (localhost [127.0.0.1])
+    by mx1.messagingengine.com (Authentication Milter) with ESMTP
+    id BF74FD45804;
+    Mon, 21 Mar 2022 16:55:40 -0400
+ARC-Seal: i=1; a=rsa-sha256; cv=none; d=messagingengine.com; s=fm3; t=
+    1647896140; b=XpetR5UfWks9++uEqMAWWUe/SkOH6Tu7i17lAyXtlh9jfITYet
+    4sVWgzqD5VzFV+VZAzzgj9TBePxsC+oHSUCqcp+4u2BOX4ZasYNgZc7BZYEHFGkd
+    xc/QOYj/CwcKjokZSG+jf2tOhlUUJSihBigeCfSV8LTc+tsalTbg2lA2FHWib2cs
+    5e0z6Tf/hlMOkaKkWfWsslHvvr8Bkav4BOZh7KAtV9i9LXrL6jktYtTgWLDBwtFG
+    btr0jEHY/Ft3IUvuI/A22IadBp+5Uhsc379YUm/0SGfUXjGKeZUIxR47YMnjrf3B
+    g1DXKiR3Li29NKW0KEVYnXCtr0nwcOF+ozig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=
+    messagingengine.com; h=from:date:subject:to:message-id
+    :mime-version:content-type:content-transfer-encoding; s=fm3; t=
+    1647896140; bh=Qzj9gvTabIyGBwAsEhNtliy08lL4aYWRwNQyFgxyXoM=; b=W
+    YYh0pPyJ0kTbTDv1GSpuvoFTozvz1Ph6NnGWNDPTTYiHMPrNvxc/PnqiOL+L1yup
+    SmM/gNHppwimDaOC9bieGWEz6CyrowgUUY5E1dTW8fvkypllkY6UNWdb7d60Pi1P
+    8vqsa6uz+L4vEBGvcCxqyhoeBgzHPYTfr9ov+ev60jDD0YFqiGnzmIDhtlK+vRaP
+    arA+tMPrdc3vQKt6qoVcjIes42KWomX5SzI9S8IrhPgCa4hMweMVQZSt+0ggFoms
+    EFDlWkVLAWhEfyL+TFDq1K0Icu9AX9JsU/pj39ilWLjoxaU0rVjCFqSoP0GfeWZL
+    lBOhd9yzvHztxSLTs4TcQ==
+ARC-Authentication-Results: i=1; mx1.messagingengine.com;
+    x-csa=none;
+    x-me-sender=none;
+    x-ptr=pass smtp.helo=mta198a-ord.mtasv.net
+    policy.ptr=mta198a-ord.mtasv.net;
+    bimi=skipped (DMARC Policy is not at enforcement);
+    arc=none (no signatures found);
+    dkim=pass (1024-bit rsa key sha1) header.d=pm.mtasv.net
+    header.i=@pm.mtasv.net header.b=ETBGsq53 header.a=rsa-sha1
+    header.s=pm2 x-bits=1024;
+    dkim=pass (1024-bit rsa key sha256) header.d=postmarkapp.com
+    header.i=support@postmarkapp.com header.b=GTq5kOgf header.a=rsa-sha256
+    header.s=20131124034823.pm x-bits=1024;
+    dmarc=pass policy.published-domain-policy=reject
+    policy.published-subdomain-policy=none policy.applied-disposition=none
+    policy.evaluated-disposition=none
+    (p=reject,sp=none,d=none,d.eval=none) policy.policy-from=p
+    header.from=postmarkapp.com;
+    iprev=pass smtp.remote-ip=104.245.209.198 (mta198a-ord.mtasv.net);
+    spf=pass smtp.mailfrom=pm_bounces@pmbounces.postmarkapp.com
+    smtp.helo=mta198a-ord.mtasv.net
+X-ME-Authentication-Results: mx1.messagingengine.com;
+    x-aligned-from=orgdomain_pass (Domain org match);
+    x-return-mx=pass header.domain=postmarkapp.com policy.is_org=yes
+      (MX Records found: alt1.aspmx.l.google.com,alt2.aspmx.l.google.com,aspmx2.googlemail.com,aspmx3.googlemail.com,aspmx.l.google.com);
+    x-return-mx=pass smtp.domain=pmbounces.postmarkapp.com
+      policy.org_domain=postmarkapp.com policy.is_org=no
+      (MX Records found: p-pm-bounce03-ord.mtasv.net,p-pm-bounce02-ord.mtasv.net);
+    x-tls=pass smtp.version=TLSv1.2 smtp.cipher=ADH-AES256-GCM-SHA384
+      smtp.bits=256/256;
+    x-vs=commercial:mce score=17 state=11
+Authentication-Results: mx1.messagingengine.com;
+    x-csa=none;
+    x-me-sender=none;
+    x-ptr=pass smtp.helo=mta198a-ord.mtasv.net
+      policy.ptr=mta198a-ord.mtasv.net
+Authentication-Results: mx1.messagingengine.com;
+    bimi=skipped (DMARC Policy is not at enforcement)
+Authentication-Results: mx1.messagingengine.com;
+    arc=none (no signatures found)
+Authentication-Results: mx1.messagingengine.com;
+    dkim=pass (1024-bit rsa key sha1) header.d=pm.mtasv.net
+      header.i=@pm.mtasv.net header.b=ETBGsq53 header.a=rsa-sha1
+      header.s=pm2 x-bits=1024;
+    dkim=pass (1024-bit rsa key sha256) header.d=postmarkapp.com
+      header.i=support@postmarkapp.com header.b=GTq5kOgf header.a=rsa-sha256
+      header.s=20131124034823.pm x-bits=1024;
+    dmarc=pass policy.published-domain-policy=reject
+      policy.published-subdomain-policy=none policy.applied-disposition=none
+      policy.evaluated-disposition=none
+      (p=reject,sp=none,d=none,d.eval=none) policy.policy-from=p
+      header.from=postmarkapp.com;
+    iprev=pass smtp.remote-ip=104.245.209.198 (mta198a-ord.mtasv.net);
+    spf=pass smtp.mailfrom=pm_bounces@pmbounces.postmarkapp.com
+      smtp.helo=mta198a-ord.mtasv.net
+X-ME-VSSU: VW5zdWI9aHR0cHM6Ly9hY2NvdW50LnBvc3RtYXJrYXBwLmNvbS9ub3RpZmljYXRpb25zL3
+    Vuc3Vic2NyaWJlLWZyb20tYWxsLXdlZWtseS1kaWdlc3RzL0JBaDdCam9NZFhObGNsOXBa
+    R2tEYzRvRi0tODQxNzgzMjQzMjZiMTM5M2U2NmViNDZiMzE2MDlkMDUyZTk1OTY4ZQ
+X-ME-VSSU: VW5zdWI9aHR0cHM6Ly9hY2NvdW50LnBvc3RtYXJrYXBwLmNvbS9ub3RpZmljYXRpb25zL3
+    Vuc3Vic2NyaWJlLWZyb20td2Vla2x5LWRpZ2VzdC9CQWg3Q0RvTWRYTmxjbDlwWkdrRGM0
+    b0ZPZzV6WlhKMlpYSmZhV1JwQSt3dmdqb1FjMlZ5ZG1WeVgyNWhiV1ZKSWhObVpXVmtlVz
+    kxY2k1bGJXRnBiQVk2QmtWVS0tZmE2Y2JkZDY5YTFjMDVjZjE3MjJjMGQ1MTlkMmIyYWVm
+    NGE3OTM4Yg
+X-ME-VSCause: gggruggvucftvghtrhhoucdtuddrgedvvddrudegfedgudeggecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecundfotefknffkpffiuc
+    dludejmdenucfjughrpefhfffuvffkgggtgfeshhhqredttddtjeenucfhrhhomheprfho
+    shhtmhgrrhhkuceoshhuphhpohhrthesphhoshhtmhgrrhhkrghpphdrtghomheqnecugg
+    ftrfgrthhtvghrnhepleegueeigfduudeufeduieeukeefhfeutefggfeiveevfffhtdet
+    kefhveffudeunecuffhomhgrihhnpehpohhsthhmrghrkhgrphhprdgtohhmpdgumhgrrh
+    gtughighgvshhtshdrtghomhdpthifihhtthgvrhdrtghomhdplhhinhhkvgguihhnrdgt
+    ohhmpdifihhluggsihhtrdgtohhmnecukfhppedutdegrddvgeehrddvtdelrdduleekne
+    cuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepuddtgedrvdeghedr
+    vddtledrudelkedphhgvlhhopehmthgrudelkegrqdhorhgurdhmthgrshhvrdhnvghtpd
+    hmrghilhhfrhhomhepoehpmhgpsghouhhntggvshesphhmsghouhhntggvshdrphhoshht
+    mhgrrhhkrghpphdrtghomheq
+X-ME-VSScore: 17
+X-ME-VSCategory: commercial:mce
+X-ME-CSA: none
+Received-SPF: pass
+    (pmbounces.postmarkapp.com: Sender is authorized to use 'pm_bounces@pmbounces.postmarkapp.com' in 'mfrom' identity (mechanism 'include:spf.mtasv.net' matched))
+    receiver=mx1.messagingengine.com;
+    identity=mailfrom;
+    envelope-from="pm_bounces@pmbounces.postmarkapp.com";
+    helo=mta198a-ord.mtasv.net;
+    client-ip=104.245.209.198
+Received: from mta198a-ord.mtasv.net (mta198a-ord.mtasv.net [104.245.209.198])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.messagingengine.com (Postfix) with ESMTPS
+	for <postmarkapp@example.com>; Mon, 21 Mar 2022 16:55:39 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=pm2; d=pm.mtasv.net;
+ h=From:Date:Subject:To:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding;
+ bh=npWXHH2LcJT5xM0R4xSvtOgCf7o=;
+ b=ETBGsq536ocSCOZ6PDeg9KNkZynfKJcYgJGq8IFH6fiwvwPIDtkVxULyRHp/iEvKbjkebzwjin5s
+   3+JSMmRvGzolGXGkDM6Rb0f1su0UnVOpLP7XWmPpQvCkdph5pA+4Up4GvnbG1JS8W/6hWpeCqpjD
+   VigWRlCAtT9L6agQGf0=
+Received: by mta198a-ord.mtasv.net id h73j4o27tk4i for <postmarkapp@example.com>; Mon, 21 Mar 2022 16:55:38 -0400 (envelope-from <pm_bounces@pmbounces.postmarkapp.com>)
+X-PM-IP: 104.245.209.198
+X-IADB-IP: 104.245.209.198
+X-IADB-IP-REVERSE: 198.209.245.104
+DKIM-Signature: v=1; a=rsa-sha256; d=postmarkapp.com; s=20131124034823.pm;
+	c=relaxed/relaxed; i=support@postmarkapp.com; t=1647896138;
+	h=cc:content-transfer-encoding:content-type:date:from:in-reply-to:
+	list-archive:list-help:list-id:list-owner:list-post:list-subscribe:
+	list-unsubscribe:mime-version:message-id:references:reply-to:sender:subject:
+	to:feedback-id;
+	bh=Qzj9gvTabIyGBwAsEhNtliy08lL4aYWRwNQyFgxyXoM=;
+	b=GTq5kOgfQJ3Newf0d8kqMEuJH+RDajF4fH20jODVb/iE0+P/muzUFzT+AmJC7NdWEgGEXlcmHKj
+	BWn04yPJM+7+CkAbsRvCQBSY+c9NJETZJVjey6x64NRNBSgOR79sgms4eOM0V/MtGuxwZVW/OVlxt
+	K1cY2lpeoC6UjjybCDk=
+From: Postmark <support@postmarkapp.com>
+Date: Mon, 21 Mar 2022 20:55:38 +0000
+Subject: Weekly Digest for feedyour.email
+To: postmarkapp@example.com
+Message-Id: <6238e64a327c8_17c1020195f8@ip-172-26-11-213.us-east-2.compute.internal.mail>
+Feedback-ID: s40483-d2Vla2x5LWRpZ2VzdC1lbWFpbA==:s40483:a50355:postmark
+X-Complaints-To: abuse@postmarkapp.com
+X-PM-Message-Id: a6e43204-d85f-45a5-8743-7cac8ff5f396
+X-PM-Tag: weekly-digest-email
+X-PM-RCPT: |bTB8NTAzNTV8NDA0ODN8cG9zdG1hcmthcHBAbnVtaXN0Lm5ldA==|
+X-PM-Message-Options: v1;9Hcc_PIAriBnYBOfaIwCcyIPcaJJ4QcTBG0Vjf0upsKfpR9qOJtFHrXwPywaBTAW0yivONdmCE8g_Gy1UcqUBBDOwW7mU_BYoMQKRhXnXR0
+MIME-Version: 1.0
+X-PM-MTA-Pool: transactional-2
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http:/=
+/www.w3.org/TR/html4/loose.dtd">
+<html lang=3D"en" style=3D"color-scheme: light dark; supported-color-s=
+chemes: light dark;">
+<head>
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-sca=
+le=3D1.0">
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUT=
+F-8">
+  <meta name=3D"x-apple-disable-message-reformatting">
+  <meta name=3D"color-scheme" content=3D"light dark">
+  <meta name=3D"supported-color-schemes" content=3D"light dark">
+ =20
+ =20
+<style>.ExternalClass {
+width: 100%;
+}
+.ExternalClass {
+line-height: 100%;
+}
+body {
+width: 100% !important; height: 100%; margin: 0; background-color: #ee=
+ece4; color: #272727; line-height: 1.6; -webkit-text-size-adjust: none=
+;
+}
+a:visited {
+color: #007bc8; text-decoration: underline;
+}
+a:visited img {
+border: none;
+}
+.btn:visited {
+border-color: #007bc8; border-style: solid; border-width: 10px 18px; b=
+ackground-color: #007bc8; font-size: 14px; display: inline-block; heig=
+ht: auto; border-radius: 3px; color: #fff; font-weight: 700; text-alig=
+n: center; text-decoration: none; -webkit-text-size-adjust: none;
+}
+.btn:visited--s {
+border-width: 5px 9px;
+}
+.btn--ghost:visited {
+border-color: #deeef8; border-style: solid; border-width: 10px 18px; b=
+ackground-color: #deeef8; font-size: 14px; display: inline-block; heig=
+ht: auto; border-radius: 3px; color: #007bc8; text-align: center; text=
+-decoration: none; -webkit-text-size-adjust: none;
+}
+.footer--slim a:visited {
+color: #b0aea7;
+}
+.follow-banner a:visited {
+color: #272727;
+}
+.digest a:hover {
+color: #000 !important;
+}
+@media screen and (prefers-color-scheme:dark) {
+  body {
+    background-color: #111 !important;
+  }
+  .spacer {
+    background-color: #222 !important; color: transparent !important;
+  }
+  .email-wrapper {
+    background-color: #111 !important;
+  }
+  .btn {
+    color: #e6e6e6 !important;
+  }
+  .btn:visited {
+    color: #e6e6e6 !important;
+  }
+  h1 {
+    color: #e6e6e6 !important;
+  }
+  h2 {
+    color: #e6e6e6 !important;
+  }
+  h3 {
+    color: #e6e6e6 !important;
+  }
+  li {
+    color: #e6e6e6 !important;
+  }
+  ol {
+    color: #e6e6e6 !important;
+  }
+  p {
+    color: #e6e6e6 !important;
+  }
+  ul {
+    color: #e6e6e6 !important;
+  }
+  .welcome {
+    background-color: #222 !important;
+  }
+  .divider_line {
+    border-color: #272727 !important;
+  }
+  .divider {
+    background-color: #222 !important;
+  }
+  .purchase {
+    border-color: #272727 !important;
+  }
+  .purchase td {
+    border-color: #272727 !important;
+  }
+  .cta-banner--dmarcdigests {
+    border-top-color: #272727 !important;
+  }
+  .cta-banner {
+    background-color: #222 !important;
+  }
+  .footer {
+    background-color: #111 !important;
+  }
+  .footer--slim p {
+    color: #5a5a5a !important;
+  }
+  .footer--slim a {
+    color: #5a5a5a !important;
+  }
+  .footer--slim a:visited {
+    color: #5a5a5a !important;
+  }
+  .follow-banner {
+    filter: brightness(.9) !important;
+  }
+  .header--filled {
+    filter: brightness(.9) !important;
+  }
+  .header--digest {
+    border-bottom-color: #272727 !important; background-color: #222 !i=
+mportant;
+  }
+  .header--digest .header_logo img {
+    filter: invert(1) !important;
+  }
+  .panel--warning {
+    border-color: #847450 !important; background: #34311a !important;
+  }
+  .panel--error {
+    border-color: #483737 !important; background-color: #2e2222 !impor=
+tant;
+  }
+  .panel--success {
+    border-color: #3d5332 !important; background-color: #2d302c !impor=
+tant;
+  }
+  .panel--info {
+    border-color: #2c3d46 !important; background-color: #131d23 !impor=
+tant;
+  }
+  .panel_title {
+    color: #e6e6e6 !important;
+  }
+  .digest-server {
+    color: #e6e6e6 !important;
+  }
+  .digest-summary {
+    background-color: #222 !important;
+  }
+  .digest-summary--border {
+    border-top-color: #272727 !important;
+  }
+  .digest-summary_item {
+    border-right-color: #272727 !important;
+  }
+  .digest-section {
+    background-color: #222 !important;
+  }
+  .digest-key_label .activity-link {
+    color: #e6e6e6 !important;
+  }
+  .hero {
+    filter: brightness(.9) !important;
+  }
+}
+@media screen and (max-width:599px) {
+  pre {
+    width: 230px;
+  }
+  .email-top {
+    display: none !important;
+  }
+  .email-body_inner {
+    width: 100% !important;
+  }
+  .email-footer {
+    width: 100% !important;
+  }
+  .welcome {
+    padding: 30px 30px 10px !important;
+  }
+  .divider {
+    padding: 20px 30px !important;
+  }
+  .divider_image--desktop {
+    display: none;
+  }
+  .divider_image--mobile {
+    display: block !important; height: auto !important; max-height: no=
+ne !important; font-size: 16px !important;
+  }
+  .divider--thick {
+    padding: 20px 0 !important;
+  }
+  .divider--no-padding {
+    padding-top: 0 !important;
+  }
+  .divider--no-pad-bottom {
+    padding-bottom: 0 !important;
+  }
+  .divider--no-padding {
+    padding-bottom: 0 !important;
+  }
+  .content-block {
+    padding: 20px 30px !important;
+  }
+  .content-block--image {
+    padding-top: 0 !important; padding-bottom: 0 !important;
+  }
+  .content-block_image-container {
+    text-align: center;
+  }
+  .content-block_body-container {
+    width: 100%;
+  }
+  .content-block_image-container {
+    width: 100%;
+  }
+  .content-block--small .content-block_title {
+    margin-top: 16px !important;
+  }
+  .cta-banner {
+    padding: 30px;
+  }
+  .cta-banner_logo {
+    text-align: center !important;
+  }
+  .cta-banner_sub-title {
+    text-align: center !important;
+  }
+  .cta-banner_title {
+    text-align: center !important;
+  }
+  .cta-banner_action {
+    width: 100%;
+  }
+  .cta-banner_body {
+    width: 100%;
+  }
+  .cta-banner_action {
+    text-align: center !important;
+  }
+  .cta-banner_action td {
+    text-align: center !important;
+  }
+  .cta-banner--centered .cta-banner_action td {
+    text-align: center;
+  }
+  .footer {
+    padding: 0 30px !important;
+  }
+  .footer_table {
+    width: 100%;
+  }
+  .footer--slim {
+    padding: 16px 30px !important;
+  }
+  .follow-banner {
+    padding: 25px 30px !important;
+  }
+  .follow-banner_links {
+    width: 100%; text-align: center !important;
+  }
+  .follow-banner_logo {
+    width: 100%; text-align: center !important;
+  }
+  .follow-banner_logo {
+    margin-bottom: 20px;
+  }
+  .follow-banner_links td {
+    text-align: center !important;
+  }
+  .follow-banner_logo td {
+    text-align: center !important;
+  }
+  .follow-banner_links span {
+    display: block;
+  }
+  .header--digest .header_logo {
+    padding-top: 0 !important; padding-bottom: 12px; text-align: cente=
+r !important;
+  }
+  .header_block {
+    width: 100% !important;
+  }
+  .panel--inline .panel_col {
+    width: 100% !important;
+  }
+  .panel--inline .panel_actions .btn {
+    display: block !important; margin-top: 10px;
+  }
+  .digest-server {
+    text-align: center !important;
+  }
+  .digest-date {
+    text-align: center !important;
+  }
+  .digest-summary {
+    padding-right: 30px !important; padding-left: 30px !important;
+  }
+  .digest-summary_item {
+    width: 100% !important; border-right: 0 !important; padding-bottom=
+: 20px !important;
+  }
+  .digest-summary_item td {
+    padding-right: 0 !important; padding-bottom: 20px !important; padd=
+ing-left: 0 !important;
+  }
+  .digest-summary_item:last-child td {
+    padding-bottom: 0 !important;
+  }
+  .digest-section {
+    padding-right: 30px !important; padding-left: 30px !important;
+  }
+  .digest-key_item {
+    width: 100% !important;
+  }
+  .digest-section-header_title {
+    width: 100%;
+  }
+  .digest-section-header_actions {
+    width: 100%; text-align: left !important;
+  }
+  .hero {
+    padding: 40px 30px 0 !important;
+  }
+}
+@media only screen and (max-device-width:480px) {
+  body {
+    -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;
+  }
+}
+</style>
+</head>
+
+<body class=3D"postmark" style=3D"width: 100% !important; height: 100%=
+; background-color: #eeece4; color: #272727; line-height: 1.6; -webkit=
+-text-size-adjust: none; margin: 0;">
+<span class=3D"preheader" style=3D"display: none !important; max-width=
+: 0; max-height: 0; overflow: hidden; visibility: hidden; opacity: 0; =
+font-size: 1px; line-height: 1px; mso-hide: all;">Server feedyour.emai=
+l parsed 228 and didn't send any emails last week.=20
+</span>
+<table class=3D"email-wrapper" width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"border-collapse: collapse; mso-table-lspace: 0; m=
+so-table-rspace: 0; -premailer-width: 100%; width: 100%; -premailer-ce=
+llpadding: 0; -premailer-cellspacing: 0; background-color: #eeece4; ma=
+rgin: 0; padding: 0;">
+  <tr>
+    <td align=3D"center" style=3D"font-family: Helvetica Neue,Helvetic=
+a,Arial,sans-serif;">
+      <table class=3D"email-content" width=3D"100%" cellpadding=3D"0" =
+cellspacing=3D"0" style=3D"border-collapse: collapse; mso-table-lspace=
+: 0; mso-table-rspace: 0; width: 100%; margin: 0; padding: 0;">
+        <tr>
+          <td class=3D"email-top" width=3D"100%" cellpadding=3D"5" cel=
+lspacing=3D"0" style=3D"font-family: Helvetica Neue,Helvetica,Arial,sa=
+ns-serif; padding: 20px 0;">
+            <table class=3D"email-top_inner" align=3D"center" width=3D=
+"600" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse: co=
+llapse; mso-table-lspace: 0; mso-table-rspace: 0;">
+              <tr><td class=3D"email-top_content" style=3D"font-family=
+: Helvetica Neue,Helvetica,Arial,sans-serif; font-size: 12px; color: #=
+b0aea7; text-align: center;"></td></tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class=3D"email-body" width=3D"100%" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"font-family: Helvetica Neue,Helvetica,Arial,s=
+ans-serif;">
+            <table class=3D"email-body_inner email-body_inner--shadow"=
+ align=3D"center" width=3D"600" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"border-collapse: collapse; mso-table-lspace: 0; mso-table-rspac=
+e: 0; width: 600px; background-color: #fff; box-shadow: 0 1px 3px rgba=
+(0,0,0,.15);">
+             =20
+              <tr>
+                <td class=3D"header header--digest" valign=3D"middle" =
+style=3D"font-family: Helvetica Neue,Helvetica,Arial,sans-serif; backg=
+round-color: #fff; text-align: center; border-top-width: 6px; border-t=
+op-color: #ffde00; border-top-style: solid; border-bottom-width: 1px; =
+border-bottom-color: #eeece4; border-bottom-style: solid; padding: 30p=
+x;">
+                  <table cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+40%" align=3D"left" class=3D"header_block" style=3D"border-collapse: c=
+ollapse; mso-table-lspace: 0; mso-table-rspace: 0;">
+                    <tr>
+                      <td class=3D"header_logo" style=3D"font-family: =
+Helvetica Neue,Helvetica,Arial,sans-serif; text-align: left; padding-t=
+op: 12px;">
+                        <a href=3D"https://postmarkapp.com" style=3D"f=
+ont-family: Helvetica Neue,Helvetica,Arial,sans-serif; color: #007bc8;=
+ text-decoration: underline;">
+                          <img label=3D"Logo" src=3D"https://assets.wi=
+ldbit.com/postmark/emails/images/logo-postmark@2x.png" width=3D"141" a=
+lt=3D"" style=3D"border-style: none;">
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"59%" align=3D"righ=
+t" class=3D"header_block" style=3D"border-collapse: collapse; mso-tabl=
+e-lspace: 0; mso-table-rspace: 0; text-align: right;">
+                  <tr>
+                    <td style=3D"font-family: Helvetica Neue,Helvetica=
+,Arial,sans-serif;">
+                      <a href=3D"https://account.postmarkapp.com/serve=
+rs/8531948/streams" class=3D"digest-server" style=3D"font-family: Helv=
+etica Neue,Helvetica,Arial,sans-serif; color: #272727; text-decoration=
+: none; font-size: 14px; display: block; text-align: right;"><span cla=
+ss=3D"color-label color-label--green" style=3D"display: inline-block; =
+width: 10px; height: 10px; margin-right: 5px; border-radius: 15px; bac=
+kground-color: #3be380;"></span>feedyour.email</a>
+                      <p class=3D"digest-date" style=3D"font-family: H=
+elvetica Neue,Helvetica,Arial,sans-serif; line-height: 22px; text-alig=
+n: right; font-size: 14px; color: #929292; margin: 0;">Mar<span class=3D=
+"month-full" style=3D"display: none;">ch</span> 14, 2022 =E2=80=93 Mar=
+<span class=3D"month-full" style=3D"display: none;">ch</span> 21, 2022=
+</p>
+                    </td>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+
+                 =20
+                 =20
+                 =20
+                 =20
+                 =20
+                 =20
+                  <tr>
+  <td class=3D"digest-summary digest-summary--border" style=3D"font-fa=
+mily: Helvetica Neue,Helvetica,Arial,sans-serif; border-top-width: 1px=
+; border-top-color: #eeece4; border-top-style: solid; padding: 30px 50=
+px;">
+    <div class=3D"digest-section-header">
+      <table width=3D"70%" cellpadding=3D"0" cellspacing=3D"0" align=3D=
+"left" valign=3D"top" class=3D"digest-section-header_title" style=3D"b=
+order-collapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0; ma=
+rgin-bottom: 20px;">
+  <tr>
+    <td style=3D"font-family: Helvetica Neue,Helvetica,Arial,sans-seri=
+f;">
+      <h2 style=3D"font-family: Helvetica Neue,Helvetica,Arial,sans-se=
+rif; color: #272727; font-weight: 700; text-align: left; font-size: 21=
+px; display: inline-block; margin: 0 3px 0 0;">feedyour.email inbound<=
+/h2>
+      <span class=3D"c-badge c-badge--stream-type" style=3D"display: i=
+nline-block; border-radius: 3px; line-height: 1; text-align: center; f=
+ont-size: 12px; color: #b0aea7; padding: 4px 6px; border: 1px solid #e=
+1dfd5;">Inbound</span>
+    </td>
+  </tr>
+</table>
+<table width=3D"30%" cellpadding=3D"0" cellspacing=3D"0" align=3D"righ=
+t" valign=3D"top" class=3D"digest-section-header_actions" style=3D"bor=
+der-collapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0; marg=
+in-top: 6px; margin-bottom: 20px; text-align: right;">
+  <tr>
+    <td style=3D"font-family: Helvetica Neue,Helvetica,Arial,sans-seri=
+f;">
+      <a class=3D"digest-section-header_icon" title=3D"View statistics=
+" target=3D"_blank" rel=3D"noopener noreferrer" href=3D"https://accoun=
+t.postmarkapp.com/servers/8531948/streams/inbound/overview" style=3D"f=
+ont-family: Helvetica Neue,Helvetica,Arial,sans-serif; color: #007bc8;=
+ text-decoration: none; margin-left: 0;"><img alt=3D"View statistics" =
+width=3D"16" src=3D"https://assets-useast2.postmarkapp.com/packs/image=
+s/emails/i-email-stats@2x-65e670f3.png" style=3D"border-style: none;">=
+</a>
+
+      <a class=3D"digest-section-header_icon" title=3D"View activity" =
+target=3D"_blank" rel=3D"noopener noreferrer" href=3D"https://account.=
+postmarkapp.com/servers/8531948/streams/inbound/events" style=3D"font-=
+family: Helvetica Neue,Helvetica,Arial,sans-serif; color: #007bc8; tex=
+t-decoration: none; margin-left: 14px;"><img alt=3D"View activity" wid=
+th=3D"16" src=3D"https://assets-useast2.postmarkapp.com/packs/images/e=
+mails/i-email-activity@2x-3ef165d6.png" style=3D"border-style: none;">=
+</a>
+    </td>
+  </tr>
+</table>
+
+    </div>
+    <table width=3D"49.5%" cellpadding=3D"0" cellspacing=3D"0" align=3D=
+"left" valign=3D"top" class=3D"digest-summary_item" style=3D"border-co=
+llapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0; border-rig=
+ht-width: 1px; border-right-color: #eeece4; border-right-style: solid;=
+">
+      <tr>
+        <td style=3D"font-family: Helvetica Neue,Helvetica,Arial,sans-=
+serif; vertical-align: top; padding: 5px 20px 5px 0;">
+          <p class=3D"digest-summary_stat" style=3D"font-family: Helve=
+tica Neue,Helvetica,Arial,sans-serif; line-height: 32px; text-align: l=
+eft; font-size: 32px; color: #3b4049; padding-bottom: 4px; margin: 0;"=
+>228</p>
+          <p class=3D"digest-summary_label" style=3D"font-family: Helv=
+etica Neue,Helvetica,Arial,sans-serif; line-height: 22px; text-align: =
+left; font-size: 14px; color: #5a5a5a; margin: 0;">Parsed</p>
+            <p class=3D"digest-summary_change" style=3D"font-family: H=
+elvetica Neue,Helvetica,Arial,sans-serif; line-height: 22px; text-alig=
+n: left; font-size: 14px; color: #aeaeae; margin: 0;">
+                <span class=3D"change change--negative" style=3D"color=
+: #f0655d;">=E2=86=93 3%</span> vs. last week
+            </p>
+        </td>
+      </tr>
+    </table>
+    <table width=3D"49.5%" cellpadding=3D"0" cellspacing=3D"0" align=3D=
+"right" valign=3D"top" class=3D"digest-summary_item digest-summary_ite=
+m--no-border" style=3D"border-collapse: collapse; mso-table-lspace: 0;=
+ mso-table-rspace: 0; border-right-width: 1px; border-right-color: #ee=
+ece4; border-right-style: none !important;">
+      <tr>
+        <td style=3D"font-family: Helvetica Neue,Helvetica,Arial,sans-=
+serif; vertical-align: top; padding: 5px 0 5px 20px;">
+          <p class=3D"digest-summary_stat" style=3D"font-family: Helve=
+tica Neue,Helvetica,Arial,sans-serif; line-height: 32px; text-align: l=
+eft; font-size: 32px; color: #3b4049; padding-bottom: 4px; margin: 0;"=
+>0
+            <span style=3D"font-size: 12px; line-height: 12px;"></span=
+>
+          </p>
+          <p class=3D"digest-summary_label" style=3D"font-family: Helv=
+etica Neue,Helvetica,Arial,sans-serif; line-height: 22px; text-align: =
+left; font-size: 14px; color: #5a5a5a; margin: 0;">Failed</p>
+            <p class=3D"digest-summary_change" style=3D"font-family: H=
+elvetica Neue,Helvetica,Arial,sans-serif; line-height: 22px; text-alig=
+n: left; font-size: 14px; color: #aeaeae; margin: 0;">
+              No change
+            </p>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+
+
+
+              <tr>
+  <td class=3D"cta-banner cta-banner--dmarcdigests cta-banner--left" s=
+tyle=3D"font-family: Helvetica Neue,Helvetica,Arial,sans-serif; backgr=
+ound-color: #f6f4fa; border-top-width: 1px; border-top-color: #e2dbf0;=
+ border-top-style: solid; padding: 30px 50px 40px;">
+    <div class=3D"cta-banner_logo" style=3D"margin-bottom: 14px;"><img=
+ src=3D"https://assets.wildbit.com/dmarcdigests/emails/dmarcdigests-id=
+ent.png" width=3D"26"></div>
+
+      <table class=3D"cta-banner_body" border=3D"0" width=3D"320" cell=
+padding=3D"0" cellspacing=3D"0" align=3D"left" valign=3D"top" style=3D=
+"border-collapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0;"=
+>
+        <tbody>
+          <tr>
+            <td style=3D"font-family: Helvetica Neue,Helvetica,Arial,s=
+ans-serif;">
+              <h2 class=3D"cta-banner_title" style=3D"font-family: Hel=
+vetica Neue,Helvetica,Arial,sans-serif; margin-top: 0; color: #422e6b;=
+ font-weight: 500; text-align: left; font-size: 16px; margin-bottom: 4=
+px;">Protect your brand from email scammers </h2>
+              <p class=3D"cta-banner_sub-title" style=3D"font-family: =
+Helvetica Neue,Helvetica,Arial,sans-serif; line-height: 22px; text-ali=
+gn: left; font-size: 14px; color: #583d8f; margin: 0;">Monitor who=E2=80=
+=99s sending email using your domains with DMARC Digests.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+        <table class=3D"cta-banner_action" border=3D"0" width=3D"160" =
+cellpadding=3D"0" cellspacing=3D"0" align=3D"right" valign=3D"top" sty=
+le=3D"border-collapse: collapse; mso-table-lspace: 0; mso-table-rspace=
+: 0; text-align: right;">
+          <tbody>
+            <tr>
+              <td style=3D"font-family: Helvetica Neue,Helvetica,Arial=
+,sans-serif; padding-top: 25px; text-align: right;">
+                <a href=3D"https://dmarcdigests.com/?campaign=3Dpm_wee=
+kly_digest&amp;utm_source=3Dpostmark&amp;utm_medium=3Demail&amp;utm_ca=
+mpaign=3Dpm_weekly_digest" class=3D"btn btn--s" style=3D"font-family: =
+Helvetica Neue,Helvetica,Arial,sans-serif; color: #fff; text-decoratio=
+n: none; background-color: #4db37f; font-size: 14px; display: inline-b=
+lock; height: auto; border-radius: 3px; font-weight: 600; text-align: =
+center; -webkit-text-size-adjust: none; border-color: #4db37f; border-=
+style: solid; border-width: 5px 9px;">Try it free for 14 days</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </td>
+</tr>
+
+            </table>
+          </td>
+        </tr>
+
+       =20
+
+          <tr><td height=3D"50" style=3D"font-family: Helvetica Neue,H=
+elvetica,Arial,sans-serif;"></td></tr>
+
+          <tr>
+            <td class=3D"email-body" width=3D"100%" cellpadding=3D"0" =
+cellspacing=3D"0" style=3D"font-family: Helvetica Neue,Helvetica,Arial=
+,sans-serif;">
+              <table class=3D"email-body_inner email-body_inner--shado=
+w" align=3D"center" width=3D"600" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"border-collapse: collapse; mso-table-lspace: 0; mso-table-rsp=
+ace: 0; width: 600px; background-color: #fff; box-shadow: 0 1px 3px rg=
+ba(0,0,0,.15);">
+
+                <tr>
+                  <td class=3D"digest-section digest-section--news" st=
+yle=3D"font-family: Helvetica Neue,Helvetica,Arial,sans-serif; text-al=
+ign: left; border-top-width: 6px; border-top-color: #007bc8; border-to=
+p-style: solid; padding: 40px 50px;">
+                    <h2 class=3D"digest-section_title" style=3D"font-f=
+amily: Helvetica Neue,Helvetica,Arial,sans-serif; margin-top: 0; color=
+: #272727; font-weight: 700; text-align: left; font-size: 21px; margin=
+-bottom: 30px;">Latest News &amp; Updates</h2>
+
+                    <table width=3D"100%" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0" class=3D"digest-blog" style=3D"border-collapse: c=
+ollapse; mso-table-lspace: 0; mso-table-rspace: 0;">
+                      <tbody>
+                        <tr>
+                          <td valign=3D"top" class=3D"digest-blog_item=
+" style=3D"font-family: Helvetica Neue,Helvetica,Arial,sans-serif; pad=
+ding: 0;">
+                            <a class=3D"digest-blog_title" href=3D"htt=
+ps://postmarkapp.com/blog/increasing-postmarks-capacity-a-parable-of-p=
+ipes" style=3D"font-family: Helvetica Neue,Helvetica,Arial,sans-serif;=
+ color: #007bc8; text-decoration: underline; font-size: 16px; line-hei=
+ght: 19px; text-align: left;">Increasing Postmark's capacity: A parabl=
+e of pipes</a>
+                            <p class=3D"digest-blog_meta" style=3D"fon=
+t-family: Helvetica Neue,Helvetica,Arial,sans-serif; line-height: 22px=
+; text-align: left; margin-top: 0; font-size: 14px; margin-bottom: 0; =
+color: #5a5a5a;">Alex Phillip on Mar<span class=3D"month-full">ch</spa=
+n> 14, 2022</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+
+        <tr>
+          <td class=3D"email-body" width=3D"100%" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"font-family: Helvetica Neue,Helvetica,Arial,s=
+ans-serif;">
+            <table class=3D"email-body_inner email-body_inner--shadow"=
+ align=3D"center" width=3D"600" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"border-collapse: collapse; mso-table-lspace: 0; mso-table-rspac=
+e: 0; width: 600px; background-color: #fff; box-shadow: 0 1px 3px rgba=
+(0,0,0,.15);">
+              <tr>
+  <td class=3D"follow-banner" style=3D"font-family: Helvetica Neue,Hel=
+vetica,Arial,sans-serif; background-color: #ffde00; padding: 25px 50px=
+;">
+    <table class=3D"follow-banner_logo" width=3D"150" cellpadding=3D"0=
+" cellspacing=3D"0" align=3D"left" valign=3D"middle" style=3D"border-c=
+ollapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0;">
+      <tr>
+        <td style=3D"font-family: Helvetica Neue,Helvetica,Arial,sans-=
+serif; text-align: left;">
+          <a href=3D"https://postmarkapp.com" style=3D"font-family: He=
+lvetica Neue,Helvetica,Arial,sans-serif; color: #272727; text-decorati=
+on: underline;">
+            <img width=3D"110" label=3D"Logo" src=3D"https://assets.wi=
+ldbit.com/postmark/emails/images/logo-postmark@2x.png" alt=3D"Postmark=
+" style=3D"margin-top: 3px; border-style: none;"></a>
+        </td>
+      </tr>
+    </table>
+    <table class=3D"follow-banner_links" width=3D"330" cellpadding=3D"=
+0" cellspacing=3D"0" align=3D"right" valign=3D"middle" style=3D"border=
+-collapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0; font-si=
+ze: 14px; text-align: right;">
+      <tr>
+        <td class=3D"align-right" style=3D"font-family: Helvetica Neue=
+,Helvetica,Arial,sans-serif; text-align: right;">
+          <span>Follow us on</span> <img src=3D"https://assets.wildbit=
+.com/postmark/emails/images/twitter-dark@2x.png" alt=3D"Twitter Logo" =
+width=3D"18" height=3D"15" style=3D"margin-bottom: -3px;"> <a href=3D"=
+https://twitter.com/postmarkapp" style=3D"font-family: Helvetica Neue,=
+Helvetica,Arial,sans-serif; color: #272727; text-decoration: underline=
+;">Twitter</a> and <img src=3D"https://assets.wildbit.com/postmark/ema=
+ils/images/linkedin-dark@2x.png" alt=3D"LinekdIn Logo" width=3D"15" he=
+ight=3D"15" style=3D"margin-bottom: -3px;"> <a href=3D"https://www.lin=
+kedin.com/company/wildbit" style=3D"font-family: Helvetica Neue,Helvet=
+ica,Arial,sans-serif; color: #272727; text-decoration: underline;">Lin=
+kedIn</a>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<tr>
+  <td class=3D"footer" style=3D"font-family: Helvetica Neue,Helvetica,=
+Arial,sans-serif; font-size: 14px; background-color: #3b4049; color: #=
+fff; padding: 0 50px;">
+    <p style=3D"color: #FFF; text-align: center; font-family: Helvetic=
+a Neue,Helvetica,Arial,sans-serif; line-height: 22px; font-size: 14px;=
+ margin: 12px 0;">=F0=9F=92=8C
+      <a href=3D"https://postmarkapp.com/newsletter" style=3D"color: r=
+gba(255, 255,255, .5); font-family: Helvetica Neue,Helvetica,Arial,san=
+s-serif; text-decoration: underline;">Subscribe to the Postmark newsle=
+tter</a>
+    </p>
+  </td>
+</tr>
+
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class=3D"footer footer--slim" style=3D"font-family: Helv=
+etica Neue,Helvetica,Arial,sans-serif; font-size: 14px; background-col=
+or: #eeece4; color: #fff; border-top-width: 0; padding: 16px 50px;">
+            <p class=3D"footer_address" style=3D"font-family: Helvetic=
+a Neue,Helvetica,Arial,sans-serif; line-height: 22px; text-align: cent=
+er; font-size: 14px; color: #b0aea7; margin: 0 0 10px;"><a href=3D"htt=
+ps://wildbit.com" target=3D"_blank" style=3D"font-family: Helvetica Ne=
+ue,Helvetica,Arial,sans-serif; color: #b0aea7; text-decoration: underl=
+ine;">Wildbit</a> LLC, 12 Penns Trail, #521, Newtown, PA 18940</p>
+            <p style=3D"font-family: Helvetica Neue,Helvetica,Arial,sa=
+ns-serif; line-height: 22px; text-align: center; font-size: 14px; colo=
+r: #b0aea7; margin: 0;">Don=E2=80=99t want these emails?</p>
+            <p style=3D"font-family: Helvetica Neue,Helvetica,Arial,sa=
+ns-serif; line-height: 22px; text-align: center; font-size: 14px; colo=
+r: #b0aea7; margin: 0;"><a href=3D"https://account.postmarkapp.com/not=
+ifications/unsubscribe-from-weekly-digest/BAh7CDoMdXNlcl9pZGkDc4oFOg5z=
+ZXJ2ZXJfaWRpA+wvgjoQc2VydmVyX25hbWVJIhNmZWVkeW91ci5lbWFpbAY6BkVU--fa6c=
+bdd69a1c05cf1722c0d519d2b2aef4a7938b" style=3D"font-family: Helvetica =
+Neue,Helvetica,Arial,sans-serif; color: #b0aea7; text-decoration: unde=
+rline;">Unsubscribe from this server digest</a> or <a href=3D"https://=
+account.postmarkapp.com/notifications/unsubscribe-from-all-weekly-dige=
+sts/BAh7BjoMdXNlcl9pZGkDc4oF--84178324326b1393e66eb46b31609d052e95968e=
+" style=3D"font-family: Helvetica Neue,Helvetica,Arial,sans-serif; col=
+or: #b0aea7; text-decoration: underline;">unsubscribe from all server =
+digests</a></p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

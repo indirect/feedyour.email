@@ -91,4 +91,18 @@ RSpec.describe PostMailbox, type: :mailbox do
       }.to raise_error('Unknown address! ["postmarkapp@numist.net"]')
     }.to_not change { feed.posts.count }
   end
+
+  it "provides html from single-part emails" do
+    mail = Mail.from_source Rails.root.join("spec/fixtures/files/report.eml").read
+    expect { process(mail) }.to change { Post.count }
+    expect(Post.last.html_body.size).to eq(26991)
+  end
+
+  it "provides text from single-part emails" do
+    source = Rails.root.join("spec/fixtures/files/report.eml").read
+    source.gsub!(%r{Content-Type: text/html}, "Content-Type: text/plain")
+    mail = Mail.from_source(source)
+    expect { process(mail) }.to change { Post.count }
+    expect(Post.last.text_body.size).to eq(26991)
+  end
 end

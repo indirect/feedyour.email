@@ -9,8 +9,8 @@ class PostMailbox < ApplicationMailbox
       token: token,
       from: mail.from_address,
       subject: mail.subject,
-      html_body: mail.html_part&.decoded,
-      text_body: mail.text_part&.decoded
+      html_body: html_body,
+      text_body: text_body
     )
 
     post.broadcast_prepend_to(feed, :posts)
@@ -48,5 +48,15 @@ class PostMailbox < ApplicationMailbox
   def postmark_test?
     mail.from.include?("support@postmarkapp.com") &&
       mail.to.include?("mailbox+SampleHash@inbound.postmarkapp.com")
+  end
+
+  def text_body
+    return mail.text_part.decoded if mail.text_part
+    mail.mime_type == "text/plain" ? mail.body.decoded : nil
+  end
+
+  def html_body
+    return mail.html_part.decoded if mail.html_part
+    mail.mime_type == "text/html" ? mail.body.decoded : nil
   end
 end
