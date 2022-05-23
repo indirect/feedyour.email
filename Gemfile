@@ -14,7 +14,7 @@ end
 group :development do
   gem "annotate", "~> 3.2"
   gem "brakeman", "~> 5.2", require: false
-  gem "bundler-audit", "~> 0.9.0", require: false
+  gem "bundler-audit", "~> 0.9.1", require: false
   gem "code-scanning-rubocop", "~> 0.6.1", require: false,
     github: "arthurnn/code-scanning-rubocop"
   gem "erb_lint", "~> 0.1.1", require: false
