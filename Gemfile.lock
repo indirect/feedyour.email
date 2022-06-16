@@ -114,7 +114,7 @@ GEM
       reline (>= 0.2.7)
     diff-lcs (1.5.0)
     digest (3.1.0)
-    erb_lint (0.1.1)
+    erb_lint (0.1.2)
       activesupport
       better_html (~> 1.0.7)
       html_tokenizer
@@ -184,7 +184,7 @@ GEM
     marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    minitest (5.15.0)
+    minitest (5.16.0)
     msgpack (1.5.1)
     nenv (0.3.0)
     net-imap (0.2.3)
@@ -255,7 +255,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.4.2)
+    rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
     railties (7.0.3)
       actionpack (= 7.0.3)
@@ -364,7 +364,7 @@ DEPENDENCIES
   bundler-audit (~> 0.9.1)
   code-scanning-rubocop (~> 0.6.1)!
   debug (~> 1.5)
-  erb_lint (~> 0.1.1)
+  erb_lint (~> 0.1.2)
   guard-bundler-audit (~> 0.1.5)
   guard-erb_lint!
   guard-rspec (~> 4.7)
