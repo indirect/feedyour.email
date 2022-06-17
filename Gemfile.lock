@@ -99,7 +99,7 @@ GEM
       parser (>= 2.4)
       smart_properties
     bindex (0.8.1)
-    bootsnap (1.11.1)
+    bootsnap (1.12.0)
       msgpack (~> 1.2)
     brakeman (5.2.3)
     builder (3.2.4)
@@ -185,7 +185,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.16.0)
-    msgpack (1.5.1)
+    msgpack (1.5.2)
     nenv (0.3.0)
     net-imap (0.2.3)
       digest
@@ -359,7 +359,7 @@ DEPENDENCIES
   annotate (~> 3.2)
   assert_json (~> 0.4.1)
   better_html (~> 1.0)
-  bootsnap (~> 1.11)
+  bootsnap (~> 1.12)
   brakeman (~> 5.2)
   bundler-audit (~> 0.9.1)
   code-scanning-rubocop (~> 0.6.1)!
