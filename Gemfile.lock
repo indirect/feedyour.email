@@ -157,7 +157,7 @@ GEM
     html_tokenizer (0.0.7)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
-    importmap-rails (1.1.0)
+    importmap-rails (1.1.1)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.5.11)
@@ -349,7 +349,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.5.4)
+    zeitwerk (2.6.0)
 
 PLATFORMS
   universal-darwin-21
