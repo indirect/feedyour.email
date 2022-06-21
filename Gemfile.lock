@@ -157,7 +157,7 @@ GEM
     html_tokenizer (0.0.7)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
-    importmap-rails (1.1.1)
+    importmap-rails (1.1.2)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.5.11)
