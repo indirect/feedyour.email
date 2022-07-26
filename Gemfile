@@ -27,7 +27,7 @@ group :development do
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
   gem "rubocop-rails", "~> 2.15", require: false
   gem "rubocop-rspec", "~> 2.11", require: false
-  gem "standard", "~> 1.12", require: false
+  gem "standard", "~> 1.14", require: false
   gem "web-console", "~> 4.2"
 end
 
