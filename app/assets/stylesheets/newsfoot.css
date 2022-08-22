@@ -1,0 +1,57 @@
+.newsfoot-footnote-container {
+	position: relative;
+	display: inline-block;
+	z-index: 9999;
+}
+
+.newsfoot-footnote-popover {
+	position: absolute;
+	display: block;
+  background: #fafafa;
+  /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);*/
+	padding: 0em 1em;
+  width: 20em;
+	margin: 1em;
+	top: 0.75em;
+  left: calc(-11em + 1px);
+	border-radius: 0.3em;
+  border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+.newsfoot-footnote-popover-arrow {
+	content: '';
+	display: block;
+	width: 1em;
+	position: absolute;
+	top: -0.5em;
+	left: calc(50% - 0.5em);
+	height: 1em !important;
+	transform: rotate(45deg);
+	z-index:0;
+}
+
+.newsfoot-footnote-popover-inner {
+	border-radius: calc(0.3em - 1px);
+	padding: 1em;
+	position: relative;
+	z-index: 1;
+}
+
+.newsfoot-footnote-popover-inner :first-child {
+	margin-top: 0;
+}
+.newsfoot-footnote-popover-inner :last-child {
+	margin-bottom: 0;
+}
+
+.newsfoot-footnote-popover .reversefootnote,
+.newsfoot-footnote-popover .footnoteBackLink,
+.newsfoot-footnote-popover .footnote-return,
+.newsfoot-footnote-popover a[href*='#fn'] {
+	display: none;
+}
+
+.footnotes {
+  display: none;
+}
