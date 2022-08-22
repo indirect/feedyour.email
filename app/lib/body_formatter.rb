@@ -3,12 +3,25 @@ class BodyFormatter
     @html_body = html_body
   end
 
-  def format
+  def format(from_name)
     return if @html_body.blank?
 
-    @html_body
-      .gsub("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\r\n", "")
-      .gsub("img {\nmax-width: 550px;\n}", "img { max-width: 100% }")
-      .gsub("max-width: 550px; width: 100% !important", "width: 100% !important")
+    case from_name
+    when "Matt Levine"
+      @html_body
+        .gsub("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\r\n", "")
+        .gsub("img {\nmax-width: 550px;\n}", "img { max-width: 100% }")
+        .gsub("max-width: 550px; width: 100% !important", "width: 100% !important")
+        .gsub("</head>", ApplicationController.render(partial: "posts/injected_header"))
+        .gsub(/(.{4})(\[\d+\])/) do
+          if $1 == "<em>"
+            "<em id=\"fn#{$2[1...-1]}\">#{$2}"
+          else
+            "<a class=\"footnote\" href=\"#fn#{$2[1...-1]}\">#{$2}</a>"
+          end
+        end
+    else
+      @html_body
+    end
   end
 end
