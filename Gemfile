@@ -13,7 +13,7 @@ end
 
 group :development do
   gem "annotate", "~> 3.2"
-  gem "brakeman", "~> 5.2", require: false
+  gem "brakeman", "~> 5.3", require: false
   gem "bundler-audit", "~> 0.9.1", require: false
   gem "code-scanning-rubocop", "~> 0.6.1", require: false,
     github: "arthurnn/code-scanning-rubocop"
@@ -27,7 +27,7 @@ group :development do
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
   gem "rubocop-rails", "~> 2.15", require: false
   gem "rubocop-rspec", "~> 2.11", require: false
-  gem "standard", "~> 1.12", require: false
+  gem "standard", "~> 1.16", require: false
   gem "web-console", "~> 4.2"
 end
 
