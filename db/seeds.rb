@@ -6,9 +6,18 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Feed.find_or_create_by!(token: "somefeed", name: "Money Stuff")
+require "action_mailbox/test_helper"
 
-json = JSON.parse(Rails.root.join("spec/support/body.json").read)
-params = Griddler::Postmark::Adapter.normalize_params(json.deep_symbolize_keys)
-email = Griddler::Email.new(params)
-EmailProcessor.new(email).process(token: "somepost")
+class Seeder
+  include ActionMailbox::TestHelper
+
+  def run!
+    Feed.find_or_create_by!(token: "abc123", name: "Money Stuff")
+
+    source = Rails.root.join("spec/fixtures/files/money_stuff.eml").read
+    mail = create_inbound_email_from_source(source)
+    PostMailbox.new(mail).process(token: "abc123") if mail
+  end
+end
+
+Seeder.new.run!
