@@ -58,3 +58,13 @@ jobs:
         if: always()
         with:
           sarif_file: tmp/sarif
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [test, lint]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "feedyouremail"
+          heroku_email: "andre@arko.net"
