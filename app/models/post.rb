@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   has_secure_token :token
   serialize :from, Mail::Address
   delegate :domain, to: :from
+  after_create :reformat_body
 
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length)
@@ -33,6 +34,10 @@ class Post < ApplicationRecord
     from.match(/(.*?) <(.*)>/) do |m|
       Mail::Address.new("\"#{m[1]}\" <#{m[2]}>")
     end
+  end
+
+  def reformat_body
+    self.html_body = BodyFormatter.new(html_body).format
   end
 end
 
