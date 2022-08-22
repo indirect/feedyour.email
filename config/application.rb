@@ -33,5 +33,11 @@ module FeedyourEmail
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.active_record.yaml_column_permitted_classes = [
+      Mail::Address,
+      Mail::Parsers::AddressListsParser::AddressStruct,
+      Symbol
+    ]
   end
 end
