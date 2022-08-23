@@ -17,7 +17,7 @@ class BodyFormatter
           if $1 == "<em>"
             "<em id=\"fn#{$2[1...-1]}\">#{$2}"
           else
-            "<a class=\"footnote\" href=\"#fn#{$2[1...-1]}\">#{$2}</a>"
+            "#{$1}<a class=\"footnote\" href=\"#fn#{$2[1...-1]}\">#{$2}</a>"
           end
         end
     else
