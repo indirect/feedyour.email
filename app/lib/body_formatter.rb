@@ -13,7 +13,7 @@ class BodyFormatter
         .gsub("img {\nmax-width: 550px;\n}", "[class^=\"liveintent\"] { display: none !important; }")
         .gsub("max-width: 550px; width: 100% !important", "width: 100% !important")
         .gsub("</head>", ApplicationController.render(partial: "posts/injected_header"))
-        .gsub(/<td class="footer-wrapper.*/, "</tr></tbody></table></body></html>")
+        .gsub(/<table class="footer".*/m, "</body></html>")
         .gsub(/(.{4})(\[\d+\])/) do
           if $1 == "<em>"
             "<em id=\"fn#{$2[1...-1]}\">#{$2}"
