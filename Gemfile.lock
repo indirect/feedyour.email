@@ -151,7 +151,7 @@ GEM
       guard (>= 2.0.0)
       guard-compat (~> 1.0)
     honeybadger (4.12.2)
-    hotwire-livereload (1.2.0)
+    hotwire-livereload (1.2.2)
       listen (>= 3.0.0)
       rails (>= 6.0.0)
     html_tokenizer (0.0.7)
