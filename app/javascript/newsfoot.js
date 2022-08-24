@@ -132,28 +132,31 @@
 	];
 	
 	// Handle clicks on the footnote reference
-	document.addEventListener("click", (ev) => {
-		if (!(ev.target && ev.target instanceof HTMLAnchorElement)) return;
-
-		let targetId = undefined;
-		for(const f of footnoteFormats) {
-			targetId = f.fnref(ev.target);
-			if (targetId) break;
-		}
-		if (targetId === undefined) return;
-
-		// Only override the default behaviour when we know we can find the
-		// target element
-		const targetElement = document.getElementById(targetId);
-		if (targetElement === null) return;
-
-		ev.preventDefault();
-
-		installContainer(ev.target);
-
-		void new Footnote(targetElement.innerHTML, ev.target);
-    });
-
+	document.querySelectorAll("a").forEach((a) => {
+		a.addEventListener("click", (ev) => {
+			let target = ev.currentTarget
+			if (!(target && target instanceof HTMLAnchorElement)) return;
+			
+			let targetId = undefined;
+			for(const f of footnoteFormats) {
+				targetId = f.fnref(target);
+				if (targetId) break;
+			}
+			if (targetId === undefined) return;
+			
+			// Only override the default behaviour when we know we can find the
+			// target element
+			const targetElement = document.getElementById(targetId);
+			if (targetElement === null) return;
+			
+			ev.preventDefault();
+			
+			installContainer(target);
+			
+			void new Footnote(targetElement.innerHTML, target);
+		});
+	})
+	
 	// Handle clicks on the footnote reverse link
 	document.addEventListener("click", (ev) =>
 	{
