@@ -8,18 +8,20 @@ class BodyFormatter
 
     case from_name
     when "Matt Levine"
-      @html_body
+      body = @html_body
         .gsub("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\r\n", "")
         .gsub("</style>", "[class^=\"liveintent\"] { display: none !important; }</style>")
         .gsub("</head>", ApplicationController.render(partial: "posts/injected_header"))
         .gsub(/<table class="footer".*/m, "</body></html>")
-        .gsub(/(.{4})(\[\d+\])/) do
-          if $1 == "<em>"
-            "<em id=\"fn#{$2[1...-1]}\">#{$2}"
-          else
-            "#{$1}<a class=\"footnote\" href=\"#fn#{$2[1...-1]}\">#{$2}</a>"
-          end
+      return body if body =~ /class="footnote-content"/
+
+      body.gsub(/(.{4})(\[\d+\])/) do
+        if $1 == "<em>"
+          "<em id=\"fn#{$2[1...-1]}\">#{$2}"
+        else
+          "#{$1}<a class=\"footnote\" href=\"#fn#{$2[1...-1]}\">#{$2}</a>"
         end
+      end
     else
       @html_body
     end
