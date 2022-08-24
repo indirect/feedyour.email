@@ -14,9 +14,10 @@ class Seeder
   def run!
     Feed.find_or_create_by!(token: "abc123", name: "Money Stuff")
 
-    source = Rails.root.join("spec/fixtures/files/money_stuff.eml").read
-    mail = create_inbound_email_from_source(source)
-    PostMailbox.new(mail).process(token: "abc123") if mail
+    Rails.root.join("spec/fixtures/files").glob("money_stuff*.eml").each do |eml|
+      mail = create_inbound_email_from_source(eml.read)
+      PostMailbox.new(mail).process if mail
+    end
   end
 end
 

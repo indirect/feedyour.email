@@ -1,0 +1,2436 @@
+Delivered-To: abc123@feedyour.email
+Received: by 2002:a9d:694a:0:0:0:0:0 with SMTP id p10csp2689065oto;
+        Tue, 23 Aug 2022 10:37:50 -0700 (PDT)
+X-Google-Smtp-Source: AA6agR4tzDrkPrBOA5RxC1AbbB1S4PxqDd1tYkX+WsaHdRGlP2RVLIMc0IGUsL8YZDAVj/TUOq3l
+X-Received: by 2002:a25:b6ca:0:b0:67c:489e:c35f with SMTP id f10-20020a25b6ca000000b0067c489ec35fmr25397160ybm.456.1661276269976;
+        Tue, 23 Aug 2022 10:37:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1661276269; cv=none;
+        d=google.com; s=arc-20160816;
+        b=RHzCoz27tg/NtvVeOg+2CnLK9DLhfHgEbOPNn3b5MQOS7WW3pouFOds6dbHmnSe62y
+         ZZdSr+pUWxyWd652VO8gZLMvsFMKVA1RIzOlm/h/44x+MfwAvxMa8JFITuh+mk5S9Ztb
+         LAvsRWPrbfLQt5k5gOAABdwMDX7Oc7IKcln5IX2QH5M5ljpj2G3/M0LMHcgCovtJFAde
+         JZ2SPpTc5mh4Jl5e3cEmpoBEYNmi61DJpeU7ngBNX4Vu3vCUcAr6T2fVPEX3Lw2jYFhl
+         Wk/WXoDOhlabwLadKCFTA/CCQLI6m96na97m4EgBDcm/Ta1IxMRRgk5OaOEv/ZWeBaOy
+         A3Aw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:precedence:mime-version:subject:message-id:to:from
+         :date:dkim-signature;
+        bh=QBmkoXCPnfNndUGqr2FD5/iR1vaSuAtywtU9oWsle6o=;
+        b=nocULMpvDM51pah9fzV0q+vKSG4OroAdTWh5b5JDEi3nTz2SmUC9W7RO0NTehKpV/m
+         pNyuWuxDMgQNNu3wCiU7hY8VKc7txMgq71Mb7HSv4u9sdO93SVB96dwZAdm7mTrb7/1P
+         YbDAmRkqN6hdXHg+6A0cs+naO0se+PCmS9oH7tsWhOJvKiBXUsvknADqCO42N89Q+sXO
+         gZj3vsQZyShhL7bukgphmwHb2MTsQp2M9O/JAs0x7B1YXq3W1Rc4dyqRMC6M9YnebTGk
+         HpiV68IOOQE2aO2Lwmj4RO0+n/LX77V2sru0j5EDKInbh4fx75jtpt5SmcWLVsGxuHp+
+         2HJA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail.bloombergview.com header.s=sailthru header.b=UsWaIicM;
+       spf=pass (google.com: domain of delivery_20220823133744.28822472.106024@mx.sailthru.com designates 192.64.237.222 as permitted sender) smtp.mailfrom=delivery_20220823133744.28822472.106024@mx.sailthru.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=bloombergview.com
+Return-Path: <delivery_20220823133744.28822472.106024@mx.sailthru.com>
+Received: from pmta29.sailthru.com (pmta29.sailthru.com. [192.64.237.222])
+        by mx.google.com with ESMTPS id s14-20020a819b0e000000b0033d9822b5fesi730415ywg.427.2022.08.23.10.37.49
+        for <abc123@feedyour.email>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Aug 2022 10:37:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of delivery_20220823133744.28822472.106024@mx.sailthru.com designates 192.64.237.222 as permitted sender) client-ip=192.64.237.222;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail.bloombergview.com header.s=sailthru header.b=UsWaIicM;
+       spf=pass (google.com: domain of delivery_20220823133744.28822472.106024@mx.sailthru.com designates 192.64.237.222 as permitted sender) smtp.mailfrom=delivery_20220823133744.28822472.106024@mx.sailthru.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=bloombergview.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed; s=sailthru; d=mail.bloombergview.com;
+ h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:List-Unsubscribe;
+ i=noreply@mail.bloombergview.com;
+ bh=LGL48tOQdXeXCeOR14SxENbkP1xY5nxhxI/x7Ha4dd8=;
+ b=UsWaIicM0KFFidDK5FCLNQyEWU+YHtJVsKOcoaU/JqPk4pgAhrbNACn2fHYMmkfHaWtobQKHBZsk
+   rs4YccXwu99TDuP4oqF/G+zXJDjczGiDhC0tY+WauhfLbAtzMLABEnGduo/9foHZ6smS4FDsWD/e
+   r64G4kPVLM3kuDWaE9o=
+Received: from mtast-04.sailthru.com (204.153.121.10) by pmta29.sailthru.com id h0k86q2sd4sq for <abc123@feedyour.email>; Tue, 23 Aug 2022 13:37:49 -0400 (envelope-from <delivery_20220823133744.28822472.106024@mx.sailthru.com>)
+Received: from nj1-wetcopper.flt (172.18.20.36) by mtast-04.sailthru.com id h0k86q1s6j0p for <abc123@feedyour.email>; Tue, 23 Aug 2022 13:37:44 -0400 (envelope-from <delivery_20220823133744.28822472.106024@mx.sailthru.com>)
+Date: Tue, 23 Aug 2022 13:37:44 -0400 (EDT)
+From: Matt Levine <noreply@mail.bloombergview.com>
+To: abc123@feedyour.email
+Message-ID: <20220823133744.28822472.106024@sailthru.com>
+Subject: Money Stuff: AMC Goes APE
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_8744320_1851000285.1661276264486"
+Precedence: bulk
+X-Feedback-ID: 6358:28822472:campaign:sailthru
+X-TM-ID: 20220823133744.28822472.106024
+X-Info: Message sent by sailthru.com customer Bloomberg Business
+X-Info: We do not permit unsolicited commercial email
+X-Info: Please report abuse by forwarding complete headers to
+X-Info: abuse@sailthru.com
+X-Mailer: sailthru.com
+X-JMailer: nj1-wetcopper.flt
+X-Unsubscribe-Web: https://link.mail.bloombergbusiness.com/oc/5c18396decf12a5e0a3b2dd1h5rk8.29t4/63b6f622
+List-Unsubscribe: <https://link.mail.bloombergbusiness.com/oc/5c18396decf12a5e0a3b2dd1h5rk8.29t4/63b6f622>, <mailto:unsubscribe_20220823133744.28822472.106024@mx.sailthru.com>
+X-rpcampaign: stjko28822472
+
+------=_Part_8744320_1851000285.1661276264486
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+
+
+ =20
+ =20
+   =20
+     =20
+       =20
+     =20
+   =20
+ =20
+ =20
+   =20
+     =20
+        My basic meme-stock corporate finance advice is that, if you are a =
+public company, and people want to pay a lot of money for your stock for=20
+     =20
+   =20
+ =20
+ =20
+   =20
+     =20
+ =20
+   =20
+     =20
+       =20
+     =20
+   =20
+ =20
+
+
+       =20
+         =20
+         =20
+       =20
+       =20
+         =20
+           =20
+         =20
+       =20
+     =20
+ =20
+   =20
+     =20
+       =20
+     =20
+   =20
+ =20
+
+
+     =20
+     =20
+   =20
+ =20
+ =20
+ =20
+   =20
+     =20
+       =20
+         =20
+ =20
+   =20
+      APE
+   =20
+ =20
+
+My basic meme-stock corporate finance advice is that, if you are a public c=
+ompany, and people want to pay a lot of money for your stock for no real re=
+ason, you should sell it to them.
+  [1]
+=C2=A0If your stock is overpriced, you should sell it. This is good for you=
+r existing shareholders, because you are selling shares for more than they =
+are worth, which is accretive. It is bad for the people=C2=A0buying=C2=A0th=
+e shares from you, because they are overpaying, but on the other hand=C2=A0=
+they were going to buy=C2=A0the shares anyway from someone else on the stoc=
+k exchange, so they=C2=A0might as well buy them from you instead.
+While this feels right as basic high-level advice, there are some complicat=
+ions that can make it tricky. The US Securities and Exchange Commission, fo=
+r instance, doesn=E2=80=99t love meme-stock issuers taking advantage of dum=
+b prices to sell stock, so if you=E2=80=99re going to do it   you have to w=
+arn potential buyers that the price is dumb. (This is not much of an impedi=
+ment; the buyers don=E2=80=99t care.) In egregious cases =E2=80=94=C2=A0if =
+for instance you are=C2=A0actually in bankruptcy=C2=A0=E2=80=94=C2=A0the SE=
+C   won=E2=80=99t let you do it at all.
+AMC Entertainment Holdings Inc. is a huge meme stock and has, over the last=
+ couple of years, been particularly aggressive about selling stock into its=
+ meme rally. In June 2020, AMC had about  104 million=C2=A0shares=C2=A0of s=
+tock outstanding; now it has about  516 million. Roughly 80% of all AMC sha=
+res were issued in the last two years, partly out of late-2020 desperation =
+(a pandemic is bad for movie theaters) but partly out of early-2021 opportu=
+nism (a meme-stock rally is great for movie theaters I guess?). Retail inve=
+stor enthusiasm got AMC out of   some real financial difficulties.=C2=A0And=
+ then it kept going. In March it  bought a gold mine? AMC, led by its meme-=
+loving chief executive officer Adam Aron, has seized every opportunity prov=
+ided by its legion of meme-stock retail investors to shore up its finances,=
+ pivot into new businesses and become sort of a meme-stock conglomerate.
+There is, however, a weird complication limiting how much AMC can do. A pub=
+lic company=E2=80=99s certificate of incorporation will say how many shares=
+ it can issue, and that number can=E2=80=99t be changed without a vote of t=
+he majority of outstanding shares. AMC is limited to issuing  524,173,073 s=
+hares of common stock. It has issued 516,820,595 of those shares, leaving a=
+bout 7.4 million to spare, though some of those might be reserved for emplo=
+yee stock-based compensation or other uses. In round numbers, AMC is out of=
+ shares to issue. So it can=E2=80=99t sell more shares to raise money, and =
+it can=E2=80=99t issue more shares to, for instance, attract new employees =
+or buy new gold mines.
+  [2]
+
+AMC sensibly tried to address this problem by  asking shareholders to autho=
+rize 500 million new shares, but shareholders objected
+  [3]
+=C2=A0and AMC ultimately=C2=A0withdrew the proposal. So it is stuck with th=
+e shares it has. (I   once proposed that it should issue its last available=
+ share for millions of dollars, because there is a ton of meme value to own=
+ing the last AMC share, but I guess I was kidding?)
+On the other hand, AMC has=C2=A0preferred=C2=A0shares. Its  certificate of =
+incorporation authorizes it to issue up to 50 million shares of preferred s=
+tock, and like most companies it hadn=E2=80=99t issued any.
+  [4]
+=C2=A0As is typical for public companies, this is what is called =E2=80=9Cb=
+lank-check preferred=E2=80=9D: The board of directors can decide how much t=
+o issue, what its rights are, how much to sell it for, etc., without shareh=
+older approval. This is a pretty significant loophole. What the board can d=
+o is issue preferred stock that=C2=A0looks like=C2=A0common stock. Specific=
+ally:
+=09The preferred stock can have the same voting rights as the common stock.=
+=09The preferred stock can have the same economic rights as the common stoc=
+k: If AMC pays a cash dividend on the common, the preferred gets the same d=
+ividend; if AMC is acquired in a merger, the preferred gets paid the same p=
+rice as the common, etc.=09The preferred stock can be=C2=A0convertible=C2=
+=A0into the common stock, if AMC=E2=80=99s shareholders ever approve enough=
+ shares.
+
+Technically you have to deal with the 50-million-share cap=C2=A0on preferre=
+d shares, but that can be managed: You can say =E2=80=9Ceach preferred shar=
+e is equivalent to 100 shares of common stock,=E2=80=9D giving you 5 billio=
+n share equivalents to play with. Then you can set up a depository receipt =
+program where AMC issues shares of the preferred stock to a depository, and=
+ the depository issues receipts for 1/100th of a preferred share to investo=
+rs. Then each receipt should be economically equivalent to one common share=
+.
+This all sounds weird, when I write it down like that.=C2=A0But it is actua=
+lly a pretty well-known technology, in the niche world of companies without=
+ enough authorized shares.
+  [5]
+=C2=A0Surely lots of bankers and lawyers pitched it to AMC. Yesterday   AMC=
+ did it:
+
+AMC Entertainment Holdings Inc.=E2=80=99s preferred stock made its debut Mo=
+nday amid a selloff in other meme stocks and the broader market, making for=
+ a volatile day. ...
+AMC issued a dividend after Friday=E2=80=99s close of one preferred equity =
+unit for each share of the common, in effect putting in place a 2-for-1 sto=
+ck split. The preferred shares traded for the first time Monday on the New =
+York Stock Exchange under the =E2=80=9CAPE=E2=80=9D symbol, a term Reddit u=
+sers coined to refer to others who are bullish on so-called meme stocks. Th=
+e split sparked some volatile trading, triggering multiple trading halts in=
+ earlier trading Monday for both classes of shares.
+
+Specifically, the trade was to (1)=C2=A0authorize=C2=A01 billion new APE un=
+its, each of which is equivalent to one common share and (2)=C2=A0issue=C2=
+=A0about 516.8 million of them to holders of existing AMC common shares as =
+a dividend. So if you owned an AMC common share on Friday, on Monday you ow=
+ned an AMC common share=C2=A0plus=C2=A0an APE unit. That is =E2=80=9Cin eff=
+ect=E2=80=9D a 2-for-1 stock split: Each APE unit has the same economic and=
+ voting rights as a common share, so you went from owning one common share =
+to owning two-ish common-ish shares.
+  [6]
+=C2=A0
+In practice, this is all a bit strange, and the APE units trade at a discou=
+nt. AMC=E2=80=99s common stock closed at $10.46 yesterday; the APEs closed =
+at $6.00. (AMC closed at $18.02 on Friday, before the split, so the total p=
+ackage was down about 8.7%.) As of 11 a.m. today the APEs were up (to about=
+ $6.53) and the AMCs were down (to about $9.91), and you might expect to se=
+e a certain amount of convergence if AMC=E2=80=99s shareholders agree=C2=A0=
+that the APEs are equivalent to the common stock.
+  [7]
+
+But the point isn=E2=80=99t really the stock split. The point is that now A=
+MC has 483 million APE units that it hasn=E2=80=99t=C2=A0issued. At yesterd=
+ay=E2=80=99s APE closing price, that=E2=80=99s $2.9 billion worth of stock =
+to play with.
+  [8]
+=C2=A0In its  Frequently Asked Questions about the APE dividend, AMC does s=
+ome foreshadowing:
+
+Authorized but unissued AMC Preferred Equity units can be issued in the fut=
+ure in the same way that AMC can issue authorized but unissued shares of co=
+mmon stock. Normal regulations and requirements with respect to share issua=
+nces apply, including potential filings with the SEC and public disclosure,=
+ along with the circumstances under which shareholder approval is or is not=
+ required.
+AMC Preferred Equity units provide AMC with a currency that can be used in =
+the future to further strengthen our balance sheet, including by reducing o=
+ur debt and other liabilities. The AMC Preferred Equity units also give AMC=
+ the ability to invest in shareholder value-enhancing and transformative M&=
+A investment opportunities. In addition, the flexibility provided by the Co=
+mpany=E2=80=99s AMC Preferred Equity units immensely lessens any survival r=
+isk as we continue to work our way through the impact of the COVID pandemic=
+ towards recovery and transformation.
+
+If you are a company with a meme stock, you should sell stock. If you run o=
+ut of stock to sell, you should create more, and then sell it.
+A few other points. First, the ordinary approach with this sort of thing wo=
+uld be to try to convert the APEs into AMC common shares as soon as possibl=
+e. AMC has in the past tried to get shareholder approval to issue new share=
+s, but it has been rebuffed. Now, though, it has a fait accompli: It can go=
+ to shareholders and say =E2=80=9Clook, these APEs are already trading, but=
+ they are trading at a discount in annoying ways, so you might as well give=
+ us permission to issue more common shares so we can go back to having a si=
+ngle share class.=E2=80=9D Maybe that will work.
+  [9]
+
+But AMC doesn=E2=80=99t=C2=A0have=C2=A0to do that, and it has no immediate =
+plans to. From the FAQ:
+
+Technically yes, the AMC Preferred Equity units can convert into common sto=
+ck, but only if the AMC Board proposes and then investors vote to approve a=
+n increase in the number of authorized shares of common stock, in an amount=
+ at least sufficient to permit the conversion of the AMC Preferred Equity u=
+nits into common stock.
+However, we do not currently expect the AMC Board to make such a proposal a=
+ny time soon.
+It is more likely than not that the two securities, the common stock and AM=
+C Preferred Equity units will trade as two separate securities for quite so=
+me time to come.
+
+AMC is a meme stock, and APE is =E2=80=94=C2=A0potentially =E2=80=94=C2=A0a=
+ very meme-y security indeed. Why not see what happens? Maybe AMC can extra=
+ct=C2=A0more=C2=A0value from APE by leaving it as its own separate class of=
+ stock. The business of being a meme stock is largely about=C2=A0getting at=
+tention, and having a weird APE unit might be more attention-getting than h=
+aving one class of stock would.
+Second, is there an AMC/APE arbitrage trade? You might take a view like: =
+=E2=80=9CAPE shares have the same economic and voting rights as AMC common =
+shares, and will eventually be convertible into common shares, but they tra=
+de at a big discount. I should short AMC shares, buy the same number of APE=
+ shares, and profit when the gap closes.=E2=80=9D Good luck to you with tha=
+t one! I will not comment on it as a thesis except to say that AMC=E2=80=99=
+s retail shareholders seem to be endlessly angry about short sellers, so if=
+ you short AMC stock as part of an arbitrage trade they will probably be en=
+dlessly angry at you.
+  [10]
+
+Third, speaking of being endlessly angry at short sellers: One tactic that =
+we have talked about from time to time around here is that=C2=A0a company w=
+ith a lot of short sellers can issue an inconvenient weird dividend to make=
+ life difficult for the short sellers. The way short selling works is that,=
+ to short stock, you have to borrow it, and when you return it you have to =
+give your lender back whatever they would have gotten from holding the stoc=
+k. So if a stock pays a $1 cash dividend, then short sellers need to pay $1=
+ to their share lenders. If a stock does a 2-for-1 split, short sellers nee=
+d to return twice as many shares as they borrowed to close out their shorts=
+.
+And if a stock pays a dividend of, say, seven magic beans per share, then t=
+he short sellers need to go out and find seven magic beans to deliver to th=
+eir share lenders.=C2=A0For instance, in 2019, Overstock.com Inc. tried to =
+do a special dividend of preferred stock that traded only on its own blockc=
+hain platform, and that was not tradeable at all for six months. A short se=
+ller would need to go buy shares of that stock to deliver to her share lend=
+ers, but she couldn=E2=80=99t, because it didn=E2=80=99t trade. =E2=80=9CAh=
+a, got you,=E2=80=9D Overstock more or less cackled, and=C2=A0the shorts we=
+re squeezed, though eventually this plan collapsed under the weight of   ge=
+neral Overstock insanity.
+This is not that at all! APE trades liquidly on the New York Stock Exchange=
+, this is more or less a stock split, and it will be very easy for short se=
+llers to deliver APE to their lenders. Instead of buying back a share of AM=
+C, they=E2=80=99ll just have to buy back a share of AMC plus an APE unit. A=
+n AMC share plus an APE unit this week cost less than an AMC share did last=
+ week, so this is good=C2=A0for the shorts, so far.=C2=A0Still I am mention=
+ing it here because there are various incomprehensible conspiracy theories =
+about AMC short sellers, =E2=80=9Cphantom shares,=E2=80=9D etc., and so it =
+is just about possible to say =E2=80=9Caha, issuing an APE dividend will fl=
+ush out all the phantom shares and catch the nefarious short sellers!=E2=80=
+=9D I don=E2=80=99t know. Here=E2=80=99s  the Wall Street Journal:
+The company has faced unsubstantiated conspiracy theories on the internet t=
+hat there are millions of synthetic AMC shares in circulation, as well as d=
+emands from some investor personalities on social media for a share recount=
+. By issuing one Ape unit for each existing common share, AMC is hoping to =
+put those theories to rest, because only holders of legitimate shares would=
+ receive units, the person said.
+And Adam Aron is a sensible guy but he knows his audience; here  he is on T=
+witter a few weeks ago:
+
+
+   =20
+
+    =20
+I would not think too hard about any of that, but I feel obligated to menti=
+on it.
+
+ =20
+    =20
+      =20
+        =20
+      =20
+   =20
+ =20
+ =20
+   =20
+     =20
+     =20
+       =20
+         =20
+            =20
+              =20
+                =20
+              =20
+           =20
+         =20
+       =20
+     =20
+     =20
+   =20
+ =20
+
+
+ =20
+    =20
+      =20
+        =20
+      =20
+   =20
+ =20
+ =20
+   =20
+     =20
+     =20
+       =20
+         =20
+            =20
+              =20
+                =20
+              =20
+           =20
+         =20
+       =20
+     =20
+     =20
+   =20
+ =20
+
+
+ =20
+   =20
+      Oh Twitter
+   =20
+ =20
+
+The situation is that the richest person in the world, Elon Musk, has $44 b=
+illion riding on the question of whether Twitter Inc. is doing a massive lo=
+ng-running fraud on its users, its advertisers and its shareholders. Musk h=
+as claimed that it is, with no evidence at all, just a vague feeling that h=
+e has. If he=E2=80=99s right and there is a massive fraud, then he can get =
+out of his agreement to buy Twitter for about $44 billion. If he=E2=80=99s =
+wrong, he has to buy Twitter.=C2=A0
+This situation is extremely well known. There are incentives. If you have s=
+omething to do with Twitter, or you know something about Twitter, or you ar=
+e in the business of counting Twitter bots, then you should take a few minu=
+tes and ask yourself: Well, do I know anything about Twitter doing any mass=
+ive frauds? If you do =E2=80=A6=C2=A0look, I don=E2=80=99t know exactly wha=
+t you can do with that. I am not at all sure that you can actually go to El=
+on Musk and be like =E2=80=9Chey I=E2=80=99ve got a pile of fraud documents=
+, they=E2=80=99re yours for $1 billion.=E2=80=9D (He could send you a subpo=
+ena and get them for free?) Even if you did strike a deal with him, he=E2=
+=80=99s notoriously bad about sticking to his deals. Still. I just have a v=
+ague general sense that saving the richest person in the world $44 billion =
+is a good career move.=C2=A0
+So you should expect that, over the next month or two,=C2=A0as Musk=E2=80=
+=99s trial date with Twitter approaches, people will be popping up to say =
+=E2=80=9Coh sure Twitter is a fraud, massive fraud, totally, I have proof, =
+Elon, call me.=E2=80=9D Possibly some of them will have proof that Twitter =
+is doing massive fraud! You never know.
+Anyway  here=E2=80=99s a guy:
+
+Twitter executives deceived federal regulators and the company=E2=80=99s ow=
+n board of directors about =E2=80=9Cextreme, egregious deficiencies=E2=80=
+=9D in its defenses against hackers, as well as its meager efforts to fight=
+ spam, according to an explosive whistleblower complaint from its former se=
+curity chief.
+The complaint from former head of security Peiter Zatko, a widely admired h=
+acker known as =E2=80=9CMudge,=E2=80=9D depicts Twitter as a chaotic and ru=
+dderless company beset by infighting, unable to properly protect its 238 mi=
+llion daily users including government agencies, heads of state and other i=
+nfluential public figures. =E2=80=A6
+=E2=80=9CSecurity and privacy have long been top companywide priorities at =
+Twitter,=E2=80=9D said Twitter spokeswoman Rebecca Hahn. She said that Zatk=
+o=E2=80=99s allegations appeared to be =E2=80=9Criddled with inaccuracies=
+=E2=80=9D and that Zatko =E2=80=9Cnow appears to be opportunistically seeki=
+ng to inflict harm on Twitter, its customers, and its shareholders.=E2=80=
+=9D Hahn said that Twitter fired Zatko after 15 months =E2=80=9Cfor poor pe=
+rformance and leadership.=E2=80=9D ...
+A person familiar with Zatko=E2=80=99s tenure said the company investigated=
+ Zatko=E2=80=99s security claims during his time there and concluded they w=
+ere sensationalistic and without merit.
+
+The Washington Post article quoted above includes a copy of Zatko=E2=80=99s=
+ redacted complaint. =E2=80=9CPlease note,=E2=80=9D says a footnote, =E2=80=
+=9Cthat Mudge began preparing these disclosures in early March 2022, well b=
+efore Mr. Musk expressed any interest in acquiring Twitter, and has not com=
+municated these disclosures to anyone with a financial interest in Twitter.=
+=E2=80=9D
+And, to be clear, Zatko=E2=80=99s complaint doesn=E2=80=99t=C2=A0agree with=
+ Musk=E2=80=99s. The   narrow issue in the Musk/Twitter dispute=C2=A0is whe=
+ther Twitter has been=C2=A0lying in its securities filings when it says tha=
+t it estimates that fewer than 5% of its =E2=80=9Cmonetizable daily active =
+users=E2=80=9D are spam or bot accounts. And Zatko is pretty unambiguous th=
+at, no, Twitter=E2=80=99s numbers are correct. His lawyers write:
+
+Executives are incentivized to avoid counting spam bots as mDAU, because mD=
+AU is reported to advertisers, and advertisers use it to calculate the effe=
+ctiveness of ads. If mDAU includes spam bots that do not click through ads =
+to buy products, then advertisers conclude the ads are less effective, and =
+might shift their ad spending away from Twitter to other platforms with hig=
+her perceived effectiveness.
+However, there are many millions of active accounts that are=C2=A0not=C2=A0=
+considered =E2=80=9CmDAU,=E2=80=9D either because they are spam bots, or be=
+cause Twitter does not believe it can monetize them. These millions of non-=
+mDAU accounts are part of the median user=E2=80=99s experience on the platf=
+orm.
+
+Musk=E2=80=99s claim is that Twitter counts spam bots in its mDAU numbers. =
+Zatko=E2=80=99s complaint says, no, obviously Twitter doesn=E2=80=99t do th=
+at =E2=80=94=C2=A0that=E2=80=99s just a thing that Musk made up to get out =
+of the deal =E2=80=94=C2=A0but the spam bots=C2=A0exist=C2=A0and are annoyi=
+ng. Twitter does a good job of excluding them from its count of monetizable=
+ users, he says, but not of getting rid of them entirely. That=E2=80=99s no=
+t fraud; it=E2=80=99s just a thing that annoys Zatko (and Musk).=C2=A0
+The rest of the complaint is mostly like that too. The gist of it is that, =
+when he worked there, Zatko felt like Twitter was disorganized and incompet=
+ent, and because Twitter is a really important platform with lots of users,=
+ that=E2=80=99s bad. =E2=80=9CMudge Discovers Egregious Deficiencies, Negli=
+gence, Willful Ignorance, and Threats to National Security & Democracy=E2=
+=80=9D is one representative section header. Basically =E2=80=9CTwitter was=
+ bad at running a website.=E2=80=9D Which I think a lot of people already b=
+elieved?
+But if you believe Zatko=E2=80=99s claims, you could spin some legal argume=
+nts from them. (Ann Lipton has  a good Twitter thread analyzing what Zatko=
+=E2=80=99s claims could mean for Musk.) If Twitter was bad at safeguarding =
+user data, did that violate the law (including in particular its  2011 sett=
+lement with the Federal Trade Commission over user data)? Were Twitter=E2=
+=80=99s securities filings misleading, because they didn=E2=80=99t disclose=
+ all of its security vulnerabilities? When all this stuff comes out, will t=
+hat cause a =E2=80=9Cmaterial adverse effect=E2=80=9D on Twitter=E2=80=99s =
+business, which will let Musk get out of the deal? Meh, I don=E2=80=99t kno=
+w.=C2=A0
+Even if=C2=A0these claims are true, and even if they are evidence of fraud =
+or=C2=A0material adverse effect, they are=C2=A0not evidence of anything tha=
+t Musk=C2=A0has been complaining about. Musk would have to, like, send Twit=
+ter a new termination letter saying =E2=80=9Cnever mind about the bot stuff=
+,=C2=A0now I=E2=80=99m terminating the deal because of the security vulnera=
+bility stuff.=E2=80=9D=C2=A0But he could do that, why not. He=E2=80=99s not=
+ limited to the excuses he=E2=80=99s already tried; if people keep finding =
+him new excuses to get out of the deal, he can try those too. Maybe one wil=
+l work.
+
+ =20
+   =20
+     =20
+       =20
+     =20
+   =20
+ =20
+
+
+ =20
+   =20
+      Pump-hack-and-dump
+   =20
+ =20
+
+The basic=C2=A0mechanics of=C2=A0a pump-and-dump scam are that you acquire =
+a bunch of some penny stock for very little money (by buying it in the open=
+ market, or more often by being an insider of the penny-stock company), and=
+ then you trick naive public investors into buying the stock from you for m=
+ore money. There are some pretty well-known traditional=C2=A0methods for tr=
+icking the public:
+=09Especially if you control the company, you go around issuing press relea=
+ses about how the company has found a cure for cancer or is pivoting to the=
+ blockchain or whatever. Retail investors are fooled and buy the stock.=09E=
+ven if you don=E2=80=99t control the company, you put out a fake press rele=
+ase saying that Tesla Inc. has offered to buy the company, and then dump yo=
+ur stock quickly while the market is fooled.=09You sell some stock to your =
+friend for $0.02, she sells it back to you for $0.03, you sell it back to h=
+er for $0.04, she sells it back to you for $0.05, you post on some message =
+boards saying =E2=80=9CTHIS STOCK IS SOARING, LOOK AT THIS PRICE ACTION,=E2=
+=80=9D and then you sell to the readers of those message-board posts for $0=
+.06 and split the profits with your friend.=09You post on a message board s=
+aying =E2=80=9Chey I=E2=80=99m gonna pump this stock=E2=80=9D and other peo=
+ple say =E2=80=9Csure all right sounds fun.=E2=80=9D They=C2=A0buy the stoc=
+k=C2=A0as part of a conscious game of musical chairs:=C2=A0Someone=C2=A0wil=
+l be left holding the bag, overpaying for worthless stock and unable to sel=
+l before it collapses, but everyone has fun playing the game and trying to =
+get out in time.
+
+There might be a few others, and you can combine these approaches. They are=
+ all a bit clich=C3=A9d at this point, and I always wonder how much capacit=
+y they could possibly have.=C2=A0(Who is the audience for all these fake pr=
+ess releases?) But it is still a thriving business, and there is still inno=
+vation. For instance, here is a US Securities and Exchange Commission enfor=
+cement action from last week:
+
+The Securities and Exchange Commission today charged 18 individuals and ent=
+ities for their roles in a fraudulent scheme in which dozens of online reta=
+il brokerage accounts were hacked and improperly used to purchase microcap =
+stocks to manipulate the price and trading volume of those stocks. ...
+According to the SEC=E2=80=99s complaint, in late 2017 and early 2018, hack=
+ers accessed at least 31 U.S. retail brokerage accounts and used them to pu=
+rchase the securities of Lotus Bio-Technology Development Corp. and Good Ga=
+ming, Inc. The unauthorized purchases allegedly enabled fraudsters, who alr=
+eady controlled large blocks of Lotus Bio-Tech and Good Gaming stock, to se=
+ll their holdings at artificially high prices and reap more than $1 million=
+ in illicit proceeds.
+
+Sure? If you can just hack into a bunch of brokerage accounts and turn them=
+ into zombies to buy your penny stocks, you don=E2=80=99t even need to both=
+er with fake press releases. Very efficient.
+
+ =20
+   =20
+      Hologram crypto fraud
+   =20
+ =20
+
+The basic form of cryptocurrency fraud is that you send a venture capitalis=
+t a Twitter direct message saying =E2=80=9Chi can you send me the password =
+to your NFT wallet=E2=80=9D and he replies =E2=80=9Csure, here you go!=E2=
+=80=9D and you take all of his non-fungible tokens. On the other hand I gue=
+ss there are  more baroque approaches:
+A set of hackers managed to impersonate Binance chief communications office=
+r (CCO) Patrick Hillmann in a series of video calls with several representa=
+tives of cryptocurrency projects. The attackers used what Hillman described=
+ as an AI hologram, a deepfake of his image for this objective, and managed=
+ to fool some representatives of these projects, making them think Hillmann=
+ was helping them get listed on the exchange.
+I=E2=80=99m not sure I even understand why that would be valuable (did holo=
+gram Hillmann ask these projects to pay for those fake listings?) but, sure=
+, hologram crypto fraud.
+
+ =20
+   =20
+      Blockchain blockchain blockchain
+   =20
+ =20
+
+It=E2=80=99s been a while  but here=E2=80=99s this again:=C2=A0
+
+Goldman Sachs Group Inc. is already trading some bonds and other debt secur=
+ities for clients on blockchain-based networks such as Ethereum, and the ba=
+nk is building its own blockchain-based trading platform. JPMorgan Chase & =
+Co. already has a platform in place, called Onyx.
+Big Wall Street firms help make the economy run, connecting buyers and sell=
+ers of securities and lending money to businesses. But their sophisticated =
+trades are often run on creaky old systems. Goldman and others hope they wi=
+ll be able to run faster, less-costly and ultimately more-profitable system=
+s based on blockchains. =E2=80=A6
+=E2=80=9CBlockchain technology is going to rewire all financial services,=
+=E2=80=9D said Tom Farley, the former president of the New York Stock Excha=
+nge.
+That said, Wall Street firms have been experimenting with blockchain projec=
+ts for at least the past five years. Despite much hype, few have had a wide=
+spread impact on how financial transactions take place.
+
+In 2017, when we talked about this a lot, my view was that saying =E2=80=9C=
+blockchain blockchain blockchain!=E2=80=9D was a way to get the chief execu=
+tive officer of your bank excited about a=C2=A0project to upgrade trading s=
+ystems and databases. Apparently not=C2=A0that=C2=A0excited. Excited enough=
+ to get around to it in 2022.
+
+ =20
+   =20
+      The deli closed
+   =20
+ =20
+
+Huh, there you go:
+
+The small, money-losing New Jersey deli that was once the sole asset of a p=
+ublicly traded company with a bizarre market capitalization of $100 million=
+ has been sold and closed, according to a regulatory filing.
+Your Hometown Deli in Paulsboro, New Jersey, had been =E2=80=9Ctemporarily =
+closed=E2=80=9D on June 19 while its management sought a new buyer, Makamer=
+ Holdings said in a filing with the Securities and Exchange Commission.
+On July 1, Makamer sold the deli=E2=80=99s remaining inventory for $700. An=
+d then on Aug. 9, the company =E2=80=9Cdisposed of its subsidiary Your Home=
+town Deli, LLC for a price of $15,000, consisting of $5,000 to be paid in c=
+ash and a $10,000 note receivable,=E2=80=9D the filing said.
+Makamer, a bioplastics startup, merged with the deli=E2=80=99s owner, Homet=
+own International, earlier this year.
+=E2=80=9CAfter carefully evaluating its prospects, the Company=E2=80=99s ne=
+w management has determined to sell Your Hometown Deli and its assets and f=
+ocus on the business operations of Makamer as the Company=E2=80=99s busines=
+s going forward,=E2=80=9D the regulatory filing said.
+
+We  talked about the  deli a  lot last  year. Now it is a bioplastics compa=
+ny. The consensus around the deli was that it was not=C2=A0really=C2=A0a $1=
+00 million publicly traded deli: It was a shell company that would eventual=
+ly be used to take some other weird company public, and the deli was just s=
+ort of a placeholder. That all happened pretty much as expected.
+
+ =20
+   =20
+      Things happen
+   =20
+ =20
+
+ Julian Robertson, Hedge-Fund Guru to =E2=80=98Tiger Cubs,=E2=80=99 Dies at=
+ 90. IPO Market Faces  Worst Year in Two Decades. Musk Subpoenas Ex-Twitter=
+ CEO Dorsey in   Battle Over Buyout. How  Occidental Petroleum Captured War=
+ren Buffett=E2=80=99s Eye.=C2=A0Revlon=E2=80=99s  furious stock rally compl=
+icates cosmetics maker=E2=80=99s bankruptcy.   SoftBank=E2=80=99s Epic Loss=
+es Reveal Masayoshi Son=E2=80=99s Broken Business Model. Najib Razak, Malay=
+sia=E2=80=99s Ex-Prime Minister, to Be Imprisoned After Losing Final  1MDB =
+Appeal. Companies Are Cutting Back on  Maternity and Paternity Leave.=C2=A0=
+Wild video shows  escaped bull rampaging through Israeli bank.
+If you'd like to get=C2=A0Money=C2=A0Stuff=C2=A0in handy email form, right =
+in your inbox, please=C2=A0subscribe at this link. Or you can subscribe to =
+Money Stuff and other great Bloomberg newsletters here. Thanks!
+       =20
+  [1] I also   occasionally dabble in more complicated meme-stock corporate=
+ finance advice about, like, selling volatility or whatever. But =E2=80=9Ci=
+f people want to overpay for your stock, sell it to them=E2=80=9D is the *b=
+asic* advice.
+
+
+  [2] Would it want to? One rough analysis of a meme stock is that retail i=
+nvestors enthusiastically buy it at prices disconnected from fundamentals. =
+But if you are trying to, say,   lure Amazon executives to senior leadershi=
+p roles at your meme-stock company, they might *not* want to be paid in mem=
+e stock. They might think it is overvalued. Arguably people who want to be =
+paid in meme stock are not the people you want to hire? I could see the arg=
+ument the other way. Meanwhile owners of small gold mining companies might =
+want to be paid in meme stock, who knows. But surely the *main* use of meme=
+ stock, for the issuer, is selling it for cash to retail investors in at-th=
+e-market offerings. That=E2=80=99s where you get the most bang for your mem=
+e buck.
+
+
+  [3] Why? I don=E2=80=99t know. It is conventional to say that shareholder=
+s don=E2=80=99t want to be diluted, and I guess that is right, but it=E2=80=
+=99s kind of weird: If the stock is soaring for no reason, it is accretive =
+for existing shareholders to issue more stock. (I suppose if you=E2=80=99re=
+ an existing shareholder you might disagree that the stock is soaring for n=
+o reason?) The other thing that is going on here is that this amendment req=
+uires approval of a majority of the *outstanding shares*, so any shares tha=
+t don=E2=80=99t vote are effectively counted as votes against the amendment=
+. AMC stock is mostly held by retail investors, and it is widely assumed th=
+at retail shareholders mostly don=E2=80=99t vote their stock. And in fact i=
+f you look at the results of AMC=E2=80=99s shareholder voting this year =E2=
+=80=94 on routine matters like electing directors and approving executive p=
+ay =E2=80=94 only about 145 million shares (out of 516 million) were actual=
+ly voted. So it might just be impossible for AMC to get a majority of its s=
+hares to vote for *anything*.
+
+
+  [4] There are also 75.8 million authorized shares of Class B common stock=
+, none of which are outstanding: They were owned by Dalian Wanda Group Co.,=
+ which converted and sold them in May 2021. I suppose AMC could re-use thos=
+e shares, but they have super-voting rights so that is not really ideal.
+
+
+  [5] When I was an investment banker, I advised companies on issuing conve=
+rtible bonds and other equity derivatives. Surprisingly often =E2=80=94 not=
+ a lot, but more than once =E2=80=94 we would run into companies without en=
+ough authorized shares to fully convert their convertibles. =E2=80=9CHave t=
+hem convert into common-equivalent preferred stock, then get shareholder ap=
+proval for more shares=E2=80=9D was kind of the go-to advice there, sometim=
+es with a penalty interest rate on the preferred (or the convertibles) if y=
+ou don=E2=80=99t get the shareholder approval soon enough. This is not a th=
+ing that companies do every day, but in the world of arcane equity financin=
+g it is not *that* arcane.
+
+
+  [6] The legal terms of the APE units are in the certificate of designatio=
+ns for the preferred stock and the deposit agreement for the units. Here ar=
+e the Aug. 4  press release announcing the APEs, and the  Form 8-K with mor=
+e details.
+
+
+  [7] Often when a company has two share classes, one will trade at a premi=
+um for liquidity reasons. Intuitively you might expect a common stock to be=
+ more normal and more liquid than a weird preferred stock: If someone wakes=
+ up one day and says =E2=80=9CI=E2=80=99d like to buy AMC,=E2=80=9D they=E2=
+=80=99ll buy AMC common, not APEs. And so the APEs trade at a discount. But=
+ the APEs are listed on the New York Stock Exchange, just like the common s=
+tock, and they have a fun name and a fun ticker and a lot of hype, so you n=
+ever know. Yesterday about 151 million AMC shares traded, versus about 123 =
+million APEs, so it=E2=80=99s not that far off.
+
+
+  [8] As a corporate finance matter I would never, ever, ever want to go ar=
+ound saying that a company=E2=80=99s authorized but unissued stock is =E2=
+=80=9Cworth=E2=80=9D the market price times the number of unissued shares. =
+It does not work that way at all! If a company issued hundreds of millions =
+more shares, the price would go down. Still in the limited meme-y case of A=
+MC, where they had tons of demand for their stock and no supply, creating s=
+upply does seem like it could lead straightforwardly to selling that supply=
+ for money.
+
+
+  [9] But probably it won=E2=80=99t =E2=80=94 see footnote 3.
+
+
+  [10] Incidentally  AMC=E2=80=99s FAQ says, about shorting the APEs: =E2=
+=80=9CShort selling is legal in the United States and permitted by the New =
+York Stock Exchange. Therefore, AMC Preferred Equity units can be sold shor=
+t in the same way that other equity securities on the NYSE can be sold shor=
+t, and there is no action that AMC can take to prevent short selling.=E2=80=
+=9D I suppose you could take the other side of the trade in the text =E2=80=
+=94 go long AMC and short APE =E2=80=94 as a bet that they will *diverge*, =
+that APE will go to zero while AMC rallies. I dunno.
+
+
+     =20
+   =20
+ =20
+
+
+ =20
+   =20
+       =20
+         =20
+            Follow Us
+           =20
+             =20
+           =20
+           =20
+             =20
+           =20
+           =20
+             =20
+           =20
+         =20
+         =20
+         =20
+           =20
+              Get the newsletter
+           =20
+         =20
+       =20
+   =20
+ =20
+
+
+ =20
+   =20
+     =20
+     =20
+ =20
+   =20
+     =20
+       =20
+     =20
+   =20
+ =20
+
+
+
+
+ =20
+   =20
+     =20
+       =20
+       =20
+Like getting this newsletter?=20
+Subscribe to Bloomberg.com for unlimited access to trusted, data-driven jou=
+rnalism and subscriber-only insights.
+
+
+
+Before it=E2=80=99s here, it=E2=80=99s on the=C2=A0Bloomberg=C2=A0Terminal.=
+=C2=A0Find out more about how the Terminal delivers information and analysi=
+s that financial professionals can=E2=80=99t find anywhere else.=C2=A0Learn=
+ more.
+
+     =20
+   =20
+ =20
+
+
+
+       =20
+           You received this message because you are subscribed to Bloomber=
+g's Money Stuff newsletter.
+       =20
+       =20
+          Unsubscribe | Bloomberg.com | Contact Us
+       =20
+       =20
+         =20
+           =20
+             =20
+               =20
+                 =20
+                   =20
+                 =20
+               =20
+               =20
+                  |
+               =20
+               =20
+                 =20
+                   =20
+                 =20
+               =20
+             =20
+           =20
+         =20
+       =20
+       =20
+          Bloomberg L.P. 731 Lexington, New York, NY, 10022
+       =20
+     =20
+   =20
+ =20
+ =20
+
+ =20
+   =20
+     =20
+     =20
+     =20
+     =20
+     =20
+   =20
+ =20
+
+
+
+<a href=3D""><img src=3D"https://link.mail.bloombergbusiness.com/img/5c1839=
+6decf12a5e0a3b2dd1h5rk8.29t4/54bf82c9.gif" alt=3D"" border=3D"0" /></a>
+
+------=_Part_8744320_1851000285.1661276264486
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns=3D"http://www.w3.org/199=
+9/xhtml" style=3D"width: 100%;">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" />
+<meta name=3D"viewport" content=3D"initial-scale=3D1" />
+<title>Money Stuff</title>
+<!--[if (mso)|(mso 16)]>
+<style type=3D"text/css">a {text-decoration: none;}</style>
+<![endif]-->
+<style>body {
+width: 100%; -webkit-font-smoothing: antialiased; font-family: Helvetica, A=
+rial, sans-serif; font-size: 16px; line-height: 150%; margin: 0; padding: 0=
+;
+}
+img {
+max-width: 550px;
+}
+.body-component a:visited {
+color: #000000; text-decoration: none !important; border-bottom: 1px solid =
+#000000; background-color: #ccc;
+}
+.body-component h1 a:visited {
+text-decoration: none; color: #000000;
+}
+@media only screen and (max-width: 480px) {       =20
+.lihide {           =20
+display: none !important;       =20
+}       =20
+.lishow {           =20
+display: block !important;           =20
+width: auto !important;           =20
+overflow: visible !important;           =20
+float: none !important;           =20
+max-height: inherit !important;           =20
+line-height: inherit !important;       =20
+}   =20
+}
+</style></head>
+<body style=3D"width: 100%; -webkit-font-smoothing: antialiased; font-famil=
+y: Helvetica, Arial, sans-serif; font-size: 16px; line-height: 150%; margin=
+: 0; padding: 0;">
+<table id=3D"wrapper" class=3D"wrapper" width=3D"100%" align=3D"center" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"-webkit-font-smoothi=
+ng: antialiased; font-family: Helvetica, Arial, sans-serif; font-size: 16px=
+; max-width: 550px; width: 100% !important;">
+<!--[if mso]>
+<center>
+<tr><td>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"550">
+<![endif]-->
+<tr>
+<td class=3D"sailthru-variables" style=3D"border-collapse: collapse; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt;">
+<div style=3D"display: none; max-height: 0px; overflow: hidden;">
+</div>
+</td>
+</tr>
+<tr>
+<td class=3D"preview-text" style=3D"border-collapse: collapse; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;">
+<div style=3D"display: none; max-height: 0px; overflow: hidden;">
+My basic meme-stock corporate finance advice is that, if you are a public c=
+ompany, and people want to pay a lot of money for your stock for=20
+</div>
+</td>
+</tr>
+<tr>
+<td class=3D"logo-wrapper" style=3D"border-collapse: collapse; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt; padding-bottom: 15px;">
+<table class=3D"liveintent-flex-ad" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" align=3D"center">
+<tr>
+<td colspan=3D"2">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTg3NyZsaT0yODgyMjQ3MiZtPTRjM=
+2VkOTE3ZTU5MTU2YTM2MjEyZDQ4MTU1ODMxNDgyJnA9Mjg5Mjg0OTYmc3RwZT1kZWZhdWx0Jg/5=
+c18396decf12a5e0a3b2dd1B2101e4c1" rel=3D"nofollow">
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825877&amp;li=3D28822472&amp;=
+m=3D4c3ed917e59156a36212d48155831482&amp;p=3D28928496&amp;stpe=3Ddefault&am=
+p;" border=3D"0" width=3D"550" style=3D"width: 100%; max-width: 550px; disp=
+lay:block" />
+</a>
+</td>
+</tr>
+</table>
+<table class=3D"logo" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0">
+<tr>
+<td align=3D"center" class=3D"view-in-browser" style=3D"border-collapse: co=
+llapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 20px 0px 10p=
+x;">
+</td>
+</tr>
+<tr>
+<td align=3D"center" class=3D"logo-container" style=3D"border-collapse: col=
+lapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 5px;">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2F1dGhvcnMvQVJiVFFsUkxSakUvbWF0d=
+Ghldy1zLWxldmluZT9jbXBpZD1CQkQwODIzMjJfTU9ORVlTVFVGRiZ1dG1fbWVkaXVtPWVtYWls=
+JnV0bV9zb3VyY2U9bmV3c2xldHRlciZ1dG1fdGVybT0yMjA4MjMmdXRtX2NhbXBhaWduPW1vbmV=
+5c3R1ZmY/5c18396decf12a5e0a3b2dd1B285c4eb6"><!--[if mso]>
+<table width=3D"550"><tr><td><img alt=3D"Bloomberg" src=3D"https://assets.b=
+wbx.io/images/users/iqjWHBFdfxIU/ije72WSHsgD4/v0/-1x-1.png" width=3D"550" /=
+></td></tr></table>
+<div style=3D"display:none">
+<![endif]--><img class=3D"logo-image" src=3D"https://assets.bwbx.io/images/=
+users/iqjWHBFdfxIU/ije72WSHsgD4/v0/-1x-1.png" border=3D"0" alt=3D"Bloomberg=
+" style=3D"max-width: 550px; width: 100%; display: block;" /><!--[if mso]>
+</div>
+<![endif]--></a>
+</td>
+</tr>
+</table><table class=3D"liveintent-sponsored-logo" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" align=3D"center">
+<tr>
+<td colspan=3D"2">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTg4MSZsaT0yODgyMjQ3MiZtPTRjM=
+2VkOTE3ZTU5MTU2YTM2MjEyZDQ4MTU1ODMxNDgyJnA9Mjg5Mjg0OTYmc3RwZT1kZWZhdWx0Jg/5=
+c18396decf12a5e0a3b2dd1Cb76b935f" rel=3D"nofollow">
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825881&amp;li=3D28822472&amp;=
+m=3D4c3ed917e59156a36212d48155831482&amp;p=3D28928496&amp;stpe=3Ddefault&am=
+p;" border=3D"0" width=3D"108" style=3D"width: 108px !important; display:bl=
+ock" />
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style=3D"border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt;">
+<table class=3D"body-component" width=3D"100%" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0">
+<tr>
+<td class=3D"body-component__content" style=3D"border-collapse: collapse; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt; line-height: 150%; padding: 0 =
+10px;">
+<table class=3D"header" width=3D"100%" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0">
+<tr>
+<td class=3D"body-header-container" style=3D"border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<h2 style=3D"font-weight: bold; font-family: &quot;Arial Black&quot;, Arial=
+, Helvetica, sans-serif; letter-spacing: -1px; font-size: 20px; border-bott=
+om-width: 1px; border-bottom-style: dotted; margin: 0px; padding: 16px 0px =
+5px;">APE</h2>
+</td>
+</tr>
+</table>
+<p style=3D"margin: 16px 0;">My basic meme-stock corporate finance advice i=
+s that, if you are a public company, and people want to pay a lot of money =
+for your stock for no real reason, you should sell it to them.<a class=3D"f=
+ootnote-index" href=3D"#footnote-1" style=3D"color: #000000; text-decoratio=
+n: none !important; border-bottom-width: 1px; border-bottom-color: #000000;=
+ border-bottom-style: none !important; background-color: transparent !impor=
+tant; display: inline-block;">
+<span>[1]</span>
+</a>=C2=A0If your stock is overpriced, you should sell it. This is good for=
+ your existing shareholders, because you are selling shares for more than t=
+hey are worth, which is accretive. It is bad for the people=C2=A0<em>buying=
+=C2=A0</em>the shares from you, because they are overpaying, but on the oth=
+er hand=C2=A0they were going to buy=C2=A0the shares anyway from someone els=
+e on the stock exchange, so they=C2=A0might as well buy them from you inste=
+ad.</p>
+<p style=3D"margin: 16px 0;">While this feels right as basic high-level adv=
+ice, there are some complications that can make it tricky. The US Securitie=
+s and Exchange Commission, for instance, doesn=E2=80=99t love meme-stock is=
+suers taking advantage of dumb prices to sell stock, so if you=E2=80=99re g=
+oing to do it <a href=3D"https://link.mail.bloombergbusiness.com/click/2882=
+2472.106024/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2FydGljbGVzLzIwMjE=
+tMDItMDkvdGhlLXNlYy13YW50cy1yZWRkaXQtbWVtZS1zdG9ja3MtdG8tYWRtaXQtdGhleS1yZS=
+1kYW5nZXJvdXM_Y21waWQ9QkJEMDgyMzIyX01PTkVZU1RVRkYmdXRtX21lZGl1bT1lbWFpbCZ1d=
+G1fc291cmNlPW5ld3NsZXR0ZXImdXRtX3Rlcm09MjIwODIzJnV0bV9jYW1wYWlnbj1tb25leXN0=
+dWZm/5c18396decf12a5e0a3b2dd1B15ad9de4" itemprop=3D"StoryLink" itemscope=3D=
+"itemscope" target=3D"_blank" style=3D"color: #000000; text-decoration: non=
+e !important; border-bottom-width: 1px; border-bottom-color: #000000; borde=
+r-bottom-style: solid; background-color: #ccc;">  you have to warn potentia=
+l buyers</a> that the price is dumb. (This is not much of an impediment; th=
+e buyers don=E2=80=99t care.) In egregious cases =E2=80=94=C2=A0if for inst=
+ance you are=C2=A0<em>actually in bankruptcy=C2=A0</em>=E2=80=94=C2=A0the S=
+EC <a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024=
+/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2FydGljbGVzLzIwMjAtMDYtMjIvdG=
+hlLWJlc3QtZnJhdWQtaXMtaW4tcGxhaW4tc2lnaHQ_Y21waWQ9QkJEMDgyMzIyX01PTkVZU1RVR=
+kYmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPW5ld3NsZXR0ZXImdXRtX3Rlcm09MjIwODIz=
+JnV0bV9jYW1wYWlnbj1tb25leXN0dWZm/5c18396decf12a5e0a3b2dd1Bef401b3e" itempro=
+p=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #=
+000000; text-decoration: none !important; border-bottom-width: 1px; border-=
+bottom-color: #000000; border-bottom-style: solid; background-color: #ccc;"=
+>  won=E2=80=99t let you do it at all</a>.</p>
+<p style=3D"margin: 16px 0;">AMC Entertainment Holdings Inc. is a huge meme=
+ stock and has, over the last couple of years, been particularly aggressive=
+ about selling stock into its meme rally. In June 2020, AMC had about <a hr=
+ef=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aHR0cHM=
+6Ly93d3cuc2VjLmdvdi9peD9kb2M9L0FyY2hpdmVzL2VkZ2FyL2RhdGEvMTQxMTU3OS8wMDAxND=
+ExNTc5MjAwMDAwNTgvYW1jLTIwMjAwMzMxeDEwcS5odG0/5c18396decf12a5e0a3b2dd1B946e=
+16bd" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" styl=
+e=3D"color: #000000; text-decoration: none !important; border-bottom-width:=
+ 1px; border-bottom-color: #000000; border-bottom-style: solid; background-=
+color: #ccc;"> 104 million=C2=A0shares</a>=C2=A0of stock outstanding; now i=
+t has about <a href=3D"https://link.mail.bloombergbusiness.com/click/288224=
+72.106024/aHR0cHM6Ly93d3cuc2VjLmdvdi9peD9kb2M9L0FyY2hpdmVzL2VkZ2FyL2RhdGEvM=
+TQxMTU3OS8wMDAxNTU4MzcwMjIwMTIyMTQvYW1jLTIwMjIwNjMweDEwcS5odG0/5c18396decf1=
+2a5e0a3b2dd1C8ee71534" itemprop=3D"StoryLink" itemscope=3D"itemscope" targe=
+t=3D"_blank" style=3D"color: #000000; text-decoration: none !important; bor=
+der-bottom-width: 1px; border-bottom-color: #000000; border-bottom-style: s=
+olid; background-color: #ccc;"> 516 million</a>. Roughly 80% of all AMC sha=
+res were issued in the last two years, partly out of late-2020 desperation =
+(a pandemic is bad for movie theaters) but partly out of early-2021 opportu=
+nism (a meme-stock rally is great for movie theaters I guess?). Retail inve=
+stor enthusiasm got AMC out of <a href=3D"https://link.mail.bloombergbusine=
+ss.com/click/28822472.106024/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2=
+FydGljbGVzLzIwMjEtMDEtMjgva25vd2luZy13aGVuLXRvLXNlbGwtZ2FtZXN0b3Atc3RvY2stY=
+XQtdGhlLXRvcC1pcy1pbXBvc3NpYmxlP2NtcGlkPUJCRDA4MjMyMl9NT05FWVNUVUZGJnV0bV9t=
+ZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1uZXdzbGV0dGVyJnV0bV90ZXJtPTIyMDgyMyZ1dG1fY2F=
+tcGFpZ249bW9uZXlzdHVmZg/5c18396decf12a5e0a3b2dd1Ba2bf5fa3" itemprop=3D"Stor=
+yLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; t=
+ext-decoration: none !important; border-bottom-width: 1px; border-bottom-co=
+lor: #000000; border-bottom-style: solid; background-color: #ccc;">  some r=
+eal financial difficulties</a>.=C2=A0And then it kept going. In March it <a=
+ href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aHR0=
+cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2FydGljbGVzLzIwMjItMDMtMTUvYW1jLWJ=
+vdWdodC1hLWdvbGQtbWluZT9jbXBpZD1CQkQwODIzMjJfTU9ORVlTVFVGRiZ1dG1fbWVkaXVtPW=
+VtYWlsJnV0bV9zb3VyY2U9bmV3c2xldHRlciZ1dG1fdGVybT0yMjA4MjMmdXRtX2NhbXBhaWduP=
+W1vbmV5c3R1ZmY/5c18396decf12a5e0a3b2dd1Bf61acc46" itemprop=3D"StoryLink" it=
+emscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-decor=
+ation: none !important; border-bottom-width: 1px; border-bottom-color: #000=
+000; border-bottom-style: solid; background-color: #ccc;"> bought a gold mi=
+ne</a>? AMC, led by its meme-loving chief executive officer Adam Aron, has =
+seized every opportunity provided by its legion of meme-stock retail invest=
+ors to shore up its finances, pivot into new businesses and become sort of =
+a meme-stock conglomerate.</p>
+<p style=3D"margin: 16px 0;">There is, however, a weird complication limiti=
+ng how much AMC can do. A public company=E2=80=99s certificate of incorpora=
+tion will say how many shares it can issue, and that number can=E2=80=99t b=
+e changed without a vote of the majority of outstanding shares. AMC is limi=
+ted to issuing <a href=3D"https://link.mail.bloombergbusiness.com/click/288=
+22472.106024/aHR0cHM6Ly93d3cuc2VjLmdvdi9peD9kb2M9L0FyY2hpdmVzL2VkZ2FyL2RhdG=
+EvMTQxMTU3OS8wMDAxNTU4MzcwMjIwMTIyMTQvYW1jLTIwMjIwNjMweDEwcS5odG0jQkFMQU5DR=
+VNIRUVUU18xNDAyOQ/5c18396decf12a5e0a3b2dd1Bfccd4ec5" itemprop=3D"StoryLink"=
+ itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-de=
+coration: none !important; border-bottom-width: 1px; border-bottom-color: #=
+000000; border-bottom-style: solid; background-color: #ccc;"> 524,173,073 s=
+hares</a> of common stock. It has issued 516,820,595 of those shares, leavi=
+ng about 7.4 million to spare, though some of those might be reserved for e=
+mployee stock-based compensation or other uses. In round numbers, AMC is ou=
+t of shares to issue. So it can=E2=80=99t sell more shares to raise money, =
+and it can=E2=80=99t issue more shares to, for instance, attract new employ=
+ees or buy new gold mines.<a class=3D"footnote-index" href=3D"#footnote-2" =
+style=3D"color: #000000; text-decoration: none !important; border-bottom-wi=
+dth: 1px; border-bottom-color: #000000; border-bottom-style: none !importan=
+t; background-color: transparent !important; display: inline-block;">
+<span>[2]</span>
+</a></p>
+<p style=3D"margin: 16px 0;">AMC sensibly tried to address this problem by =
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly93d3cuc2VjLmdvdi9BcmNoaXZlcy9lZGdhci9kYXRhLzE0MTE1NzkvMDAwMTA0NzQ2O=
+TIxMDAwNjUwL2EyMjQzMDIyemRlZjE0YS5odG0/5c18396decf12a5e0a3b2dd1B1e984c3b" i=
+temprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"co=
+lor: #000000; text-decoration: none !important; border-bottom-width: 1px; b=
+order-bottom-color: #000000; border-bottom-style: solid; background-color: =
+#ccc;"> asking shareholders</a> to authorize 500 million new shares, but sh=
+areholders objected<a class=3D"footnote-index" href=3D"#footnote-3" style=
+=3D"color: #000000; text-decoration: none !important; border-bottom-width: =
+1px; border-bottom-color: #000000; border-bottom-style: none !important; ba=
+ckground-color: transparent !important; display: inline-block;">
+<span>[3]</span>
+</a>=C2=A0and AMC ultimately=C2=A0<a href=3D"https://link.mail.bloombergbus=
+iness.com/click/28822472.106024/aHR0cHM6Ly93d3cuc2VjLmdvdi9peD9kb2M9L0FyY2h=
+pdmVzL2VkZ2FyL2RhdGEvMTQxMTU3OS8wMDAxMTA0NjU5MjEwOTc5MjIvdG0yMTIzNzAwZDFfOG=
+suaHRt/5c18396decf12a5e0a3b2dd1Dbe4ba4cb" itemprop=3D"StoryLink" itemscope=
+=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-decoration: =
+none !important; border-bottom-width: 1px; border-bottom-color: #000000; bo=
+rder-bottom-style: solid; background-color: #ccc;">withdrew the proposal</a=
+>. So it is stuck with the shares it has. (I <a href=3D"https://link.mail.b=
+loombergbusiness.com/click/28822472.106024/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNv=
+bS9vcGluaW9uL2FydGljbGVzLzIwMjEtMDYtMDMvYW1jLWhhcy1hLWJpdC1tb3JlLXN0b2NrLXR=
+vLXNlbGw_Y21waWQ9QkJEMDgyMzIyX01PTkVZU1RVRkYmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc2=
+91cmNlPW5ld3NsZXR0ZXImdXRtX3Rlcm09MjIwODIzJnV0bV9jYW1wYWlnbj1tb25leXN0dWZm/=
+5c18396decf12a5e0a3b2dd1B23e0b2fe" itemprop=3D"StoryLink" itemscope=3D"item=
+scope" target=3D"_blank" style=3D"color: #000000; text-decoration: none !im=
+portant; border-bottom-width: 1px; border-bottom-color: #000000; border-bot=
+tom-style: solid; background-color: #ccc;">  once proposed</a> that it shou=
+ld issue its last available share for millions of dollars, because there is=
+ a ton of meme value to owning the last AMC share, but I guess I was kiddin=
+g?)</p>
+<p style=3D"margin: 16px 0;">On the other hand, AMC has=C2=A0<em>preferred=
+=C2=A0</em>shares. Its <a href=3D"https://link.mail.bloombergbusiness.com/c=
+lick/28822472.106024/aHR0cHM6Ly93d3cuc2VjLmdvdi9BcmNoaXZlcy9lZGdhci9kYXRhLz=
+E0MTE1NzkvMDAwMTEwNDY1OTEzMDkyMDAxL2ExMy0yNjk1N18xZXgzZDEuaHRt/5c18396decf1=
+2a5e0a3b2dd1B64a49e4b" itemprop=3D"StoryLink" itemscope=3D"itemscope" targe=
+t=3D"_blank" style=3D"color: #000000; text-decoration: none !important; bor=
+der-bottom-width: 1px; border-bottom-color: #000000; border-bottom-style: s=
+olid; background-color: #ccc;"> certificate of incorporation</a> authorizes=
+ it to issue up to 50 million shares of preferred stock, and like most comp=
+anies it hadn=E2=80=99t issued any.<a class=3D"footnote-index" href=3D"#foo=
+tnote-4" style=3D"color: #000000; text-decoration: none !important; border-=
+bottom-width: 1px; border-bottom-color: #000000; border-bottom-style: none =
+!important; background-color: transparent !important; display: inline-block=
+;">
+<span>[4]</span>
+</a>=C2=A0As is typical for public companies, this is what is called =E2=80=
+=9Cblank-check preferred=E2=80=9D: The board of directors can decide how mu=
+ch to issue, what its rights are, how much to sell it for, etc., without sh=
+areholder approval. This is a pretty significant loophole. What the board c=
+an do is issue preferred stock that=C2=A0<em>looks like=C2=A0</em>common st=
+ock. Specifically:</p>
+<ul style=3D"list-style-type: disc; padding-left: 40px; margin: 16px 0;">=
+=09<li style=3D"margin-bottom: 5px;">The preferred stock can have the same =
+voting rights as the common stock.</li>=09<li style=3D"margin-bottom: 5px;"=
+>The preferred stock can have the same economic rights as the common stock:=
+ If AMC pays a cash dividend on the common, the preferred gets the same div=
+idend; if AMC is acquired in a merger, the preferred gets paid the same pri=
+ce as the common, etc.</li>=09<li style=3D"margin-bottom: 5px;">The preferr=
+ed stock can be=C2=A0<em>convertible=C2=A0</em>into the common stock, if AM=
+C=E2=80=99s shareholders ever approve enough shares.</li>
+</ul>
+<p style=3D"margin: 16px 0;">Technically you have to deal with the 50-milli=
+on-share cap=C2=A0on preferred shares, but that can be managed: You can say=
+ =E2=80=9Ceach preferred share is equivalent to <em>100</em> shares of comm=
+on stock,=E2=80=9D giving you 5 billion share equivalents to play with. The=
+n you can set up a depository receipt program where AMC issues shares of th=
+e preferred stock to a depository, and the depository issues receipts for 1=
+/100th of a preferred share to investors. Then each receipt should be econo=
+mically equivalent to one common share.</p>
+<p style=3D"margin: 16px 0;">This all sounds weird, when I write it down li=
+ke that.=C2=A0But it is actually a pretty well-known technology, in the nic=
+he world of companies without enough authorized shares.<a class=3D"footnote=
+-index" href=3D"#footnote-5" style=3D"color: #000000; text-decoration: none=
+ !important; border-bottom-width: 1px; border-bottom-color: #000000; border=
+-bottom-style: none !important; background-color: transparent !important; d=
+isplay: inline-block;">
+<span>[5]</span>
+</a>=C2=A0Surely lots of bankers and lawyers pitched it to AMC. Yesterday <=
+a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aHR=
+0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjItMDgtMjIvYW1jLXByZW=
+ZlcnJlZC1zdG9jay1zdGFydHMtdHJhZGluZy1pbi1taWRkbGUtb2YtbWVtZS12b2xhdGlsaXR5L=
+Ww3NHV4YWpnP2NtcGlkPUJCRDA4MjMyMl9NT05FWVNUVUZGJnV0bV9tZWRpdW09ZW1haWwmdXRt=
+X3NvdXJjZT1uZXdzbGV0dGVyJnV0bV90ZXJtPTIyMDgyMyZ1dG1fY2FtcGFpZ249bW9uZXlzdHV=
+mZg/5c18396decf12a5e0a3b2dd1B530c983b" itemprop=3D"StoryLink" itemscope=3D"=
+itemscope" target=3D"_blank" style=3D"color: #000000; text-decoration: none=
+ !important; border-bottom-width: 1px; border-bottom-color: #000000; border=
+-bottom-style: solid; background-color: #ccc;">  AMC did it</a>:</p>
+<blockquote>
+<p style=3D"margin: 16px 0;">AMC Entertainment Holdings Inc.=E2=80=99s pref=
+erred stock made its debut Monday amid a selloff in other meme stocks and t=
+he broader market, making for a volatile day. ...</p>
+<p style=3D"margin: 16px 0;">AMC issued a dividend after Friday=E2=80=99s c=
+lose of one preferred equity unit for each share of the common, in effect p=
+utting in place a 2-for-1 stock split. The preferred shares traded for the =
+first time Monday on the New York Stock Exchange under the =E2=80=9CAPE=E2=
+=80=9D symbol, a term Reddit users coined to refer to others who are bullis=
+h on so-called meme stocks. The split sparked some volatile trading, trigge=
+ring multiple trading halts in earlier trading Monday for both classes of s=
+hares.</p>
+</blockquote>
+<p style=3D"margin: 16px 0;">Specifically, the trade was to (1)=C2=A0<em>au=
+thorize=C2=A0</em>1 billion new APE units, each of which is equivalent to o=
+ne common share and (2)=C2=A0<em>issue=C2=A0</em>about 516.8 million of the=
+m to holders of existing AMC common shares as a dividend. So if you owned a=
+n AMC common share on Friday, on Monday you owned an AMC common share=C2=A0=
+<em>plus=C2=A0</em>an APE unit. That is =E2=80=9Cin effect=E2=80=9D a 2-for=
+-1 stock split: Each APE unit has the same economic and voting rights as a =
+common share, so you went from owning one common share to owning two-ish co=
+mmon-ish shares.<a class=3D"footnote-index" href=3D"#footnote-6" style=3D"c=
+olor: #000000; text-decoration: none !important; border-bottom-width: 1px; =
+border-bottom-color: #000000; border-bottom-style: none !important; backgro=
+und-color: transparent !important; display: inline-block;">
+<span>[6]</span>
+</a>=C2=A0</p>
+<p style=3D"margin: 16px 0;">In practice, this is all a bit strange, and th=
+e APE units trade at a discount. AMC=E2=80=99s common stock closed at $10.4=
+6 yesterday; the APEs closed at $6.00. (AMC closed at $18.02 on Friday, bef=
+ore the split, so the total package was down about 8.7%.) As of 11 a.m. tod=
+ay the APEs were up (to about $6.53) and the AMCs were down (to about $9.91=
+), and you might expect to see a certain amount of convergence if AMC=E2=80=
+=99s shareholders agree=C2=A0that the APEs are equivalent to the common sto=
+ck.<a class=3D"footnote-index" href=3D"#footnote-7" style=3D"color: #000000=
+; text-decoration: none !important; border-bottom-width: 1px; border-bottom=
+-color: #000000; border-bottom-style: none !important; background-color: tr=
+ansparent !important; display: inline-block;">
+<span>[7]</span>
+</a></p>
+<p style=3D"margin: 16px 0;">But the point isn=E2=80=99t really the stock s=
+plit. The point is that now AMC has 483 million APE units that it <em>hasn=
+=E2=80=99t=C2=A0</em>issued. At yesterday=E2=80=99s APE closing price, that=
+=E2=80=99s $2.9 billion worth of stock to play with.<a class=3D"footnote-in=
+dex" href=3D"#footnote-8" style=3D"color: #000000; text-decoration: none !i=
+mportant; border-bottom-width: 1px; border-bottom-color: #000000; border-bo=
+ttom-style: none !important; background-color: transparent !important; disp=
+lay: inline-block;">
+<span>[8]</span>
+</a>=C2=A0In its <a href=3D"https://link.mail.bloombergbusiness.com/click/2=
+8822472.106024/aHR0cHM6Ly93d3cuc2VjLmdvdi9BcmNoaXZlcy9lZGdhci9kYXRhLzE0MTE1=
+NzkvMDAwMTEwNDY1OTIyMDkyMzk3L3RtMjIyMzc4MGQxX2V4OTktMS5odG0/5c18396decf12a5=
+e0a3b2dd1B798a21fb" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=
+=3D"_blank" style=3D"color: #000000; text-decoration: none !important; bord=
+er-bottom-width: 1px; border-bottom-color: #000000; border-bottom-style: so=
+lid; background-color: #ccc;"> Frequently Asked Questions</a> about the APE=
+ dividend, AMC does some foreshadowing:</p>
+<blockquote>
+<p style=3D"margin: 16px 0;">Authorized but unissued AMC Preferred Equity u=
+nits can be issued in the future in the same way that AMC can issue authori=
+zed but unissued shares of common stock. Normal regulations and requirement=
+s with respect to share issuances apply, including potential filings with t=
+he SEC and public disclosure, along with the circumstances under which shar=
+eholder approval is or is not required.</p>
+<p style=3D"margin: 16px 0;">AMC Preferred Equity units provide AMC with a =
+currency that can be used in the future to further strengthen our balance s=
+heet, including by reducing our debt and other liabilities. The AMC Preferr=
+ed Equity units also give AMC the ability to invest in shareholder value-en=
+hancing and transformative M&amp;A investment opportunities. In addition, t=
+he flexibility provided by the Company=E2=80=99s AMC Preferred Equity units=
+ immensely lessens any survival risk as we continue to work our way through=
+ the impact of the COVID pandemic towards recovery and transformation.</p>
+</blockquote>
+<p style=3D"margin: 16px 0;">If you are a company with a meme stock, you sh=
+ould sell stock. If you run out of stock to sell, you should create more, a=
+nd then sell it.</p>
+<p style=3D"margin: 16px 0;">A few other points. First, the ordinary approa=
+ch with this sort of thing would be to try to convert the APEs into AMC com=
+mon shares as soon as possible. AMC has in the past tried to get shareholde=
+r approval to issue new shares, but it has been rebuffed. Now, though, it h=
+as a fait accompli: It can go to shareholders and say =E2=80=9Clook, these =
+APEs are already trading, but they are trading at a discount in annoying wa=
+ys, so you might as well give us permission to issue more common shares so =
+we can go back to having a single share class.=E2=80=9D Maybe that will wor=
+k.<a class=3D"footnote-index" href=3D"#footnote-9" style=3D"color: #000000;=
+ text-decoration: none !important; border-bottom-width: 1px; border-bottom-=
+color: #000000; border-bottom-style: none !important; background-color: tra=
+nsparent !important; display: inline-block;">
+<span>[9]</span>
+</a></p>
+<p style=3D"margin: 16px 0;">But AMC doesn=E2=80=99t=C2=A0<em>have=C2=A0</e=
+m>to do that, and it has no immediate plans to. From the FAQ:</p>
+<blockquote>
+<p style=3D"margin: 16px 0;">Technically yes, the AMC Preferred Equity unit=
+s can convert into common stock, but only if the AMC Board proposes and the=
+n investors vote to approve an increase in the number of authorized shares =
+of common stock, in an amount at least sufficient to permit the conversion =
+of the AMC Preferred Equity units into common stock.</p>
+<p style=3D"margin: 16px 0;">However, we do not currently expect the AMC Bo=
+ard to make such a proposal any time soon.</p>
+<p style=3D"margin: 16px 0;">It is more likely than not that the two securi=
+ties, the common stock and AMC Preferred Equity units will trade as two sep=
+arate securities for quite some time to come.</p>
+</blockquote>
+<p style=3D"margin: 16px 0;">AMC is a meme stock, and APE is =E2=80=94=C2=
+=A0potentially =E2=80=94=C2=A0a very meme-y security indeed. Why not see wh=
+at happens? Maybe AMC can extract=C2=A0<em>more=C2=A0</em>value from APE by=
+ leaving it as its own separate class of stock. The business of being a mem=
+e stock is largely about=C2=A0getting attention, and having a weird APE uni=
+t might be more attention-getting than having one class of stock would.</p>
+<p style=3D"margin: 16px 0;">Second, is there an AMC/APE arbitrage trade? Y=
+ou might take a view like: =E2=80=9CAPE shares have the same economic and v=
+oting rights as AMC common shares, and will eventually be convertible into =
+common shares, but they trade at a big discount. I should short AMC shares,=
+ buy the same number of APE shares, and profit when the gap closes.=E2=80=
+=9D Good luck to you with that one! I will not comment on it as a thesis ex=
+cept to say that AMC=E2=80=99s retail shareholders seem to be endlessly ang=
+ry about short sellers, so if you short AMC stock as part of an arbitrage t=
+rade they will probably be endlessly angry at you.<a class=3D"footnote-inde=
+x" href=3D"#footnote-10" style=3D"color: #000000; text-decoration: none !im=
+portant; border-bottom-width: 1px; border-bottom-color: #000000; border-bot=
+tom-style: none !important; background-color: transparent !important; displ=
+ay: inline-block;">
+<span>[10]</span>
+</a></p>
+<p style=3D"margin: 16px 0;">Third, speaking of being endlessly angry at sh=
+ort sellers: One tactic that we have talked about from time to time around =
+here is that=C2=A0a company with a lot of short sellers can issue an inconv=
+enient weird dividend to make life difficult for the short sellers. The way=
+ short selling works is that, to short stock, you have to borrow it, and wh=
+en you return it you have to give your lender back whatever they would have=
+ gotten from holding the stock. So if a stock pays a $1 cash dividend, then=
+ short sellers need to pay $1 to their share lenders. If a stock does a 2-f=
+or-1 split, short sellers need to return twice as many shares as they borro=
+wed to close out their shorts.</p>
+<p style=3D"margin: 16px 0;">And if a stock pays a dividend of, say, seven =
+magic beans per share, then the short sellers need to go out and find seven=
+ magic beans to deliver to their share lenders.=C2=A0For instance, in 2019,=
+ Overstock.com Inc. tried to do a special dividend of preferred stock that =
+traded only on its own blockchain platform, and that was not tradeable at a=
+ll for six months. A short seller would need to go buy shares of that stock=
+ to deliver to her share lenders, but she couldn=E2=80=99t, because it didn=
+=E2=80=99t trade. =E2=80=9CAha, got you,=E2=80=9D Overstock more or less ca=
+ckled, and=C2=A0<a href=3D"https://link.mail.bloombergbusiness.com/click/28=
+822472.106024/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMTktM=
+DktMTYvb3ZlcnN0b2NrLXNvYXJzLWFtaWQtZmx1cnJ5LW9mLXNob3J0LWNvdmVyaW5nLWFzLWRp=
+dmlkZW5kLWxvb21zP2NtcGlkPUJCRDA4MjMyMl9NT05FWVNUVUZGJnV0bV9tZWRpdW09ZW1haWw=
+mdXRtX3NvdXJjZT1uZXdzbGV0dGVyJnV0bV90ZXJtPTIyMDgyMyZ1dG1fY2FtcGFpZ249bW9uZX=
+lzdHVmZg/5c18396decf12a5e0a3b2dd1Bd0bd30ce" itemprop=3D"StoryLink" itemscop=
+e=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-decoration:=
+ none !important; border-bottom-width: 1px; border-bottom-color: #000000; b=
+order-bottom-style: solid; background-color: #ccc;">the shorts were squeeze=
+d</a>, though eventually this plan collapsed under the weight of <a href=3D=
+"https://link.mail.bloombergbusiness.com/click/28822472.106024/aHR0cHM6Ly93=
+d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2FydGljbGVzLzIwMTktMDktMTkvb3ZlcnN0b2NrLWh=
+hcy1oYWQtYS13aWxkLXdlZWs_Y21waWQ9QkJEMDgyMzIyX01PTkVZU1RVRkYmdXRtX21lZGl1bT=
+1lbWFpbCZ1dG1fc291cmNlPW5ld3NsZXR0ZXImdXRtX3Rlcm09MjIwODIzJnV0bV9jYW1wYWlnb=
+j1tb25leXN0dWZm/5c18396decf12a5e0a3b2dd1Be536db14" itemprop=3D"StoryLink" i=
+temscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-deco=
+ration: none !important; border-bottom-width: 1px; border-bottom-color: #00=
+0000; border-bottom-style: solid; background-color: #ccc;">  general Overst=
+ock insanity</a>.</p>
+<p style=3D"margin: 16px 0;">This is not that at all! APE trades liquidly o=
+n the New York Stock Exchange, this is more or less a stock split, and it w=
+ill be very easy for short sellers to deliver APE to their lenders. Instead=
+ of buying back a share of AMC, they=E2=80=99ll just have to buy back a sha=
+re of AMC plus an APE unit. An AMC share plus an APE unit this week cost le=
+ss than an AMC share did last week, so this is <em>good=C2=A0</em>for the s=
+horts, so far.=C2=A0Still I am mentioning it here because there are various=
+ incomprehensible conspiracy theories about AMC short sellers, =E2=80=9Cpha=
+ntom shares,=E2=80=9D etc., and so it is just about possible to say =E2=80=
+=9Caha, issuing an APE dividend will flush out all the phantom shares and c=
+atch the nefarious short sellers!=E2=80=9D I don=E2=80=99t know. Here=E2=80=
+=99s <a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.1060=
+24/aHR0cHM6Ly93d3cud3NqLmNvbS9hcnRpY2xlcy9hbWMtdG8taXNzdWUtZGl2aWRlbmQtaW4t=
+Zm9ybS1vZi1hcGUtcHJlZmVycmVkLXNoYXJlcy0xMTY1OTY0MzI2MQ/5c18396decf12a5e0a3b=
+2dd1B2be51735" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_bl=
+ank" style=3D"color: #000000; text-decoration: none !important; border-bott=
+om-width: 1px; border-bottom-color: #000000; border-bottom-style: solid; ba=
+ckground-color: #ccc;"> the Wall Street Journal</a>:</p>
+<blockquote><p style=3D"margin: 16px 0;">The company has faced unsubstantia=
+ted conspiracy theories on the internet that there are millions of syntheti=
+c AMC shares in circulation, as well as demands from some investor personal=
+ities on social media for a share recount. By issuing one Ape unit for each=
+ existing common share, AMC is hoping to put those theories to rest, becaus=
+e only holders of legitimate shares would receive units, the person said.</=
+p></blockquote>
+<p style=3D"margin: 16px 0;">And Adam Aron is a sensible guy but he knows h=
+is audience; here <a href=3D"https://link.mail.bloombergbusiness.com/click/=
+28822472.106024/aHR0cHM6Ly90d2l0dGVyLmNvbS9DRU9BZGFtL3N0YXR1cy8xNTU1MzAzMDQ=
+4OTg5MzY0MjI3/5c18396decf12a5e0a3b2dd1B7492d969" itemprop=3D"StoryLink" ite=
+mscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-decora=
+tion: none !important; border-bottom-width: 1px; border-bottom-color: #0000=
+00; border-bottom-style: solid; background-color: #ccc;"> he is on Twitter<=
+/a> a few weeks ago:</p>
+<div class=3D"body-image" style=3D"margin: 20px 0px;">
+<!--[if mso]>
+<table width=3D"550"><tr><td><img alt=3D"" src=3D"https://assets.bwbx.io/im=
+ages/users/iqjWHBFdfxIU/i5FubX3G1K0g/v0/-1x-1.png" width=3D"550" /></td></t=
+r></table>
+<div style=3D"display:none">
+<![endif]--><img alt=3D"" src=3D"https://assets.bwbx.io/images/users/iqjWHB=
+FdfxIU/i5FubX3G1K0g/v0/-1x-1.png" style=3D"max-width: 550px; display: block=
+; width: 100%; margin-top: 20px;" /><!--[if mso]>
+</div>
+<![endif]-->
+<div class=3D"body-image__attributes" style=3D"font-size: 14px; line-height=
+: 130%; margin-top: 8px;"><div class=3D"news-figure-credit" style=3D"font-s=
+ize: 14px; color: #999; font-style: italic;"></div> <i></i></div>
+</div><p style=3D"margin: 16px 0;">I would not think too hard about any of =
+that, but I feel obligated to mention it.</p>
+<table class=3D"liveintent-sponsored-content" width=3D"auto" cellpadding=3D=
+"0" cellspacing=3D"0">
+<tr>
+<td colspan=3D"2" align=3D"left" valign=3D"top" style=3D"padding:0 0px">=20
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTkyOSZsaT0yODgyMjQ3MiZtPTRjM=
+2VkOTE3ZTU5MTU2YTM2MjEyZDQ4MTU1ODMxNDgyJnA9Mjg5Mjg0OTYmc3RwZT1kZWZhdWx0Jg/5=
+c18396decf12a5e0a3b2dd1D21793de8" target=3D"_blank">=20
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825929&amp;li=3D28822472&amp;=
+m=3D4c3ed917e59156a36212d48155831482&amp;p=3D28928496&amp;stpe=3Ddefault&am=
+p;li_coord=3Ddesktop&amp;collapse_width=3D550&amp;" width=3D"550" border=3D=
+"0" style=3D"display:block;height:auto;width:100%;max-width:550px;" alt=3D"=
+" class=3D"lihide" />=20
+</a>=20
+</td>
+</tr>
+<tr>
+<td colspan=3D"2" align=3D"left" valign=3D"top">
+<!--[if !mso]><!-->
+<div style=3D"display:none; float:left; overflow:hidden; width:0; max-heigh=
+t:0; line-height:0;" class=3D"lishow">
+<table width=3D"auto" cellpadding=3D"0" cellspacing=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top" style=3D"padding:0 0px">=20
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTkyOSZsaT0yODgyMjQ3MiZtPTRjM=
+2VkOTE3ZTU5MTU2YTM2MjEyZDQ4MTU1ODMxNDgyJnA9Mjg5Mjg0OTYmc3RwZT1kZWZhdWx0Jg/5=
+c18396decf12a5e0a3b2dd1E21793de8" target=3D"_blank">=20
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825929&amp;li=3D28822472&amp;=
+m=3D4c3ed917e59156a36212d48155831482&amp;p=3D28928496&amp;stpe=3Ddefault&am=
+p;li_coord=3Dmobile&amp;collapse_width=3D550&amp;" width=3D"100%" border=3D=
+"0" style=3D"display:block;height:auto;" alt=3D"" />=20
+</a>=20
+</td>
+</tr>
+</table>
+</div>
+<!--<![endif]-->
+</td>
+</tr>
+</table>
+<table class=3D"liveintent-sponsored-content" width=3D"auto" cellpadding=3D=
+"0" cellspacing=3D"0">
+<tr>
+<td colspan=3D"2" align=3D"left" valign=3D"top" style=3D"padding:0 0px">=20
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTkzMyZsaT0yODgyMjQ3MiZtPTRjM=
+2VkOTE3ZTU5MTU2YTM2MjEyZDQ4MTU1ODMxNDgyJnA9Mjg5Mjg0OTYmc3RwZT1kZWZhdWx0Jg/5=
+c18396decf12a5e0a3b2dd1Fc7b04fd9" target=3D"_blank">=20
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825933&amp;li=3D28822472&amp;=
+m=3D4c3ed917e59156a36212d48155831482&amp;p=3D28928496&amp;stpe=3Ddefault&am=
+p;li_coord=3Ddesktop&amp;collapse_width=3D550&amp;" width=3D"550" border=3D=
+"0" style=3D"display:block;height:auto;width:100%;max-width:550px;" alt=3D"=
+" class=3D"lihide" />=20
+</a>=20
+</td>
+</tr>
+<tr>
+<td colspan=3D"2" align=3D"left" valign=3D"top">
+<!--[if !mso]><!-->
+<div style=3D"display:none; float:left; overflow:hidden; width:0; max-heigh=
+t:0; line-height:0;" class=3D"lishow">
+<table width=3D"auto" cellpadding=3D"0" cellspacing=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top" style=3D"padding:0 0px">=20
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTkzMyZsaT0yODgyMjQ3MiZtPTRjM=
+2VkOTE3ZTU5MTU2YTM2MjEyZDQ4MTU1ODMxNDgyJnA9Mjg5Mjg0OTYmc3RwZT1kZWZhdWx0Jg/5=
+c18396decf12a5e0a3b2dd1Gc7b04fd9" target=3D"_blank">=20
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825933&amp;li=3D28822472&amp;=
+m=3D4c3ed917e59156a36212d48155831482&amp;p=3D28928496&amp;stpe=3Ddefault&am=
+p;li_coord=3Dmobile&amp;collapse_width=3D550&amp;" width=3D"100%" border=3D=
+"0" style=3D"display:block;height:auto;" alt=3D"" />=20
+</a>=20
+</td>
+</tr>
+</table>
+</div>
+<!--<![endif]-->
+</td>
+</tr>
+</table>
+<table class=3D"header" width=3D"100%" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0">
+<tr>
+<td class=3D"body-header-container" style=3D"border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<h2 style=3D"font-weight: bold; font-family: &quot;Arial Black&quot;, Arial=
+, Helvetica, sans-serif; letter-spacing: -1px; font-size: 20px; border-bott=
+om-width: 1px; border-bottom-style: dotted; margin: 0px; padding: 16px 0px =
+5px;">Oh Twitter</h2>
+</td>
+</tr>
+</table>
+<p style=3D"margin: 16px 0;">The situation is that the richest person in th=
+e world, Elon Musk, has $44 billion riding on the question of whether Twitt=
+er Inc. is doing a massive long-running fraud on its users, its advertisers=
+ and its shareholders. Musk has claimed that it is, with no evidence at all=
+, just a vague feeling that he has. If he=E2=80=99s right and there is a ma=
+ssive fraud, then he can get out of his agreement to buy Twitter for about =
+$44 billion. If he=E2=80=99s wrong, he has to buy Twitter.=C2=A0</p>
+<p style=3D"margin: 16px 0;">This situation is extremely well known. There =
+are incentives. If you have something to do with Twitter, or you know somet=
+hing about Twitter, or you are in the business of counting Twitter bots, th=
+en you should take a few minutes and ask yourself: Well, do I know anything=
+ about Twitter doing any massive frauds? If you do =E2=80=A6=C2=A0look, I d=
+on=E2=80=99t know exactly what you can do with that. I am not at all sure t=
+hat you can actually go to Elon Musk and be like =E2=80=9Chey I=E2=80=99ve =
+got a pile of fraud documents, they=E2=80=99re yours for $1 billion.=E2=80=
+=9D (He could send you a subpoena and get them for free?) Even if you did s=
+trike a deal with him, he=E2=80=99s notoriously bad about sticking to his d=
+eals. Still. I just have a vague general sense that saving the richest pers=
+on in the world $44 billion is a good career move.=C2=A0</p>
+<p style=3D"margin: 16px 0;">So you should expect that, over the next month=
+ or two,=C2=A0as Musk=E2=80=99s trial date with Twitter approaches, people =
+will be popping up to say =E2=80=9Coh sure Twitter is a fraud, massive frau=
+d, totally, I have proof, Elon, call me.=E2=80=9D Possibly some of them wil=
+l have proof that Twitter is doing massive fraud! You never know.</p>
+<p style=3D"margin: 16px 0;">Anyway <a href=3D"https://link.mail.bloombergb=
+usiness.com/click/28822472.106024/aHR0cHM6Ly93d3cud2FzaGluZ3RvbnBvc3QuY29tL=
+3RlY2hub2xvZ3kvaW50ZXJhY3RpdmUvMjAyMi90d2l0dGVyLXdoaXN0bGVibG93ZXItc2VjLXNw=
+YW0vP2l0aWQ9aHAtdG9wLXRhYmxlLW1haW4/5c18396decf12a5e0a3b2dd1B8b3a18a2" item=
+prop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"color=
+: #000000; text-decoration: none !important; border-bottom-width: 1px; bord=
+er-bottom-color: #000000; border-bottom-style: solid; background-color: #cc=
+c;"> here=E2=80=99s a guy</a>:</p>
+<blockquote>
+<p style=3D"margin: 16px 0;">Twitter executives deceived federal regulators=
+ and the company=E2=80=99s own board of directors about =E2=80=9Cextreme, e=
+gregious deficiencies=E2=80=9D in its defenses against hackers, as well as =
+its meager efforts to fight spam, according to an explosive whistleblower c=
+omplaint from its former security chief.</p>
+<p style=3D"margin: 16px 0;">The complaint from former head of security Pei=
+ter Zatko, a widely admired hacker known as =E2=80=9CMudge,=E2=80=9D depict=
+s Twitter as a chaotic and rudderless company beset by infighting, unable t=
+o properly protect its 238 million daily users including government agencie=
+s, heads of state and other influential public figures. =E2=80=A6</p>
+<p style=3D"margin: 16px 0;">=E2=80=9CSecurity and privacy have long been t=
+op companywide priorities at Twitter,=E2=80=9D said Twitter spokeswoman Reb=
+ecca Hahn. She said that Zatko=E2=80=99s allegations appeared to be =E2=80=
+=9Criddled with inaccuracies=E2=80=9D and that Zatko =E2=80=9Cnow appears t=
+o be opportunistically seeking to inflict harm on Twitter, its customers, a=
+nd its shareholders.=E2=80=9D Hahn said that Twitter fired Zatko after 15 m=
+onths =E2=80=9Cfor poor performance and leadership.=E2=80=9D ...</p>
+<p style=3D"margin: 16px 0;">A person familiar with Zatko=E2=80=99s tenure =
+said the company investigated Zatko=E2=80=99s security claims during his ti=
+me there and concluded they were sensationalistic and without merit.</p>
+</blockquote>
+<p style=3D"margin: 16px 0;">The Washington Post article quoted above inclu=
+des a copy of Zatko=E2=80=99s redacted complaint. =E2=80=9CPlease note,=E2=
+=80=9D says a footnote, =E2=80=9Cthat Mudge began preparing these disclosur=
+es in early March 2022, well before Mr. Musk expressed any interest in acqu=
+iring Twitter, and has not communicated these disclosures to anyone with a =
+financial interest in Twitter.=E2=80=9D</p>
+<p style=3D"margin: 16px 0;">And, to be clear, Zatko=E2=80=99s complaint <e=
+m>doesn=E2=80=99t</em>=C2=A0agree with Musk=E2=80=99s. The <a href=3D"https=
+://link.mail.bloombergbusiness.com/click/28822472.106024/aHR0cHM6Ly93d3cuYm=
+xvb21iZXJnLmNvbS9vcGluaW9uL2FydGljbGVzLzIwMjItMDctMTgvZWxvbi13YW50cy10by1ma=
+WdodC10aGUtYm90cz9jbXBpZD1CQkQwODIzMjJfTU9ORVlTVFVGRiZ1dG1fbWVkaXVtPWVtYWls=
+JnV0bV9zb3VyY2U9bmV3c2xldHRlciZ1dG1fdGVybT0yMjA4MjMmdXRtX2NhbXBhaWduPW1vbmV=
+5c3R1ZmY/5c18396decf12a5e0a3b2dd1B07eb99c5" itemprop=3D"StoryLink" itemscop=
+e=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-decoration:=
+ none !important; border-bottom-width: 1px; border-bottom-color: #000000; b=
+order-bottom-style: solid; background-color: #ccc;">  narrow issue</a> in t=
+he Musk/Twitter dispute=C2=A0is whether Twitter has been=C2=A0lying in its =
+securities filings when it says that it estimates that fewer than 5% of its=
+ =E2=80=9Cmonetizable daily active users=E2=80=9D are spam or bot accounts.=
+ And Zatko is pretty unambiguous that, no, Twitter=E2=80=99s numbers are co=
+rrect. His lawyers write:</p>
+<blockquote>
+<p style=3D"margin: 16px 0;">Executives are incentivized to avoid counting =
+spam bots as mDAU, because mDAU is reported to advertisers, and advertisers=
+ use it to calculate the effectiveness of ads. If mDAU includes spam bots t=
+hat do not click through ads to buy products, then advertisers conclude the=
+ ads are less effective, and might shift their ad spending away from Twitte=
+r to other platforms with higher perceived effectiveness.</p>
+<p style=3D"margin: 16px 0;">However, there are many millions of active acc=
+ounts that are=C2=A0<em>not=C2=A0</em>considered =E2=80=9CmDAU,=E2=80=9D ei=
+ther because they are spam bots, or because Twitter does not believe it can=
+ monetize them. These millions of non-mDAU accounts are part of the median =
+user=E2=80=99s experience on the platform.</p>
+</blockquote>
+<p style=3D"margin: 16px 0;">Musk=E2=80=99s claim is that Twitter counts sp=
+am bots in its mDAU numbers. Zatko=E2=80=99s complaint says, no, obviously =
+Twitter doesn=E2=80=99t do <em>that</em> =E2=80=94=C2=A0that=E2=80=99s just=
+ a thing that Musk made up to get out of the deal =E2=80=94=C2=A0but the sp=
+am bots=C2=A0<em>exist=C2=A0</em>and are annoying. Twitter does a good job =
+of excluding them from its count of monetizable users, he says, but not of =
+getting rid of them entirely. That=E2=80=99s not fraud; it=E2=80=99s just a=
+ thing that annoys Zatko (and Musk).=C2=A0</p>
+<p style=3D"margin: 16px 0;">The rest of the complaint is mostly like that =
+too. The gist of it is that, when he worked there, Zatko felt like Twitter =
+was disorganized and incompetent, and because Twitter is a really important=
+ platform with lots of users, that=E2=80=99s bad. =E2=80=9CMudge Discovers =
+Egregious Deficiencies, Negligence, Willful Ignorance, and Threats to Natio=
+nal Security &amp; Democracy=E2=80=9D is one representative section header.=
+ Basically =E2=80=9CTwitter was bad at running a website.=E2=80=9D Which I =
+think a lot of people already believed?</p>
+<p style=3D"margin: 16px 0;">But if you believe Zatko=E2=80=99s claims, you=
+ could spin some legal arguments from them. (Ann Lipton has <a href=3D"http=
+s://link.mail.bloombergbusiness.com/click/28822472.106024/aHR0cHM6Ly90d2l0d=
+GVyLmNvbS9Bbm5NTGlwdG9uL3N0YXR1cy8xNTYyMDE4NTk4MDQ2MTIxOTg1/5c18396decf12a5=
+e0a3b2dd1Bddd3127b" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=
+=3D"_blank" style=3D"color: #000000; text-decoration: none !important; bord=
+er-bottom-width: 1px; border-bottom-color: #000000; border-bottom-style: so=
+lid; background-color: #ccc;"> a good Twitter thread</a> analyzing what Zat=
+ko=E2=80=99s claims could mean for Musk.) If Twitter was bad at safeguardin=
+g user data, did that violate the law (including in particular its <a href=
+=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aHR0cHM6L=
+y93d3cuZnRjLmdvdi9uZXdzLWV2ZW50cy9uZXdzL3ByZXNzLXJlbGVhc2VzLzIwMTEvMDMvZnRj=
+LWFjY2VwdHMtZmluYWwtc2V0dGxlbWVudC10d2l0dGVyLWZhaWx1cmUtc2FmZWd1YXJkLXBlcnN=
+vbmFsLWluZm9ybWF0aW9uLTA_aXRpZD1sa19pbmxpbmVfZW5oYW5jZWQtdGVtcGxhdGU/5c1839=
+6decf12a5e0a3b2dd1B7f75b5aa" itemprop=3D"StoryLink" itemscope=3D"itemscope"=
+ target=3D"_blank" style=3D"color: #000000; text-decoration: none !importan=
+t; border-bottom-width: 1px; border-bottom-color: #000000; border-bottom-st=
+yle: solid; background-color: #ccc;"> 2011 settlement</a> with the Federal =
+Trade Commission over user data)? Were Twitter=E2=80=99s securities filings=
+ misleading, because they didn=E2=80=99t disclose all of its security vulne=
+rabilities? When all this stuff comes out, will that cause a =E2=80=9Cmater=
+ial adverse effect=E2=80=9D on Twitter=E2=80=99s business, which will let M=
+usk get out of the deal? Meh, I don=E2=80=99t know.=C2=A0</p>
+<p style=3D"margin: 16px 0;">Even if=C2=A0these claims are true, and even i=
+f they are evidence of fraud or=C2=A0material adverse effect, they are=C2=
+=A0<em>not </em>evidence of anything that <em>Musk=C2=A0</em>has been compl=
+aining about. Musk would have to, like, send Twitter a new termination lett=
+er saying =E2=80=9Cnever mind about the bot stuff,=C2=A0<em>now </em>I=E2=
+=80=99m terminating the deal because of the security vulnerability stuff.=
+=E2=80=9D=C2=A0But he could do that, why not. He=E2=80=99s not limited to t=
+he excuses he=E2=80=99s already tried; if people keep finding him new excus=
+es to get out of the deal, he can try those too. Maybe one will work.</p>
+<table class=3D"liveintent-flex-ad" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" align=3D"center">
+<tr>
+<td colspan=3D"2">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTg4NSZsaT0yODgyMjQ3MiZtPTRjM=
+2VkOTE3ZTU5MTU2YTM2MjEyZDQ4MTU1ODMxNDgyJnA9Mjg5Mjg0OTYmc3RwZT1kZWZhdWx0Jg/5=
+c18396decf12a5e0a3b2dd1Ha0625c31" rel=3D"nofollow">
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825885&amp;li=3D28822472&amp;=
+m=3D4c3ed917e59156a36212d48155831482&amp;p=3D28928496&amp;stpe=3Ddefault&am=
+p;" border=3D"0" width=3D"550" style=3D"width: 100%; max-width: 550px; disp=
+lay:block" />
+</a>
+</td>
+</tr>
+</table>
+<table class=3D"header" width=3D"100%" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0">
+<tr>
+<td class=3D"body-header-container" style=3D"border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<h2 style=3D"font-weight: bold; font-family: &quot;Arial Black&quot;, Arial=
+, Helvetica, sans-serif; letter-spacing: -1px; font-size: 20px; border-bott=
+om-width: 1px; border-bottom-style: dotted; margin: 0px; padding: 16px 0px =
+5px;">Pump-hack-and-dump</h2>
+</td>
+</tr>
+</table>
+<p style=3D"margin: 16px 0;">The basic=C2=A0mechanics of=C2=A0a pump-and-du=
+mp scam are that you acquire a bunch of some penny stock for very little mo=
+ney (by buying it in the open market, or more often by being an insider of =
+the penny-stock company), and then you trick naive public investors into bu=
+ying the stock from you for more money. There are some pretty well-known tr=
+aditional=C2=A0methods for tricking the public:</p>
+<ol style=3D"list-style-type: decimal; padding-left: 40px; margin: 16px 0;"=
+>=09<li style=3D"margin-bottom: 5px;">Especially if you control the company=
+, you go around issuing press releases about how the company has found a cu=
+re for cancer or is pivoting to the blockchain or whatever. Retail investor=
+s are fooled and buy the stock.</li>=09<li style=3D"margin-bottom: 5px;">Ev=
+en if you don=E2=80=99t control the company, you put out a fake press relea=
+se saying that Tesla Inc. has offered to buy the company, and then dump you=
+r stock quickly while the market is fooled.</li>=09<li style=3D"margin-bott=
+om: 5px;">You sell some stock to your friend for $0.02, she sells it back t=
+o you for $0.03, you sell it back to her for $0.04, she sells it back to yo=
+u for $0.05, you post on some message boards saying =E2=80=9CTHIS STOCK IS =
+SOARING, LOOK AT THIS PRICE ACTION,=E2=80=9D and then you sell to the reade=
+rs of those message-board posts for $0.06 and split the profits with your f=
+riend.</li>=09<li style=3D"margin-bottom: 5px;">You post on a message board=
+ saying =E2=80=9Chey I=E2=80=99m gonna pump this stock=E2=80=9D and other p=
+eople say =E2=80=9Csure all right sounds fun.=E2=80=9D <em>They=C2=A0</em>b=
+uy the stock=C2=A0as part of a conscious game of musical chairs:=C2=A0<em>S=
+omeone=C2=A0</em>will be left holding the bag, overpaying for worthless sto=
+ck and unable to sell before it collapses, but everyone has fun playing the=
+ game and trying to get out in time.</li>
+</ol>
+<p style=3D"margin: 16px 0;">There might be a few others, and you can combi=
+ne these approaches. They are all a bit clich=C3=A9d at this point, and I a=
+lways wonder how much capacity they could possibly have.=C2=A0(Who is the a=
+udience for all these fake press releases?) But it is still a thriving busi=
+ness, and there is still innovation. For instance, here is a<a href=3D"http=
+s://link.mail.bloombergbusiness.com/click/28822472.106024/aHR0cHM6Ly93d3cuc=
+2VjLmdvdi9uZXdzL3ByZXNzLXJlbGVhc2UvMjAyMi0xNDU/5c18396decf12a5e0a3b2dd1B380=
+507cb" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" sty=
+le=3D"color: #000000; text-decoration: none !important; border-bottom-width=
+: 1px; border-bottom-color: #000000; border-bottom-style: solid; background=
+-color: #ccc;"> US Securities and Exchange Commission enforcement action</a=
+> from last week:</p>
+<blockquote>
+<p style=3D"margin: 16px 0;">The Securities and Exchange Commission today c=
+harged 18 individuals and entities for their roles in a fraudulent scheme i=
+n which dozens of online retail brokerage accounts were hacked and improper=
+ly used to purchase microcap stocks to manipulate the price and trading vol=
+ume of those stocks. ...</p>
+<p style=3D"margin: 16px 0;">According to the SEC=E2=80=99s complaint, in l=
+ate 2017 and early 2018, hackers accessed at least 31 U.S. retail brokerage=
+ accounts and used them to purchase the securities of Lotus Bio-Technology =
+Development Corp. and Good Gaming, Inc. The unauthorized purchases allegedl=
+y enabled fraudsters, who already controlled large blocks of Lotus Bio-Tech=
+ and Good Gaming stock, to sell their holdings at artificially high prices =
+and reap more than $1 million in illicit proceeds.</p>
+</blockquote>
+<p style=3D"margin: 16px 0;">Sure? If you can just hack into a bunch of bro=
+kerage accounts and turn them into zombies to buy your penny stocks, you do=
+n=E2=80=99t even need to bother with fake press releases. Very efficient.</=
+p>
+<table class=3D"header" width=3D"100%" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0">
+<tr>
+<td class=3D"body-header-container" style=3D"border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<h2 style=3D"font-weight: bold; font-family: &quot;Arial Black&quot;, Arial=
+, Helvetica, sans-serif; letter-spacing: -1px; font-size: 20px; border-bott=
+om-width: 1px; border-bottom-style: dotted; margin: 0px; padding: 16px 0px =
+5px;">Hologram crypto fraud</h2>
+</td>
+</tr>
+</table>
+<p style=3D"margin: 16px 0;">The basic form of cryptocurrency fraud is that=
+ you send a venture capitalist a Twitter direct message saying =E2=80=9Chi =
+can you send me the password to your NFT wallet=E2=80=9D and he replies =E2=
+=80=9Csure, here you go!=E2=80=9D and you take all of his non-fungible toke=
+ns. On the other hand I guess there are <a href=3D"https://link.mail.bloomb=
+ergbusiness.com/click/28822472.106024/aHR0cHM6Ly9uZXdzLmJpdGNvaW4uY29tL2hhY=
+2tlcnMtdXNlZC1kZWVwZmFrZS1vZi1iaW5hbmNlLWNjby10by1wZXJmb3JtLWV4Y2hhbmdlLWxp=
+c3Rpbmctc2NhbXMv/5c18396decf12a5e0a3b2dd1B0fa10418" itemprop=3D"StoryLink" =
+itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-dec=
+oration: none !important; border-bottom-width: 1px; border-bottom-color: #0=
+00000; border-bottom-style: solid; background-color: #ccc;"> more baroque a=
+pproaches</a>:</p>
+<blockquote><p style=3D"margin: 16px 0;">A set of hackers managed to impers=
+onate Binance chief communications officer (CCO) Patrick Hillmann in a seri=
+es of video calls with several representatives of cryptocurrency projects. =
+The attackers used what Hillman described as an AI hologram, a deepfake of =
+his image for this objective, and managed to fool some representatives of t=
+hese projects, making them think Hillmann was helping them get listed on th=
+e exchange.</p></blockquote>
+<p style=3D"margin: 16px 0;">I=E2=80=99m not sure I even understand why tha=
+t would be valuable (did hologram Hillmann ask these projects to pay for th=
+ose fake listings?) but, sure, hologram crypto fraud.</p>
+<table class=3D"header" width=3D"100%" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0">
+<tr>
+<td class=3D"body-header-container" style=3D"border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<h2 style=3D"font-weight: bold; font-family: &quot;Arial Black&quot;, Arial=
+, Helvetica, sans-serif; letter-spacing: -1px; font-size: 20px; border-bott=
+om-width: 1px; border-bottom-style: dotted; margin: 0px; padding: 16px 0px =
+5px;">Blockchain blockchain blockchain</h2>
+</td>
+</tr>
+</table>
+<p style=3D"margin: 16px 0;">It=E2=80=99s been a while <a href=3D"https://l=
+ink.mail.bloombergbusiness.com/click/28822472.106024/aHR0cHM6Ly93d3cud3NqLm=
+NvbS9hcnRpY2xlcy9hcy1jcnlwdG8tc2x1bXBzLWdvbGRtYW4tc2FjaHMtYWltcy1mb3ItYS13Y=
+WxsLXN0cmVldC1idWlsdC1vbi1ibG9ja2NoYWluLTExNjYxMTY5NzgxP21vZD1pdHBfd3NqJnJ1=
+PXlhaG9v/5c18396decf12a5e0a3b2dd1Ba336dcdb" itemprop=3D"StoryLink" itemscop=
+e=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-decoration:=
+ none !important; border-bottom-width: 1px; border-bottom-color: #000000; b=
+order-bottom-style: solid; background-color: #ccc;"> but here=E2=80=99s thi=
+s again</a>:=C2=A0</p>
+<blockquote>
+<p style=3D"margin: 16px 0;">Goldman Sachs Group Inc. is already trading so=
+me bonds and other debt securities for clients on blockchain-based networks=
+ such as Ethereum, and the bank is building its own blockchain-based tradin=
+g platform. JPMorgan Chase &amp; Co. already has a platform in place, calle=
+d Onyx.</p>
+<p style=3D"margin: 16px 0;">Big Wall Street firms help make the economy ru=
+n, connecting buyers and sellers of securities and lending money to busines=
+ses. But their sophisticated trades are often run on creaky old systems. Go=
+ldman and others hope they will be able to run faster, less-costly and ulti=
+mately more-profitable systems based on blockchains. =E2=80=A6</p>
+<p style=3D"margin: 16px 0;">=E2=80=9CBlockchain technology is going to rew=
+ire all financial services,=E2=80=9D said Tom Farley, the former president =
+of the New York Stock Exchange.</p>
+<p style=3D"margin: 16px 0;">That said, Wall Street firms have been experim=
+enting with blockchain projects for at least the past five years. Despite m=
+uch hype, few have had a widespread impact on how financial transactions ta=
+ke place.</p>
+</blockquote>
+<p style=3D"margin: 16px 0;">In 2017, when we talked about this a lot, my v=
+iew was that saying =E2=80=9Cblockchain blockchain blockchain!=E2=80=9D was=
+ a way to get the chief executive officer of your bank excited about a=C2=
+=A0project to upgrade trading systems and databases. Apparently not=C2=A0<e=
+m>that=C2=A0</em>excited. Excited enough to get around to it in 2022.</p>
+<table class=3D"header" width=3D"100%" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0">
+<tr>
+<td class=3D"body-header-container" style=3D"border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<h2 style=3D"font-weight: bold; font-family: &quot;Arial Black&quot;, Arial=
+, Helvetica, sans-serif; letter-spacing: -1px; font-size: 20px; border-bott=
+om-width: 1px; border-bottom-style: dotted; margin: 0px; padding: 16px 0px =
+5px;">The deli closed</h2>
+</td>
+</tr>
+</table>
+<p style=3D"margin: 16px 0;">Huh, <a href=3D"https://link.mail.bloombergbus=
+iness.com/click/28822472.106024/aHR0cHM6Ly93d3cuY25iYy5jb20vMjAyMi8wOC8yMi9=
+teXN0ZXJ5LW5ldy1qZXJzZXktZGVsaS1jbG9zZXMtbWFrYW1lci1ob2xkaW5ncy1zYXlzLWluLX=
+NlYy1maWxpbmcuaHRtbA/5c18396decf12a5e0a3b2dd1Baf1889cf" itemprop=3D"StoryLi=
+nk" itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text=
+-decoration: none !important; border-bottom-width: 1px; border-bottom-color=
+: #000000; border-bottom-style: solid; background-color: #ccc;">there you g=
+o</a>:</p>
+<blockquote>
+<p style=3D"margin: 16px 0;">The small, money-losing New Jersey deli that w=
+as once the sole asset of a publicly traded company with a bizarre market c=
+apitalization of $100 million has been sold and closed, according to a regu=
+latory filing.</p>
+<p style=3D"margin: 16px 0;">Your Hometown Deli in Paulsboro, New Jersey, h=
+ad been =E2=80=9Ctemporarily closed=E2=80=9D on June 19 while its managemen=
+t sought a new buyer, Makamer Holdings said in a filing with the Securities=
+ and Exchange Commission.</p>
+<p style=3D"margin: 16px 0;">On July 1, Makamer sold the deli=E2=80=99s rem=
+aining inventory for $700. And then on Aug. 9, the company =E2=80=9Cdispose=
+d of its subsidiary Your Hometown Deli, LLC for a price of $15,000, consist=
+ing of $5,000 to be paid in cash and a $10,000 note receivable,=E2=80=9D th=
+e filing said.</p>
+<p style=3D"margin: 16px 0;">Makamer, a bioplastics startup, merged with th=
+e deli=E2=80=99s owner, Hometown International, earlier this year.</p>
+<p style=3D"margin: 16px 0;">=E2=80=9CAfter carefully evaluating its prospe=
+cts, the Company=E2=80=99s new management has determined to sell Your Homet=
+own Deli and its assets and focus on the business operations of Makamer as =
+the Company=E2=80=99s business going forward,=E2=80=9D the regulatory filin=
+g said.</p>
+</blockquote>
+<p style=3D"margin: 16px 0;">We <a href=3D"https://link.mail.bloombergbusin=
+ess.com/click/28822472.106024/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL=
+2FydGljbGVzLzIwMjEtMDQtMTkvZXZlcnlvbmUtbG92ZXMtdGhlLTEwMC1taWxsaW9uLW5ldy1q=
+ZXJzZXktZGVsaS1leGNlcHQtZGF2aWQtZWluaG9ybi1rbm90dHJtYj9jbXBpZD1CQkQwODIzMjJ=
+fTU9ORVlTVFVGRiZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9zb3VyY2U9bmV3c2xldHRlciZ1dG1fdG=
+VybT0yMjA4MjMmdXRtX2NhbXBhaWduPW1vbmV5c3R1ZmY/5c18396decf12a5e0a3b2dd1B7394=
+8a61" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" styl=
+e=3D"color: #000000; text-decoration: none !important; border-bottom-width:=
+ 1px; border-bottom-color: #000000; border-bottom-style: solid; background-=
+color: #ccc;"> talked</a> about the <a href=3D"https://link.mail.bloombergb=
+usiness.com/click/28822472.106024/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGlua=
+W9uL2FydGljbGVzLzIwMjEtMDQtMjAvaG9tZXRvd24taW50ZXJuYXRpb25hbC1uZXctamVyc2V5=
+LWRlbGktaXMtYWN0dWFsbHktd29ydGgtMi1iaWxsaW9uP2NtcGlkPUJCRDA4MjMyMl9NT05FWVN=
+UVUZGJnV0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1uZXdzbGV0dGVyJnV0bV90ZXJtPTIyMD=
+gyMyZ1dG1fY2FtcGFpZ249bW9uZXlzdHVmZg/5c18396decf12a5e0a3b2dd1Bd330eb18" ite=
+mprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"colo=
+r: #000000; text-decoration: none !important; border-bottom-width: 1px; bor=
+der-bottom-color: #000000; border-bottom-style: solid; background-color: #c=
+cc;"> deli</a> a <a href=3D"https://link.mail.bloombergbusiness.com/click/2=
+8822472.106024/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2FydGljbGVzLzIw=
+MjEtMDQtMzAvaG9tZXRvd24taW50ZXJuYXRpb25hbC10aGUtMTAwLW1pbGxpb24tZGVsaS1pcy1=
+hLXdlaXJkLXNwYWM_Y21waWQ9QkJEMDgyMzIyX01PTkVZU1RVRkYmdXRtX21lZGl1bT1lbWFpbC=
+Z1dG1fc291cmNlPW5ld3NsZXR0ZXImdXRtX3Rlcm09MjIwODIzJnV0bV9jYW1wYWlnbj1tb25le=
+XN0dWZm/5c18396decf12a5e0a3b2dd1Bc3f0cd7b" itemprop=3D"StoryLink" itemscope=
+=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-decoration: =
+none !important; border-bottom-width: 1px; border-bottom-color: #000000; bo=
+rder-bottom-style: solid; background-color: #ccc;"> lot</a> last <a href=3D=
+"https://link.mail.bloombergbusiness.com/click/28822472.106024/aHR0cHM6Ly93=
+d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2FydGljbGVzLzIwMjEtMDYtMDMvYW1jLWhhcy1hLWJ=
+pdC1tb3JlLXN0b2NrLXRvLXNlbGw_Y21waWQ9QkJEMDgyMzIyX01PTkVZU1RVRkYmdXRtX21lZG=
+l1bT1lbWFpbCZ1dG1fc291cmNlPW5ld3NsZXR0ZXImdXRtX3Rlcm09MjIwODIzJnV0bV9jYW1wY=
+Wlnbj1tb25leXN0dWZm/5c18396decf12a5e0a3b2dd1C23e0b2fe" itemprop=3D"StoryLin=
+k" itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-=
+decoration: none !important; border-bottom-width: 1px; border-bottom-color:=
+ #000000; border-bottom-style: solid; background-color: #ccc;"> year</a>. N=
+ow it is a <a href=3D"https://link.mail.bloombergbusiness.com/click/2882247=
+2.106024/aHR0cHM6Ly93d3cuc2VjLmdvdi9peD9kb2M9L0FyY2hpdmVzL2VkZ2FyL2RhdGEvMT=
+YzMjA4MS8wMDAxMjEzOTAwMjIwNDc1NDYvZjEwcTA2MjJfbWFrYW1lci5odG0/5c18396decf12=
+a5e0a3b2dd1Ea21e4f9e" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=
+=3D"_blank" style=3D"color: #000000; text-decoration: none !important; bord=
+er-bottom-width: 1px; border-bottom-color: #000000; border-bottom-style: so=
+lid; background-color: #ccc;">bioplastics company</a>. The consensus around=
+ the deli was that it was not=C2=A0<em>really=C2=A0</em>a $100 million publ=
+icly traded deli: It was a shell company that would eventually be used to t=
+ake some other weird company public, and the deli was just sort of a placeh=
+older. That all happened pretty much as expected.</p>
+<table class=3D"header" width=3D"100%" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0">
+<tr>
+<td class=3D"body-header-container" style=3D"border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<h2 style=3D"font-weight: bold; font-family: &quot;Arial Black&quot;, Arial=
+, Helvetica, sans-serif; letter-spacing: -1px; font-size: 20px; border-bott=
+om-width: 1px; border-bottom-style: dotted; margin: 0px; padding: 16px 0px =
+5px;">Things happen</h2>
+</td>
+</tr>
+</table>
+<p style=3D"margin: 16px 0;"><a href=3D"https://link.mail.bloombergbusiness=
+.com/click/28822472.106024/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGlj=
+bGVzLzIwMjItMDgtMjMvanVsaWFuLXJvYmVydHNvbi1oZWRnZS1mdW5kLWd1cnUtdG8tdGlnZXI=
+tY3Vicy1kaWVzLWF0LTkwP2NtcGlkPUJCRDA4MjMyMl9NT05FWVNUVUZGJnV0bV9tZWRpdW09ZW=
+1haWwmdXRtX3NvdXJjZT1uZXdzbGV0dGVyJnV0bV90ZXJtPTIyMDgyMyZ1dG1fY2FtcGFpZ249b=
+W9uZXlzdHVmZg/5c18396decf12a5e0a3b2dd1B4500d841" itemprop=3D"StoryLink" ite=
+mscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-decora=
+tion: none !important; border-bottom-width: 1px; border-bottom-color: #0000=
+00; border-bottom-style: solid; background-color: #ccc;"> Julian Robertson<=
+/a>, Hedge-Fund Guru to =E2=80=98Tiger Cubs,=E2=80=99 Dies at 90. IPO Marke=
+t Faces <a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.1=
+06024/aHR0cHM6Ly93d3cud3NqLmNvbS9hcnRpY2xlcy9pcG8tbWFya2V0LWZhY2VzLXdvcnN0L=
+XllYXItaW4tdHdvLWRlY2FkZXMtc3RhcnR1cHMtMTE2NjExODE0Mjc_bW9kPWl0cF93c2omcnU9=
+eWFob28/5c18396decf12a5e0a3b2dd1B6278e044" itemprop=3D"StoryLink" itemscope=
+=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-decoration: =
+none !important; border-bottom-width: 1px; border-bottom-color: #000000; bo=
+rder-bottom-style: solid; background-color: #ccc;"> Worst Year</a> in Two D=
+ecades. Musk Subpoenas Ex-Twitter CEO Dorsey in <a href=3D"https://link.mai=
+l.bloombergbusiness.com/click/28822472.106024/aHR0cHM6Ly93d3cuYmxvb21iZXJnL=
+mNvbS9uZXdzL2FydGljbGVzLzIwMjItMDgtMjIvbXVzay1zdWJwb2VuYXMtZXgtdHdpdHRlci1j=
+ZW8tZG9yc2V5LWluLWxlZ2FsLWZpZ2h0LW92ZXItYnV5b3V0P2NtcGlkPUJCRDA4MjMyMl9NT05=
+FWVNUVUZGJnV0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1uZXdzbGV0dGVyJnV0bV90ZXJtPT=
+IyMDgyMyZ1dG1fY2FtcGFpZ249bW9uZXlzdHVmZg/5c18396decf12a5e0a3b2dd1B75178bea"=
+ itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"=
+color: #000000; text-decoration: none !important; border-bottom-width: 1px;=
+ border-bottom-color: #000000; border-bottom-style: solid; background-color=
+: #ccc;">  Battle Over Buyout</a>. How <a href=3D"https://link.mail.bloombe=
+rgbusiness.com/click/28822472.106024/aHR0cHM6Ly93d3cud3NqLmNvbS9hcnRpY2xlcy=
+9ob3ctb2NjaWRlbnRhbC1wZXRyb2xldW0tY2FwdHVyZWQtd2FycmVuLWJ1ZmZldHRzLWV5ZS0xM=
+TY2MTE2ODkxNz9tb2Q9aXRwX3dzaiZydT15YWhvbw/5c18396decf12a5e0a3b2dd1B44036af6=
+" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D=
+"color: #000000; text-decoration: none !important; border-bottom-width: 1px=
+; border-bottom-color: #000000; border-bottom-style: solid; background-colo=
+r: #ccc;"> Occidental Petroleum</a> Captured Warren Buffett=E2=80=99s Eye.=
+=C2=A0Revlon=E2=80=99s <a href=3D"https://link.mail.bloombergbusiness.com/c=
+lick/28822472.106024/aHR0cHM6Ly93d3cuZnQuY29tL2NvbnRlbnQvOWFjMzc1ZGItYjlmZi=
+00Y2Q4LWIwZGQtODdmMzcxY2U5NDNh/5c18396decf12a5e0a3b2dd1Bf78cf725" itemprop=
+=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #0=
+00000; text-decoration: none !important; border-bottom-width: 1px; border-b=
+ottom-color: #000000; border-bottom-style: solid; background-color: #ccc;">=
+ furious stock rally</a> complicates cosmetics maker=E2=80=99s bankruptcy. =
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjItMDgtMjMvc29mdGJhb=
+mstcy0yMy1iaWxsaW9uLWxvc3MtbG9va3MtbGlrZS1tb3JlLXdld29yay1mdW4_Y21waWQ9QkJE=
+MDgyMzIyX01PTkVZU1RVRkYmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPW5ld3NsZXR0ZXI=
+mdXRtX3Rlcm09MjIwODIzJnV0bV9jYW1wYWlnbj1tb25leXN0dWZm/5c18396decf12a5e0a3b2=
+dd1Bb12f0309" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_bla=
+nk" style=3D"color: #000000; text-decoration: none !important; border-botto=
+m-width: 1px; border-bottom-color: #000000; border-bottom-style: solid; bac=
+kground-color: #ccc;">  SoftBank=E2=80=99s Epic Losses</a> Reveal Masayoshi=
+ Son=E2=80=99s Broken Business Model. Najib Razak, Malaysia=E2=80=99s Ex-Pr=
+ime Minister, to Be Imprisoned After Losing Final <a href=3D"https://link.m=
+ail.bloombergbusiness.com/click/28822472.106024/aHR0cHM6Ly93d3cud3NqLmNvbS9=
+hcnRpY2xlcy9uYWppYi1yYXphay1tYWxheXNpYXMtZXgtcHJpbWUtbWluaXN0ZXItdG8tYmUtaW=
+1wcmlzb25lZC1hZnRlci1sb3NpbmctZmluYWwtMW1kYi1hcHBlYWwtMTE2NjEyNDUzMTc_bW9kP=
+WhwX2xlYWRfcG9zMTA/5c18396decf12a5e0a3b2dd1Bc87afc19" itemprop=3D"StoryLink=
+" itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-d=
+ecoration: none !important; border-bottom-width: 1px; border-bottom-color: =
+#000000; border-bottom-style: solid; background-color: #ccc;"> 1MDB Appeal<=
+/a>. Companies Are Cutting Back on <a href=3D"https://link.mail.bloombergbu=
+siness.com/click/28822472.106024/aHR0cHM6Ly93d3cud3NqLmNvbS9hcnRpY2xlcy90aG=
+Utc3VycHJpc2luZy1iZW5lZml0LXNvbWUtY29tcGFuaWVzLWFyZS10YWtpbmctYXdheXBhcmVud=
+GFsLWxlYXZlLTExNjYxMTI1NjA1P21vZD1pdHBfd3NqJnJ1PXlhaG9v/5c18396decf12a5e0a3=
+b2dd1B032af95d" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_b=
+lank" style=3D"color: #000000; text-decoration: none !important; border-bot=
+tom-width: 1px; border-bottom-color: #000000; border-bottom-style: solid; b=
+ackground-color: #ccc;"> Maternity and Paternity Leave</a>.=C2=A0Wild video=
+ shows <a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.10=
+6024/aHR0cHM6Ly9ueXBvc3QuY29tLzIwMjIvMDgvMjMvd2lsZC12aWRlby1zaG93cy1lc2NhcG=
+VkLWJ1bGwtcmFtcGFnaW5nLXRocm91Z2gtaXNyYWVsaS1iYW5rLw/5c18396decf12a5e0a3b2d=
+d1Bb9210b00" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blan=
+k" style=3D"color: #000000; text-decoration: none !important; border-bottom=
+-width: 1px; border-bottom-color: #000000; border-bottom-style: solid; back=
+ground-color: #ccc;"> escaped bull</a> rampaging through Israeli bank.</p>
+<p style=3D"margin: 16px 0;"><span class=3D"news-designed-for-consumer-medi=
+a"><em>If you'd like to get=C2=A0Money=C2=A0Stuff=C2=A0in handy email form,=
+ right in your inbox, please=C2=A0<a href=3D"https://link.mail.bloombergbus=
+iness.com/click/28822472.106024/aHR0cDovL2xpbmsubWFpbC5ibG9vbWJlcmdidXNpbmV=
+zcy5jb20vam9pbi80d20vbW9uZXlzdHVmZi1zaWdudXAmaGFzaD01NDIyMzAwMWNhM2ZmY2Y0MG=
+YyNjI5YzI1YWNlYTY3YQ/5c18396decf12a5e0a3b2dd1Bfc378f12" target=3D"_blank" s=
+tyle=3D"color: #000000; text-decoration: none !important; border-bottom-wid=
+th: 1px; border-bottom-color: #000000; border-bottom-style: solid; backgrou=
+nd-color: #ccc;">subscribe at this link</a>. Or you can subscribe to Money =
+Stuff and other great Bloomberg newsletters <a href=3D"https://link.mail.bl=
+oombergbusiness.com/click/28822472.106024/aHR0cHM6Ly9sb2dpbi5ibG9vbWJlcmcuY=
+29tL25ld3NsZXR0ZXJz/5c18396decf12a5e0a3b2dd1B5d25cae8" itemprop=3D"StoryLin=
+k" itemscope=3D"itemscope" style=3D"color: #000000; text-decoration: none !=
+important; border-bottom-width: 1px; border-bottom-color: #000000; border-b=
+ottom-style: solid; background-color: #ccc;">here</a>. Thanks!</em></span><=
+/p>
+<div id=3D"footnote-1" class=3D"footnote-content" style=3D"font-style: ital=
+ic;">
+<p style=3D"margin: 16px 0;">[1] I also <a href=3D"https://link.mail.bloomb=
+ergbusiness.com/click/28822472.106024/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vc=
+GluaW9uL2FydGljbGVzLzIwMjItMDgtMjIvbWVtZS1zdG9jay12YWNhdGlvbi1pcy1vdmVyP2Nt=
+cGlkPUJCRDA4MjMyMl9NT05FWVNUVUZGJnV0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1uZXd=
+zbGV0dGVyJnV0bV90ZXJtPTIyMDgyMyZ1dG1fY2FtcGFpZ249bW9uZXlzdHVmZg/5c18396decf=
+12a5e0a3b2dd1B98f0df86" itemprop=3D"StoryLink" itemscope=3D"itemscope" targ=
+et=3D"_blank" style=3D"color: #000000; text-decoration: none !important; bo=
+rder-bottom-width: 1px; border-bottom-color: #000000; border-bottom-style: =
+solid; background-color: #ccc;">  occasionally dabble</a> in more complicat=
+ed meme-stock corporate finance advice about, like, selling volatility or w=
+hatever. But =E2=80=9Cif people want to overpay for your stock, sell it to =
+them=E2=80=9D is the *basic* advice.</p>
+</div>
+<div id=3D"footnote-2" class=3D"footnote-content" style=3D"font-style: ital=
+ic;">
+<p style=3D"margin: 16px 0;">[2] Would it want to? One rough analysis of a =
+meme stock is that retail investors enthusiastically buy it at prices disco=
+nnected from fundamentals. But if you are trying to, say, <a href=3D"https:=
+//link.mail.bloombergbusiness.com/click/28822472.106024/aHR0cHM6Ly93d3cuYmx=
+vb21iZXJnLmNvbS9vcGluaW9uL2FydGljbGVzLzIwMjEtMDYtMTAvbWF5YmUtZ2FtZXN0b3AtaX=
+MtZ29vZC1ub3c_Y21waWQ9QkJEMDgyMzIyX01PTkVZU1RVRkYmdXRtX21lZGl1bT1lbWFpbCZ1d=
+G1fc291cmNlPW5ld3NsZXR0ZXImdXRtX3Rlcm09MjIwODIzJnV0bV9jYW1wYWlnbj1tb25leXN0=
+dWZm/5c18396decf12a5e0a3b2dd1Bc4788b95" itemprop=3D"StoryLink" itemscope=3D=
+"itemscope" target=3D"_blank" style=3D"color: #000000; text-decoration: non=
+e !important; border-bottom-width: 1px; border-bottom-color: #000000; borde=
+r-bottom-style: solid; background-color: #ccc;">  lure Amazon executives</a=
+> to senior leadership roles at your meme-stock company, they might *not* w=
+ant to be paid in meme stock. They might think it is overvalued. Arguably p=
+eople who want to be paid in meme stock are not the people you want to hire=
+? I could see the argument the other way. Meanwhile owners of small gold mi=
+ning companies might want to be paid in meme stock, who knows. But surely t=
+he *main* use of meme stock, for the issuer, is selling it for cash to reta=
+il investors in at-the-market offerings. That=E2=80=99s where you get the m=
+ost bang for your meme buck.</p>
+</div>
+<div id=3D"footnote-3" class=3D"footnote-content" style=3D"font-style: ital=
+ic;">
+<p style=3D"margin: 16px 0;">[3] Why? I don=E2=80=99t know. It is conventio=
+nal to say that shareholders don=E2=80=99t want to be diluted, and I guess =
+that is right, but it=E2=80=99s kind of weird: If the stock is soaring for =
+no reason, it is accretive for existing shareholders to issue more stock. (=
+I suppose if you=E2=80=99re an existing shareholder you might disagree that=
+ the stock is soaring for no reason?) The other thing that is going on here=
+ is that this amendment <a href=3D"https://link.mail.bloombergbusiness.com/=
+click/28822472.106024/aHR0cHM6Ly93d3cuc2VjLmdvdi9BcmNoaXZlcy9lZGdhci9kYXRhL=
+zE0MTE1NzkvMDAwMTA0NzQ2OTIxMDAwNjUwL2EyMjQzMDIyemRlZjE0YS5odG0jZGE0NzgwMV92=
+b3RpbmdfcmVxdWlyZW1lbnRfdG9fYXBwcm92ZV9lYWNoX29mX3RoZV9wcm9wb3NhbHM/5c18396=
+decf12a5e0a3b2dd1Bef2afac5" itemprop=3D"StoryLink" itemscope=3D"itemscope" =
+target=3D"_blank" style=3D"color: #000000; text-decoration: none !important=
+; border-bottom-width: 1px; border-bottom-color: #000000; border-bottom-sty=
+le: solid; background-color: #ccc;">requires approval</a> of a majority of =
+the *outstanding shares*, so any shares that don=E2=80=99t vote are effecti=
+vely counted as votes against the amendment. AMC stock is mostly held by re=
+tail investors, and it is widely assumed that retail shareholders mostly do=
+n=E2=80=99t vote their stock. And in fact if you look at the results of AMC=
+=E2=80=99s <a href=3D"https://link.mail.bloombergbusiness.com/click/2882247=
+2.106024/aHR0cHM6Ly93d3cuc2VjLmdvdi9peD9kb2M9L0FyY2hpdmVzL2VkZ2FyL2RhdGEvMT=
+QxMTU3OS8wMDAxNTU4MzcwMjIwMTAxMDAvYW1jLTIwMjIwNjE2eDhrLmh0bQ/5c18396decf12a=
+5e0a3b2dd1F7b6299d4" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=
+=3D"_blank" style=3D"color: #000000; text-decoration: none !important; bord=
+er-bottom-width: 1px; border-bottom-color: #000000; border-bottom-style: so=
+lid; background-color: #ccc;">shareholder voting this year</a> =E2=80=94 on=
+ routine matters like electing directors and approving executive pay =E2=80=
+=94 only about 145 million shares (out of 516 million) were actually voted.=
+ So it might just be impossible for AMC to get a majority of its shares to =
+vote for *anything*.</p>
+</div>
+<div id=3D"footnote-4" class=3D"footnote-content" style=3D"font-style: ital=
+ic;">
+<p style=3D"margin: 16px 0;">[4] There are also 75.8 million authorized sha=
+res of Class B common stock, none of which are outstanding: They were owned=
+ by Dalian Wanda Group Co., which <a href=3D"https://link.mail.bloombergbus=
+iness.com/click/28822472.106024/aHR0cHM6Ly93d3cud3NqLmNvbS9hcnRpY2xlcy9hbWN=
+zLWxhcmdlc3Qtc2hhcmVob2xkZXItd2FuZGEtZ3JvdXAtcGFyZXMtZG93bi1zdGFrZS0xMTYyMT=
+Y0NDAzOA/5c18396decf12a5e0a3b2dd1B546ee4d5" itemprop=3D"StoryLink" itemscop=
+e=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-decoration:=
+ none !important; border-bottom-width: 1px; border-bottom-color: #000000; b=
+order-bottom-style: solid; background-color: #ccc;">converted and sold them=
+ in May 2021</a>. I suppose AMC could re-use those shares, but they have su=
+per-voting rights so that is not really ideal.</p>
+</div>
+<div id=3D"footnote-5" class=3D"footnote-content" style=3D"font-style: ital=
+ic;">
+<p style=3D"margin: 16px 0;">[5] When I was an investment banker, I advised=
+ companies on issuing convertible bonds and other equity derivatives. Surpr=
+isingly often =E2=80=94 not a lot, but more than once =E2=80=94 we would ru=
+n into companies without enough authorized shares to fully convert their co=
+nvertibles. =E2=80=9CHave them convert into common-equivalent preferred sto=
+ck, then get shareholder approval for more shares=E2=80=9D was kind of the =
+go-to advice there, sometimes with a penalty interest rate on the preferred=
+ (or the convertibles) if you don=E2=80=99t get the shareholder approval so=
+on enough. This is not a thing that companies do every day, but in the worl=
+d of arcane equity financing it is not *that* arcane.</p>
+</div>
+<div id=3D"footnote-6" class=3D"footnote-content" style=3D"font-style: ital=
+ic;">
+<p style=3D"margin: 16px 0;">[6] The legal terms of the APE units are in th=
+e <a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/=
+aHR0cHM6Ly93d3cuc2VjLmdvdi9BcmNoaXZlcy9lZGdhci9kYXRhLzE0MTE1NzkvMDAwMTEwNDY=
+1OTIyMDg2MTQ0L3RtMjIyMjQyMmQzX2V4My0xLmh0bQ/5c18396decf12a5e0a3b2dd1B488af5=
+e0" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=
+=3D"color: #000000; text-decoration: none !important; border-bottom-width: =
+1px; border-bottom-color: #000000; border-bottom-style: solid; background-c=
+olor: #ccc;">certificate of designations</a> for the preferred stock and th=
+e <a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/=
+aHR0cHM6Ly93d3cuc2VjLmdvdi9BcmNoaXZlcy9lZGdhci9kYXRhLzE0MTE1NzkvMDAwMTEwNDY=
+1OTIyMDg2MTQ0L3RtMjIyMjQyMmQzX2V4NC0xLmh0bQ/5c18396decf12a5e0a3b2dd1B51bb2e=
+c7" itemprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=
+=3D"color: #000000; text-decoration: none !important; border-bottom-width: =
+1px; border-bottom-color: #000000; border-bottom-style: solid; background-c=
+olor: #ccc;">deposit agreement</a> for the units. Here are the Aug. 4 <a hr=
+ef=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aHR0cHM=
+6Ly93d3cuc2VjLmdvdi9BcmNoaXZlcy9lZGdhci9kYXRhLzE0MTE1NzkvMDAwMTEwNDY1OTIyMD=
+g2MTQ0L3RtMjIyMjQyMmQzX2V4OTktMS5odG0/5c18396decf12a5e0a3b2dd1Bdef88b34" it=
+emprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"col=
+or: #000000; text-decoration: none !important; border-bottom-width: 1px; bo=
+rder-bottom-color: #000000; border-bottom-style: solid; background-color: #=
+ccc;"> press release</a> announcing the APEs, and the <a href=3D"https://li=
+nk.mail.bloombergbusiness.com/click/28822472.106024/aHR0cHM6Ly93d3cuc2VjLmd=
+vdi9peD9kb2M9L0FyY2hpdmVzL2VkZ2FyL2RhdGEvMTQxMTU3OS8wMDAxMTA0NjU5MjIwODYxND=
+QvdG0yMjIyNDIyZDNfOGsuaHRt/5c18396decf12a5e0a3b2dd1Gf2d84cbe" itemprop=3D"S=
+toryLink" itemscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000=
+; text-decoration: none !important; border-bottom-width: 1px; border-bottom=
+-color: #000000; border-bottom-style: solid; background-color: #ccc;"> Form=
+ 8-K</a> with more details.</p>
+</div>
+<div id=3D"footnote-7" class=3D"footnote-content" style=3D"font-style: ital=
+ic;">
+<p style=3D"margin: 16px 0;">[7] Often when a company has two share classes=
+, one will trade at a premium for liquidity reasons. Intuitively you might =
+expect a common stock to be more normal and more liquid than a weird prefer=
+red stock: If someone wakes up one day and says =E2=80=9CI=E2=80=99d like t=
+o buy AMC,=E2=80=9D they=E2=80=99ll buy AMC common, not APEs. And so the AP=
+Es trade at a discount. But the APEs are listed on the New York Stock Excha=
+nge, just like the common stock, and they have a fun name and a fun ticker =
+and a lot of hype, so you never know. Yesterday about 151 million AMC share=
+s traded, versus about 123 million APEs, so it=E2=80=99s not that far off.<=
+/p>
+</div>
+<div id=3D"footnote-8" class=3D"footnote-content" style=3D"font-style: ital=
+ic;">
+<p style=3D"margin: 16px 0;">[8] As a corporate finance matter I would neve=
+r, ever, ever want to go around saying that a company=E2=80=99s authorized =
+but unissued stock is =E2=80=9Cworth=E2=80=9D the market price times the nu=
+mber of unissued shares. It does not work that way at all! If a company iss=
+ued hundreds of millions more shares, the price would go down. Still in the=
+ limited meme-y case of AMC, where they had tons of demand for their stock =
+and no supply, creating supply does seem like it could lead straightforward=
+ly to selling that supply for money.</p>
+</div>
+<div id=3D"footnote-9" class=3D"footnote-content" style=3D"font-style: ital=
+ic;">
+<p style=3D"margin: 16px 0;">[9] But probably it won=E2=80=99t =E2=80=94 se=
+e footnote 3.</p>
+</div>
+<div id=3D"footnote-10" class=3D"footnote-content" style=3D"font-style: ita=
+lic;">
+<p style=3D"margin: 16px 0;">[10] Incidentally <a href=3D"https://link.mail=
+.bloombergbusiness.com/click/28822472.106024/aHR0cHM6Ly93d3cuc2VjLmdvdi9Bcm=
+NoaXZlcy9lZGdhci9kYXRhLzE0MTE1NzkvMDAwMTEwNDY1OTIyMDkyMzk3L3RtMjIyMzc4MGQxX=
+2V4OTktMS5odG0/5c18396decf12a5e0a3b2dd1C798a21fb" itemprop=3D"StoryLink" it=
+emscope=3D"itemscope" target=3D"_blank" style=3D"color: #000000; text-decor=
+ation: none !important; border-bottom-width: 1px; border-bottom-color: #000=
+000; border-bottom-style: solid; background-color: #ccc;"> AMC=E2=80=99s FA=
+Q says</a>, about shorting the APEs: =E2=80=9CShort selling is legal in the=
+ United States and permitted by the New York Stock Exchange. Therefore, AMC=
+ Preferred Equity units can be sold short in the same way that other equity=
+ securities on the NYSE can be sold short, and there is no action that AMC =
+can take to prevent short selling.=E2=80=9D I suppose you could take the ot=
+her side of the trade in the text =E2=80=94 go long AMC and short APE =E2=
+=80=94 as a bet that they will *diverge*, that APE will go to zero while AM=
+C rallies. I dunno.</p>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class=3D"component-wrapper" style=3D"border-collapse: collapse; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt; padding: 20px 10px;">
+<table class=3D"social-component" width=3D"100%" style=3D"width: 100%;">
+<tr>
+<td style=3D"border-top-width: 1px; border-top-style: dotted; border-bottom=
+-width: 1px; border-bottom-style: dotted; border-collapse: collapse; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt; text-transform: uppercase; font-fam=
+ily: Arial; font-size: 12px; font-weight: normal; font-style: normal; font-=
+stretch: normal; line-height: 1.17; letter-spacing: normal; padding: 9px 0;=
+">
+<span style=3D"margin-right: 4px; vertical-align: middle;">Follow Us</span>
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly93d3cuZmFjZWJvb2suY29tL2Jsb29tYmVyZ29waW5pb24/5c18396decf12a5e0a3b2=
+dd1Ba6e27649" style=3D"text-decoration: none; color: #000;">
+<img src=3D"https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i74qcvoJlmqM/v=
+0/-1x-1.png" width=3D"20" height=3D"20" style=3D"max-width: 550px; vertical=
+-align: middle; width: 20px !important; height: 20px !important;" />
+</a>
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9ibG9vbWJlcmdvcGluaW9uLw/5c18396decf12a5e0a=
+3b2dd1B2f04368c" style=3D"text-decoration: none; color: #000;">
+<img src=3D"https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iJGFAUI9aUUg/v=
+0/-1x-1.png" width=3D"20" height=3D"20" style=3D"max-width: 550px; vertical=
+-align: middle; width: 20px !important; height: 20px !important;" />
+</a>
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly90d2l0dGVyLmNvbS9ib3Bpbmlvbg/5c18396decf12a5e0a3b2dd1B63da0975" sty=
+le=3D"text-decoration: none; color: #000;">
+<img src=3D"https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ijPrci.tuuHU/v=
+0/-1x-1.png" width=3D"20" height=3D"20" style=3D"max-width: 550px; vertical=
+-align: middle; width: 20px !important; height: 20px !important;" />
+</a>
+</td>
+<td style=3D"border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt; text-transform: uppercase; font-family: Arial; font-size: 12px; =
+font-weight: normal; font-style: normal; font-stretch: normal; line-height:=
+ 1.17; letter-spacing: normal; padding: 9px 0 9px 3px;"></td>
+<td style=3D"border-top-width: 1px; border-top-style: dotted; border-bottom=
+-width: 1px; border-bottom-style: dotted; border-collapse: collapse; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt; text-transform: uppercase; font-fam=
+ily: Arial; font-size: 12px; font-weight: normal; font-style: normal; font-=
+stretch: normal; line-height: 1.17; letter-spacing: normal; padding: 9px 0;=
+">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9hY2NvdW50L25ld3NsZXR0ZXJzL21vbmV5LXN0dWZmP=
+3NvdXJjZT1OTHNoYXJl/5c18396decf12a5e0a3b2dd1B825e73f5" style=3D"text-decora=
+tion: none; color: #000;">
+Get the newsletter
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class=3D"footer-wrapper" style=3D"border-collapse: collapse; mso-table-=
+lspace: 0pt; mso-table-rspace: 0pt; padding: 0px 10px;">
+<table class=3D"liveintent-flex-ad" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" align=3D"center">
+<tr>
+<td colspan=3D"2">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly9zbGkuYmxvb21iZXJnLmNvbS9jbGljaz9zPTgyNTg4OSZsaT0yODgyMjQ3MiZtPTRjM=
+2VkOTE3ZTU5MTU2YTM2MjEyZDQ4MTU1ODMxNDgyJnA9Mjg5Mjg0OTYmc3RwZT1kZWZhdWx0Jg/5=
+c18396decf12a5e0a3b2dd1Ie5d8a853" rel=3D"nofollow">
+<img src=3D"https://sli.bloomberg.com/imp?s=3D825889&amp;li=3D28822472&amp;=
+m=3D4c3ed917e59156a36212d48155831482&amp;p=3D28928496&amp;stpe=3Ddefault&am=
+p;" border=3D"0" width=3D"550" style=3D"width: 100%; max-width: 550px; disp=
+lay:block" />
+</a>
+</td>
+</tr>
+</table>
+<table class=3D"editorial-tout" style=3D"font-family: Helvetica, Arial, san=
+s-serif; font-size: 16px; line-height: 150%;">
+<tbody>
+<tr>
+<td class=3D"editorial-tout-container" style=3D"padding-top: 16px; padding-=
+bottom: 16px;">
+<div class=3D"tout-label"></div>
+<div class=3D"tout-text">
+<p style=3D"margin: 0px;"><em><strong>Like getting this newsletter? </stron=
+g><a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/=
+aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9zdWJzY3JpcHRpb25zP3V0bV9tZWRpdW09ZW1haWw=
+mdXRtX3NvdXJjZT1uZXdzbGV0dGVyJnV0bV9jYW1wYWlnbj1tb25leXN0dWZmJnV0bV9jb250ZW=
+50PXRvdXQtbW9uZXktc3R1ZmYmdXRtX3Rlcm09/5c18396decf12a5e0a3b2dd1B48544a38" i=
+temprop=3D"StoryLink" itemscope=3D"itemscope" target=3D"_blank">
+Subscribe to Bloomberg.com</a> for unlimited access to trusted, data-driven=
+ journalism and subscriber-only insights.</em></p>
+<p style=3D"margin: 0px;"><em>Before it=E2=80=99s here, it=E2=80=99s on the=
+=C2=A0Bloomberg=C2=A0Terminal.=C2=A0Find out more about how the Terminal de=
+livers information and analysis that financial professionals can=E2=80=99t =
+find anywhere else.=C2=A0<a href=3D"https://link.mail.bloombergbusiness.com=
+/click/15638356.78421/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9wcm9mZXNzaW9uYWwvc=
+29sdXRpb24vYmxvb21iZXJnLXRlcm1pbmFsLw/55088ec43b35d034698d38aeBe3d4e6ab">Le=
+arn more</a>.</em></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class=3D"footer" width=3D"100%" align=3D"center" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0">
+<tr>
+<td class=3D"footer-container" align=3D"center" style=3D"font-size: 13px; f=
+ont-family: Helvetica, Arial, sans-serif; color: #666666; border-collapse: =
+collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 20px 0px 1=
+0px;"> You received this message because you are subscribed to Bloomberg's =
+Money Stuff newsletter.</td>
+</tr>
+<tr>
+<td align=3D"center" style=3D"font-size: 13px; font-family: Helvetica, Aria=
+l, sans-serif; color: #666666; border-collapse: collapse; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt;"><a href=3D"https://link.mail.bloombergbusines=
+s.com/click/28822472.106024/aHR0cHM6Ly9sb2dpbi5ibG9vbWJlcmcuY29tL25ld3NsZXR=
+0ZXJzP3NvdXJjZT1uZXdzbGV0dGVyX3Vuc3ViJmVtYWlsPWFuZHJlJTQwYXJrby5uZXQmaGFzaD=
+0wZDcyODhkMGIyZTVjZmI2OTRlYTQ1ZTA5NzFiNDY1Ng/5c18396decf12a5e0a3b2dd1C719a4=
+d5e" style=3D"color: #666666; text-decoration: none;" alias=3D"Unsubscribe"=
+>Unsubscribe</a> | <a href=3D"https://link.mail.bloombergbusiness.com/click=
+/28822472.106024/aHR0cDovL2Jsb29tYmVyZy5jb20/5c18396decf12a5e0a3b2dd1Bf1cfc=
+f0c" style=3D"color: #666666; text-decoration: none;" target=3D"_blank">Blo=
+omberg.com</a> | <a href=3D"https://link.mail.bloombergbusiness.com/click/2=
+8822472.106024/aHR0cDovL3d3dy5ibG9vbWJlcmcuY29tL2ZlZWRiYWNrP2FsY21waWQ9bW9z=
+dHBvcA/5c18396decf12a5e0a3b2dd1B903c9ae4" style=3D"color: #666666; text-dec=
+oration: none;" target=3D"_blank">Contact Us</a></td>
+</tr>
+<tr>
+<td align=3D"center" style=3D"border-collapse: collapse; mso-table-lspace: =
+0pt; mso-table-rspace: 0pt;">
+<table class=3D"liveintent-logos">
+<tr>
+<td style=3D"border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt;">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly93d3cubGl2ZWludGVudC5jb20vcG93ZXJlZC1ieQ/5c18396decf12a5e0a3b2dd1Be=
+3203a36" target=3D"_blank">
+<img class=3D"li-powered-by-logo outlook-format-exclude" height=3D"18" src=
+=3D"https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i7ESRvr8wb2g/v0/-1x-1.=
+png" border=3D"0" alt=3D"Ads Powered By Liveintent" style=3D"max-width: 550=
+px; height: 18px !important;" />
+</a>
+</td>
+<td style=3D"font-size: 13px; font-family: Helvetica, Arial, sans-serif; co=
+lor: #666666; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-r=
+space: 0pt;">
+|
+</td>
+<td style=3D"border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt;">
+<a href=3D"https://link.mail.bloombergbusiness.com/click/28822472.106024/aH=
+R0cHM6Ly93d3cubGl2ZWludGVudC5jb20vYWQtY2hvaWNlcw/5c18396decf12a5e0a3b2dd1B5=
+2532937" target=3D"_blank">
+<img class=3D"li-ad-choices-logo outlook-format-exclude" height=3D"18" src=
+=3D"https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iHu0LhjyABMM/v0/-1x-1.=
+png" border=3D"0" alt=3D"Ad Choices" style=3D"max-width: 550px; height: 18p=
+x !important;" />
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td height=3D"20" align=3D"center" style=3D"font-size: 13px; font-family: H=
+elvetica, Arial, sans-serif; color: #666666; border-collapse: collapse; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">Bloomberg L.P. 731 Lexington, N=
+ew York, NY, 10022</td>
+</tr>
+</table>
+</td>
+</tr>
+<!--[if mso]>
+</td></tr>
+</table>
+</center>
+<![endif]-->
+</table><table class=3D"liveintent-safe-rtb" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" width=3D"40" height=3D"6">
+<tbody>
+<tr>
+<td><img src=3D"https://sli.bloomberg.com/imp?s=3D126552500&amp;li=3D288224=
+72&amp;m=3D4c3ed917e59156a36212d48155831482&amp;p=3D28928496&amp;stpe=3Dpix=
+el&amp;" width=3D"2" height=3D"6" border=3D"0" /></td>
+<td><img src=3D"https://sli.bloomberg.com/imp?s=3D126552501&amp;li=3D288224=
+72&amp;m=3D4c3ed917e59156a36212d48155831482&amp;p=3D28928496&amp;stpe=3Dpix=
+el&amp;" width=3D"2" height=3D"6" border=3D"0" /></td>
+<td><img src=3D"https://sli.bloomberg.com/imp?s=3D126552502&amp;li=3D288224=
+72&amp;m=3D4c3ed917e59156a36212d48155831482&amp;p=3D28928496&amp;stpe=3Dpix=
+el&amp;" width=3D"2" height=3D"6" border=3D"0" /></td>
+<td><img src=3D"https://sli.bloomberg.com/imp?s=3D126552503&amp;li=3D288224=
+72&amp;m=3D4c3ed917e59156a36212d48155831482&amp;p=3D28928496&amp;stpe=3Dpix=
+el&amp;" width=3D"2" height=3D"6" border=3D"0" /></td>
+<td><img src=3D"https://sli.bloomberg.com/imp?s=3D126552504&amp;li=3D288224=
+72&amp;m=3D4c3ed917e59156a36212d48155831482&amp;p=3D28928496&amp;stpe=3Dpix=
+el&amp;" width=3D"2" height=3D"6" border=3D"0" /></td>
+</tr>
+</tbody>
+</table>
+<custom name=3D"opencounter" type=3D"tracking"></custom>
+<a href=3D""><img src=3D"https://link.mail.bloombergbusiness.com/img/5c1839=
+6decf12a5e0a3b2dd1h5rk8.29t4/54bf82c9.gif" alt=3D"" border=3D"0" /></a>
+</body>
+</html>
+
+------=_Part_8744320_1851000285.1661276264486--
+
