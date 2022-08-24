@@ -109,6 +109,7 @@
 
 	/** @param {HTMLAnchorElement} a */
 	function installContainer(a) {
+		if (!a.parentElement) return
 		if (!a.parentElement.matches(`.${CONTAINER_CLS}`)) {
 			const container = newEl("div", CONTAINER_CLS);
 			a.parentElement.insertBefore(container, a);
@@ -161,7 +162,8 @@
 		const id = idFromHash(ev.target);
 		if (!id) return;
 		const fnref = document.getElementById(id);
-
+		if (!fnref) return
+		
 		window.scrollTo({ top: fnref.getBoundingClientRect().top + window.scrollY });
 	    ev.preventDefault();
 	});
