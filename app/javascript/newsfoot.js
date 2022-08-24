@@ -124,7 +124,7 @@
 	const footnoteFormats = [
 		{ // Multimarkdown
 			fnref(target) {
-				if (!target.matches(".footnote")) return;
+				if (!target.matches(".footnote, .footnote-index")) return;
 				return idFromHash(target);
 			}
 		}
