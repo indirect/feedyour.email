@@ -1,2 +1,2 @@
 #!/bin/sh
-HEROKU_APP=feedyouremail exec "${HEROKU_COMMAND:-heroku}" "$@"
+FLY_APP=feedyouremail exec "fly" "$@"
