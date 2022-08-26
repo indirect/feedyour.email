@@ -8,9 +8,9 @@ processes = []
 [env]
   PORT = "8080"
 
-[experimental]
-  allowed_public_ports = []
-  auto_rollback = true
+[[statics]]
+  guest_path = "/workspace/public"
+  url_prefix = "/"
 
 [[services]]
   http_checks = []
