@@ -3,17 +3,21 @@ kill_timeout = 5
 processes = []
 
 [build]
-  builder = "heroku/buildpacks:20"
+  [build.args]
+    BUNDLER_VERSION = "2.3.21"
+    NODE_VERSION = "16"
+    RUBY_VERSION = "3.1.2"
 
 [deploy]
   release_command = "bin/release"
 
 [env]
   PORT = "8080"
+  SERVER_COMMAND = "bundle exec puma"
 
-[[statics]]
-  guest_path = "/workspace/public"
-  url_prefix = "/"
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
 
 [[services]]
   http_checks = []
@@ -21,13 +25,13 @@ processes = []
   processes = ["app"]
   protocol = "tcp"
   script_checks = []
-
   [services.concurrency]
     hard_limit = 25
     soft_limit = 20
     type = "connections"
 
   [[services.ports]]
+    force_https = true
     handlers = ["http"]
     port = 80
 
@@ -40,3 +44,7 @@ processes = []
     interval = "15s"
     restart_limit = 0
     timeout = "2s"
+
+[[statics]]
+  guest_path = "/app/public"
+  url_prefix = "/"
