@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+if ARGV.empty?
+  abort "Usage: #{File.basename(__FILE__)} ENVIRONMENT"
+end
+
 def find_env(name)
   case name
   when /\As/
@@ -11,13 +15,19 @@ def find_env(name)
   end
 end
 
-dir = File.dirname(__FILE__)
-env = find_env(ARGV.first)
+@dir = File.dirname(__FILE__)
+@env = find_env(ARGV.first)
 
-if env == "development"
-  puts [File.join(dir, "rails"), "console", "-e", env].join(" ")
-  exec File.join(dir, "rails"), "console", "-e", env
+def env_run(*cmd)
+  cmd.unshift File.join(@dir, @env)
+  puts "+ #{cmd.join(' ')}"
+  system cmd.join(" ")
+end
+
+
+if @env == "development"
+  puts "+ bin/rails console"
+  exec "bin/rails", "console"
 else
-  puts [File.join(dir, env), "run:local", "bin/rails", "console"].join(" ")
-  exec File.join(dir, env), "run:local", "bin/rails", "console"
+  env_run "ssh", "console", "-C", "/cnb/process/console"
 end
