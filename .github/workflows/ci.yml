@@ -64,8 +64,8 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v3
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "feedyouremail"
-          heroku_email: "andre@arko.net"
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - run: flyctl deploy --remote-only
+        env:
+          FLY_APP: feedyouremail
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
