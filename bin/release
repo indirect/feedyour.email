@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+require "fileutils"
+
+# path to your application root.
+APP_ROOT = File.expand_path("..", __dir__)
+
+def system!(*args)
+  system(*args) || abort("\n== Command #{args} failed ==")
+end
+
+FileUtils.chdir APP_ROOT do
+  puts "\n== Migrating database =="
+  system! "bin/rails db:migrate"
+
+  puts "\n== Notifying Honeybadger of deploy =="
+  system! "bin/honeybadger deploy -r indirect/feedyour.email -s $(git log -1 --pretty=format:%H) -u github-actions"
+end
