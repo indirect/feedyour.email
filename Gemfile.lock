@@ -271,9 +271,9 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redis (5.0.3)
+    redis (5.0.4)
       redis-client (>= 0.7.4)
-    redis-client (0.7.4)
+    redis-client (0.8.0)
       connection_pool
     regexp_parser (2.5.0)
     reline (0.3.1)
