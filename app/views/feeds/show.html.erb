@@ -16,7 +16,7 @@
 
     <div id="feed-link" class="my-8">
       <h4 class="block text-md font-bold text-gray-700">Your feed</h4>
-      <p><%= link_to "Subscribe to this feed here", feed_url(@feed, format: "json", protocol: "feed") %>.</p>
+      <p><%= link_to "Subscribe to this feed here", feed_url(@feed, format: "atom", protocol: "feed") %>.</p>
       <p class="text-sm mt-1">(If you don't have a feed reader, we like <%= link_to "Reeder", "https://reederapp.com" %> or <%= link_to "NetNewsWire", "https://netnewswire.com" %>.)
     </div>
 
