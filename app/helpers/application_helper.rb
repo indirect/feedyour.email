@@ -1,4 +1,10 @@
 module ApplicationHelper
+  def page_title(name = nil)
+    @page_title ||= ["Feed Your Email"]
+    @page_title << name if name
+    @page_title.reverse.join(" — ")
+  end
+
   def sharing_meta_tags(title: "Feed Your Email")
     if content_for?(:page_favicon)
       return if content_for(:page_favicon).nil?
