@@ -26,7 +26,7 @@ RSpec.describe Feed, type: :model do
 
   it "uses the token in a fallback name" do
     feed.token = "abc123"
-    expect(feed.name).to eq("Feed Your Email abc123")
+    expect(feed.name).to eq("Feed abc123")
     feed.name = "somename"
     expect(feed.name).to eq("somename")
   end
