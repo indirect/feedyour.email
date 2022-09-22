@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 set -v
-bin/rubocop --auto-correct-all
+bin/rubocop --autocorrect-all
 bin/erblint --lint-all --autocorrect
