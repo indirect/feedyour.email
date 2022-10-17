@@ -43,7 +43,7 @@ gem "jb", "~> 0.8.0"
 gem "nilify_blanks", "~> 1.4"
 gem "pg", "~> 1.4"
 gem "propshaft", "~> 0.6.4"
-gem "puma", "~> 5.6"
+gem "puma", "~> 6.0"
 gem "rack-canonical-host", "~> 1.1", require: false
 gem "redis", "~> 5.0"
 gem "tailwindcss-rails", "~> 2.0"
