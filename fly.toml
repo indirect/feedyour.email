@@ -2,12 +2,6 @@ kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
 
-[build]
-  [build.args]
-    BUNDLER_VERSION = "2.3.21"
-    NODE_VERSION = "16"
-    RUBY_VERSION = "3.1.2"
-
 [deploy]
   release_command = "bin/release"
 
