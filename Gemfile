@@ -26,7 +26,7 @@ group :development do
   gem "hotwire-livereload", "~> 1.2"
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
   gem "rubocop-rails", "~> 2.17", require: false
-  gem "rubocop-rspec", "~> 2.16", require: false
+  gem "rubocop-rspec", "~> 2.17", require: false
   gem "standard", "~> 1.16", require: false
   gem "web-console", "~> 4.2"
 end
