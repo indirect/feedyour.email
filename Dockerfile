@@ -3,6 +3,9 @@ ARG RUBY_VERSION=3.1.2
 ARG VARIANT=jemalloc-slim
 FROM quay.io/evl.ms/fullstaq-ruby:${RUBY_VERSION}-${VARIANT} as base
 
+ARG GIT_SHA
+ENV GIT_SHA=${GIT_SHA:-unknown}
+
 ARG NODE_VERSION=16
 ARG BUNDLER_VERSION=2.4.7
 
@@ -82,8 +85,6 @@ ENV SECRET_KEY_BASE 1
 COPY . .
 
 RUN bundle exec rails assets:precompile
-RUN echo GIT_SHA && echo $GIT_SHA
-RUN test -e "$GIT_SHA" && echo $GIT_SHA > REVISION
 
 ENV PORT 8080
 
