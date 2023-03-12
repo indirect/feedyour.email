@@ -65,7 +65,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only -e "GIT_SHA=${{GITHUB_SHA}}"
+      - run: flyctl deploy --remote-only -e "GIT_SHA=${{ github.sha }}"
         env:
           FLY_APP: feedyouremail
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
