@@ -82,6 +82,7 @@ ENV SECRET_KEY_BASE 1
 COPY . .
 
 RUN bundle exec rails assets:precompile
+RUN test -e "$GIT_SHA" && echo $GIT_SHA > REVISION
 
 ENV PORT 8080
 

@@ -13,5 +13,5 @@ FileUtils.chdir APP_ROOT do
   system! "bin/rails db:migrate"
 
   puts "\n== Notifying Honeybadger of deploy =="
-  system! "bin/honeybadger deploy -r indirect/feedyour.email -s $(git log -1 --pretty=format:%H) -u github-actions"
+  system! "bin/honeybadger deploy -r indirect/feedyour.email -s $(cat REVISION) -u github-actions"
 end
