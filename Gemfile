@@ -38,7 +38,7 @@ group :production do
 end
 
 gem "better_html", "~> 2.0"
-gem "bootsnap", "~> 1.15", require: false
+gem "bootsnap", "~> 1.16", require: false
 gem "importmap-rails", "~> 1.1"
 gem "jb", "~> 0.8.0"
 gem "nilify_blanks", "~> 1.4"
