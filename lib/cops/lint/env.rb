@@ -24,7 +24,7 @@ module RuboCop
 
         def on_send(node)
           return unless rails_env?(node)
-          add_offense(node.parent.type == :send ? node.parent : node, location: :selector, message: MSG_RAILS_ENV + USAGE_MSG)
+          add_offense((node.parent.type == :send) ? node.parent : node, location: :selector, message: MSG_RAILS_ENV + USAGE_MSG)
         end
 
         private

@@ -52,11 +52,11 @@ class PostMailbox < ApplicationMailbox
 
   def text_body
     return mail.text_part.decoded if mail.text_part
-    mail.mime_type == "text/plain" ? mail.body.decoded : nil
+    (mail.mime_type == "text/plain") ? mail.body.decoded : nil
   end
 
   def html_body
     return mail.html_part.decoded if mail.html_part
-    mail.mime_type == "text/html" ? mail.body.decoded : nil
+    (mail.mime_type == "text/html") ? mail.body.decoded : nil
   end
 end
