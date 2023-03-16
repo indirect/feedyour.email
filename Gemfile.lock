@@ -215,7 +215,7 @@ GEM
     parser (3.2.1.1)
       ast (~> 2.4.1)
     pg (1.4.6)
-    propshaft (0.6.4)
+    propshaft (0.7.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
@@ -386,7 +386,7 @@ DEPENDENCIES
   mail (< 2.8.0)
   nilify_blanks (~> 1.4)
   pg (~> 1.4)
-  propshaft (~> 0.6.4)
+  propshaft (~> 0.7.0)
   pry-rails (~> 0.3.9)
   puma (~> 6.1)
   rack-canonical-host (~> 1.1)
