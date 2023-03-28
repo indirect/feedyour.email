@@ -116,7 +116,7 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
-    erb_lint (0.3.1)
+    erb_lint (0.4.0)
       activesupport
       better_html (>= 2.0.1)
       parser (>= 2.7.1.4)
@@ -307,7 +307,7 @@ GEM
       rubocop-ast (>= 1.26.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.27.0)
+    rubocop-ast (1.28.0)
       parser (>= 3.2.1.0)
     rubocop-capybara (2.17.1)
       rubocop (~> 1.41)
@@ -370,7 +370,7 @@ DEPENDENCIES
   bundler-audit (~> 0.9.1)
   code-scanning-rubocop (~> 0.6.1)!
   debug (~> 1.7)
-  erb_lint (~> 0.3.1)
+  erb_lint (~> 0.4.0)
   guard-bundler-audit (~> 0.1.5)
   guard-erb_lint!
   guard-rspec (~> 4.7)
