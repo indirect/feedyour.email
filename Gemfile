@@ -45,7 +45,7 @@ gem "nilify_blanks", "~> 1.4"
 gem "pg", "~> 1.4"
 gem "propshaft", "~> 0.7.0"
 gem "puma", "~> 6.2"
-gem "rack-canonical-host", "~> 1.1", require: false
+gem "rack-canonical-host", "~> 1.2", require: false
 gem "redis", "~> 5.0"
 gem "tailwindcss-rails", "~> 2.0"
 gem "turbo-rails", "~> 1.4"
