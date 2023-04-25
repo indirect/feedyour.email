@@ -6,7 +6,7 @@ gem "mail", "< 2.8.0"
 group :development, :test do
   gem "assert_json", "~> 0.4.1", require: false
   gem "debug", "~> 1.7", platforms: %i[mri mingw x64_mingw]
-  gem "json-schema", "~> 3.0", require: false
+  gem "json-schema", "~> 4.0", require: false
   gem "libxml-ruby", "~> 4.0.0"
   gem "pry-rails", "~> 0.3.9"
   gem "rspec-rails", "~> 6.0"
