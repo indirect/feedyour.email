@@ -42,7 +42,7 @@ gem "bootsnap", "~> 1.16", require: false
 gem "importmap-rails", "~> 1.1"
 gem "jb", "~> 0.8.0"
 gem "nilify_blanks", "~> 1.4"
-gem "pg", "~> 1.4"
+gem "pg", "~> 1.5"
 gem "propshaft", "~> 0.7.0"
 gem "puma", "~> 6.2"
 gem "rack-canonical-host", "~> 1.2", require: false
