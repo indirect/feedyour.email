@@ -112,7 +112,7 @@ GEM
     connection_pool (2.3.0)
     crass (1.0.6)
     date (3.3.3)
-    debug (1.7.2)
+    debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
@@ -161,7 +161,7 @@ GEM
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.6.0)
-    irb (1.6.3)
+    irb (1.6.4)
       reline (>= 0.3.0)
     jb (0.8.0)
     json (2.6.3)
@@ -380,7 +380,7 @@ DEPENDENCIES
   brakeman (~> 5.4)
   bundler-audit (~> 0.9.1)
   code-scanning-rubocop (~> 0.6.1)!
-  debug (~> 1.7)
+  debug (~> 1.8)
   erb_lint (~> 0.4.0)
   guard-bundler-audit (~> 0.1.5)
   guard-erb_lint!
