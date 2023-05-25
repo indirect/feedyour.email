@@ -102,7 +102,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
-    brakeman (5.4.1)
+    brakeman (6.0.0)
     builder (3.2.4)
     bundler-audit (0.9.1)
       bundler (>= 1.2.0, < 3)
@@ -377,7 +377,7 @@ DEPENDENCIES
   assert_json (~> 0.4.1)
   better_html (~> 2.0)
   bootsnap (~> 1.16)
-  brakeman (~> 5.4)
+  brakeman (~> 6.0)
   bundler-audit (~> 0.9.1)
   code-scanning-rubocop (~> 0.6.1)!
   debug (~> 1.8)
