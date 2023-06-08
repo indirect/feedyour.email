@@ -17,7 +17,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    action-cable-redis-backport (1.0.1)
+    action-cable-redis-backport (1.0.2)
       actioncable (>= 5.0, < 7.1)
     actioncable (7.0.5)
       actionpack (= 7.0.5)
@@ -155,7 +155,7 @@ GEM
     hotwire-livereload (1.2.3)
       listen (>= 3.0.0)
       rails (>= 6.0.0)
-    i18n (1.13.0)
+    i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.6)
       actionpack (>= 6.0.0)
@@ -229,7 +229,7 @@ GEM
     public_suffix (5.0.1)
     puma (6.3.0)
       nio4r (~> 2.0)
-    racc (1.6.2)
+    racc (1.7.0)
     rack (2.2.7)
     rack-canonical-host (1.2.0)
       addressable (> 0, < 3)
