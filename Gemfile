@@ -39,7 +39,7 @@ end
 
 gem "better_html", "~> 2.0"
 gem "bootsnap", "~> 1.16", require: false
-gem "importmap-rails", "~> 1.1"
+gem "importmap-rails", "~> 1.2"
 gem "jb", "~> 0.8.0"
 gem "nilify_blanks", "~> 1.4"
 gem "pg", "~> 1.5"
