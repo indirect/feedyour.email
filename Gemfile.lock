@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Driversnote-Dev/guard-erb_lint.git
-  revision: 6a4d520559e7a79a804c80af2b7f4ff7137c83dc
+  revision: 2ba3c5d21f5e891df97a3b7c03e56d7d19bf15a2
   specs:
     guard-erb_lint (1.0.0)
       activesupport
@@ -251,7 +251,7 @@ GEM
       activesupport (= 7.0.6)
       bundler (>= 1.15.0)
       railties (= 7.0.6)
-    rails-dom-testing (2.1.1)
+    rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
       nokogiri (>= 1.6)
