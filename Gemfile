@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby Pathname.new(__dir__).join(".ruby-version").read
 gem "rails", "~> 7.0"
-gem "mail", "< 2.8.0"
+gem "mail", "< 2.9.0"
 
 group :development, :test do
   gem "assert_json", "~> 0.4.1", require: false
