@@ -11,7 +11,7 @@ class Feed < ApplicationRecord
   end
 
   def name
-    read_attribute(:name) || "Feed #{token[0..2]}#{token[-3..-1]}" if token
+    read_attribute(:name) || "Feed #{token[0..2]}#{token[-3..]}" if token
   end
 
   def to_param
