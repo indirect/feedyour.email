@@ -89,7 +89,7 @@ GEM
     annotate (3.2.0)
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
-    assert_json (0.4.1)
+    assert_json (1.0.0)
       activesupport
     ast (2.4.2)
     better_html (2.0.2)
@@ -380,7 +380,7 @@ PLATFORMS
 DEPENDENCIES
   action-cable-redis-backport (~> 1.0)
   annotate (~> 3.2)
-  assert_json (~> 0.4.1)
+  assert_json (~> 1.0.0)
   better_html (~> 2.0)
   bootsnap (~> 1.16)
   brakeman (~> 6.0)
