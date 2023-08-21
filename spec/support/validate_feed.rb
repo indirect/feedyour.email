@@ -11,7 +11,7 @@ module ValidateFeed
     end
 
     failure_message do |actual|
-      @message.gsub(/Fatal error: /, "Invalid Atom feed: ")
+      @message.gsub("Fatal error: ", "Invalid Atom feed: ")
     end
   end
 
