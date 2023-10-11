@@ -174,12 +174,12 @@ GEM
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    lograge (0.13.0)
+    lograge (0.14.0)
       actionpack (>= 4)
       activesupport (>= 4)
       railties (>= 4)
       request_store (~> 1.0)
-    loofah (2.21.3)
+    loofah (2.21.4)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     lumberjack (1.2.8)
@@ -374,7 +374,7 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.6.11)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   arm64-darwin-22
@@ -403,7 +403,7 @@ DEPENDENCIES
   jb (~> 0.8.1)
   json-schema (~> 4.1)
   libxml-ruby (~> 4.1.1)
-  lograge (~> 0.13.0)
+  lograge (~> 0.14.0)
   mail (< 2.9.0)
   nilify_blanks (~> 1.4)
   pg (~> 1.5)
