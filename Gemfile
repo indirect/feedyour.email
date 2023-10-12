@@ -48,6 +48,6 @@ gem "puma", "~> 6.4"
 gem "rack-canonical-host", "~> 1.2", require: false
 gem "redis", "~> 5.0"
 gem "tailwindcss-rails", "~> 2.0"
-gem "turbo-rails", "~> 1.4"
+gem "turbo-rails", "~> 1.5"
 
 gem "action-cable-redis-backport", "~> 1.0"
