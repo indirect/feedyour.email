@@ -1,0 +1,2 @@
+#!/bin/sh
+FLY_ORG=feedyouremail exec "fly" "$@"
