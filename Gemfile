@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 ruby Pathname.new(__dir__).join(".ruby-version").read
-gem "rails", "~> 7.0"
+gem "rails", "~> 7.1"
 gem "mail", "< 2.9.0"
 
 group :development, :test do
