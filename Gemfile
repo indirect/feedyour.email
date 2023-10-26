@@ -43,7 +43,7 @@ gem "importmap-rails", "~> 1.2"
 gem "jb", "~> 0.8.1"
 gem "nilify_blanks", "~> 1.4"
 gem "pg", "~> 1.5"
-gem "propshaft", "~> 0.7.0"
+gem "propshaft", "~> 0.8.0"
 gem "puma", "~> 6.4"
 gem "rack-canonical-host", "~> 1.2", require: false
 gem "redis", "~> 5.0"
