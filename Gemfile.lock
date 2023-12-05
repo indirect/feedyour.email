@@ -180,7 +180,7 @@ GEM
       rdoc
       reline (>= 0.3.8)
     jb (0.8.2)
-    json (2.6.3)
+    json (2.7.0)
     json-schema (4.1.1)
       addressable (>= 2.8)
     language_server-protocol (3.17.0.3)
@@ -304,7 +304,7 @@ GEM
       redis-client (>= 0.17.0)
     redis-client (0.17.1)
       connection_pool
-    regexp_parser (2.8.2)
+    regexp_parser (2.8.3)
     reline (0.4.0)
       io-console (~> 0.5)
     request_store (1.5.1)
@@ -366,7 +366,7 @@ GEM
     ruby2_keywords (0.0.5)
     shellany (0.0.1)
     smart_properties (1.17.0)
-    standard (1.32.0)
+    standard (1.32.1)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
       rubocop (~> 1.57.2)
