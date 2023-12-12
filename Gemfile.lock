@@ -123,9 +123,9 @@ GEM
     connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.4)
-    debug (1.8.0)
-      irb (>= 1.5.0)
-      reline (>= 0.3.1)
+    debug (1.9.0)
+      irb (~> 1.10)
+      reline (>= 0.3.8)
     diff-lcs (1.5.0)
     drb (2.2.0)
       ruby2_keywords
@@ -419,7 +419,7 @@ DEPENDENCIES
   brakeman (~> 6.1)
   bundler-audit (~> 0.9.1)
   code-scanning-rubocop (~> 0.6.1)!
-  debug (~> 1.8)
+  debug (~> 1.9)
   erb_lint (~> 0.5.0)
   guard-bundler-audit (~> 0.1.5)
   guard-erb_lint!
