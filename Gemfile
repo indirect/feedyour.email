@@ -47,7 +47,7 @@ gem "propshaft", "~> 0.8.0"
 gem "puma", "~> 6.4"
 gem "rack-canonical-host", "~> 1.2", require: false
 gem "redis", "~> 5.0"
-gem "tailwindcss-rails", "~> 2.1"
+gem "tailwindcss-rails", "~> 2.2"
 gem "turbo-rails", "~> 1.5"
 
 gem "action-cable-redis-backport", "~> 1.0"
