@@ -9,8 +9,6 @@ def system!(*args)
 end
 
 FileUtils.chdir APP_ROOT do
-  system! "gem install bundler"
-
   puts "\n== Migrating database =="
   system! "bin/rails db:migrate"
 
