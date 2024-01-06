@@ -127,6 +127,8 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.5.0)
+    dockerfile-rails (1.6.1)
+      rails (>= 3.0.0)
     drb (2.2.0)
       ruby2_keywords
     erb_lint (0.5.0)
@@ -421,6 +423,7 @@ DEPENDENCIES
   bundler-audit (~> 0.9.1)
   code-scanning-rubocop (~> 0.6.1)!
   debug (~> 1.9)
+  dockerfile-rails (~> 1.6)
   erb_lint (~> 0.5.0)
   guard-bundler-audit (~> 0.1.5)
   guard-erb_lint!
