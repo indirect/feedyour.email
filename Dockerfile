@@ -28,7 +28,7 @@ RUN --mount=type=cache,id=dev-apt-cache,sharing=locked,target=/var/cache/apt \
     apt-get install --no-install-recommends -y build-essential git libpq-dev
 
 # Install application gems
-COPY --link Gemfile Gemfile.lock ./
+COPY --link Gemfile Gemfile.lock .ruby-version ./
 RUN --mount=type=cache,id=bld-gem-cache,sharing=locked,target=/srv/vendor \
     bundle config set app_config .bundle && \
     bundle config set path /srv/vendor && \
