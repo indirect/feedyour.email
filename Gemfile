@@ -50,4 +50,3 @@ gem "redis", "~> 5.0"
 gem "tailwindcss-rails", "~> 2.2"
 gem "turbo-rails", "~> 1.5"
 
-gem "action-cable-redis-backport", "~> 1.0"

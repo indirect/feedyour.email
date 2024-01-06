@@ -17,8 +17,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    action-cable-redis-backport (1.0.3)
-      actioncable (>= 5.0)
     actioncable (7.1.2)
       actionpack (= 7.1.2)
       activesupport (= 7.1.2)
@@ -413,7 +411,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  action-cable-redis-backport (~> 1.0)
   annotate (~> 3.2)
   assert_json (~> 1.0.0)
   better_html (~> 2.0)
