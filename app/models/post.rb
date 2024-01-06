@@ -2,8 +2,8 @@ class Post < ApplicationRecord
   belongs_to :feed
   has_secure_token :token
   serialize :from, type: Mail::Address
-  serialize :html_body, coder: BrotliSerializer
-  serialize :text_body, coder: BrotliSerializer
+  serialize :compressed_html_body, coder: BrotliSerializer
+  serialize :compressed_text_body, coder: BrotliSerializer
   delegate :domain, to: :from
 
   def self.generate_unique_secure_token(length:)
@@ -26,8 +26,14 @@ class Post < ApplicationRecord
     token
   end
 
+  def text_body
+    self[:compressed_text_body] || self[:text_body]
+  end
+
   def html_body
-    @html_body = BodyFormatter.new(read_attribute(:html_body)).format(from_name)
+    @html_body = BodyFormatter.new(
+      self[:compressed_html_body] || self[:html_body]
+    ).format(from_name)
   end
 
   private
