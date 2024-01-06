@@ -1,4 +1,4 @@
-#!/usr/bin/env bin/rails runner
+#!/usr/bin/env bundle exec rails runner
 
 count = Post.where("html_body IS NOT NULL AND text_body IS NOT NULL").count
 $stdout.puts "Found #{count} posts to compress"
