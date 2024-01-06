@@ -5,7 +5,8 @@ options:
   cache: true
   label:
     fly_launch_runtime: rails
+  litefs: true
   parallel: true
-  postgresql: true
   prepare: false
   redis: true
+  sqlite3: true
