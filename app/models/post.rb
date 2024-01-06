@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   belongs_to :feed
   has_secure_token :token
   serialize :from, type: Mail::Address
+  serialize :html_body, coder: BrotliSerializer
+  serialize :text_body, coder: BrotliSerializer
   delegate :domain, to: :from
 
   def self.generate_unique_secure_token(length:)

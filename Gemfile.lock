@@ -113,6 +113,7 @@ GEM
       msgpack (~> 1.2)
     brakeman (6.1.1)
       racc
+    brotli (0.4.0)
     builder (3.2.4)
     bundler-audit (0.9.1)
       bundler (>= 1.2.0, < 3)
@@ -416,6 +417,7 @@ DEPENDENCIES
   better_html (~> 2.0)
   bootsnap (~> 1.17)
   brakeman (~> 6.1)
+  brotli (~> 0.4.0)
   bundler-audit (~> 0.9.1)
   code-scanning-rubocop (~> 0.6.1)!
   debug (~> 1.9)
