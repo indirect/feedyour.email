@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :feed
   has_secure_token :token
-  serialize :from, Mail::Address
+  serialize :from, type: Mail::Address
   delegate :domain, to: :from
 
   def self.generate_unique_secure_token(length:)
