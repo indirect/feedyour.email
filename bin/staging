@@ -1,2 +1,2 @@
 #!/bin/sh
-FLY_APP=feedyouremail-staging exec "fly" "$@"
+FLY_ORG=feedyouremail FLY_APP=feedyouremail-staging exec "fly" "$@"
