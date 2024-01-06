@@ -77,7 +77,7 @@ USER rails:rails
 
 # Authorize rails user to launch litefs
 COPY <<-"EOF" /etc/sudoers.d/rails
-rails ALL=(root) /usr/local/bin/litefs
+rails ALL=(root) NOPASSWD:SETENV:/usr/local/bin/litefs
 EOF
 
 # Run Rails on 3001 so the litefs proxy can run on 3000
