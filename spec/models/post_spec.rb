@@ -53,16 +53,18 @@ end
 #
 # Table name: posts
 #
-#  id         :bigint           not null, primary key
-#  from       :string
-#  html_body  :string
-#  payload    :jsonb
-#  subject    :string
-#  text_body  :string
-#  token      :citext           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  feed_id    :bigint
+#  id                   :bigint           not null, primary key
+#  compressed_html_body :binary
+#  compressed_text_body :binary
+#  from                 :string
+#  html_body            :string
+#  payload              :jsonb
+#  subject              :string
+#  text_body            :string
+#  token                :citext           not null
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  feed_id              :bigint
 #
 # Indexes
 #
