@@ -114,3 +114,8 @@ lease:
     # can become leader. This buffer is intended to prevent
     # overlap in leadership due to clock skew or in-flight calls.
     lock-delay: "1s"
+
+exec:
+  - cmd: "bin/rails db:migrate"
+    if-candidate: true
+  - cmd: "bin/rails server"

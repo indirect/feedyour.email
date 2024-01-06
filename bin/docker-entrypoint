@@ -1,8 +1,0 @@
-#!/bin/bash -e
-
-# mount litefs
-sudo -E litefs mount &
-
-# Add any container initialization steps here
-
-exec "${@}"

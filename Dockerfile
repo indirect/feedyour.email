@@ -82,10 +82,8 @@ EOF
 
 # Run Rails on 3001 so the litefs proxy can run on 3000
 ENV PORT="3001"
-
-# Entrypoint sets up the container.
-ENTRYPOINT ["/rails/bin/docker-entrypoint"]
-
-# Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["./bin/rails", "server"]
+
+# Run LiteFS as the entrypoint. After it has connected and sync'd with the
+# cluster, it will run the commands listed in the "exec" field of the config.
+ENTRYPOINT sudo -E litefs mount
