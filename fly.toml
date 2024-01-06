@@ -1,46 +1,29 @@
-# fly.toml app configuration file generated for feedyouremail on 2023-05-26T11:33:12-07:00
+# fly.toml app configuration file generated for feedyouremail-staging on 2024-01-06T00:26:17-08:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
 primary_region = "sjc"
-kill_signal = "SIGINT"
-kill_timeout = "5s"
+console_command = "/rails/bin/rails console"
 
-[experimental]
-  auto_rollback = true
+[build]
 
 [deploy]
-  release_command = "bin/release"
+  release_command = "./bin/release"
 
-[env]
-  PORT = "8080"
-  SERVER_COMMAND = "bundle exec puma"
-
-[[services]]
-  protocol = "tcp"
-  internal_port = 8080
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
   processes = ["app"]
 
-  [[services.ports]]
-    port = 80
-    handlers = ["http"]
-    force_https = true
-
-  [[services.ports]]
-    port = 443
-    handlers = ["tls", "http"]
-  [services.concurrency]
-    type = "connections"
-    hard_limit = 25
-    soft_limit = 20
-
-  [[services.tcp_checks]]
-    interval = "15s"
-    timeout = "2s"
-    grace_period = "1s"
-    restart_limit = 0
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 512
 
 [[statics]]
-  guest_path = "/app/public"
+  guest_path = "/rails/public"
   url_prefix = "/"
