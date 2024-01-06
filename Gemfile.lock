@@ -225,6 +225,8 @@ GEM
       activerecord (>= 4.0.0)
       activesupport (>= 4.0.0)
     nio4r (2.7.0)
+    nokogiri (1.16.0-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.16.0-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.16.0-x86_64-darwin)
@@ -381,6 +383,8 @@ GEM
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.20.1)
     stringio (3.1.0)
+    tailwindcss-rails (2.2.0-aarch64-linux)
+      railties (>= 6.0.0)
     tailwindcss-rails (2.2.0-arm64-darwin)
       railties (>= 6.0.0)
     tailwindcss-rails (2.2.0-x86_64-darwin)
@@ -408,6 +412,7 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
+  aarch64-linux
   arm64-darwin-22
   arm64-darwin-23
   universal-darwin-21
