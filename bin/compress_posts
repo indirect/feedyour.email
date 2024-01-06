@@ -1,0 +1,18 @@
+#!/usr/bin/env bin/rails runner
+
+count = Post.where("html_body IS NOT NULL AND text_body IS NOT NULL").count
+$stdout.puts "Found #{count} posts to compress"
+counter = 0
+
+Post.where("html_body IS NOT NULL AND text_body IS NOT NULL").find_each do |post|
+  if post.id > counter
+    $stdout.puts "Compressing post #{post.id}"
+  end
+
+  post.update!(
+    compressed_html_body: post.html_body,
+    compressed_text_body: post.text_body,
+    html_body: nil,
+    text_body: nil
+  )
+end
