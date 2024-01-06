@@ -1,13 +1,17 @@
 default: &default
-  adapter: postgresql
+  adapter: sqlite3
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+production:
+  <<: *default
+  database: /data/feedyouremail.sqlite3
+
 development:
   <<: *default
-  database: feedyour_email_development
+  database: storage/development.sqlite3
 
 test:
   <<: *default
   host: localhost
-  database: feedyour_email_test
+  database: storage/test.sqlite3

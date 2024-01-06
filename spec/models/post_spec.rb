@@ -23,8 +23,8 @@ RSpec.describe Post, type: :model do
     conflicting_post.token = "somepost"
     conflicting_post.save!
 
-    expect { post.update!(token: "somepost") }.to raise_error(ActiveRecord::RecordNotUnique)
-    expect { post.update!(token: "SomePost") }.to raise_error(ActiveRecord::RecordNotUnique)
+    expect { post.update!(token: "somepost") }.to raise_error(ActiveRecord::RecordInvalid)
+    expect { post.update!(token: "SomePost") }.to raise_error(ActiveRecord::RecordInvalid)
   end
 
   it "has a from" do
@@ -53,18 +53,18 @@ end
 #
 # Table name: posts
 #
-#  id                   :bigint           not null, primary key
+#  id                   :integer          not null, primary key
 #  compressed_html_body :binary
 #  compressed_text_body :binary
 #  from                 :string
 #  html_body            :string
-#  payload              :jsonb
+#  payload              :json
 #  subject              :string
 #  text_body            :string
-#  token                :citext           not null
+#  token                :string           not null
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
-#  feed_id              :bigint
+#  feed_id              :integer
 #
 # Indexes
 #
