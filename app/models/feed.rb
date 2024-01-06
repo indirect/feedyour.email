@@ -6,6 +6,8 @@ class Feed < ApplicationRecord
   has_secure_token :token
   nilify_blanks
 
+  validates :token, uniqueness: {case_sensitive: false}
+
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length).downcase
   end

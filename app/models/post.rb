@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   serialize :compressed_text_body, coder: BrotliSerializer
   delegate :domain, to: :from
 
+  validates :token, uniqueness: {case_sensitive: false}
+
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length).downcase
   end
