@@ -1,9 +1,9 @@
 #!/usr/bin/env bundle exec rails runner
 
-count = Post.where("html_body IS NOT NULL AND text_body IS NOT NULL").count
+count = Post.where("html_body IS NOT NULL OR text_body IS NOT NULL").count
 $stdout.puts "Found #{count} posts to compress"
 
-Post.where("html_body IS NOT NULL AND text_body IS NOT NULL").find_each do |post|
+Post.where("html_body IS NOT NULL OR text_body IS NOT NULL").find_each do |post|
   $stdout.puts "Compressing post #{post.id}"
 
   post.update!(
