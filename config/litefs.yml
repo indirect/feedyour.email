@@ -18,7 +18,7 @@ fuse:
 
 # The data section specifies where internal LiteFS data is stored
 # and how long to retain the transaction files.
-# 
+#
 # Transaction files are used to ship changes to replica nodes so
 # they should persist long enough for replicas to retrieve them,
 # even in the face of a short network interruption or a redeploy.
@@ -60,7 +60,7 @@ proxy:
   target: "localhost:3001"
 
   # The name of the database used for TXID tracking.
-  db: "production.sqlite3"
+  db: "feedyouremail.sqlite3"
 
   # If true, enables verbose logging of requests by the proxy.
   debug: false

@@ -73,10 +73,10 @@ end
 #
 # Table name: feeds
 #
-#  id         :bigint           not null, primary key
+#  id         :integer          not null, primary key
 #  fetched_at :datetime
 #  name       :string
-#  token      :citext           not null
+#  token      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
