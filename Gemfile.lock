@@ -17,8 +17,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    action-cable-redis-backport (1.0.3)
-      actioncable (>= 5.0)
     actioncable (7.1.2)
       actionpack (= 7.1.2)
       activesupport (= 7.1.2)
@@ -115,6 +113,7 @@ GEM
       msgpack (~> 1.2)
     brakeman (6.1.1)
       racc
+    brotli (0.4.0)
     builder (3.2.4)
     bundler-audit (0.9.1)
       bundler (>= 1.2.0, < 3)
@@ -234,7 +233,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     parallel (1.24.0)
-    parser (3.2.2.4)
+    parser (3.3.0.0)
       ast (~> 2.4.1)
       racc
     pg (1.5.4)
@@ -408,16 +407,17 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  arm64-darwin-23
   universal-darwin-21
   x86_64-linux
 
 DEPENDENCIES
-  action-cable-redis-backport (~> 1.0)
   annotate (~> 3.2)
   assert_json (~> 1.0.0)
   better_html (~> 2.0)
   bootsnap (~> 1.17)
   brakeman (~> 6.1)
+  brotli (~> 0.4.0)
   bundler-audit (~> 0.9.1)
   code-scanning-rubocop (~> 0.6.1)!
   debug (~> 1.9)
@@ -453,7 +453,7 @@ DEPENDENCIES
   web-console (~> 4.2)
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.3.0p0
 
 BUNDLED WITH
-   2.4.8
+   2.5.4

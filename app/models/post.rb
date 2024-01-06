@@ -1,7 +1,9 @@
 class Post < ApplicationRecord
   belongs_to :feed
   has_secure_token :token
-  serialize :from, Mail::Address
+  serialize :from, type: Mail::Address
+  serialize :compressed_html_body, coder: BrotliSerializer
+  serialize :compressed_text_body, coder: BrotliSerializer
   delegate :domain, to: :from
 
   def self.generate_unique_secure_token(length:)
@@ -24,8 +26,14 @@ class Post < ApplicationRecord
     token
   end
 
+  def text_body
+    self[:compressed_text_body] || self[:text_body]
+  end
+
   def html_body
-    @html_body = BodyFormatter.new(read_attribute(:html_body)).format(from_name)
+    @html_body = BodyFormatter.new(
+      self[:compressed_html_body] || self[:html_body]
+    ).format(from_name)
   end
 
   private
@@ -44,16 +52,18 @@ end
 #
 # Table name: posts
 #
-#  id         :bigint           not null, primary key
-#  from       :string
-#  html_body  :string
-#  payload    :jsonb
-#  subject    :string
-#  text_body  :string
-#  token      :citext           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  feed_id    :bigint
+#  id                   :bigint           not null, primary key
+#  compressed_html_body :binary
+#  compressed_text_body :binary
+#  from                 :string
+#  html_body            :string
+#  payload              :jsonb
+#  subject              :string
+#  text_body            :string
+#  token                :citext           not null
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  feed_id              :bigint
 #
 # Indexes
 #

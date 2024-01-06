@@ -5,3 +5,27 @@ one:
   html_body: "<h1>a post!</h1>"
   subject: "post title"
   token: "post_token"
+
+# == Schema Information
+#
+# Table name: posts
+#
+#  id                   :bigint           not null, primary key
+#  compressed_html_body :binary
+#  compressed_text_body :binary
+#  from                 :string
+#  html_body            :string
+#  payload              :jsonb
+#  subject              :string
+#  text_body            :string
+#  token                :citext           not null
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  feed_id              :bigint
+#
+# Indexes
+#
+#  index_posts_on_feed_id                 (feed_id)
+#  index_posts_on_feed_id_and_updated_at  (feed_id,updated_at DESC)
+#  index_posts_on_token                   (token) UNIQUE
+#
