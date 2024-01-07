@@ -1,6 +1,11 @@
 #!/bin/bash -e
 
 # Add any container initialization steps here
+
+# sometimes the volume mounter decides root owns the db
+chown -R rails:rails storage
+
+# Run migrations
 bin/rails db:migrate
 
 exec "${@}"
