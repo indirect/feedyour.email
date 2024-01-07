@@ -2,8 +2,6 @@
 
 # Run migrations in the real VM, but not the release command
 if [ -z "$RELEASE_COMMAND" ]; then
-  # sometimes the volume mounter decides root owns the db
-  chown -R rails:rails storage
   bin/rails db:migrate
 fi
 
