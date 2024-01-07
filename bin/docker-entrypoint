@@ -1,11 +1,10 @@
 #!/bin/bash -e
 
-# Add any container initialization steps here
-
-# sometimes the volume mounter decides root owns the db
-chown -R rails:rails storage
-
-# Run migrations
-bin/rails db:migrate
+# Run migrations in the real VM, but not the release command
+if [ -z "$RELEASE_COMMAND" ]; then
+  # sometimes the volume mounter decides root owns the db
+  chown -R rails:rails storage
+  bin/rails db:migrate
+fi
 
 exec "${@}"
