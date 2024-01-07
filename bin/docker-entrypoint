@@ -9,6 +9,10 @@ if [ -z "$RELEASE_COMMAND" ]; then
     unset DATABASE_URL
   fi
 
+  if [ -n "$FORCE_DB_IMPORT" ]; then
+    rm -f storage/production.sqlite3
+  fi
+
   if [ ! -f storage/production.sqlite3 ] && [ -n "$PG_DATABASE_URL" ]; then
     bin/sequel -C $PG_DATABASE_URL sqlite://storage/production.sqlite3
   fi
