@@ -9,9 +9,6 @@ def system!(*args)
 end
 
 FileUtils.chdir APP_ROOT do
-  puts "\n== Migrating database =="
-  system! "bin/rails db:migrate"
-
   puts "\n== Notifying Honeybadger of deploy =="
   system! "bin/honeybadger deploy -r indirect/feedyour.email -s $GIT_SHA -u github-actions"
 end
