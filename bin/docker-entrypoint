@@ -2,6 +2,10 @@
 
 # Run migrations in the real VM, but not the release command
 if [ -z "$RELEASE_COMMAND" ]; then
+  # if the sqlite db doesn't exist, create it
+  if [ ! -f storage/production.sqlite3 ] && [ -e "$PG_DATABASE_URL" ]; then
+    sequel -C $PG_DATABASE_URL sqlite://storage/production.sqlite3
+  fi
   bin/rails db:migrate
 fi
 
