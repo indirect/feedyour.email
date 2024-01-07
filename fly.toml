@@ -30,7 +30,7 @@ console_command = "/rails/bin/rails console"
 
 [[mounts]]
   source = "data"
-  destination = "/data"
+  destination = "/rails/storage"
   initial_size = "3GB"
   auto_extend_size_threshold = 80
   auto_extend_size_increment = "1GB"
