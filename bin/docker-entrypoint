@@ -13,7 +13,7 @@ if [ -z "$RELEASE_COMMAND" ]; then
 
   if [ ! -f storage/production.sqlite3 ] && [ -n "$PG_DATABASE_URL" ]; then
     echo "copying DATABASE_URL to sqlite file"
-    sequel -C $PG_DATABASE_URL sqlite://storage/production.sqlite3
+    bin/sequel -C $PG_DATABASE_URL sqlite://storage/production.sqlite3
   fi
 
   echo "running migrations"
