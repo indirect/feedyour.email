@@ -51,3 +51,5 @@ gem "redis", "~> 5.0"
 gem "sqlite3", "~> 1.7"
 gem "tailwindcss-rails", "~> 2.2"
 gem "turbo-rails", "~> 1.5"
+
+gem "sequel_pg", "~> 1.17", require: false
