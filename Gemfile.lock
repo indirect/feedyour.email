@@ -240,7 +240,6 @@ GEM
     parser (3.3.0.0)
       ast (~> 2.4.1)
       racc
-    pg (1.5.4)
     propshaft (0.8.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -368,11 +367,6 @@ GEM
       rubocop-factory_bot (~> 2.22)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
-    sequel (5.76.0)
-      bigdecimal
-    sequel_pg (1.17.1)
-      pg (>= 0.18.0, != 1.2.0)
-      sequel (>= 4.38.0)
     shellany (0.0.1)
     smart_properties (1.17.0)
     sqlite3 (1.7.0-aarch64-linux)
@@ -463,7 +457,6 @@ DEPENDENCIES
   rubocop-gemfile (~> 0.1.0.beta3)
   rubocop-rails (~> 2.23)
   rubocop-rspec (~> 2.26)
-  sequel_pg (~> 1.17)
   sqlite3 (~> 1.7)
   standard (~> 1.33)
   tailwindcss-rails (~> 2.2)

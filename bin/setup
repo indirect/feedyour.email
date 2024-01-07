@@ -10,8 +10,7 @@ end
 
 FileUtils.chdir APP_ROOT do
   puts "== Installing Homebrew dependencies =="
-  system! "brew install chruby ruby-install postgresql redis"
-  system! "brew services start postgresql"
+  system! "brew install chruby ruby-install sqlite redis"
   system! "brew services start redis"
 
   puts "== Installing Ruby =="

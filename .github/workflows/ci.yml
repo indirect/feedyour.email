@@ -3,18 +3,11 @@ on:
   push:
     branches: [ "**", "!dependabot/**" ]
   pull_request:
+env:
+  RAILS_ENV: test
 jobs:
   test:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:11-alpine
-        ports:
-          - 5432:5432
-        env:
-          POSTGRES_DB: rails_test
-          POSTGRES_USER: rails
-          POSTGRES_PASSWORD: password
     steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
@@ -22,14 +15,8 @@ jobs:
           bundler-cache: true
       - name: Set up database
         run: bin/rails db:schema:load
-        env:
-          RAILS_ENV: test
-          DATABASE_URL: postgres://rails:password@localhost:5432/rails_test
       - name: Run tests
         run: bin/rake assets:precompile spec
-        env:
-          RAILS_ENV: test
-          DATABASE_URL: postgres://rails:password@localhost:5432/rails_test
   lint:
     runs-on: ubuntu-latest
     steps:
