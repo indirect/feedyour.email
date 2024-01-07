@@ -2,11 +2,24 @@
 
 # Run migrations in the real VM, but not the release command
 if [ -z "$RELEASE_COMMAND" ]; then
-  # if the sqlite db doesn't exist, create it
-  if [ ! -f storage/production.sqlite3 ] && [ -e "$PG_DATABASE_URL" ]; then
+  echo "this is not a release command"
+
+  # move the database url so Rails won't use it
+  if [ -n "$DATABASE_URL" ]; then
+    echo "moving DATABASE_URL to PG_DATABASE_URL"
+    export PG_DATABASE_URL="$DATABASE_URL"
+    unset DATABASE_URL
+  fi
+
+  if [ ! -f storage/production.sqlite3 ] && [ -n "$PG_DATABASE_URL" ]; then
+    echo "copying DATABASE_URL to sqlite file"
     sequel -C $PG_DATABASE_URL sqlite://storage/production.sqlite3
   fi
+
+  echo "running migrations"
   bin/rails db:migrate
+  echo "done running migrations"
 fi
 
+echo "running command: ${@}"
 exec "${@}"
