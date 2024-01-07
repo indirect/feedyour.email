@@ -27,3 +27,11 @@ console_command = "/rails/bin/rails console"
 [[statics]]
   guest_path = "/rails/public"
   url_prefix = "/"
+
+[[mounts]]
+  source = "data"
+  destination = "/data"
+  initial_size = "3GB"
+  auto_extend_size_threshold = 80
+  auto_extend_size_increment = "1GB"
+  auto_extend_size_limit = "20GB"
