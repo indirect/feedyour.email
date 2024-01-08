@@ -44,10 +44,12 @@ gem "brotli", "~> 0.4.0"
 gem "importmap-rails", "~> 2.0"
 gem "jb", "~> 0.8.2"
 gem "nilify_blanks", "~> 1.4"
-gem "pg", "~> 1.5"
 gem "propshaft", "~> 0.8.0"
 gem "puma", "~> 6.4"
 gem "rack-canonical-host", "~> 1.2", require: false
 gem "redis", "~> 5.0"
+gem "sqlite3", "~> 1.7"
 gem "tailwindcss-rails", "~> 2.2"
 gem "turbo-rails", "~> 1.5"
+
+gem "sequel_pg", "~> 1.17", require: false

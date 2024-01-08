@@ -1,5 +1,23 @@
 #!/bin/bash -e
+set -v
 
-# Add any container initialization steps here
+# Only if we are in an app VM, not a release command
+if [ -z "$RELEASE_COMMAND" ]; then
+  # move the database url so Rails won't use it
+  if [ -n "$DATABASE_URL" ]; then
+    export PG_DATABASE_URL="$DATABASE_URL"
+    unset DATABASE_URL
+  fi
+
+  if [ -n "$FORCE_DB_IMPORT" ]; then
+    rm -f storage/production.sqlite3
+  fi
+
+  if [ ! -f storage/production.sqlite3 ] && [ -n "$PG_DATABASE_URL" ]; then
+    bin/sequel -C $PG_DATABASE_URL sqlite://storage/production.sqlite3
+  fi
+
+  bin/rails db:migrate
+fi
 
 exec "${@}"

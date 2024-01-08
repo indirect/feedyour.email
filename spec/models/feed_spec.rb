@@ -17,11 +17,11 @@ RSpec.describe Feed, type: :model do
 
     expect {
       Feed.create!(token: "somefeed")
-    }.to raise_error(ActiveRecord::RecordNotUnique)
+    }.to raise_error(ActiveRecord::RecordInvalid)
 
     expect {
       Feed.create!(token: "SomeFeed")
-    }.to raise_error(ActiveRecord::RecordNotUnique)
+    }.to raise_error(ActiveRecord::RecordInvalid)
   end
 
   it "uses the token in a fallback name" do
@@ -73,10 +73,10 @@ end
 #
 # Table name: feeds
 #
-#  id         :bigint           not null, primary key
+#  id         :integer          not null, primary key
 #  fetched_at :datetime
 #  name       :string
-#  token      :citext           not null
+#  token      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

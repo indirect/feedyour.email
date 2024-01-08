@@ -6,8 +6,10 @@ class Post < ApplicationRecord
   serialize :compressed_text_body, coder: BrotliSerializer
   delegate :domain, to: :from
 
+  validates :token, uniqueness: {case_sensitive: false}
+
   def self.generate_unique_secure_token(length:)
-    SecureRandom.base36(length)
+    SecureRandom.base36(length).downcase
   end
 
   def from=(from)
@@ -52,18 +54,18 @@ end
 #
 # Table name: posts
 #
-#  id                   :bigint           not null, primary key
+#  id                   :integer          not null, primary key
 #  compressed_html_body :binary
 #  compressed_text_body :binary
 #  from                 :string
 #  html_body            :string
-#  payload              :jsonb
+#  payload              :json
 #  subject              :string
 #  text_body            :string
-#  token                :citext           not null
+#  token                :string           not null
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
-#  feed_id              :bigint
+#  feed_id              :integer
 #
 # Indexes
 #
