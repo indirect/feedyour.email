@@ -303,10 +303,6 @@ GEM
       ffi (~> 1.0)
     rdoc (6.6.2)
       psych (>= 4.0.0)
-    redis (5.0.8)
-      redis-client (>= 0.17.0)
-    redis-client (0.17.1)
-      connection_pool
     regexp_parser (2.8.3)
     reline (0.4.1)
       io-console (~> 0.5)
@@ -452,7 +448,6 @@ DEPENDENCIES
   puma (~> 6.4)
   rack-canonical-host (~> 1.2)
   rails (~> 7.1)
-  redis (~> 5.0)
   rspec-rails (~> 6.1)
   rubocop-gemfile (~> 0.1.0.beta3)
   rubocop-rails (~> 2.23)

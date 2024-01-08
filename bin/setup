@@ -10,8 +10,7 @@ end
 
 FileUtils.chdir APP_ROOT do
   puts "== Installing Homebrew dependencies =="
-  system! "brew install chruby ruby-install sqlite redis"
-  system! "brew services start redis"
+  system! "brew install chruby ruby-install sqlite"
 
   puts "== Installing Ruby =="
   unless `bundle platform` =~ /current platform satisfies/

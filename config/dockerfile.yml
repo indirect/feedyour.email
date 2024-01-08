@@ -6,7 +6,5 @@ options:
   label:
     fly_launch_runtime: rails
   parallel: true
-  postgresql: false
   sqlite: true
-  prepare: false
-  redis: true
+  prepare: true
