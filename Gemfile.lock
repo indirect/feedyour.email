@@ -127,7 +127,7 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.5.0)
-    dockerfile-rails (1.6.1)
+    dockerfile-rails (1.6.3)
       rails (>= 3.0.0)
     drb (2.2.0)
       ruby2_keywords
@@ -212,14 +212,14 @@ GEM
     msgpack (1.7.2)
     mutex_m (0.2.0)
     nenv (0.3.0)
-    net-imap (0.4.4)
+    net-imap (0.4.9.1)
       date
       net-protocol
     net-pop (0.1.2)
       net-protocol
     net-protocol (0.2.2)
       timeout
-    net-smtp (0.4.0)
+    net-smtp (0.4.0.1)
       net-protocol
     nilify_blanks (1.4.0)
       activerecord (>= 4.0.0)
@@ -304,7 +304,7 @@ GEM
     rdoc (6.6.2)
       psych (>= 4.0.0)
     regexp_parser (2.9.0)
-    reline (0.4.1)
+    reline (0.4.2)
       io-console (~> 0.5)
     request_store (1.5.1)
       rack (>= 1.4)
