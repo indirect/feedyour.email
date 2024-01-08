@@ -99,5 +99,4 @@ Rails.application.configure do
   config.action_mailbox.incinerate_after = 1.minute
 
   config.active_record.sqlite3_production_warning = false
-  config.active_job.queue_adapter = :inline
 end

@@ -39,5 +39,10 @@ module FeedyourEmail
       Mail::Parsers::AddressListsParser::AddressStruct,
       Symbol
     ]
+
+    config.active_job.queue_adapter = ActiveJob::QueueAdapters::AsyncAdapter.new(
+      min_threads: 1,
+      max_threads: 1,
+    )
   end
 end
