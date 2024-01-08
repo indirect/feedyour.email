@@ -9,6 +9,7 @@ console_command = "/rails/bin/rails console"
 [build]
 
 [env]
+  RAILS_LOG_TO_STDOUT="true"
 
 [deploy]
   release_command = "./bin/release"
