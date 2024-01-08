@@ -1,14 +1,14 @@
 #!/bin/bash -e
 set -v
 
+# move the database url so Rails won't use it
+if [ -n "$DATABASE_URL" ]; then
+  export PG_DATABASE_URL="$DATABASE_URL"
+  unset DATABASE_URL
+fi
+
 # Only if we are in an app VM, not a release command
 if [ -z "$RELEASE_COMMAND" ]; then
-  # move the database url so Rails won't use it
-  if [ -n "$DATABASE_URL" ]; then
-    export PG_DATABASE_URL="$DATABASE_URL"
-    unset DATABASE_URL
-  fi
-
   if [ -n "$FORCE_DB_IMPORT" ]; then
     rm -f storage/production.sqlite3
   fi

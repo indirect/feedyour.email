@@ -9,7 +9,6 @@ console_command = "/rails/bin/rails console"
 [build]
 
 [env]
-  FORCE_DB_IMPORT = "true"
 
 [deploy]
   release_command = "./bin/release"
@@ -23,9 +22,9 @@ console_command = "/rails/bin/rails console"
   processes = ["app"]
 
 [[vm]]
-  cpu_kind = "performance"
+  cpu_kind = "shared"
   cpus = 1
-  memory_mb = 2048
+  memory_mb = 512
 
 [[statics]]
   guest_path = "/rails/public"
