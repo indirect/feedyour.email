@@ -43,10 +43,10 @@ gem "bootsnap", "~> 1.17", require: false
 gem "brotli", "~> 0.4.0"
 gem "importmap-rails", "~> 2.0"
 gem "jb", "~> 0.8.2"
+gem "litestack", "~> 0.4.2"
 gem "nilify_blanks", "~> 1.4"
 gem "propshaft", "~> 0.8.0"
 gem "puma", "~> 6.4"
 gem "rack-canonical-host", "~> 1.2", require: false
-gem "sqlite3", "~> 1.7"
 gem "tailwindcss-rails", "~> 2.2"
 gem "turbo-rails", "~> 1.5"

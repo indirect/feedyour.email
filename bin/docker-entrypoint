@@ -1,20 +1,12 @@
 #!/bin/bash -e
 set -v
 
-# move the database url so Rails won't use it
-if [ -n "$DATABASE_URL" ]; then
-  export PG_DATABASE_URL="$DATABASE_URL"
-  unset DATABASE_URL
-fi
-
-# Only if we are in an app VM, not a release command
+# Only if we are in the app VM, not a release command VM
 if [ -z "$RELEASE_COMMAND" ]; then
-  if [ -n "$FORCE_DB_IMPORT" ]; then
-    rm -f storage/production.sqlite3
-  fi
-
-  if [ ! -f storage/production.sqlite3 ] && [ -n "$PG_DATABASE_URL" ]; then
-    bin/sequel -C $PG_DATABASE_URL sqlite://storage/production.sqlite3
+  # Move the sqlite3 file to the litedb env dir
+  if [ -f storage/production.sqlite3 ]; then
+    mkdir storage/production
+    mv storage/production.sqlite3 storage/production/data.sqlite3
   fi
 
   bin/rails db:migrate

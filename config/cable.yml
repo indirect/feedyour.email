@@ -1,8 +1,8 @@
 development:
-  adapter: async
+  adapter: litecable
 
 test:
   adapter: test
 
 production:
-  adapter: async
+  adapter: litecable
