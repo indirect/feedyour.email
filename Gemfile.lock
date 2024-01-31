@@ -109,7 +109,7 @@ GEM
       smart_properties
     bigdecimal (3.1.6)
     bindex (0.8.1)
-    bootsnap (1.17.1)
+    bootsnap (1.18.1)
       msgpack (~> 1.2)
     brakeman (6.1.1)
       racc
@@ -440,7 +440,7 @@ DEPENDENCIES
   annotate (~> 3.2)
   assert_json (~> 1.0.0)
   better_html (~> 2.0)
-  bootsnap (~> 1.17)
+  bootsnap (~> 1.18)
   brakeman (~> 6.1)
   brotli (~> 0.4.0)
   bundler-audit (~> 0.9.1)
