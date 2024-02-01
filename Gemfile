@@ -40,7 +40,7 @@ end
 
 gem "better_html", "~> 2.0"
 gem "bootsnap", "~> 1.18", require: false
-gem "brotli", "~> 0.4.0"
+gem "brotli", "~> 0.5.0"
 gem "importmap-rails", "~> 2.0"
 gem "jb", "~> 0.8.2"
 gem "litestack", "~> 0.4.2"
