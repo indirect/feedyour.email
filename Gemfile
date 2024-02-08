@@ -49,4 +49,4 @@ gem "propshaft", "~> 0.8.0"
 gem "puma", "~> 6.4"
 gem "rack-canonical-host", "~> 1.2", require: false
 gem "tailwindcss-rails", "~> 2.3"
-gem "turbo-rails", "~> 1.5"
+gem "turbo-rails", "~> 2.0"
