@@ -198,7 +198,7 @@ GEM
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    litestack (0.4.2)
+    litestack (0.4.3)
       erubi
       hanami-router
       oj
@@ -381,10 +381,10 @@ GEM
     ruby2_keywords (0.0.5)
     shellany (0.0.1)
     smart_properties (1.17.0)
-    sqlite3 (1.7.0-aarch64-linux)
-    sqlite3 (1.7.0-arm64-darwin)
-    sqlite3 (1.7.0-x86_64-darwin)
-    sqlite3 (1.7.0-x86_64-linux)
+    sqlite3 (1.7.2-aarch64-linux)
+    sqlite3 (1.7.2-arm64-darwin)
+    sqlite3 (1.7.2-x86_64-darwin)
+    sqlite3 (1.7.2-x86_64-linux)
     standard (1.34.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
@@ -459,7 +459,7 @@ DEPENDENCIES
   jb (~> 0.8.2)
   json-schema (~> 4.1)
   libxml-ruby (~> 5.0.2)
-  litestack (~> 0.4.2)
+  litestack (~> 0.4.3)
   lograge (~> 0.14.0)
   mail (< 2.9.0)
   nilify_blanks (~> 1.4)
