@@ -35,7 +35,7 @@ end
 
 group :production do
   gem "lograge", "~> 0.14.0"
-  gem "honeybadger", "~> 5.5"
+  gem "honeybadger", "~> 5.6"
 end
 
 gem "better_html", "~> 2.0"
