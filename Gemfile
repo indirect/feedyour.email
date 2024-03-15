@@ -38,7 +38,7 @@ group :production do
   gem "honeybadger", "~> 5.7"
 end
 
-gem "better_html", "~> 2.0"
+gem "better_html", "~> 2.1"
 gem "bootsnap", "~> 1.18", require: false
 gem "brotli", "~> 0.5.0"
 gem "importmap-rails", "~> 2.0"
