@@ -47,6 +47,6 @@ gem "litestack", "~> 0.4.3"
 gem "nilify_blanks", "~> 1.4"
 gem "propshaft", "~> 0.8.0"
 gem "puma", "~> 6.4"
-gem "rack-canonical-host", "~> 1.2", require: false
+gem "rack-canonical-host", "~> 1.3", require: false
 gem "tailwindcss-rails", "~> 2.3"
 gem "turbo-rails", "~> 2.0"
