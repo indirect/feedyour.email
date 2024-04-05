@@ -6,6 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= sharing_meta_tags %>
+    <%= auto_discovery_link_tag(:atom, feed_url(@feed, format: "atom"), title: @feed.name) if @feed %>
+    <%= auto_discovery_link_tag(:json, feed_url(@feed, format: "json"), title: @feed.name) if @feed %>
 
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
