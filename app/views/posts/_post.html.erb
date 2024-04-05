@@ -15,9 +15,9 @@
         </p>
       </div>
       <div class="text-right text-sm text-gray-400">
-        <%= time_tag post.updated_at do %>
-          <%= post.updated_at.to_date.to_formatted_s(:short) %><br>
-          <%= post.updated_at.year %>
+        <%= time_tag post.created_at do %>
+          <%= post.created_at.to_date.to_formatted_s(:short) %><br>
+          <%= post.created_at.year %>
         <% end %>
       </div>
     </div>
