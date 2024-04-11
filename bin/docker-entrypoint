@@ -12,4 +12,5 @@ if [ -z "$RELEASE_COMMAND" ]; then
   bin/rails db:migrate
 fi
 
+test -f tmp/pids/server.pid && rm tmp/pids/server.pid
 exec "${@}"
