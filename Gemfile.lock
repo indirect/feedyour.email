@@ -127,7 +127,7 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.5.1)
-    dockerfile-rails (1.6.8)
+    dockerfile-rails (1.6.9)
       rails (>= 3.0.0)
     drb (2.2.1)
     erb_lint (0.5.0)
