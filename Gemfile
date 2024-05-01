@@ -25,7 +25,7 @@ group :development do
   gem "guard-rspec", "~> 4.7", require: false
   gem "guard-rubocop", "~> 1.5", require: false
   gem "guard-shell", "~> 0.7.2", require: false
-  gem "hotwire-livereload", "~> 1.3"
+  gem "hotwire-livereload", "~> 1.4"
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
   gem "rubocop-rails", "~> 2.24", require: false
   gem "rubocop-rspec", "~> 2.29", require: false
