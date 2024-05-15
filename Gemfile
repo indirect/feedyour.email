@@ -50,3 +50,5 @@ gem "puma", "~> 6.4"
 gem "rack-canonical-host", "~> 1.3", require: false
 gem "tailwindcss-rails", "~> 2.6"
 gem "turbo-rails", "~> 2.0"
+
+gem "activerecord-enhancedsqlite3-adapter", "~> 0.8.0"
