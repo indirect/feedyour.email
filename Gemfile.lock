@@ -258,7 +258,7 @@ GEM
     parser (3.3.1.0)
       ast (~> 2.4.1)
       racc
-    propshaft (0.8.0)
+    propshaft (0.9.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
@@ -273,7 +273,7 @@ GEM
     public_suffix (5.0.4)
     puma (6.4.2)
       nio4r (~> 2.0)
-    racc (1.7.3)
+    racc (1.8.0)
     rack (3.0.11)
     rack-canonical-host (1.3.0)
       addressable (> 0, < 3)
@@ -470,7 +470,7 @@ DEPENDENCIES
   lograge (~> 0.14.0)
   mail (< 2.9.0)
   nilify_blanks (~> 1.4)
-  propshaft (~> 0.8.0)
+  propshaft (~> 0.9.0)
   pry-rails (~> 0.3.9)
   puma (~> 6.4)
   rack-canonical-host (~> 1.3)
