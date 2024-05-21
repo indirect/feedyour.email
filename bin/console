@@ -29,5 +29,5 @@ if @env == "development"
   puts "+ bin/rails console"
   exec "bin/rails", "console"
 else
-  env_run "ssh", "console", "-C", "/cnb/process/console"
+  env_run %w[ssh console --pty -C] << "bin/rails console".inspect
 end

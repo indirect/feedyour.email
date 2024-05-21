@@ -29,5 +29,5 @@ if @env == "development"
   puts "you're already connected to development!"
   exit 1
 else
-  env_run %w[ssh console -C] << "/cnb/lifecycle/launcher /bin/bash".inspect
+  env_run %w[ssh console --pty -C] << "/bin/bash".inspect
 end
