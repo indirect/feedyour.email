@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/arthurnn/code-scanning-rubocop.git
-  revision: 8b653b5895071217e91f332105c311b373bcfbbc
+  revision: 3077502361b66fd7e73b056a917649e40f87eb03
   specs:
     code-scanning-rubocop (0.6.1)
       rubocop (~> 1.0)
