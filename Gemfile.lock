@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/arthurnn/code-scanning-rubocop.git
-  revision: 8b653b5895071217e91f332105c311b373bcfbbc
+  revision: 3077502361b66fd7e73b056a917649e40f87eb03
   specs:
     code-scanning-rubocop (0.6.1)
       rubocop (~> 1.0)
@@ -319,7 +319,7 @@ GEM
       io-console (~> 0.5)
     request_store (1.5.1)
       rack (>= 1.4)
-    rexml (3.2.9)
+    rexml (3.3.0)
       strscan
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
