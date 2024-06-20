@@ -8,7 +8,7 @@ group :development, :test do
   gem "debug", "~> 1.9", platforms: %i[mri mingw x64_mingw]
   gem "json-schema", "~> 4.3", require: false
   gem "libxml-ruby", "~> 5.0.3"
-  gem "pry-rails", "~> 0.3.9"
+  gem "pry-rails", "~> 0.3.11"
   gem "rspec-rails", "~> 6.1"
 end
 
