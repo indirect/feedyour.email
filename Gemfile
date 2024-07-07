@@ -38,6 +38,7 @@ group :production do
   gem "honeybadger", "~> 5.13"
 end
 
+gem "activerecord-enhancedsqlite3-adapter", "~> 0.8.0"
 gem "better_html", "~> 2.1"
 gem "bootsnap", "~> 1.18", require: false
 gem "brotli", "~> 0.5.0"
@@ -50,5 +51,3 @@ gem "puma", "~> 6.4"
 gem "rack-canonical-host", "~> 1.3", require: false
 gem "tailwindcss-rails", "~> 2.6"
 gem "turbo-rails", "~> 2.0"
-
-gem "activerecord-enhancedsqlite3-adapter", "~> 0.8.0"
