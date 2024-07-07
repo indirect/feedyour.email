@@ -11,6 +11,9 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   idle_timeout: 0
   database: <%= Litesupport.root.join("data.sqlite3") %>
+  pragmas:
+    journal_mode: "WAL"
+    synchronous: "NORMAL"
 
 development:
   <<: *default
