@@ -35,7 +35,7 @@ end
 
 group :production do
   gem "lograge", "~> 0.14.0"
-  gem "honeybadger", "~> 5.13"
+  gem "honeybadger", "~> 5.14"
 end
 
 gem "activerecord-enhancedsqlite3-adapter", "~> 0.8.0"
