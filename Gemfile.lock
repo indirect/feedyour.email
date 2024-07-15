@@ -94,8 +94,8 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
-    addressable (2.8.6)
-      public_suffix (>= 2.0.2, < 6.0)
+    addressable (2.8.7)
+      public_suffix (>= 2.0.2, < 7.0)
     annotate (3.2.0)
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
@@ -185,7 +185,7 @@ GEM
       reline (>= 0.4.2)
     jb (0.8.2)
     json (2.7.2)
-    json-schema (4.3.0)
+    json-schema (4.3.1)
       addressable (>= 2.8)
     language_server-protocol (3.17.0.3)
     libxml-ruby (5.0.3)
@@ -263,7 +263,7 @@ GEM
       pry (>= 0.13.0)
     psych (5.1.2)
       stringio
-    public_suffix (5.0.4)
+    public_suffix (6.0.0)
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.8.0)
