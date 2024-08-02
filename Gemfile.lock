@@ -133,12 +133,12 @@ GEM
     dockerfile-rails (1.6.17)
       rails (>= 3.0.0)
     drb (2.2.1)
-    erb_lint (0.5.0)
+    erb_lint (0.6.0)
       activesupport
       better_html (>= 2.0.1)
       parser (>= 2.7.1.4)
       rainbow
-      rubocop
+      rubocop (>= 1)
       smart_properties
     erubi (1.13.0)
     ffi (1.16.3)
@@ -319,7 +319,7 @@ GEM
       io-console (~> 0.5)
     request_store (1.5.1)
       rack (>= 1.4)
-    rexml (3.3.2)
+    rexml (3.3.4)
       strscan
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
@@ -445,7 +445,7 @@ DEPENDENCIES
   code-scanning-rubocop (~> 0.6.1)!
   debug (~> 1.9)
   dockerfile-rails (~> 1.6)
-  erb_lint (~> 0.5.0)
+  erb_lint (~> 0.6.0)
   guard-bundler-audit (~> 0.1.5)
   guard-erb_lint!
   guard-rspec (~> 4.7)
