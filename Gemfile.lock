@@ -247,7 +247,7 @@ GEM
     parser (3.3.4.0)
       ast (~> 2.4.1)
       racc
-    propshaft (0.9.0)
+    propshaft (0.9.1)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
@@ -459,7 +459,7 @@ DEPENDENCIES
   lograge (~> 0.14.0)
   mail (< 2.9.0)
   nilify_blanks (~> 1.4)
-  propshaft (~> 0.9.0)
+  propshaft (~> 0.9.1)
   pry-rails (~> 0.3.11)
   puma (~> 6.4)
   rack-canonical-host (~> 1.3)
