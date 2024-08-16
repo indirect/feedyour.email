@@ -164,7 +164,7 @@ GEM
     guard-shell (0.7.2)
       guard (>= 2.0.0)
       guard-compat (~> 1.0)
-    honeybadger (5.15.5)
+    honeybadger (5.15.6)
     hotwire-livereload (1.4.0)
       actioncable (>= 6.0.0)
       listen (>= 3.0.0)
