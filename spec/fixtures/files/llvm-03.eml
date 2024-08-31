@@ -1,0 +1,106 @@
+Received: by p-pm-inboundg02a-aws-useast1a.inbound.postmarkapp.com (Postfix, from userid 996)
+	id 8CF4D453CA3; Sat, 31 Aug 2024 02:47:12 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+	p-pm-inboundg02a-aws-useast1a
+X-Spam-Status: No
+X-Spam-Score: -1.1
+X-Spam-Tests: DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,MAILING_LIST_MULTI,
+	RCVD_IN_VALIDITY_RPBL_BLOCKED,RCVD_IN_VALIDITY_SAFE_BLOCKED,
+	RCVD_IN_ZEN_BLOCKED_OPENDNS,SPF_HELO_PASS,SPF_PASS,T_SCC_BODY_TEXT_LINE,
+	URIBL_DBL_BLOCKED_OPENDNS,URIBL_ZEN_BLOCKED_OPENDNS
+Received-SPF: pass (lists.llvm.org: 54.67.122.174 is authorized to use 'llvm-commits-bounces@lists.llvm.org' in 'mfrom' identity (mechanism 'a' matched)) receiver=p-pm-inboundg02a-aws-useast1a; identity=mailfrom; envelope-from="llvm-commits-bounces@lists.llvm.org"; helo=lists.llvm.org; client-ip=54.67.122.174
+Received: from lists.llvm.org (lists.llvm.org [54.67.122.174])
+	by p-pm-inboundg02a-aws-useast1a.inbound.postmarkapp.com (Postfix) with ESMTP id 7FED3453CA2
+	for <v01sntumrlbl20r0yrl6vcsj@feedyour.email>; Sat, 31 Aug 2024 02:47:11 +0000 (UTC)
+Received: from ip-172-31-13-177.us-west-1.compute.internal (localhost [127.0.0.1])
+	by lists.llvm.org (Postfix) with ESMTP id B6AE511A6FC;
+	Fri, 30 Aug 2024 19:47:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lists.llvm.org;
+	s=lists; t=1725072430;
+	bh=9LcnxNTLD7nNr890XTBoudhgaAiDT2DyF546TDUhXL8=;
+	h=Date:Subject:To:In-Reply-To:From:Reply-To:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 From;
+	b=IiI71InqKCkkH0BKggRCfjWwGvQdG/Ul8hAGuJ+DXdaYGEK67qgFS/UR9inymSFLo
+	 dYWG5WMul2FOYwykQjeBMtq1ugN3NSxJ4hiGqEgm5fdKJCVdDcatjwFlzd7SaS1e2l
+	 Lid5s1Rk3UHeOO2lcDVL5xttTBYb61SVuZE9uPF0=
+X-Original-To: llvm-commits@lists.llvm.org
+Delivered-To: llvm-commits@lists.llvm.org
+Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com
+ [209.85.214.180])
+ by lists.llvm.org (Postfix) with ESMTP id 3B28D119FD0
+ for <llvm-commits@lists.llvm.org>; Fri, 30 Aug 2024 19:47:09 -0700 (PDT)
+Authentication-Results: lists.llvm.org; dkim=pass
+ reason="1024-bit key; unprotected key"
+ header.d=llvm.org header.i=@llvm.org header.b=bVdtLniW;
+ dkim-adsp=pass; dkim-atps=neutral
+Received: by mail-pl1-f180.google.com with SMTP id
+ d9443c01a7336-1fc47abc040so20547735ad.0
+ for <llvm-commits@lists.llvm.org>; Fri, 30 Aug 2024 19:47:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=llvm.org; s=google; t=1725072428; x=1725677228; darn=lists.llvm.org;
+ h=in-reply-to:reply-to:to:subject:mime-version
+ :content-transfer-encoding:from:date:message-id:from:to:cc:subject
+ :date:message-id:reply-to;
+ bh=bptUz8qM4q31kf7E73/5kbV5TOV7uqrWV6Sq50mCSt4=;
+ b=bVdtLniWPmCaACqNpLaBeDdDKCdEvb5YBWJHnt+Ou8Sh5oC3shgHtyN5tgpHpAFYIg
+ Ey2YhExzt40dUruByhQ2JxxbR4OCs/UXzuCAU/M2GyDcGh2Qx/Z2BMybiLRKMewy3iBm
+ 1lOerqxJfdbwAQrPuO341YwWAgM0ghKYWNoLE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1725072428; x=1725677228;
+ h=in-reply-to:reply-to:to:subject:mime-version
+ :content-transfer-encoding:from:date:message-id:x-gm-message-state
+ :from:to:cc:subject:date:message-id:reply-to;
+ bh=bptUz8qM4q31kf7E73/5kbV5TOV7uqrWV6Sq50mCSt4=;
+ b=hp5/O4mN2SjIhMbcqMhQcnoo2oj/sfU3jWii8rUSXAqrXhK1/VKJHz/9ZWw7op2mCL
+ u118FbvZmqxUyWsMqwakkK9EvCI1MUF1EuFYXpHn6+Ar8vpCgWxxVamITRGqFbDd98LL
+ oQ0mwuUzVwAkk2ewQtU9KWOtAQH8cLPtnAMHecPkvXJKHOv4lwb+crbDqmCa5qhDaskX
+ hIaBumwhOIsJTmF+BQXCTIMJ7gaViEbKqxshTcnv9J3WYrVICPwfaSgWI/lNt8J4ylGK
+ ll9YuKxvawtnfIqT/9HXH7MhGC8/LP724MZR8ZvMOJ4bvqpk3hUul41He1RmwnEMldTX
+ 8s7Q==
+X-Gm-Message-State: AOJu0Yyzj8VznmgzK3MkHS78JvfAi7ejBrMSIfxW7qWwVydaggaMOqJO
+ tLkhSw5aZGYnDF6Olt9NWu7uCivpielS7yeHy1R7vi1+w5jaCEmIi0CjSmLT+O/yQL2Ik1+D+BP
+ YQcw=
+X-Google-Smtp-Source: AGHT+IGzjZ3onwlcUV2Zb8M5WGBVUwaWimmRrh4EcreGdLMeSlr/nZLwrpwXsC5Hhz6+Q/xvLi3YZQ==
+X-Received: by 2002:a17:902:e548:b0:201:f30b:f616 with SMTP id
+ d9443c01a7336-2050c4c96c0mr76605525ad.61.1725072428545; 
+ Fri, 30 Aug 2024 19:47:08 -0700 (PDT)
+Received: from 169.254.57.213
+ (ec2-184-169-186-14.us-west-1.compute.amazonaws.com. [184.169.186.14])
+ by smtp.gmail.com with ESMTPSA id
+ d9443c01a7336-2051555140csm32946925ad.244.2024.08.30.19.47.08
+ for <llvm-commits@lists.llvm.org>
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Fri, 30 Aug 2024 19:47:08 -0700 (PDT)
+Message-ID: <66d2842c.170a0220.b3ab1.eada@mx.google.com>
+Date: Fri, 30 Aug 2024 19:47:08 -0700 (PDT)
+X-Google-Original-From: Tom Stellard
+MIME-Version: 1.0
+Subject: [llvm] workflows/release-binaries: Remove .git/config file from
+ artifacts (PR #106310)
+To: llvm-commits@lists.llvm.org
+In-Reply-To: <llvm.org/llvm/llvm-project/pull/106310@github.com>
+X-BeenThere: llvm-commits@lists.llvm.org
+X-Mailman-Version: 2.1.16
+Precedence: list
+From: Tom Stellard via llvm-commits <llvm-commits@lists.llvm.org>
+Reply-To: Tom Stellard <tstellar@redhat.com>,
+ Tom Stellard <llvmlistbot@llvm.org>
+List-Id: Commit Messages and Patches for LLVM <llvm-commits.lists.llvm.org>
+List-Unsubscribe: <https://lists.llvm.org/cgi-bin/mailman/options/llvm-commits>, 
+ <mailto:llvm-commits-request@lists.llvm.org?subject=unsubscribe>
+List-Archive: <http://lists.llvm.org/pipermail/llvm-commits/>
+List-Post: <mailto:llvm-commits@lists.llvm.org>
+List-Help: <mailto:llvm-commits-request@lists.llvm.org?subject=help>
+List-Subscribe: <https://lists.llvm.org/cgi-bin/mailman/listinfo/llvm-commits>, 
+ <mailto:llvm-commits-request@lists.llvm.org?subject=subscribe>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+Errors-To: llvm-commits-bounces@lists.llvm.org
+Sender: "llvm-commits" <llvm-commits-bounces@lists.llvm.org>
+
+CnRzdGVsbGFyIHdyb3RlOgoKL2NoZXJyeS1waWNrIGVmNTA5NzAyMDQzODQ2NDNhY2NhNDJiYTRj
+N2NhOGYxNDg2NWEwYzIKCmh0dHBzOi8vZ2l0aHViLmNvbS9sbHZtL2xsdm0tcHJvamVjdC9wdWxs
+LzEwNjMxMApfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+bHZtLWNvbW1pdHMgbWFpbGluZyBsaXN0Cmxsdm0tY29tbWl0c0BsaXN0cy5sbHZtLm9yZwpodHRw
+czovL2xpc3RzLmxsdm0ub3JnL2NnaS1iaW4vbWFpbG1hbi9saXN0aW5mby9sbHZtLWNvbW1pdHMK

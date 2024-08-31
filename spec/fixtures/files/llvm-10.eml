@@ -1,0 +1,118 @@
+Received: by p-pm-inboundg03a-aws-useast1a.inbound.postmarkapp.com (Postfix, from userid 996)
+	id 58DE3453CA2; Sat, 31 Aug 2024 03:18:50 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+	p-pm-inboundg03a-aws-useast1a
+X-Spam-Status: No
+X-Spam-Score: -1.1
+X-Spam-Tests: DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,MAILING_LIST_MULTI,
+	RCVD_IN_VALIDITY_RPBL_BLOCKED,RCVD_IN_VALIDITY_SAFE_BLOCKED,
+	RCVD_IN_ZEN_BLOCKED_OPENDNS,SPF_HELO_PASS,SPF_PASS,T_SCC_BODY_TEXT_LINE,
+	URIBL_DBL_BLOCKED_OPENDNS,URIBL_ZEN_BLOCKED_OPENDNS
+Received-SPF: pass (lists.llvm.org: 54.67.122.174 is authorized to use 'llvm-commits-bounces@lists.llvm.org' in 'mfrom' identity (mechanism 'a' matched)) receiver=p-pm-inboundg03a-aws-useast1a; identity=mailfrom; envelope-from="llvm-commits-bounces@lists.llvm.org"; helo=lists.llvm.org; client-ip=54.67.122.174
+Received: from lists.llvm.org (lists.llvm.org [54.67.122.174])
+	by p-pm-inboundg03a-aws-useast1a.inbound.postmarkapp.com (Postfix) with ESMTP id 47C75453CA3
+	for <v01sntumrlbl20r0yrl6vcsj@feedyour.email>; Sat, 31 Aug 2024 03:18:49 +0000 (UTC)
+Received: from ip-172-31-13-177.us-west-1.compute.internal (localhost [127.0.0.1])
+	by lists.llvm.org (Postfix) with ESMTP id D4FE211A72A;
+	Fri, 30 Aug 2024 20:18:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lists.llvm.org;
+	s=lists; t=1725074328;
+	bh=/PsrVZ0lBna+OAhWMfTRyNOnJdVZsVKQeYGYTlR6ArQ=;
+	h=Date:Subject:To:In-Reply-To:From:Reply-To:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 From;
+	b=CMy+ssvGtKyy8eLis3yKe/g8L/BIhu6MgAHHxen4MBzJ27v9kGsjFhx8C2bpsES4j
+	 GK8j2QG1l1784I3rGjGPdKeALy6mjdBGZXGUo2+797+4ELaRuVsFMl3z7beJLBu82V
+	 QROTAgLxK2WAhtEhVyYOLJM6gR6P5maAHYldEGuI=
+X-Original-To: llvm-commits@lists.llvm.org
+Delivered-To: llvm-commits@lists.llvm.org
+Received: from mail-oo1-f44.google.com (mail-oo1-f44.google.com
+ [209.85.161.44])
+ by lists.llvm.org (Postfix) with ESMTP id 0942611A57D
+ for <llvm-commits@lists.llvm.org>; Fri, 30 Aug 2024 20:18:45 -0700 (PDT)
+Authentication-Results: lists.llvm.org; dkim=pass
+ reason="1024-bit key; unprotected key"
+ header.d=llvm.org header.i=@llvm.org header.b=M8/7NtSh;
+ dkim-adsp=pass; dkim-atps=neutral
+Received: by mail-oo1-f44.google.com with SMTP id
+ 006d021491bc7-5dfb53d4b13so612112eaf.2
+ for <llvm-commits@lists.llvm.org>; Fri, 30 Aug 2024 20:18:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=llvm.org; s=google; t=1725074324; x=1725679124; darn=lists.llvm.org;
+ h=in-reply-to:reply-to:to:subject:mime-version
+ :content-transfer-encoding:from:date:message-id:from:to:cc:subject
+ :date:message-id:reply-to;
+ bh=DjgPkvVstlSXd1SdIHlf8wgrIrnvHCFRzQ5NwQnNntk=;
+ b=M8/7NtShJFEa8aYhZsXYi/PUFCJNKvFfB55ImalOZKjVYm/xmlvxCjB+9u7lHZbIL/
+ PrN3tUByk3GjA3jFKGVW0oXa62UOjOCsvCRIsG/rGeYnUumIt1usMTVpvLuNIu3y0cdO
+ mQWtqvoqZ9nshmc1lrWlPKTPVBjgyzANJ0/9w=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1725074324; x=1725679124;
+ h=in-reply-to:reply-to:to:subject:mime-version
+ :content-transfer-encoding:from:date:message-id:x-gm-message-state
+ :from:to:cc:subject:date:message-id:reply-to;
+ bh=DjgPkvVstlSXd1SdIHlf8wgrIrnvHCFRzQ5NwQnNntk=;
+ b=lsYKMpXdqw9VLX6juK8TYMNIwyQ1CY3OAVaJr+re2UHMCg8H02tMTaDfLHz8m5W21q
+ LEYijIUwpWsmjHHqb+aNjjX9b2ErbJ8UjJfIhmRui3MBhncreq+NN7Km8jUvPU/N+fKy
+ ly+AEE8yG5Csk0fRycda5gvBV73+Jtcot6bVBPdrVu8iwN2KvQg8i5/ZJoLe4dCKJO33
+ UXXtZWECMyMOs1UtNeir5OAN1gfXDiokaP1213StoHLIWcevDEuYZ6cqqA1vsk4b53ND
+ Eyds7pmxRs0LD9D7O0kbHtoSsx0QEAOzDdy8BxE9KDpvyK3TB4VnraFX4k8ZmXzFc3y7
+ mgRg==
+X-Gm-Message-State: AOJu0YyaM+R/ciE8Bs3IS8PKs9jBsMNyIR0sRJncnZ3hxbfcczNkxHyR
+ yANTa//oDLMPlzf5X+qOvManT/Sjp1vrenkpuhaZ4rbH/Z+ctP2zbiorW+r5gHMQKn+OCYmV+Ay
+ WvN0=
+X-Google-Smtp-Source: AGHT+IGCi45DQECgzFOqL+xuoR4rEFWASA58VCz5H72MgnohRFzgcAdc/jPcj9a7esxSjyFDhHpYng==
+X-Received: by 2002:a05:6358:5921:b0:1a6:7e01:e4f4 with SMTP id
+ e5c5f4694b2df-1b7f1b4345bmr102444855d.28.1725074324304; 
+ Fri, 30 Aug 2024 20:18:44 -0700 (PDT)
+Received: from 169.254.73.45
+ (ec2-54-219-128-152.us-west-1.compute.amazonaws.com. [54.219.128.152])
+ by smtp.gmail.com with ESMTPSA id
+ 98e67ed59e1d1-2d8445e8f72sm7138341a91.20.2024.08.30.20.18.43
+ for <llvm-commits@lists.llvm.org>
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Fri, 30 Aug 2024 20:18:44 -0700 (PDT)
+Message-ID: <66d28b94.170a0220.5d2ff.cd10@mx.google.com>
+Date: Fri, 30 Aug 2024 20:18:44 -0700 (PDT)
+X-Google-Original-From: None
+MIME-Version: 1.0
+Subject: [llvm] [NFC] Add llvm_unreachable to getRCPrefix (PR #106822)
+To: llvm-commits@lists.llvm.org
+In-Reply-To: <llvm.org/llvm/llvm-project/pull/106822@github.com>
+X-BeenThere: llvm-commits@lists.llvm.org
+X-Mailman-Version: 2.1.16
+Precedence: list
+From: via llvm-commits <llvm-commits@lists.llvm.org>
+Reply-To: Damyan Pepper <damyanp@microsoft.com>, llvmlistbot@llvm.org
+List-Id: Commit Messages and Patches for LLVM <llvm-commits.lists.llvm.org>
+List-Unsubscribe: <https://lists.llvm.org/cgi-bin/mailman/options/llvm-commits>, 
+ <mailto:llvm-commits-request@lists.llvm.org?subject=unsubscribe>
+List-Archive: <http://lists.llvm.org/pipermail/llvm-commits/>
+List-Post: <mailto:llvm-commits@lists.llvm.org>
+List-Help: <mailto:llvm-commits-request@lists.llvm.org?subject=help>
+List-Subscribe: <https://lists.llvm.org/cgi-bin/mailman/listinfo/llvm-commits>, 
+ <mailto:llvm-commits-request@lists.llvm.org?subject=subscribe>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+Errors-To: llvm-commits-bounces@lists.llvm.org
+Sender: "llvm-commits" <llvm-commits-bounces@lists.llvm.org>
+
+Cmxsdm1ib3Qgd3JvdGU6CgoKPCEtLUxMVk0gUFIgU1VNTUFSWSBDT01NRU5ULS0+CgpAbGx2bS9w
+ci1zdWJzY3JpYmVycy1iYWNrZW5kLWRpcmVjdHgKCkF1dGhvcjogRGFteWFuIFBlcHBlciAoZGFt
+eWFucCkKCjxkZXRhaWxzPgo8c3VtbWFyeT5DaGFuZ2VzPC9zdW1tYXJ5PgoKCgotLS0KRnVsbCBk
+aWZmOiBodHRwczovL2dpdGh1Yi5jb20vbGx2bS9sbHZtLXByb2plY3QvcHVsbC8xMDY4MjIuZGlm
+ZgoKCjEgRmlsZXMgQWZmZWN0ZWQ6CgotIChtb2RpZmllZCkgbGx2bS9saWIvVGFyZ2V0L0RpcmVj
+dFgvRFhJTFByZXR0eVByaW50ZXIuY3BwICgrMSkgCgoKYGBgYGBgYGBgYGRpZmYKZGlmZiAtLWdp
+dCBhL2xsdm0vbGliL1RhcmdldC9EaXJlY3RYL0RYSUxQcmV0dHlQcmludGVyLmNwcCBiL2xsdm0v
+bGliL1RhcmdldC9EaXJlY3RYL0RYSUxQcmV0dHlQcmludGVyLmNwcAppbmRleCBmMjgyZWZmNmMw
+MDJiMi4uMDQ3OGRjMmRmOTg4ZGUgMTAwNjQ0Ci0tLSBhL2xsdm0vbGliL1RhcmdldC9EaXJlY3RY
+L0RYSUxQcmV0dHlQcmludGVyLmNwcAorKysgYi9sbHZtL2xpYi9UYXJnZXQvRGlyZWN0WC9EWElM
+UHJldHR5UHJpbnRlci5jcHAKQEAgLTQ1LDYgKzQ1LDcgQEAgc3RhdGljIFN0cmluZ1JlZiBnZXRS
+Q1ByZWZpeChkeGlsOjpSZXNvdXJjZUNsYXNzIFJDKSB7CiAgIGNhc2UgZHhpbDo6UmVzb3VyY2VD
+bGFzczo6U2FtcGxlcjoKICAgICByZXR1cm4gInMiOwogICB9CisgIGxsdm1fdW5yZWFjaGFibGUo
+ImNvdmVyZWQgc3dpdGNoIik7CiB9CiAKIHN0YXRpYyBTdHJpbmdSZWYgZ2V0Rm9ybWF0TmFtZShj
+b25zdCBkeGlsOjpSZXNvdXJjZUluZm8gJlJJKSB7CgpgYGBgYGBgYGBgCgo8L2RldGFpbHM+CgoK
+aHR0cHM6Ly9naXRodWIuY29tL2xsdm0vbGx2bS1wcm9qZWN0L3B1bGwvMTA2ODIyCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxsdm0tY29tbWl0cyBtYWls
+aW5nIGxpc3QKbGx2bS1jb21taXRzQGxpc3RzLmxsdm0ub3JnCmh0dHBzOi8vbGlzdHMubGx2bS5v
+cmcvY2dpLWJpbi9tYWlsbWFuL2xpc3RpbmZvL2xsdm0tY29tbWl0cwo=
