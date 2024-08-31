@@ -60,8 +60,8 @@ RSpec.describe "/rails/action_mailbox/postmark/inbound_emails", type: :request d
           expect {
             post "/rails/action_mailbox/postmark/inbound_emails",
               params: payload, headers: auth, as: :json
-          }.to change { ActionMailbox::InboundEmail.count }.by(1)
-          expect(response).to be_successful
+          }.to change { ActionMailbox::InboundEmail.count }.by(1), "email #{i} not created"
+          expect(response).to be_successful, "webhook #{i} failed"
           ActionMailbox::InboundEmail.last.route
         end
 
