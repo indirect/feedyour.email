@@ -50,12 +50,13 @@ end
 #
 # Table name: feeds
 #
-#  id         :integer          not null, primary key
-#  fetched_at :datetime
-#  name       :string
-#  token      :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  fetched_at   :datetime
+#  name         :string
+#  throttled_at :datetime
+#  token        :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 # Indexes
 #
