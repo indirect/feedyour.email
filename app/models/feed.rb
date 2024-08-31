@@ -41,7 +41,8 @@ class Feed < ApplicationRecord
 
     {
       "mail.bloombergview.com" => "bloomberg.com",
-      "nl.npr.org" => "npr.org"
+      "nl.npr.org" => "npr.org",
+      "feedyour.email" => nil
     }.fetch(last_post.domain, last_post.domain)
   end
 
