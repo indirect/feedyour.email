@@ -58,6 +58,32 @@ class Feed < ApplicationRecord
   def unthrottle!
     update!(throttled_at: nil) if throttled_at?
   end
+
+  private
+
+  def create_welcome_post
+    create_post("welcome", "Welcome to Feed Your Email!")
+  end
+
+  def create_warning_post
+    create_post("warning", "Feed usage warning")
+  end
+
+  def create_throttled_post
+    create_post("throttled", "Feed usage limit reached")
+  end
+
+  def create_post(name, subject)
+    posts.create!(
+      from: "Feed Your Email <system@feedyour.email>",
+      subject: subject,
+      html_body: ApplicationController.render(
+        ["posts/template", name].join("/"),
+        layout: "post_template",
+        assigns: {feed: self, subject: subject}
+      )
+    )
+  end
 end
 
 # == Schema Information
