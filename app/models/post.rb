@@ -8,6 +8,8 @@ class Post < ApplicationRecord
 
   validates :token, uniqueness: {case_sensitive: false}
 
+  after_commit -> { feed.warn_if_needed unless system? }
+
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length).downcase
   end
@@ -36,6 +38,10 @@ class Post < ApplicationRecord
     @html_body = BodyFormatter.new(
       self[:compressed_html_body] || self[:html_body]
     ).format(from_name)
+  end
+
+  def system?
+    from_email == "system@feedyour.email"
   end
 
   private

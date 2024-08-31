@@ -64,6 +64,10 @@ class Feed < ApplicationRecord
     update!(throttled_at: nil) if throttled_at?
   end
 
+  def warn_if_needed
+    create_warning_post if week_posts.count == 10
+  end
+
   private
 
   def create_welcome_post

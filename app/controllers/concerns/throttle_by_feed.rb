@@ -22,9 +22,6 @@ module ThrottleByFeed
       return head(:forbidden)
     end
 
-    # create warning post after exactly 10 emails in one week
-    feed.create_warning_post if week_count == 10
-
     # unthrottle if previously throttled
     feed.unthrottle!
   end
