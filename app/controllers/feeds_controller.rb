@@ -5,7 +5,7 @@ class FeedsController < ApplicationController
 
   def show
     @feed = Feed.find_by!(token: params[:id])
-    @feed.touch(:fetched_at) unless request.format.html?
+    @feed.touch(:fetched_at) unless @feed.expired? || request.format.html?
   end
 
   def create
