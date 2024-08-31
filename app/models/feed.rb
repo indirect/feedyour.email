@@ -3,6 +3,7 @@ class Feed < ApplicationRecord
     dependent: :destroy, inverse_of: :feed
   has_many :week_posts, -> {
     where(created_at: (1.week.ago..Time.zone.now))
+      .where.not(from: Mail::Address.new("Feed Your Email <system@feedyour.email>"))
       .order(updated_at: :desc)
   }, class_name: "Post", dependent: nil, inverse_of: :feed
   has_one :last_post, -> { order(updated_at: :desc) },
