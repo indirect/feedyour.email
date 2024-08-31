@@ -41,3 +41,8 @@ module FeedyourEmail
     ]
   end
 end
+
+if Rails.env.local?
+  Rails.application.credentials.action_mailbox ||= ActiveSupport::OrderedOptions.new
+  Rails.application.credentials.action_mailbox.ingress_password = "abc123"
+end
