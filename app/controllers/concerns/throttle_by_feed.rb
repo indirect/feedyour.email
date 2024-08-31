@@ -8,7 +8,7 @@ module ThrottleByFeed
   def throttle_by_feed
     feed_id = params[:OriginalRecipient]&.split("@")&.first
     feed = feed_id && Feed.find_by(token: feed_id)
-    return head(:forbidden) unless feed
+    return head(:forbidden) if feed.nil? || feed.expired?
 
     # allow first 24 hours of setup to include however many emails
     return if 1.day.ago < feed.created_at
