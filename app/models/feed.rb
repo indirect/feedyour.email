@@ -1,6 +1,10 @@
 class Feed < ApplicationRecord
   has_many :posts, -> { order(updated_at: :desc) },
     dependent: :destroy, inverse_of: :feed
+  has_many :week_posts, -> {
+    where(created_at: (1.week.ago..Time.zone.now))
+      .order(updated_at: :desc)
+  }, class_name: "Post", dependent: nil, inverse_of: :feed
   has_one :last_post, -> { order(updated_at: :desc) },
     class_name: "Post", dependent: nil, inverse_of: :feed
   has_secure_token :token
@@ -43,6 +47,16 @@ class Feed < ApplicationRecord
     return unless domain
 
     "https://icon.horse/icon/#{domain}".html_safe # rubocop:disable Rails/OutputSafety
+  end
+
+  def throttle!
+    return if throttled_at?
+
+    update!(throttled_at: Time.now.utc)
+  end
+
+  def unthrottle!
+    update!(throttled_at: nil) if throttled_at?
   end
 end
 

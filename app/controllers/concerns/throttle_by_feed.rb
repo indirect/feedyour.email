@@ -6,6 +6,7 @@ module ThrottleByFeed
   end
 
   def throttle_by_feed
+    # require an active feed to accept this email
     feed_id = params[:OriginalRecipient]&.split("@")&.first
     feed = feed_id && Feed.find_by(token: feed_id)
     return head(:forbidden) if feed.nil? || feed.expired?
@@ -14,13 +15,11 @@ module ThrottleByFeed
     return if 1.day.ago < feed.created_at
 
     # reject emails after 14 in one week
-    week_post_count = feed.posts.where("created_at > ?", 1.week.ago).count
-
-    if week_post_count >= 14
-      feed.update!(throttled_at: Time.now.utc)
+    if feed.week_posts.count >= 14
+      feed.throttle!
       return head(:forbidden)
     end
 
-    feed.update!(throttled_at: nil) if feed.throttled_at?
+    feed.unthrottle!
   end
 end
