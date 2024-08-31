@@ -55,6 +55,7 @@ class Feed < ApplicationRecord
     return if throttled_at?
 
     update!(throttled_at: Time.now.utc)
+    create_throttled_post
   end
 
   def unthrottle!
