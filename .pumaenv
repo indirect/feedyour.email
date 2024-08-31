@@ -1,1 +1,6 @@
 export HOST="feedyouremail.test"
+export BREW_PREFIX=$(test -d /opt/homebrew && echo "/opt/homebrew" || echo "/usr/local")
+if [[ -e "$BREW_PREFIX/share/chruby/chruby.sh" ]]; then
+  source "$BREW_PREFIX/share/chruby/chruby.sh"
+  chruby "$(cat .ruby-version)"
+fi
