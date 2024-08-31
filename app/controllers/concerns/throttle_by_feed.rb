@@ -14,12 +14,18 @@ module ThrottleByFeed
     # allow first 24 hours of setup to include however many emails
     return if 1.day.ago < feed.created_at
 
+    week_count = feed.week_posts.count
+
     # reject emails after 14 in one week
-    if feed.week_posts.count >= 14
+    if week_count >= 14
       feed.throttle!
       return head(:forbidden)
     end
 
+    # create warning post after exactly 10 emails in one week
+    feed.create_warning_post if week_count == 10
+
+    # unthrottle if previously throttled
     feed.unthrottle!
   end
 end
