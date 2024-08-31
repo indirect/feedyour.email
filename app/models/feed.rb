@@ -12,6 +12,8 @@ class Feed < ApplicationRecord
 
   validates :token, uniqueness: {case_sensitive: false}
 
+  after_create :create_welcome_post
+
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length).downcase
   end
