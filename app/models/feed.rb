@@ -13,7 +13,8 @@ class Feed < ApplicationRecord
 
   validates :token, uniqueness: {case_sensitive: false}
 
-  after_commit -> { create_post("welcome", "Welcome to Feed Your Email!") }, on: :create
+  after_commit :post_welcome, on: :create
+  after_commit :post_expired, on: :update
 
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length).downcase
@@ -29,12 +30,6 @@ class Feed < ApplicationRecord
 
   def fetched_at
     read_attribute(:fetched_at) || created_at
-  end
-
-  def expire_if_stale!
-    return if expired_at?
-
-    update!(expired_at: Time.current) if Time.current.after? fetched_at.advance(months: 3)
   end
 
   def domain
@@ -69,7 +64,26 @@ class Feed < ApplicationRecord
     create_post("warning", "Feed usage warning") if week_posts.count == 10
   end
 
+  def expire_if_stale!
+    update!(expired_at: Time.current) if expired_at.nil? && stale?
+  end
+
+  def stale?
+    # feed has not been fetched in the last 3 months
+    Time.current.after? fetched_at.advance(months: 3)
+  end
+
   private
+
+  def post_welcome
+    create_post("welcome", "Welcome to Feed Your Email!")
+  end
+
+  def post_expired
+    if expired_at_previously_changed?(from: nil)
+      create_post("expired", "Feed expired due to inactivity")
+    end
+  end
 
   def create_post(name, subject)
     posts.create!(
