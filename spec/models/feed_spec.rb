@@ -32,14 +32,16 @@ RSpec.describe Feed, type: :model do
   end
 
   it "is not expired when new" do
-    expect(feed).to_not be_expired
+    expect(feed).to_not be_expired_at
     expect { feed.save! }.to change { feed.created_at }
-    expect(feed).to_not be_expired
+    feed.expire_if_stale!
+    expect(feed).to_not be_expired_at
   end
 
-  it "is expired when not fetched for over a year" do
-    feed.fetched_at = 2.years.ago
-    expect(feed).to be_expired
+  it "is expired when not fetched for over 3 months" do
+    feed.fetched_at = 4.months.ago
+    feed.expire_if_stale!
+    expect(feed).to be_expired_at
   end
 
   describe "domain" do
@@ -74,6 +76,7 @@ end
 # Table name: feeds
 #
 #  id           :integer          not null, primary key
+#  expired_at   :datetime
 #  fetched_at   :datetime
 #  name         :string
 #  throttled_at :datetime

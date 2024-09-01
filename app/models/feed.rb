@@ -31,9 +31,10 @@ class Feed < ApplicationRecord
     read_attribute(:fetched_at) || created_at
   end
 
-  def expired?
-    return false unless fetched_at
-    Time.current.after? fetched_at.next_year
+  def expire_if_stale!
+    return if expired_at?
+
+    update!(expired_at: Time.current) if Time.current.after? fetched_at.advance(months: 3)
   end
 
   def domain
@@ -88,6 +89,7 @@ end
 # Table name: feeds
 #
 #  id           :integer          not null, primary key
+#  expired_at   :datetime
 #  fetched_at   :datetime
 #  name         :string
 #  throttled_at :datetime

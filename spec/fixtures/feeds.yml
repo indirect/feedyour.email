@@ -8,6 +8,7 @@ one:
 # Table name: feeds
 #
 #  id           :integer          not null, primary key
+#  expired_at   :datetime
 #  fetched_at   :datetime
 #  name         :string
 #  throttled_at :datetime
