@@ -13,7 +13,7 @@ class Feed < ApplicationRecord
 
   validates :token, uniqueness: {case_sensitive: false}
 
-  after_create :create_welcome_post
+  after_commit -> { create_post("welcome", "Welcome to Feed Your Email!") }
 
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length).downcase
@@ -57,7 +57,7 @@ class Feed < ApplicationRecord
     return if throttled_at?
 
     update!(throttled_at: Time.now.utc)
-    create_throttled_post
+    create_post("throttled", "Feed usage limit reached")
   end
 
   def unthrottle!
@@ -65,22 +65,10 @@ class Feed < ApplicationRecord
   end
 
   def warn_if_needed
-    create_warning_post if week_posts.count == 10
+    create_post("warning", "Feed usage warning") if week_posts.count == 10
   end
 
   private
-
-  def create_welcome_post
-    create_post("welcome", "Welcome to Feed Your Email!")
-  end
-
-  def create_warning_post
-    create_post("warning", "Feed usage warning")
-  end
-
-  def create_throttled_post
-    create_post("throttled", "Feed usage limit reached")
-  end
 
   def create_post(name, subject)
     posts.create!(
