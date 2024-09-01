@@ -13,7 +13,7 @@ class Feed < ApplicationRecord
 
   validates :token, uniqueness: {case_sensitive: false}
 
-  after_commit -> { create_post("welcome", "Welcome to Feed Your Email!") }
+  after_commit -> { create_post("welcome", "Welcome to Feed Your Email!") }, on: :create
 
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length).downcase
