@@ -11,18 +11,35 @@ RSpec.describe "/rails/action_mailbox/postmark/inbound_emails", type: :request d
   }
 
   describe "POST one email" do
-    it "saves the inbound email" do
-      payload = {
+    let(:payload) do
+      {
         RawEmail: file_fixture("llvm-01.eml").read,
         OriginalRecipient: "v01sntumrlbl20r0yrl6vcsj@feedyour.email"
       }
+    end
 
+    it "saves the inbound email" do
       expect {
         post "/rails/action_mailbox/postmark/inbound_emails",
           params: payload, headers: auth, as: :json
       }.to change { ActionMailbox::InboundEmail.count }.by(1)
 
       expect(response).to be_successful
+    end
+
+    context "when feed is expired" do
+      before do
+        feed.update!(fetched_at: 4.months.ago)
+      end
+
+      it "rejects the email" do
+        expect {
+          post "/rails/action_mailbox/postmark/inbound_emails",
+            params: payload, headers: auth, as: :json
+        }.to change { ActionMailbox::InboundEmail.count }.by(0)
+
+        expect(response).to be_forbidden
+      end
     end
   end
 

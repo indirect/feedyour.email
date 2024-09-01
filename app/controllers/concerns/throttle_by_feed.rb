@@ -9,6 +9,7 @@ module ThrottleByFeed
     # require an active feed to accept this email
     feed_id = params[:OriginalRecipient]&.split("@")&.first
     feed = feed_id && Feed.find_by(token: feed_id)
+    feed&.expire_if_stale!
     return head(:forbidden) if feed.nil? || feed.expired_at?
 
     # allow first 24 hours of setup to include however many emails
