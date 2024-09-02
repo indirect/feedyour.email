@@ -26,9 +26,12 @@ group :development do
   gem "guard-rubocop", "~> 1.5", require: false
   gem "guard-shell", "~> 0.7.2", require: false
   gem "hotwire-livereload", "~> 1.4"
+  gem "rubocop-capybara", "~> 2.21", require: false
+  gem "rubocop-factory_bot", "~> 2.26", require: false
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
   gem "rubocop-rails", "~> 2.26", require: false
-  gem "rubocop-rspec", "~> 2.31", require: false
+  gem "rubocop-rspec", "~> 3.0", require: false
+  gem "rubocop-rspec_rails", "~> 2.30", require: false
   gem "standard", "~> 1.40", require: false
   gem "web-console", "~> 4.2"
 end
