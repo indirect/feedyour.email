@@ -105,4 +105,14 @@ RSpec.describe PostMailbox, type: :mailbox do
     expect { process(mail) }.to change { Post.count }
     expect(Post.last.text_body.size).to eq(26991)
   end
+
+  it "embeds any attached images as base64-encoded data" do
+    mail = Mail.read file_fixture("attachment-1.eml")
+    expect { process(mail) }.to change { Post.count }
+    expect(Post.last.html_body.size).to eq(106924)
+
+    mail = Mail.read file_fixture("attachment-2.eml")
+    expect { process(mail) }.to change { Post.count }
+    expect(Post.last.html_body.size).to eq(26964)
+  end
 end
