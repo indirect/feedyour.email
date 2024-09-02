@@ -51,12 +51,34 @@ class PostMailbox < ApplicationMailbox
   end
 
   def text_body
-    return mail.text_part.decoded if mail.text_part
-    (mail.mime_type == "text/plain") ? mail.decoded : nil
+    if mail.text_part
+      mail.text_part.decoded
+    elsif mail.mime_type == "text/plain"
+      mail.decoded
+    end
   end
 
   def html_body
-    return mail.html_part.decoded if mail.html_part
-    (mail.mime_type == "text/html") ? mail.decoded : nil
+    if mail.multipart? && mail.parts.first.multipart?
+      depart(mail.parts.first)
+    elsif mail.html_part
+      mail.html_part.decoded
+    elsif mail.mime_type == "text/html"
+      mail.decoded
+    end
+  end
+
+  def depart(mail)
+    body = mail.html_part.decoded
+    attachments = mail.parts.select(&:content_id)
+    document = Nokogiri::HTML(body)
+
+    attachments.map do |attachment|
+      element = document.at_css "img[src='cid:#{attachment.content_id[1...-1]}']"
+      content = Base64.strict_encode64 attachment.body.decoded
+      element["src"] = "data:#{attachment.mime_type};base64,#{content}"
+    end
+
+    document.to_s
   end
 end
