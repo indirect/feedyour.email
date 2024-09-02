@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <style>
+      body {
+        line-height: 1.5; /* 1 */
+        -webkit-text-size-adjust: 100%; /* 2 */
+        -moz-tab-size: 4; /* 3 */
+        tab-size: 4; /* 3 */
+        font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+        max-width: 750px;
+        padding: 1em;
+        margin: 2em auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2><%= @subject %></h2>
+    <%= yield %>
+  </body>
+</html>

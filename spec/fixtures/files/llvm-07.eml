@@ -1,0 +1,105 @@
+Received: by p-pm-inboundg01a-aws-useast1a.inbound.postmarkapp.com (Postfix, from userid 996)
+	id 80AFD453B34; Sat, 31 Aug 2024 02:52:12 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+	p-pm-inboundg01a-aws-useast1a
+X-Spam-Status: No
+X-Spam-Score: -1.1
+X-Spam-Tests: DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,MAILING_LIST_MULTI,
+	RCVD_IN_VALIDITY_RPBL_BLOCKED,RCVD_IN_VALIDITY_SAFE_BLOCKED,
+	RCVD_IN_ZEN_BLOCKED_OPENDNS,SPF_HELO_PASS,SPF_PASS,T_SCC_BODY_TEXT_LINE,
+	URIBL_DBL_BLOCKED_OPENDNS,URIBL_ZEN_BLOCKED_OPENDNS
+Received-SPF: pass (lists.llvm.org: 54.67.122.174 is authorized to use 'llvm-commits-bounces@lists.llvm.org' in 'mfrom' identity (mechanism 'a' matched)) receiver=p-pm-inboundg01a-aws-useast1a; identity=mailfrom; envelope-from="llvm-commits-bounces@lists.llvm.org"; helo=lists.llvm.org; client-ip=54.67.122.174
+Received: from lists.llvm.org (lists.llvm.org [54.67.122.174])
+	by p-pm-inboundg01a-aws-useast1a.inbound.postmarkapp.com (Postfix) with ESMTP id 9CBB2405048
+	for <v01sntumrlbl20r0yrl6vcsj@feedyour.email>; Sat, 31 Aug 2024 02:52:11 +0000 (UTC)
+Received: from ip-172-31-13-177.us-west-1.compute.internal (localhost [127.0.0.1])
+	by lists.llvm.org (Postfix) with ESMTP id 0744411A70E;
+	Fri, 30 Aug 2024 19:52:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lists.llvm.org;
+	s=lists; t=1725072731;
+	bh=WuQMV0rcGJfz3ETGH4gn7hiI3xA+vEdIZxlchsYuAEo=;
+	h=Date:Subject:To:In-Reply-To:From:Reply-To:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 From;
+	b=BY1IQ+D0dF1KgR1kqPJdpA48eAsHATyL4+u9n74OE4eHKByMCA2eKeNzEIN4qwF++
+	 bM1zjYhSkrcTsGyoK8iy/KB4zBHCWgEaq8J+vHk8QrVbPia/P7thOnKTRRnFhfyxm0
+	 +jLNRjWKRJKG0ihgJJdRRwGMgaGkZLtDSWbrndxw=
+X-Original-To: llvm-commits@lists.llvm.org
+Delivered-To: llvm-commits@lists.llvm.org
+Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com
+ [209.85.214.177])
+ by lists.llvm.org (Postfix) with ESMTP id 665ED11A3EA
+ for <llvm-commits@lists.llvm.org>; Fri, 30 Aug 2024 19:52:09 -0700 (PDT)
+Authentication-Results: lists.llvm.org; dkim=pass
+ reason="1024-bit key; unprotected key"
+ header.d=llvm.org header.i=@llvm.org header.b=LusHrjKY;
+ dkim-adsp=pass; dkim-atps=neutral
+Received: by mail-pl1-f177.google.com with SMTP id
+ d9443c01a7336-2054feabfc3so149065ad.1
+ for <llvm-commits@lists.llvm.org>; Fri, 30 Aug 2024 19:52:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=llvm.org; s=google; t=1725072729; x=1725677529; darn=lists.llvm.org;
+ h=in-reply-to:reply-to:to:subject:mime-version
+ :content-transfer-encoding:from:date:message-id:from:to:cc:subject
+ :date:message-id:reply-to;
+ bh=W5x7FfEC3KtRr3Yuzd8gI+LFHg51nIq5Ib2kmd2mta4=;
+ b=LusHrjKYPT4puIpzt0vUSHE4ypB8Ogz9oaIOpxSB/IQMPf47RcbSwo2sKkxA7jMR+R
+ 2A1BgyY9S/tGGIvIAaLjDkFd1S8no8OGftsVHO3/Qz8eCxNC3nzlpLhDG6xXtk0Akp6C
+ woc4kj0C3LnOeQFKUwScQKvtMdL9p5TUs8EPA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1725072729; x=1725677529;
+ h=in-reply-to:reply-to:to:subject:mime-version
+ :content-transfer-encoding:from:date:message-id:x-gm-message-state
+ :from:to:cc:subject:date:message-id:reply-to;
+ bh=W5x7FfEC3KtRr3Yuzd8gI+LFHg51nIq5Ib2kmd2mta4=;
+ b=dVlelCkxYhmxj7VTPoNXwFYBpq2YAh8PTz7YuWE4pTMlxQZTdUJSPhTXSnrwse1vrc
+ wgyUEafUNymnfqzDRBf7I73gPIfyobXbapbgLztKtLRvvqwNUqcGARNnxTWrkZjfTAJb
+ AHsfSpfQ2ZMt7Bvk/RrXymqEH72HLQWwCo/LEhMaKtLTUGz0bPIQGr/tCfrqGPRePY83
+ 9HJ2eg4c6ZVXrk2dGOyxqpy4byF9EmQhFii8LPJywRXg0vuSSy03pLbQNvS9RCe7RWR6
+ n4NgBx4y1TQrcv2SQKdiBnOcf+RZXmHfIBkKqUBwjHRbozsgpK8yr8za9F/uHfRTBA35
+ rnOw==
+X-Gm-Message-State: AOJu0Yz14FhMGlCwpDjarVb6qRMHn2qcCS/TvEQ1HXnkOTK96lD3kac2
+ WLqAEt+FOzqOmW3j2o9zcSmat8dTDxTkQsB/N5S9DxCjCcdLinkcucXIEosEHAIsWN3Do9D5GK+
+ tKkI=
+X-Google-Smtp-Source: AGHT+IF3UJN8Qez6VDBn+Dv/aFMeiFQsdnheOWfZp9ZlcBp855qrBChP9uc2wnKcVDqWAg4ospOEBw==
+X-Received: by 2002:a17:902:fa05:b0:202:5255:357b with SMTP id
+ d9443c01a7336-2054477bf4bmr12895675ad.41.1725072728791; 
+ Fri, 30 Aug 2024 19:52:08 -0700 (PDT)
+Received: from 169.254.53.245
+ (ec2-54-193-69-165.us-west-1.compute.amazonaws.com. [54.193.69.165])
+ by smtp.gmail.com with ESMTPSA id
+ d9443c01a7336-205152b1656sm33087235ad.10.2024.08.30.19.52.08
+ for <llvm-commits@lists.llvm.org>
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Fri, 30 Aug 2024 19:52:08 -0700 (PDT)
+Message-ID: <66d28558.170a0220.1c443f.e964@mx.google.com>
+Date: Fri, 30 Aug 2024 19:52:08 -0700 (PDT)
+X-Google-Original-From: None
+MIME-Version: 1.0
+Subject: [llvm] workflows/release-binaries: Remove .git/config file from
+ artifacts (PR #106310)
+To: llvm-commits@lists.llvm.org
+In-Reply-To: <llvm.org/llvm/llvm-project/pull/106310@github.com>
+X-BeenThere: llvm-commits@lists.llvm.org
+X-Mailman-Version: 2.1.16
+Precedence: list
+From: via llvm-commits <llvm-commits@lists.llvm.org>
+Reply-To: Tom Stellard <tstellar@redhat.com>, llvmlistbot@llvm.org
+List-Id: Commit Messages and Patches for LLVM <llvm-commits.lists.llvm.org>
+List-Unsubscribe: <https://lists.llvm.org/cgi-bin/mailman/options/llvm-commits>, 
+ <mailto:llvm-commits-request@lists.llvm.org?subject=unsubscribe>
+List-Archive: <http://lists.llvm.org/pipermail/llvm-commits/>
+List-Post: <mailto:llvm-commits@lists.llvm.org>
+List-Help: <mailto:llvm-commits-request@lists.llvm.org?subject=help>
+List-Subscribe: <https://lists.llvm.org/cgi-bin/mailman/listinfo/llvm-commits>, 
+ <mailto:llvm-commits-request@lists.llvm.org?subject=subscribe>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+Errors-To: llvm-commits-bounces@lists.llvm.org
+Sender: "llvm-commits" <llvm-commits-bounces@lists.llvm.org>
+
+Cmxsdm1ib3Qgd3JvdGU6CgovcHVsbC1yZXF1ZXN0IGxsdm0vbGx2bS1wcm9qZWN0IzEwNjgyMQoK
+aHR0cHM6Ly9naXRodWIuY29tL2xsdm0vbGx2bS1wcm9qZWN0L3B1bGwvMTA2MzEwCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxsdm0tY29tbWl0cyBtYWls
+aW5nIGxpc3QKbGx2bS1jb21taXRzQGxpc3RzLmxsdm0ub3JnCmh0dHBzOi8vbGlzdHMubGx2bS5v
+cmcvY2dpLWJpbi9tYWlsbWFuL2xpc3RpbmZvL2xsdm0tY29tbWl0cwo=

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_06_023950) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_01_105920) do
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
     t.string "message_id", null: false
@@ -54,6 +54,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_06_023950) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.datetime "fetched_at"
+    t.datetime "throttled_at"
+    t.datetime "expired_at"
     t.index ["fetched_at"], name: "index_feeds_on_fetched_at"
     t.index ["token"], name: "index_feeds_on_token", unique: true
   end

@@ -1,0 +1,3 @@
+<p>
+  This feed is available on the web at <%= link_to feed_url(@feed), @feed %>, and will collect emails sent to <%= mail_to [@feed.token, request.host].join("@") %>.
+</p>
