@@ -67,7 +67,13 @@ class Feed < ApplicationRecord
   def fetch_or_expire!
     return if expired_at
 
+    save! if new_record?
     stale? ? touch(:expired_at) : touch(:fetched_at)
+  end
+
+  def expire_if_stale!
+    save! if new_record?
+    touch(:expired_at) if stale?
   end
 
   def stale?
