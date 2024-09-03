@@ -1,14 +1,10 @@
 #!/bin/bash -e
 set -v
 
-# Only if we are in the app VM, not a release command VM
+# only the app vm has the sqlite database file, so we
+# have to run migrations inside the app VM, and not run
+# anything that touches the db from the release vm.
 if [ -z "$RELEASE_COMMAND" ]; then
-  # Move the sqlite3 file to the litedb env dir
-  if [ -f storage/production.sqlite3 ]; then
-    mkdir storage/production
-    mv storage/production.sqlite3 storage/production/data.sqlite3
-  fi
-
   bin/rails db:migrate
 fi
 
