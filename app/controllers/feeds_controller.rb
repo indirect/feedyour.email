@@ -5,6 +5,8 @@ class FeedsController < ApplicationController
 
   def show
     @feed = Feed.find_by!(token: params[:id])
+    fresh_when(@feed)
+
     @feed.touch(:fetched_at) unless @feed.expired_at? || request.format.html?
   end
 
