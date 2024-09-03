@@ -5,7 +5,13 @@ class FeedsController < ApplicationController
 
   def show
     @feed = Feed.find_by!(token: params[:id])
-    @feed.touch(:fetched_at) unless @feed.expired_at? || request.format.html?
+    return if request.format.html?
+
+    @feed.fetch_or_expire!
+    return http_cache_forever(public: true) if @feed.expired_at?
+
+    fresh_when @feed
+    expires_in 1.hour, public: true if @feed.created_at < 1.day.ago
   end
 
   def create

@@ -64,8 +64,16 @@ class Feed < ApplicationRecord
     create_post("warning", "Feed usage warning") if week_posts.count == 10
   end
 
+  def fetch_or_expire!
+    return if expired_at
+
+    save! if new_record?
+    stale? ? touch(:expired_at) : touch(:fetched_at)
+  end
+
   def expire_if_stale!
-    update!(expired_at: Time.current) if expired_at.nil? && stale?
+    save! if new_record?
+    touch(:expired_at) if stale?
   end
 
   def stale?
