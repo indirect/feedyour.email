@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe FeedsController, type: :controller do
   describe "#new" do
