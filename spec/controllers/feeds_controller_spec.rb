@@ -16,6 +16,10 @@ RSpec.describe FeedsController, type: :controller do
   end
 
   describe "#show" do
+    before do
+      Feed.find_or_create_by!(token: "abc123")
+    end
+
     it "succeeds" do
       get :show, params: {id: "abc123"}
       expect(response).to be_successful
