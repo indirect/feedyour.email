@@ -9,12 +9,16 @@ class Feed < ApplicationRecord
   has_one :last_post, -> { order(updated_at: :desc) },
     class_name: "Post", dependent: nil, inverse_of: :feed
   has_secure_token :token
-  nilify_blanks
 
   validates :token, uniqueness: {case_sensitive: false}
+  nilify_blanks
 
   after_commit :post_welcome, on: :create
   after_commit :post_expired, on: :update
+
+  scope :expired, -> { where.not(expired_at: nil) }
+  scope :stale, -> { where("updated_at < ?", 3.months.ago) }
+  scope :throttled, -> { where.not(throttled_at: nil) }
 
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length).downcase
