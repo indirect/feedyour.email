@@ -8,7 +8,7 @@ class FeedsController < ApplicationController
     return if request.format.html?
 
     @feed.fetch_or_expire!
-    return http_cache_forever(public: true) if feed.expired?
+    return http_cache_forever(public: true) if feed.expired_at?
 
     fresh_when @feed
     expires_in 1.hour, public: true if @feed.created_at < 1.day.ago
