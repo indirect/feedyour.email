@@ -40,6 +40,8 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 # preload_app!
 
 # Allow puma to be restarted by `bin/rails restart` command.
-plugin :tmp_restart
-
-plugin :tailwindcss if ENV.fetch("RAILS_ENV", "development") == "development"
+plugin "tmp_restart"
+# Run scheduled jobs via rufus
+plugin "rufus-scheduler"
+# Rebuild CSS on changes
+plugin "tailwindcss" if ENV.fetch("RAILS_ENV", "development") == "development"

@@ -1,2 +1,0 @@
-#!/bin/sh
-HEROKU_APP=feedyouremail exec "${HEROKU_COMMAND:-heroku}" "$@"

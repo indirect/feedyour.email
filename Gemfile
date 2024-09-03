@@ -51,6 +51,7 @@ gem "litestack", "~> 0.4.4"
 gem "nilify_blanks", "~> 1.4"
 gem "propshaft", "~> 0.9.1"
 gem "puma", "~> 6.4"
+gem "puma-rufus-scheduler", "~> 0.1.0"
 gem "rack-canonical-host", "~> 1.3", require: false
 gem "tailwindcss-rails", "~> 2.7"
 gem "turbo-rails", "~> 2.0"
