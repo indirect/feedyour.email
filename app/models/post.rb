@@ -11,6 +11,7 @@ class Post < ApplicationRecord
   after_commit -> { feed.warn_if_needed unless system? }
 
   scope :last_week, -> { where("created_at > ?", 1.week.ago) }
+  scope :last_hour, -> { where("created_at > ?", 1.hour.ago) }
   scope :not_system, -> { where.not(from: Rails.configuration.system_email) }
 
   def self.generate_unique_secure_token(length:)
