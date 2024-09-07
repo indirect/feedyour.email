@@ -40,7 +40,11 @@ module FeedyourEmail
       Symbol
     ]
 
+    # Used for system announcements or warnings made by Feed#create_post
     config.system_email = Mail::Address.new("Feed Your Email <system@feedyour.email>")
+
+    # Used in ThrottleByFeed, this is the limit of emails accepted into a feed per week
+    config.week_limit = 14
   end
 end
 
