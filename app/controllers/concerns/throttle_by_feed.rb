@@ -1,3 +1,7 @@
+# This concern is included into the ActionMailbox ingress controller for
+# Postmark. It adds a preprocessing step during the incoming webhook request,
+# which allows us to return a 403 status to Postmark, signaling that the email
+# should not be tried again. The email processor runs too late to do that.
 module ThrottleByFeed
   extend ActiveSupport::Concern
 
