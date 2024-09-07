@@ -13,7 +13,6 @@ RSpec.describe "/rails/action_mailbox/postmark/inbound_emails", type: :request d
         HTTP_AUTHORIZATION: creds("actionmailbox", "abc123"),
         CONTENT_TYPE: "application/json"
       }
-    ActionMailbox::InboundEmail.last&.route
   end
 
   def creds(*args)
@@ -24,6 +23,7 @@ RSpec.describe "/rails/action_mailbox/postmark/inbound_emails", type: :request d
     it "saves the inbound email" do
       expect { post_email }.to change { ActionMailbox::InboundEmail.count }.by(1)
       expect(response).to be_successful
+      expect { ActionMailbox::InboundEmail.last.route }.to change { feed.posts.count }.by(1)
     end
 
     context "when feed is expired" do
@@ -41,11 +41,25 @@ RSpec.describe "/rails/action_mailbox/postmark/inbound_emails", type: :request d
   describe "POST too many emails" do
     context "on day one" do
       it "is fine" do
+        # Regular incoming email
         expect { post_email("llvm-01") }.to change { ActionMailbox::InboundEmail.count }.by(1)
         expect(response).to be_successful
+        expect { ActionMailbox::InboundEmail.last.route }.to change { feed.posts.count }.by(1)
 
+        # Could generate a usage warning (but doesn't on day 1)
         expect { post_email("llvm-02") }.to change { ActionMailbox::InboundEmail.count }.by(1)
         expect(response).to be_successful
+        expect { ActionMailbox::InboundEmail.last.route }.to change { feed.posts.count }.by(1)
+
+        # Could be weekly limit (but isn't on day 1)
+        expect { post_email("llvm-03") }.to change { ActionMailbox::InboundEmail.count }.by(1)
+        expect(response).to be_successful
+        expect { ActionMailbox::InboundEmail.last.route }.to change { feed.posts.count }.by(1)
+
+        # Past weekly limit (but isn't on day 1)
+        expect { post_email("llvm-04") }.to change { ActionMailbox::InboundEmail.count }.by(1)
+        expect(response).to be_successful
+        expect { ActionMailbox::InboundEmail.last.route }.to change { feed.posts.count }.by(1)
       end
     end
   end
@@ -55,15 +69,27 @@ RSpec.describe "/rails/action_mailbox/postmark/inbound_emails", type: :request d
       feed.update!(created_at: 2.days.ago)
     end
 
-    it "throttles and rejects emails" do
+    it "warns, then throttles and rejects emails" do
+      # Regular incoming email, turn it into a Post when routed
       expect { post_email("llvm-01") }.to change { ActionMailbox::InboundEmail.count }.by(1)
-        .and change { feed.posts.count }.by(1)
+        .and change { feed.posts.count }.by(0)
       expect(response).to be_successful
+      expect { ActionMailbox::InboundEmail.last.route }.to change { feed.posts.count }.by(1)
 
-      expect { post_email("llvm-02") }.to change { ActionMailbox::InboundEmail.count }.by(0)
+      # Generate a usage warning Post (as well as the incoming email Post)
+      expect { post_email("llvm-02") }.to change { ActionMailbox::InboundEmail.count }.by(1)
+        .and change { feed.posts.count }.by(0)
+      expect(response).to be_successful
+      expect { ActionMailbox::InboundEmail.last.route }.to change { feed.posts.count }.by(2)
+
+      # Generate a weekly limit message and reject the incoming email
+      expect { post_email("llvm-03") }.to change { ActionMailbox::InboundEmail.count }.by(0)
+        .and change { feed.posts.count }.by(1)
       expect(response).to be_forbidden
 
-      expect { post_email("llvm-03") }.to change { ActionMailbox::InboundEmail.count }.by(0)
+      # Reject all email beyond the weekly limit
+      expect { post_email("llvm-04") }.to change { ActionMailbox::InboundEmail.count }.by(0)
+        .and change { feed.posts.count }.by(0)
       expect(response).to be_forbidden
     end
   end
