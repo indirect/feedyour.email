@@ -44,7 +44,8 @@ module FeedyourEmail
     config.system_email = Mail::Address.new("Feed Your Email <system@feedyour.email>")
 
     # Used in ThrottleByFeed, this is the limit of emails accepted into a feed per week
-    config.week_limit = 14
+    config.feed_warn_limit = 10
+    config.feed_week_limit = 14
   end
 end
 

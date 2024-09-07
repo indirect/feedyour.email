@@ -59,7 +59,9 @@ class Feed < ApplicationRecord
   end
 
   def warn_if_needed
-    create_post("warning", "Feed usage warning") if week_posts.count == 10
+    if created_at < 1.day.ago && week_posts.count == Rails.configuration.feed_warn_limit
+      create_post("warning", "Feed usage warning")
+    end
   end
 
   def fetch_or_expire!
