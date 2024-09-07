@@ -39,9 +39,17 @@ module FeedyourEmail
       Mail::Parsers::AddressListsParser::AddressStruct,
       Symbol
     ]
+
+    # Used for system announcements or warnings made by Feed#create_post
+    config.system_email = Mail::Address.new("Feed Your Email <system@feedyour.email>")
+
+    # Used in ThrottleByFeed, this is the limit of emails accepted into a feed per week
+    config.feed_warn_limit = 10
+    config.feed_week_limit = 14
   end
 end
 
+# Add incoming mail auth for local dev and system tests
 if Rails.env.local?
   Rails.application.credentials.action_mailbox ||= ActiveSupport::OrderedOptions.new
   Rails.application.credentials.action_mailbox.ingress_password = "abc123"

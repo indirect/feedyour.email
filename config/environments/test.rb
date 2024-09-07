@@ -59,4 +59,10 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
 
   config.action_mailbox.ingress = :postmark
+
+  # Create the volume warning post with the second post each week
+  config.feed_warn_limit = 2
+
+  # Block incoming emails beyond this count per feed per week
+  config.feed_week_limit = 2
 end
