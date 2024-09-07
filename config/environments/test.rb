@@ -59,4 +59,7 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
 
   config.action_mailbox.ingress = :postmark
+
+  # In testing, only allow one email into a feed per week before throttling
+  config.week_limit = 1
 end

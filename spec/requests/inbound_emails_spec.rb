@@ -3,27 +3,26 @@ require "rails_helper"
 RSpec.describe "/rails/action_mailbox/postmark/inbound_emails", type: :request do
   let!(:feed) { Feed.create!(token: "v01sntumrlbl20r0yrl6vcsj") }
 
-  let(:auth) {
-    {
-      HTTP_AUTHORIZATION: ActionController::HttpAuthentication::Basic.encode_credentials("actionmailbox", "abc123"),
-      CONTENT_TYPE: "application/json"
-    }
-  }
+  def post_email(name = "llvm-01")
+    post "/rails/action_mailbox/postmark/inbound_emails", as: :json,
+      params: {
+        RawEmail: file_fixture("#{name}.eml").read,
+        OriginalRecipient: "v01sntumrlbl20r0yrl6vcsj@feedyour.email"
+      },
+      headers: {
+        HTTP_AUTHORIZATION: creds("actionmailbox", "abc123"),
+        CONTENT_TYPE: "application/json"
+      }
+    ActionMailbox::InboundEmail.last&.route
+  end
+
+  def creds(*args)
+    ActionController::HttpAuthentication::Basic.encode_credentials(*args)
+  end
 
   describe "POST one email" do
-    let(:payload) do
-      {
-        RawEmail: file_fixture("llvm-01.eml").read,
-        OriginalRecipient: "v01sntumrlbl20r0yrl6vcsj@feedyour.email"
-      }
-    end
-
     it "saves the inbound email" do
-      expect {
-        post "/rails/action_mailbox/postmark/inbound_emails",
-          params: payload, headers: auth, as: :json
-      }.to change { ActionMailbox::InboundEmail.count }.by(1)
-
+      expect { post_email }.to change { ActionMailbox::InboundEmail.count }.by(1)
       expect(response).to be_successful
     end
 
@@ -33,11 +32,7 @@ RSpec.describe "/rails/action_mailbox/postmark/inbound_emails", type: :request d
       end
 
       it "rejects the email" do
-        expect {
-          post "/rails/action_mailbox/postmark/inbound_emails",
-            params: payload, headers: auth, as: :json
-        }.to change { ActionMailbox::InboundEmail.count }.by(0)
-
+        expect { post_email }.to change { ActionMailbox::InboundEmail.count }.by(0)
         expect(response).to be_forbidden
       end
     end
@@ -46,53 +41,30 @@ RSpec.describe "/rails/action_mailbox/postmark/inbound_emails", type: :request d
   describe "POST too many emails" do
     context "on day one" do
       it "is fine" do
-        (1..14).each do |i|
-          payload = {
-            RawEmail: file_fixture("llvm-#{sprintf("%02d", i)}.eml").read,
-            OriginalRecipient: "v01sntumrlbl20r0yrl6vcsj@feedyour.email"
-          }
+        expect { post_email("llvm-01") }.to change { ActionMailbox::InboundEmail.count }.by(1)
+        expect(response).to be_successful
 
-          expect {
-            post "/rails/action_mailbox/postmark/inbound_emails",
-              params: payload, headers: auth, as: :json
-          }.to change { ActionMailbox::InboundEmail.count }.by(1)
-          expect(response).to be_successful
-          ActionMailbox::InboundEmail.last.route
-        end
+        expect { post_email("llvm-02") }.to change { ActionMailbox::InboundEmail.count }.by(1)
+        expect(response).to be_successful
       end
     end
+  end
 
-    context "on day two" do
-      before do
-        feed.update!(created_at: 2.days.ago)
-      end
+  context "on day two" do
+    before do
+      feed.update!(created_at: 2.days.ago)
+    end
 
-      it "throttles and rejects emails" do
-        (1..14).each do |i|
-          payload = {
-            RawEmail: file_fixture("llvm-#{sprintf("%02d", i)}.eml").read,
-            OriginalRecipient: "v01sntumrlbl20r0yrl6vcsj@feedyour.email"
-          }
+    it "throttles and rejects emails" do
+      expect { post_email("llvm-01") }.to change { ActionMailbox::InboundEmail.count }.by(1)
+        .and change { feed.posts.count }.by(1)
+      expect(response).to be_successful
 
-          expect {
-            post "/rails/action_mailbox/postmark/inbound_emails",
-              params: payload, headers: auth, as: :json
-          }.to change { ActionMailbox::InboundEmail.count }.by(1), "email #{i} not created"
-          expect(response).to be_successful, "webhook #{i} failed"
-          ActionMailbox::InboundEmail.last.route
-        end
+      expect { post_email("llvm-02") }.to change { ActionMailbox::InboundEmail.count }.by(0)
+      expect(response).to be_forbidden
 
-        payload = {
-          RawEmail: file_fixture("llvm-15.eml").read,
-          OriginalRecipient: "v01sntumrlbl20r0yrl6vcsj@feedyour.email"
-        }
-
-        expect {
-          post "/rails/action_mailbox/postmark/inbound_emails",
-            params: payload, headers: auth, as: :json
-        }.to_not change { ActionMailbox::InboundEmail.count }
-        expect(response).to be_forbidden
-      end
+      expect { post_email("llvm-03") }.to change { ActionMailbox::InboundEmail.count }.by(0)
+      expect(response).to be_forbidden
     end
   end
 end
