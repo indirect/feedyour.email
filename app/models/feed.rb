@@ -11,7 +11,7 @@ class Feed < ApplicationRecord
   nilify_blanks
 
   after_commit :post_welcome, on: :create
-  after_commit :post_expired, on: :update
+  after_commit :post_warnings, on: :update
 
   scope :expired, -> { where.not(expired_at: nil) }
   scope :stale, -> { where("updated_at < ?", 3.months.ago) }
@@ -51,10 +51,7 @@ class Feed < ApplicationRecord
   end
 
   def throttle!
-    return if throttled_at?
-
-    update!(throttled_at: Time.now.utc)
-    create_post("throttled", "Feed usage limit reached")
+    update!(throttled_at: Time.now.utc) unless throttled_at?
   end
 
   def unthrottle!
@@ -88,9 +85,13 @@ class Feed < ApplicationRecord
     create_post("welcome", "Welcome to Feed Your Email!")
   end
 
-  def post_expired
+  def post_warnings
     if expired_at_previously_changed?(from: nil)
       create_post("expired", "Feed expired due to inactivity")
+    end
+
+    if throttled_at_previously_changed?(from: nil)
+      create_post("throttled", "Feed usage limit reached")
     end
   end
 
