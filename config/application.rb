@@ -39,6 +39,8 @@ module FeedyourEmail
       Mail::Parsers::AddressListsParser::AddressStruct,
       Symbol
     ]
+
+    config.system_email = Mail::Address.new("Feed Your Email <system@feedyour.email>")
   end
 end
 
