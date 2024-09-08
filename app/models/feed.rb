@@ -56,13 +56,15 @@ class Feed < ApplicationRecord
   end
 
   def unthrottle!
-    update!(throttled_at: nil, warned_at: nil)
+    if week_posts.count < config.week_limit
+      update!(throttled_at: nil, warned_at: nil)
+    end
   end
 
   def warn_if_needed
     return if 1.day.ago < created_at || warned_at?
 
-    if week_posts.count == Rails.configuration.feed_warn_limit
+    if week_posts.count == config.warn_limit
       touch(:warned_at)
       create_post("warning", "Feed usage warning")
     end
@@ -86,6 +88,10 @@ class Feed < ApplicationRecord
   end
 
   private
+
+  def config
+    Rails.application.config.x.feed
+  end
 
   def post_welcome
     create_post("welcome", "Welcome to Feed Your Email!")

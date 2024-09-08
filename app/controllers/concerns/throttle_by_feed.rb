@@ -20,7 +20,7 @@ module ThrottleByFeed
     return if 1.day.ago < feed.created_at
 
     week_count = feed.week_posts.count
-    week_limit = Rails.configuration.feed_week_limit
+    week_limit = Rails.application.config.x.feed.week_limit
 
     # reject emails after 14 in one week
     if week_count >= week_limit

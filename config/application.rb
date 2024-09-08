@@ -43,9 +43,10 @@ module FeedyourEmail
     # Used for system announcements or warnings made by Feed#create_post
     config.system_email = Mail::Address.new("Feed Your Email <system@feedyour.email>")
 
-    # Used in ThrottleByFeed, this is the limit of emails accepted into a feed per week
-    config.feed_warn_limit = 10
-    config.feed_week_limit = 14
+    # Add a usage warning to the feed after warn_limit emails in 7 days
+    config.x.feed.warn_limit = 10
+    # Add a throttle warning to the feed and reject emails after week_limit in 7 days
+    config.x.feed.week_limit = 14
   end
 end
 
