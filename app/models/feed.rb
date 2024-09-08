@@ -14,9 +14,13 @@ class Feed < ApplicationRecord
   after_commit :post_warnings, on: :update
 
   scope :expired, -> { where.not(expired_at: nil) }
-  scope :stale, -> { where("updated_at < ?", 3.months.ago) }
+  scope :stale, -> { where("updated_at < ?", config.stale_months.months.ago) }
   scope :throttled, -> { where.not(throttled_at: nil) }
-  scope :unthrottleable, -> { where("throttled_at < ?", 3.days.ago) }
+  scope :unthrottleable, -> { where("throttled_at < ?", config.throttle_days.days.ago) }
+
+  def self.config
+    Rails.application.config.x.feed
+  end
 
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length).downcase
@@ -90,7 +94,7 @@ class Feed < ApplicationRecord
   private
 
   def config
-    Rails.application.config.x.feed
+    self.class.config
   end
 
   def post_welcome

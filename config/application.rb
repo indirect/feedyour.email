@@ -47,6 +47,10 @@ module FeedyourEmail
     config.x.feed.warn_limit = 10
     # Add a throttle warning to the feed and reject emails after week_limit in 7 days
     config.x.feed.week_limit = 14
+    # Consider feeds stale if they haven't been fetched for this many months
+    config.x.feed.stale_months = 3
+    # Allow feeds to unthrottle after this many days
+    config.x.feed.throttle_days = 3
   end
 end
 
