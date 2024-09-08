@@ -20,14 +20,12 @@ module ThrottleByFeed
     return if 1.day.ago < feed.created_at
 
     week_count = feed.week_posts.count
+    week_limit = Rails.configuration.feed_week_limit
 
     # reject emails after 14 in one week
-    if week_count >= Rails.configuration.feed_week_limit
+    if week_count >= week_limit
       feed.throttle!
       head(:forbidden)
-    else
-      # unthrottle if previously throttled
-      feed.unthrottle!
     end
   end
 end

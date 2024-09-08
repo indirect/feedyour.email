@@ -16,6 +16,7 @@ class Feed < ApplicationRecord
   scope :expired, -> { where.not(expired_at: nil) }
   scope :stale, -> { where("updated_at < ?", 3.months.ago) }
   scope :throttled, -> { where.not(throttled_at: nil) }
+  scope :unthrottleable, -> { where("throttled_at < ?", 3.days.ago) }
 
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length).downcase
