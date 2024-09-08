@@ -55,11 +55,14 @@ class Feed < ApplicationRecord
   end
 
   def unthrottle!
-    update!(throttled_at: nil) if throttled_at?
+    update!(throttled_at: nil, warned_at: nil)
   end
 
   def warn_if_needed
-    if created_at < 1.day.ago && week_posts.count == Rails.configuration.feed_warn_limit
+    return if 1.day.ago < created_at || warned_at?
+
+    if week_posts.count == Rails.configuration.feed_warn_limit
+      touch(:warned_at)
       create_post("warning", "Feed usage warning")
     end
   end
@@ -120,6 +123,7 @@ end
 #  name         :string
 #  throttled_at :datetime
 #  token        :string           not null
+#  warned_at    :datetime
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
