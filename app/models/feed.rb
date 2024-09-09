@@ -60,9 +60,15 @@ class Feed < ApplicationRecord
   end
 
   def unthrottle!
-    if week_posts.count < config.week_limit
-      update!(throttled_at: nil, warned_at: nil)
-    end
+    update!(throttled_at: nil, warned_at: nil) if unthrottleable? && under_week_limit?
+  end
+
+  def unthrottleable?
+    throttled_at && throttled_at < config.throttle_days.days.ago
+  end
+
+  def under_week_limit?
+    week_posts.count < config.week_limit
   end
 
   def warn_if_needed
