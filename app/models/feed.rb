@@ -127,6 +127,7 @@ class Feed < ApplicationRecord
         assigns: {feed: self, subject: subject}
       )
     )
+    touch(:updated_at)
   end
 end
 
