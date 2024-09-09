@@ -14,8 +14,13 @@ class Feed < ApplicationRecord
   after_commit :post_warnings, on: :update
 
   scope :expired, -> { where.not(expired_at: nil) }
-  scope :stale, -> { where("updated_at < ?", 3.months.ago) }
+  scope :stale, -> { where("updated_at < ?", config.stale_months.months.ago) }
   scope :throttled, -> { where.not(throttled_at: nil) }
+  scope :unthrottleable, -> { where("throttled_at < ?", config.throttle_days.days.ago) }
+
+  def self.config
+    Rails.application.config.x.feed
+  end
 
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length).downcase
@@ -55,11 +60,22 @@ class Feed < ApplicationRecord
   end
 
   def unthrottle!
-    update!(throttled_at: nil) if throttled_at?
+    update!(throttled_at: nil, warned_at: nil) if unthrottleable? && under_week_limit?
+  end
+
+  def unthrottleable?
+    throttled_at && throttled_at < config.throttle_days.days.ago
+  end
+
+  def under_week_limit?
+    week_posts.count < config.week_limit
   end
 
   def warn_if_needed
-    if created_at < 1.day.ago && week_posts.count == Rails.configuration.feed_warn_limit
+    return if 1.day.ago < created_at || warned_at?
+
+    if week_posts.count == config.warn_limit
+      touch(:warned_at)
       create_post("warning", "Feed usage warning")
     end
   end
@@ -82,6 +98,10 @@ class Feed < ApplicationRecord
   end
 
   private
+
+  def config
+    self.class.config
+  end
 
   def post_welcome
     create_post("welcome", "Welcome to Feed Your Email!")
@@ -120,6 +140,7 @@ end
 #  name         :string
 #  throttled_at :datetime
 #  token        :string           not null
+#  warned_at    :datetime
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #

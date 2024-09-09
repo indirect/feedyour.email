@@ -81,6 +81,7 @@ end
 #  name         :string
 #  throttled_at :datetime
 #  token        :string           not null
+#  warned_at    :datetime
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
