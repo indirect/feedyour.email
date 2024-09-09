@@ -53,9 +53,3 @@ module FeedyourEmail
     config.x.feed.throttle_days = 3
   end
 end
-
-# Add incoming mail auth for local dev and system tests
-if Rails.env.local?
-  Rails.application.credentials.action_mailbox ||= ActiveSupport::OrderedOptions.new
-  Rails.application.credentials.action_mailbox.ingress_password = "abc123"
-end

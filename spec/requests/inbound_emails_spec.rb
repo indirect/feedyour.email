@@ -27,11 +27,9 @@ RSpec.describe "/rails/action_mailbox/postmark/inbound_emails", type: :request d
     end
 
     context "when feed is expired" do
-      before do
-        feed.update!(fetched_at: 4.months.ago)
-      end
-
       it "rejects the email" do
+        feed.update!(fetched_at: 4.months.ago)
+
         expect { post_email }.to change { ActionMailbox::InboundEmail.count }.by(0)
         expect(response).to be_forbidden
       end
@@ -40,18 +38,18 @@ RSpec.describe "/rails/action_mailbox/postmark/inbound_emails", type: :request d
 
   describe "POST too many emails" do
     context "on day one" do
-      it "is fine" do
+      it "accepts all emails without warnings" do
         # Regular incoming email
         expect { post_email("llvm-01") }.to change { ActionMailbox::InboundEmail.count }.by(1)
         expect(response).to be_successful
         expect { ActionMailbox::InboundEmail.last.route }.to change { feed.posts.count }.by(1)
 
-        # Could generate a usage warning (but doesn't on day 1)
+        # Would generate a usage warning (but doesn't on day 1)
         expect { post_email("llvm-02") }.to change { ActionMailbox::InboundEmail.count }.by(1)
         expect(response).to be_successful
         expect { ActionMailbox::InboundEmail.last.route }.to change { feed.posts.count }.by(1)
 
-        # Could be weekly limit (but isn't on day 1)
+        # Would be weekly limit (but isn't on day 1)
         expect { post_email("llvm-03") }.to change { ActionMailbox::InboundEmail.count }.by(1)
         expect(response).to be_successful
         expect { ActionMailbox::InboundEmail.last.route }.to change { feed.posts.count }.by(1)
@@ -65,11 +63,9 @@ RSpec.describe "/rails/action_mailbox/postmark/inbound_emails", type: :request d
   end
 
   context "on day two" do
-    before do
+    it "warns then throttles" do
       feed.update!(created_at: 2.days.ago)
-    end
 
-    it "warns, then throttles and rejects emails" do
       # Regular incoming email, turn it into a Post when routed
       expect { post_email("llvm-01") }.to change { ActionMailbox::InboundEmail.count }.by(1)
         .and change { feed.posts.count }.by(0)

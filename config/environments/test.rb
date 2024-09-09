@@ -66,3 +66,6 @@ Rails.application.configure do
   # Block incoming emails beyond this count per feed per week
   config.x.feed.week_limit = 2
 end
+
+Rails.application.credentials.action_mailbox ||= ActiveSupport::OrderedOptions.new
+Rails.application.credentials.action_mailbox.ingress_password = "abc123"

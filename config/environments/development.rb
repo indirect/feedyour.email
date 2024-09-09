@@ -71,3 +71,6 @@ Rails.application.configure do
   config.hosts << "feedyouremail.arko.me"
   config.action_mailbox.ingress = :postmark
 end
+
+Rails.application.credentials.action_mailbox ||= ActiveSupport::OrderedOptions.new
+Rails.application.credentials.action_mailbox.ingress_password = "abc123"
