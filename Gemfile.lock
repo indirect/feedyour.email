@@ -70,9 +70,6 @@ GEM
       activemodel (= 7.2.1)
       activesupport (= 7.2.1)
       timeout (>= 0.4.0)
-    activerecord-enhancedsqlite3-adapter (0.8.0)
-      activerecord (>= 7.1)
-      sqlite3 (>= 1.6)
     activestorage (7.2.1)
       actionpack (= 7.2.1)
       activejob (= 7.2.1)
@@ -436,11 +433,11 @@ PLATFORMS
   aarch64-linux
   arm64-darwin-22
   arm64-darwin-23
+  arm64-darwin-24
   universal-darwin-21
   x86_64-linux
 
 DEPENDENCIES
-  activerecord-enhancedsqlite3-adapter (~> 0.8.0)
   annotate (~> 3.2)
   assert_json (~> 1.0.0)
   better_html (~> 2.1)
@@ -487,7 +484,7 @@ DEPENDENCIES
   web-console (~> 4.2)
 
 RUBY VERSION
-   ruby 3.3.4p94
+   ruby 3.3.5p100
 
 BUNDLED WITH
    2.5.18

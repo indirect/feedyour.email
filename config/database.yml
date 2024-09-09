@@ -13,7 +13,7 @@ default: &default
   database: <%= Litesupport.root.join("data.sqlite3") %>
   pragmas:
     journal_mode: "WAL"
-    synchronous: "NORMAL"
+    synchronous: "FULL"
 
 development:
   <<: *default

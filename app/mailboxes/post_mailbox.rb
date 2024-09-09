@@ -12,6 +12,7 @@ class PostMailbox < ApplicationMailbox
       compressed_html_body: html_body,
       compressed_text_body: text_body
     )
+    feed.touch(:updated_at)
 
     post.broadcast_prepend_to(feed, :posts)
     feed.broadcast_replace_to(
