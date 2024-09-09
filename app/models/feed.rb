@@ -14,7 +14,7 @@ class Feed < ApplicationRecord
   after_commit :post_warnings, on: :update
 
   scope :expired, -> { where.not(expired_at: nil) }
-  scope :stale, -> { where("updated_at < ?", config.stale_months.months.ago) }
+  scope :stale, -> { where("fetched_at < ?", config.stale_months.months.ago) }
   scope :throttled, -> { where.not(throttled_at: nil) }
   scope :unthrottleable, -> { where("throttled_at < ?", config.throttle_days.days.ago) }
 
