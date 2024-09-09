@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby Pathname.new(__dir__).join(".ruby-version").read
+ruby file: ".ruby-version"
 gem "rails", "~> 7.2"
 gem "mail", "< 2.9.0"
 
