@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :feed
+  belongs_to :feed, touch: true
   has_secure_token :token
   serialize :from, type: Mail::Address
   serialize :compressed_html_body, coder: BrotliSerializer
