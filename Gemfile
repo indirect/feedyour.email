@@ -41,7 +41,6 @@ group :production do
   gem "honeybadger", "~> 5.15"
 end
 
-gem "activerecord-enhancedsqlite3-adapter", "~> 0.8.0"
 gem "better_html", "~> 2.1"
 gem "bootsnap", "~> 1.18", require: false
 gem "brotli", "~> 0.6.0"
