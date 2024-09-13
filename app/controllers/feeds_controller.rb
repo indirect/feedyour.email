@@ -8,7 +8,7 @@ class FeedsController < ApplicationController
     return if request.format.html?
 
     @feed.fetch_or_expire!
-    fresh_when @feed
+    fresh_when @feed.last_post, public: true
 
     if @feed.expired_at?
       expires_in 100.years, public: true

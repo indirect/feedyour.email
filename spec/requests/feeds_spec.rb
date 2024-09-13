@@ -35,6 +35,24 @@ RSpec.describe "/feeds", type: :request do
         expect(response.body).to be_valid_atom_feed
       end
 
+      it "honors If-None-Match" do
+        get feed_url(feed, format: :atom)
+        etag = response.headers["etag"]
+
+        get feed_url(feed, format: :atom), headers: {"If-None-Match": etag}
+        expect(response.headers["etag"]).to eq(etag)
+        expect(response.status).to eq(304)
+      end
+
+      it "honors If-Modified-Since" do
+        get feed_url(feed, format: :atom)
+        time = response.headers["last-modified"]
+
+        get feed_url(feed, format: :atom), headers: {"If-Modified-Since": time}
+        expect(response.headers["last-modified"]).to eq(time)
+        expect(response.status).to eq(304)
+      end
+
       context "and expired" do
         it "is cached forever" do
           feed.update!(fetched_at: 4.months.ago)
@@ -66,6 +84,24 @@ RSpec.describe "/feeds", type: :request do
           get feed_url(feed, format: :json)
         }.to change { feed.reload.fetched_at }
         expect(response.body).to be_valid_json_feed
+      end
+
+      it "honors If-None-Match" do
+        get feed_url(feed, format: :json)
+        etag = response.headers["etag"]
+
+        get feed_url(feed, format: :json), headers: {"If-None-Match": etag}
+        expect(response.headers["etag"]).to eq(etag)
+        expect(response.status).to eq(304)
+      end
+
+      it "honors If-Modified-Since" do
+        get feed_url(feed, format: :json)
+        time = response.headers["last-modified"]
+
+        get feed_url(feed, format: :json), headers: {"If-Modified-Since": time}
+        expect(response.headers["last-modified"]).to eq(time)
+        expect(response.status).to eq(304)
       end
 
       context "and expired" do
