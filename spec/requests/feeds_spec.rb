@@ -34,6 +34,18 @@ RSpec.describe "/feeds", type: :request do
         }.to change { feed.reload.fetched_at }
         expect(response.body).to be_valid_atom_feed
       end
+
+      context "and expired" do
+        it "is cached forever" do
+          feed.update!(fetched_at: 4.months.ago)
+
+          expect {
+            get feed_url(feed, format: :atom)
+          }.to_not change { feed.reload.fetched_at }
+          expect(response.header["cache-control"]).to eq("max-age=3155695200, public")
+          expect(response.body).to be_valid_atom_feed
+        end
+      end
     end
   end
 
@@ -54,6 +66,18 @@ RSpec.describe "/feeds", type: :request do
           get feed_url(feed, format: :json)
         }.to change { feed.reload.fetched_at }
         expect(response.body).to be_valid_json_feed
+      end
+
+      context "and expired" do
+        it "is cached forever" do
+          feed.update!(fetched_at: 4.months.ago)
+
+          expect {
+            get feed_url(feed, format: :json)
+          }.to_not change { feed.reload.fetched_at }
+          expect(response.header["cache-control"]).to eq("max-age=3155695200, public")
+          expect(response.body).to be_valid_json_feed
+        end
       end
     end
   end
