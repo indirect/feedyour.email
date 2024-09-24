@@ -123,7 +123,7 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.5.1)
-    dockerfile-rails (1.6.17)
+    dockerfile-rails (1.6.18)
       rails (>= 3.0.0)
     drb (2.2.1)
     erb_lint (0.6.0)
@@ -223,7 +223,7 @@ GEM
     minitest (5.25.1)
     msgpack (1.7.2)
     nenv (0.3.0)
-    net-imap (0.4.14)
+    net-imap (0.4.16)
       date
       net-protocol
     net-pop (0.1.2)
