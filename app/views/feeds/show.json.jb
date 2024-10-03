@@ -6,7 +6,7 @@ Rails.cache.fetch ["v1", @feed, "json"] do
     home_page_url: feed_posts_url(@feed),
     icon: @feed.favicon_url,
     favicon: @feed.favicon_url,
-    items: @feed.posts.limit(100).map do |post|
+    items: @feed.posts.limit(25).map do |post|
              {
                id: post.token,
                url: post_url(post),
