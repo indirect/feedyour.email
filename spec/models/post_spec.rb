@@ -55,6 +55,15 @@ RSpec.describe Post, type: :model do
       expect(post.html_body).to eq("<h1>hi</h1>")
       expect(post[:text_body]).to eq("hi")
     end
+
+    it "accepts a compressed text body" do
+      post.html_body = "<h1>hi</h1>"
+      post.compressed_text_body = "hi"
+      post.save!
+      expect(post.html_body).to eq("<h1>hi</h1>")
+      expect(post.text_body).to eq("hi")
+      expect(post[:text_body]).to eq(nil)
+    end
   end
 end
 
