@@ -1,10 +1,5 @@
 class Post < ApplicationRecord
   belongs_to :feed
-  has_secure_token :token
-  serialize :from, type: Mail::Address
-  serialize :compressed_html_body, coder: BrotliSerializer
-  serialize :compressed_text_body, coder: BrotliSerializer
-  delegate :domain, to: :from
 
   validates :token, uniqueness: {case_sensitive: false}
 
@@ -15,9 +10,17 @@ class Post < ApplicationRecord
   scope :not_system, -> { where.not(from: Rails.configuration.system_email) }
   scope :system, -> { where(from: Rails.configuration.system_email) }
 
+  serialize :from, type: Mail::Address
+  serialize :compressed_html_body, coder: BrotliSerializer
+  serialize :compressed_text_body, coder: BrotliSerializer
+
+  has_secure_token :token
+
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length).downcase
   end
+
+  delegate :domain, to: :from
 
   def from=(from)
     write_attribute :from, parse_from(from)

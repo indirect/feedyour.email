@@ -10,7 +10,7 @@ class PostMailbox < ApplicationMailbox
       from: mail.from_address,
       subject: mail.subject,
       compressed_html_body: html_body,
-      compressed_text_body: text_body
+      text_body: text_body
     )
     feed.touch(:updated_at)
 
