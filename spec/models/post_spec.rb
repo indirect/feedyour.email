@@ -47,6 +47,15 @@ RSpec.describe Post, type: :model do
     post.text_body = "plaintext hi"
     expect(post.text_body).to eq("plaintext hi")
   end
+
+  describe "on save" do
+    it "ensures a text body" do
+      post.html_body = "<h1>hi</h1>"
+      post.save!
+      expect(post.html_body).to eq("<h1>hi</h1>")
+      expect(post[:text_body]).to eq("hi")
+    end
+  end
 end
 
 # == Schema Information

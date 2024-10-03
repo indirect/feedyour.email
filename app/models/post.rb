@@ -3,6 +3,7 @@ class Post < ApplicationRecord
 
   validates :token, uniqueness: {case_sensitive: false}
 
+  before_save :ensure_searchable!
   after_commit -> { feed.warn_if_needed unless system? }
 
   scope :last_hour, -> { where("created_at > ?", 1.hour.ago) }
@@ -61,6 +62,10 @@ class Post < ApplicationRecord
     from.match(/(.*?) <(.*)>/) do |m|
       Mail::Address.new("\"#{m[1]}\" <#{m[2]}>")
     end
+  end
+
+  def ensure_searchable!
+    self.text_body ||= ActionText::Content.new(html_body).to_plain_text
   end
 end
 
