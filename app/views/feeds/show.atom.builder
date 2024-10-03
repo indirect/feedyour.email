@@ -4,7 +4,7 @@ cache ["v1", @feed, "atom"] do
     atom.updated @feed.updated_at
     atom.icon @feed.favicon_url if @feed.favicon_url
 
-    @feed.posts.limit(100).each do |post|
+    @feed.posts.limit(25).each do |post|
       atom.entry(post) do |entry|
         entry.author do |author|
           author.name post.from_name
