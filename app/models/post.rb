@@ -11,6 +11,13 @@ class Post < ApplicationRecord
   scope :not_system, -> { where.not(from: Rails.configuration.system_email) }
   scope :system, -> { where(from: Rails.configuration.system_email) }
 
+  include Litesearch::Model
+
+  litesearch do |schema|
+    schema.field :text_body
+    schema.field :subject
+  end
+
   serialize :from, type: Mail::Address
   serialize :compressed_html_body, coder: BrotliSerializer
   serialize :compressed_text_body, coder: BrotliSerializer
