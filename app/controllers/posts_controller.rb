@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def search
     index
-    @posts = @posts.search_all(params[:q]) if params.key?(:q)
+    @posts = @posts.search(params[:q]) if params.key?(:q)
     render :index
   end
 

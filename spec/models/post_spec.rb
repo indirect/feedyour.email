@@ -65,6 +65,22 @@ RSpec.describe Post, type: :model do
       expect(post[:text_body]).to eq(nil)
     end
   end
+
+  describe "#search" do
+    context "with a single feed" do
+      it "scopes results to posts in the feed" do
+        feed1 = Feed.create!
+        feed2 = Feed.create!
+
+        feed1.posts.create!(text_body: "meme 1")
+        feed2.posts.create!(text_body: "meme 2")
+
+        expect(feed1.posts.search("meme").size).to eq(1)
+        expect(feed2.posts.search("meme").size).to eq(1)
+        expect(Post.search("meme").size).to eq(2)
+      end
+    end
+  end
 end
 
 # == Schema Information
