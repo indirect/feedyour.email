@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_08_033114) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_03_015606) do
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
     t.string "message_id", null: false
@@ -73,6 +73,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_08_033114) do
     t.string "text_body"
     t.binary "compressed_html_body"
     t.binary "compressed_text_body"
+    t.string "raw_from"
     t.index ["feed_id", "updated_at"], name: "index_posts_on_feed_id_and_updated_at", order: { updated_at: :desc }
     t.index ["feed_id"], name: "index_posts_on_feed_id"
     t.index ["token"], name: "index_posts_on_token", unique: true

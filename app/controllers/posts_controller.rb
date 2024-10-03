@@ -4,6 +4,12 @@ class PostsController < ApplicationController
     @posts = @feed.posts
   end
 
+  def search
+    index
+    @posts = @posts.search(params[:q]) if params.key?(:q)
+    render :index
+  end
+
   def show
     @post = Post.find_by!(token: params[:id])
     if @post.html_body

@@ -1,13 +1,9 @@
 class Post < ApplicationRecord
   belongs_to :feed
-  has_secure_token :token
-  serialize :from, type: Mail::Address
-  serialize :compressed_html_body, coder: BrotliSerializer
-  serialize :compressed_text_body, coder: BrotliSerializer
-  delegate :domain, to: :from
 
   validates :token, uniqueness: {case_sensitive: false}
 
+  before_save :ensure_searchable!
   after_commit -> { feed.warn_if_needed unless system? }
 
   scope :last_hour, -> { where("created_at > ?", 1.hour.ago) }
@@ -15,9 +11,25 @@ class Post < ApplicationRecord
   scope :not_system, -> { where.not(from: Rails.configuration.system_email) }
   scope :system, -> { where(from: Rails.configuration.system_email) }
 
+  include Litesearch::Model
+
+  litesearch do |schema|
+    schema.field :text_body
+    schema.field :subject
+    schema.field :raw_from
+  end
+
+  serialize :from, type: Mail::Address
+  serialize :compressed_html_body, coder: BrotliSerializer
+  serialize :compressed_text_body, coder: BrotliSerializer
+
+  has_secure_token :token
+
   def self.generate_unique_secure_token(length:)
     SecureRandom.base36(length).downcase
   end
+
+  delegate :domain, to: :from
 
   def from=(from)
     write_attribute :from, parse_from(from)
@@ -59,6 +71,11 @@ class Post < ApplicationRecord
       Mail::Address.new("\"#{m[1]}\" <#{m[2]}>")
     end
   end
+
+  def ensure_searchable!
+    self.text_body ||= ActionText::Content.new(html_body).to_plain_text
+    self.raw_from ||= from.format
+  end
 end
 
 # == Schema Information
@@ -71,6 +88,7 @@ end
 #  from                 :string
 #  html_body            :string
 #  payload              :json
+#  raw_from             :string
 #  subject              :string
 #  text_body            :string
 #  token                :string           not null
