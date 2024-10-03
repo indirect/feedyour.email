@@ -16,6 +16,7 @@ class Post < ApplicationRecord
   litesearch do |schema|
     schema.field :text_body
     schema.field :subject
+    schema.field :raw_from
   end
 
   serialize :from, type: Mail::Address
@@ -73,6 +74,7 @@ class Post < ApplicationRecord
 
   def ensure_searchable!
     self.text_body ||= ActionText::Content.new(html_body).to_plain_text
+    self.raw_from ||= from&.raw
   end
 end
 
@@ -86,6 +88,7 @@ end
 #  from                 :string
 #  html_body            :string
 #  payload              :json
+#  raw_from             :string
 #  subject              :string
 #  text_body            :string
 #  token                :string           not null

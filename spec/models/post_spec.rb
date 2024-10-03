@@ -68,6 +68,7 @@ end
 #  from                 :string
 #  html_body            :string
 #  payload              :json
+#  raw_from             :string
 #  subject              :string
 #  text_body            :string
 #  token                :string           not null
