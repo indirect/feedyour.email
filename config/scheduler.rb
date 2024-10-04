@@ -3,4 +3,8 @@ Rufus::Scheduler.singleton.tap do |s|
     Feed.stale.find_each(&:expire_if_stale!)
     Feed.unthrottleable.find_each(&:unthrottle!)
   end
+
+  s.every "1d" do
+    DatabaseBackup.run!
+  end
 end.join
