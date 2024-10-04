@@ -4,7 +4,7 @@ Rufus::Scheduler.singleton.tap do |s|
     Feed.unthrottleable.find_each(&:unthrottle!)
   end
 
-  s.every "1d" do
+  s.cron "0 10 * * *" do
     DatabaseBackup.run!
   end
 end.join
