@@ -16,6 +16,7 @@ class DecompressPlaintext < ActiveRecord::Migration[7.2]
       post[:text_body] ||= post[:compressed_text_body]
       post[:compressed_text_body] = nil if post[:text_body]
       post.save!
+      sleep 0.5
     end
   end
 
@@ -24,6 +25,7 @@ class DecompressPlaintext < ActiveRecord::Migration[7.2]
       post[:compressed_text_body] ||= post[:text_body]
       post[:text_body] = nil if post[:compressed_text_body]
       post.save!
+      sleep 0.5
     end
   end
 end
