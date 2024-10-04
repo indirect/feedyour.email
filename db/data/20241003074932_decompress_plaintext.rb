@@ -4,7 +4,7 @@ require "progress_bar"
 
 module Progress
   refine Enumerable do
-    import_methods ProgressBar::WithProgress
+    define_method :with_progress, ProgressBar::WithProgress.instance_method(:with_progress)
   end
 end
 
