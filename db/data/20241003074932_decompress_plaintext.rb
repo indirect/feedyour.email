@@ -1,9 +1,15 @@
 # frozen_string_literal: true
 
-class DecompressPlaintext < ActiveRecord::Migration[7.2]
+require "progress_bar"
+
+module Progress
   refine Enumerable do
     import_methods ProgressBar::WithProgress
   end
+end
+
+class DecompressPlaintext < ActiveRecord::Migration[7.2]
+  using Progress
 
   def up
     Post.find_each.with_progress do |post|
