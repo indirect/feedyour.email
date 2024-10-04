@@ -5,8 +5,10 @@ class PostsController < ApplicationController
   end
 
   def search
+    return redirect_to feed_posts_path if params[:q].blank?
+
     index
-    @posts = @posts.search(params[:q]) if params.key?(:q)
+    @posts = @posts.search(params[:q])
     render :index
   end
 

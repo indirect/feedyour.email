@@ -74,7 +74,7 @@ class Post < ApplicationRecord
 
   def ensure_searchable!
     self.text_body ||= ActionText::Content.new(html_body).to_plain_text
-    self.raw_from ||= from.format
+    self.raw_from ||= from.format if respond_to?(:raw_from)
   end
 end
 
