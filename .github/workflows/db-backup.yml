@@ -27,7 +27,7 @@ jobs:
         run: |
           flyctl -a ${{ env.FLY_APP_NAME }} ssh sftp get /rails/storage/production/backup.sqlite3.gzip ${{ steps.filename.outputs.filename }}
       - name: Upload compressed backup as GitHub artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.filename.outputs.filename }}
           path: ${{ steps.filename.outputs.filename }}
