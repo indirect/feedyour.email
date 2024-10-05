@@ -9,6 +9,8 @@ module Progress
 end
 
 class DecompressPlaintext < ActiveRecord::Migration[7.2]
+  disable_ddl_transaction!
+
   using Progress
 
   def up
