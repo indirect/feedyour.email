@@ -2,7 +2,7 @@
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
 ARG RUBY_VERSION=3.3.5
-FROM ruby:$RUBY_VERSION-slim as base
+FROM ruby:$RUBY_VERSION-slim AS base
 
 ARG GIT_SHA
 ENV GIT_SHA=${GIT_SHA:-unknown}
@@ -22,7 +22,7 @@ RUN gem update --system --no-document && \
 
 
 # Throw-away build stage to reduce size of final image
-FROM base as build
+FROM base AS build
 
 # Install packages needed to build gems
 RUN --mount=type=cache,id=dev-apt-cache,sharing=locked,target=/var/cache/apt \
