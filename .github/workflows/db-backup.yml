@@ -18,16 +18,18 @@ jobs:
         id: filename
         run: |
           CURRENT_DATE=$(date +"%Y-%m-%d_%H-%M-%S")
-          echo "filename=backup_${CURRENT_DATE}.gz" >> "$GITHUB_OUTPUT"
+          echo "filename=backup_${CURRENT_DATE}" >> "$GITHUB_OUTPUT"
       - name: Setup Fly.io CLI
         uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Fetch backup from Fly.io
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         run: |
-          flyctl -a ${{ env.FLY_APP_NAME }} ssh sftp get /rails/storage/production/backup.sqlite3.gzip ${{ steps.filename.outputs.filename }}
+          flyctl -a ${{ env.FLY_APP_NAME }} ssh sftp get /rails/storage/production/backup.sqlite3 ${{ steps.filename.outputs.filename }}
+      - name: Compress backup
+        run: gzip ${{ steps.filename.outputs.filename }}
       - name: Upload compressed backup as GitHub artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
-          name: ${{ steps.filename.outputs.filename }}
-          path: ${{ steps.filename.outputs.filename }}
+          name: ${{ steps.filename.outputs.filename }}.gz
+          path: ${{ steps.filename.outputs.filename }}.gz

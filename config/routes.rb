@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   end
   resources :stats, only: [:index]
 
+  get "up" => "rails/health#show"
+
   root "feeds#new"
 end
