@@ -6,12 +6,16 @@
     <%= @feed.name %>
   </p>
 
-  <%= form_with url: search_feed_posts_path(@feed), method: :get, local: true, class: "flex mt-6 gap-4" do |form| %>
+  <%= form_with url: search_feed_posts_path(@feed), method: :get, local: true, class: "flex mt-6 mb-4 gap-4" do |form| %>
     <%= form.text_field :q, value: params[:q], class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
     <%= form.submit "Search posts", name: nil, class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
   <% end %>
+  <%= tag.p(class: "mt-2 border-l-2 border-red-500 bg-red-50 pl-4 py-2 rounded") do %>
+    <b>Search Failed</b><br>
+    <%= flash[:search_failed] %>
+  <% end if flash.key?(:search_failed) %>
 
-  <ul id="posts" role="list" class="divide-y divide-gray-200 mt-8 bg-white shadow sm:rounded-md">
+  <ul id="posts" role="list" class="divide-y divide-gray-200 mt-4 bg-white shadow sm:rounded-md">
     <%= render @posts, cached: true %>
   </ul>
 </div>
