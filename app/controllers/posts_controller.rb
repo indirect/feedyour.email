@@ -8,7 +8,12 @@ class PostsController < ApplicationController
     return redirect_to feed_posts_path if params[:q].blank?
 
     index
-    @posts = @posts.search(params[:q])
+    @posts = @posts.search(params[:q]).to_a
+    render :index
+  rescue ActiveRecord::StatementInvalid => e
+    raise(e) unless e.cause.is_a?(SQLite3::SQLException)
+
+    flash.now.alert = "<b>Search failed</b><br>#{e.cause.message}"
     render :index
   end
 
