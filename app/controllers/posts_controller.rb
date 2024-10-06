@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   rescue ActiveRecord::StatementInvalid => e
     raise(e) unless e.cause.is_a?(SQLite3::SQLException)
 
-    flash.now.alert = "<b>Search failed</b><br>#{e.cause.message}"
+    flash.now[:search_failed] = e.cause.message
     render :index
   end
 
