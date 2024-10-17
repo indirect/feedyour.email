@@ -129,7 +129,7 @@ GEM
     dockerfile-rails (1.6.22)
       rails (>= 3.0.0)
     drb (2.2.1)
-    erb_lint (0.6.0)
+    erb_lint (0.7.0)
       activesupport
       better_html (>= 2.0.1)
       parser (>= 2.7.1.4)
@@ -458,7 +458,7 @@ DEPENDENCIES
   data_migrate (~> 11.1)
   debug (~> 1.9)
   dockerfile-rails (~> 1.6)
-  erb_lint (~> 0.6.0)
+  erb_lint (~> 0.7.0)
   guard-bundler-audit (~> 0.1.5)
   guard-erb_lint!
   guard-rspec (~> 4.7)
