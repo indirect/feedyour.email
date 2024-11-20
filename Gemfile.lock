@@ -175,7 +175,7 @@ GEM
       guard-compat (~> 1.0)
     highline (3.1.1)
       reline
-    honeybadger (5.22.0)
+    honeybadger (5.23.0)
       logger
     hotwire-livereload (1.4.1)
       actioncable (>= 6.0.0)
@@ -462,7 +462,7 @@ DEPENDENCIES
   guard-rspec (~> 4.7)
   guard-rubocop (~> 1.5)
   guard-shell (~> 0.7.2)
-  honeybadger (~> 5.22)
+  honeybadger (~> 5.23)
   hotwire-livereload (~> 1.4)
   importmap-rails (~> 2.0)
   jb (~> 0.8.2)
