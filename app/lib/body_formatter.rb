@@ -13,7 +13,11 @@ class BodyFormatter
         .gsub("</style>", "[class^=\"liveintent\"] { display: none !important; }</style>")
         .gsub("</head>", ApplicationController.render(partial: "posts/injected_header"))
         .gsub(/<table class="footer".*/m, "</body></html>")
-      return body if body =~ /class="footnote-content"/
+      return body if body.match?(/class="footnote-content"/)
+
+      body.gsub!(/href="#footnote-(\d+)"/) { "href=\"#footnote-#{$1}\" class=\"footnote-index\"" }
+      body.gsub!(/id="footnote-(\d+)"/) { "id=\"footnote-#{$1}\" class=\"footnote-content\"" }
+      return body if body.match?(/class="footnote-content"/)
 
       body.gsub(/(.{4})(\[\d+\])/) do
         if $1 == "<em>"
