@@ -42,8 +42,7 @@ class PostMailbox < ApplicationMailbox
       .uniq
 
     return nil if tokens.size.zero?
-    return tokens.first if tokens.size == 1
-    raise("Too many feeds! #{tokens.inspect}")
+    return tokens.first
   end
 
   def postmark_test?
