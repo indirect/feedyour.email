@@ -209,6 +209,39 @@ GEM
       rackup (~> 2)
       sqlite3 (>= 1.6.0, < 2.0.0)
       tilt (~> 2)
+    litestream (0.12.0)
+      actionpack (>= 7.0)
+      actionview (>= 7.0)
+      activejob (>= 7.0)
+      activesupport (>= 7.0)
+      logfmt (>= 0.0.10)
+      railties (>= 7.0)
+      sqlite3
+    litestream (0.12.0-arm64-darwin)
+      actionpack (>= 7.0)
+      actionview (>= 7.0)
+      activejob (>= 7.0)
+      activesupport (>= 7.0)
+      logfmt (>= 0.0.10)
+      railties (>= 7.0)
+      sqlite3
+    litestream (0.12.0-x86_64-darwin)
+      actionpack (>= 7.0)
+      actionview (>= 7.0)
+      activejob (>= 7.0)
+      activesupport (>= 7.0)
+      logfmt (>= 0.0.10)
+      railties (>= 7.0)
+      sqlite3
+    litestream (0.12.0-x86_64-linux)
+      actionpack (>= 7.0)
+      actionview (>= 7.0)
+      activejob (>= 7.0)
+      activesupport (>= 7.0)
+      logfmt (>= 0.0.10)
+      railties (>= 7.0)
+      sqlite3
+    logfmt (0.0.10)
     logger (1.6.1)
     lograge (0.14.0)
       actionpack (>= 4)
@@ -470,6 +503,7 @@ DEPENDENCIES
   json-schema (~> 5.1)
   libxml-ruby (~> 5.0.3)
   litestack (~> 0.4.4)
+  litestream (~> 0.12.0)
   lograge (~> 0.14.0)
   mail (< 2.9.0)
   nilify_blanks (~> 1.4)
@@ -495,7 +529,7 @@ DEPENDENCIES
   web-console (~> 4.2)
 
 RUBY VERSION
-   ruby 3.3.5p100
+   ruby 3.3.6p108
 
 BUNDLED WITH
-   2.5.21
+   2.5.23

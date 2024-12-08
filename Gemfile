@@ -48,6 +48,7 @@ gem "data_migrate", "~> 11.2"
 gem "importmap-rails", "~> 2.0"
 gem "jb", "~> 0.8.2"
 gem "litestack", "~> 0.4.4"
+gem "litestream", "~> 0.12.0"
 gem "nilify_blanks", "~> 1.4"
 gem "ostruct", "~> 0.6.1"
 gem "progress_bar", "~> 1.3", require: false
