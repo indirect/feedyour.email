@@ -34,7 +34,7 @@ jobs:
         run: bin/rubocop --require code_scanning --format CodeScanning::SarifFormatter -o tmp/sarif/rubocop.sarif --format clang
         if: always()
       - name: Lint ERB files
-        run: bin/erblint --lint-all
+        run: bin/erb_lint --lint-all
         if: always()
       - name: Brakeman code scan
         id: brakeman
