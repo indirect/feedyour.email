@@ -43,5 +43,11 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 plugin "tmp_restart"
 # Run scheduled jobs via rufus
 plugin "rufus-scheduler"
-# Rebuild CSS on changes
-plugin "tailwindcss" if ENV.fetch("RAILS_ENV", "development") == "development"
+case ENV.fetch("RAILS_ENV", "development")
+when "development"
+  # Rebuild CSS on changes
+  plugin "tailwindcss"
+when "production"
+  # Streaming database backups
+  plugin "litestream"
+end
