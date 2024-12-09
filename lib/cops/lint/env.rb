@@ -3,7 +3,7 @@ module RuboCop
     module Lint
       # This cops checks for direct usage of ENV variables and
       # Rails.env
-      class Env < RuboCop::Cop::Cop
+      class Env < RuboCop::Cop::Base
         MSG_ENV = "Avoid direct usage of ENV in application code"
         MSG_RAILS_ENV = "Avoid direct usage of Rails.env in application code"
         USAGE_MSG = ", use configuration parameters instead"
@@ -19,12 +19,12 @@ module RuboCop
         def on_const(node)
           return unless env?(node)
           return if allowed_env?(node.parent.children.last.children.last)
-          add_offense(node.parent, location: :selector, message: MSG_ENV + USAGE_MSG)
+          add_offense(node.parent, message: MSG_ENV + USAGE_MSG)
         end
 
         def on_send(node)
           return unless rails_env?(node)
-          add_offense((node.parent.type == :send) ? node.parent : node, location: :selector, message: MSG_RAILS_ENV + USAGE_MSG)
+          add_offense((node.parent.type == :send) ? node.parent : node, message: MSG_RAILS_ENV + USAGE_MSG)
         end
 
         private
