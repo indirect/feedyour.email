@@ -4,4 +4,4 @@ set -euo pipefail
 bin/bundler-audit --update
 bin/brakeman -q -w2
 bin/rubocop
-bin/erblint --lint-all
+bin/erb_lint --lint-all

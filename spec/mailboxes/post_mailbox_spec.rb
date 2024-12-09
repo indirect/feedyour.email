@@ -75,8 +75,8 @@ RSpec.describe PostMailbox, type: :mailbox do
     expect {
       expect {
         process(mail)
-      }.to raise_error('Too many feeds! ["abc123", "def456"]')
-    }.to_not change { feed.posts.count }
+      }.to_not raise_error
+    }.to change { feed.posts.count }
   end
 
   it "errors when no feed emails are found" do
