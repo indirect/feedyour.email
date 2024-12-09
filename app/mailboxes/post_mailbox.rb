@@ -42,7 +42,7 @@ class PostMailbox < ApplicationMailbox
       .uniq
 
     return nil if tokens.size.zero?
-    return tokens.first
+    tokens.first
   end
 
   def postmark_test?
