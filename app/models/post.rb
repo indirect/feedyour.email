@@ -73,8 +73,15 @@ class Post < ApplicationRecord
   end
 
   def ensure_searchable!
-    self.text_body ||= ActionText::Content.new(html_body).to_plain_text
     self.raw_from ||= from.format if respond_to?(:raw_from)
+    self.text_body ||= html_body_as_plain_text
+  end
+
+  def html_body_as_plain_text
+    node = Nokogiri::HTML5(html_body, max_tree_depth: 1000)
+    ActionText::PlainTextConversion.node_to_plain_text(node)
+  rescue ArgumentError => e
+    "Error parsing HTML: #{e.message}"
   end
 end
 
