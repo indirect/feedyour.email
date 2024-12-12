@@ -13,7 +13,7 @@ class FeedsController < ApplicationController
     if @feed.expired_at?
       expires_in 100.years, public: true
     elsif @feed.created_at < 1.day.ago
-      expires_in 1.day, public: true
+      expires_in 1.hour, public: true
     end
   end
 
