@@ -116,14 +116,36 @@ RSpec.describe PostMailbox, type: :mailbox do
     expect(Post.last.html_body.size).to eq(26964)
   end
 
-  it "purges cloudflare caches by URL" do
-    Rails.application.config.cloudflare_api_token = "123"
-    Rails.application.routes.default_url_options[:host] = "feedyouremail.test"
+  describe "with a cloudflare api token" do
+    before do
+      Rails.application.config.cloudflare_api_token = "123"
+    end
 
-    mail = Mail.read file_fixture("attachment-1.eml")
+    after do
+      Rails.application.config.cloudflare_api_token = nil
+    end
 
-    expect(Cloudflare).to receive(:connect)
+    it "purges cloudflare caches by URL" do
+      Rails.application.routes.default_url_options[:host] = "feedyouremail.test"
 
-    expect { process(mail) }.to change { Post.count }
+      mail = Mail.read file_fixture("attachment-1.eml")
+
+      zone = double("zone")
+      zones = double("zones", find_by_name: zone)
+      cf = double("cf", zones: zones)
+      urls = [
+        "http://feedyouremail.test/feeds/abc123",
+        "http://feedyouremail.test/feeds/abc123.atom",
+        "http://feedyouremail.test/feeds/abc123.json"
+      ]
+
+      expect(zone).to receive(:purge_cache).with(files: urls)
+
+      expect(Cloudflare).to receive(:connect).with(token: "123") do |&block|
+        block.call(cf)
+      end
+
+      expect { process(mail) }.to change { Post.count }
+    end
   end
 end
