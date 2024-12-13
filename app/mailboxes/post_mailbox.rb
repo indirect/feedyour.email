@@ -83,6 +83,10 @@ class PostMailbox < ApplicationMailbox
     document.to_s
   end
 
+  def feed_url(*, **)
+    Rails.application.routes.url_helpers.feed_url(*, **)
+  end
+
   def purge_cache(feed)
     return unless Rails.application.config.cloudflare_api_token
 

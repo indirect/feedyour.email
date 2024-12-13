@@ -115,4 +115,15 @@ RSpec.describe PostMailbox, type: :mailbox do
     expect { process(mail) }.to change { Post.count }
     expect(Post.last.html_body.size).to eq(26964)
   end
+
+  it "purges cloudflare caches by URL" do
+    Rails.application.config.cloudflare_api_token = "123"
+    Rails.application.routes.default_url_options[:host] = "feedyouremail.test"
+
+    mail = Mail.read file_fixture("attachment-1.eml")
+
+    expect(Cloudflare).to receive(:connect)
+
+    expect { process(mail) }.to change { Post.count }
+  end
 end
