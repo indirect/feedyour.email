@@ -37,8 +37,11 @@ group :development do
 end
 
 group :production do
-  gem "lograge", "~> 0.14.0"
+  gem "cloudflare", "~> 4.4"
+  gem "cloudflare-rails", "~> 6.2"
   gem "honeybadger", "~> 5.26"
+  gem "lograge", "~> 0.14.0"
+  gem "rack-attack", "~> 6.7"
 end
 
 gem "better_html", "~> 2.1"
