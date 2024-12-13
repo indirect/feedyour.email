@@ -13,6 +13,7 @@ class PostMailbox < ApplicationMailbox
       text_body: text_body
     )
     feed.touch(:updated_at)
+    purge_cache(feed)
 
     post.broadcast_prepend_to(feed, :posts)
     feed.broadcast_replace_to(
@@ -80,5 +81,15 @@ class PostMailbox < ApplicationMailbox
     end
 
     document.to_s
+  end
+
+  def purge_cache(feed)
+    return unless Rails.application.config.cloudflare_api_token
+
+    urls = [feed_url(feed), feed_url(feed, format: :atom), feed_url(feed, format: :json)]
+
+    Cloudflare.connect(token: Rails.application.config.cloudflare_api_token) do |c|
+      c.zones.find_by_name("feedyour.email").purge_cache(files: urls) # rubocop:disable Rails/DynamicFindBy
+    end
   end
 end
