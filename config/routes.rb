@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     end
   end
   resources :stats, only: [:index]
+  resources :requests, only: [:show]
 
   get "up" => "rails/health#show"
 
