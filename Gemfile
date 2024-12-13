@@ -37,7 +37,6 @@ group :development do
 end
 
 group :production do
-  gem "cloudflare", "~> 4.4"
   gem "cloudflare-rails", "~> 6.2"
   gem "honeybadger", "~> 5.26"
   gem "lograge", "~> 0.14.0"
@@ -47,6 +46,7 @@ end
 gem "better_html", "~> 2.1"
 gem "bootsnap", "~> 1.18", require: false
 gem "brotli", "~> 0.6.0"
+gem "cloudflare", "~> 4.4"
 gem "data_migrate", "~> 11.2"
 gem "importmap-rails", "~> 2.0"
 gem "jb", "~> 0.8.2"
