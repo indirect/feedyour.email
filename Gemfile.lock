@@ -169,7 +169,7 @@ GEM
       rainbow
       rubocop (>= 1)
       smart_properties
-    erubi (1.13.0)
+    erubi (1.13.1)
     et-orbi (1.2.11)
       tzinfo
     ffi (1.17.0-aarch64-linux-gnu)
@@ -218,7 +218,7 @@ GEM
       railties (>= 6.0.0)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
-    importmap-rails (2.0.3)
+    importmap-rails (2.1.0)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
@@ -280,7 +280,7 @@ GEM
       railties (>= 7.0)
       sqlite3
     logfmt (0.0.10)
-    logger (1.6.3)
+    logger (1.6.4)
     lograge (0.14.0)
       actionpack (>= 4)
       activesupport (>= 4)
@@ -472,7 +472,7 @@ GEM
     ruby-progressbar (1.13.0)
     rufus-scheduler (3.9.2)
       fugit (~> 1.1, >= 1.11.1)
-    securerandom (0.4.0)
+    securerandom (0.4.1)
     shellany (0.0.1)
     smart_properties (1.17.0)
     sqlite3 (1.7.3-aarch64-linux)
@@ -552,7 +552,7 @@ DEPENDENCIES
   guard-shell (~> 0.7.2)
   honeybadger (~> 5.26)
   hotwire-livereload (~> 1.4)
-  importmap-rails (~> 2.0)
+  importmap-rails (~> 2.1)
   jb (~> 0.8.2)
   json-schema (~> 5.1)
   libxml-ruby (~> 5.0.3)
