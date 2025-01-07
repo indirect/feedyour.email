@@ -18,7 +18,7 @@ group :development do
   gem "bundler-audit", "~> 0.9.2", require: false
   gem "code-scanning-rubocop", "~> 0.6.1", require: false,
     github: "arthurnn/code-scanning-rubocop"
-  gem "dockerfile-rails", "~> 1.6"
+  gem "dockerfile-rails", "~> 1.7"
   gem "erb_lint", "~> 0.7.0", require: false
   gem "guard-bundler-audit", "~> 0.1.5", require: false
   gem "guard-erb_lint", github: "Driversnote-Dev/guard-erb_lint", require: false
