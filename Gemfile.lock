@@ -145,7 +145,7 @@ GEM
       zeitwerk (>= 2.5.0)
     coderay (1.1.3)
     concurrent-ruby (1.3.4)
-    connection_pool (2.4.1)
+    connection_pool (2.5.0)
     console (1.29.2)
       fiber-annotation
       fiber-local (~> 1.1)
@@ -162,7 +162,7 @@ GEM
     dockerfile-rails (1.7.0)
       rails (>= 3.0.0)
     drb (2.2.1)
-    erb_lint (0.7.0)
+    erb_lint (0.8.0)
       activesupport
       better_html (>= 2.0.1)
       parser (>= 2.7.1.4)
@@ -510,7 +510,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (3.1.2)
+    unicode-display_width (3.1.3)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
     useragent (0.16.11)
@@ -547,7 +547,7 @@ DEPENDENCIES
   data_migrate (~> 11.2)
   debug (~> 1.10)
   dockerfile-rails (~> 1.7)
-  erb_lint (~> 0.7.0)
+  erb_lint (~> 0.8.0)
   guard-bundler-audit (~> 0.1.5)
   guard-erb_lint!
   guard-rspec (~> 4.7)
