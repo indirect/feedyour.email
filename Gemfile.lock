@@ -211,8 +211,9 @@ GEM
       guard-compat (~> 1.0)
     highline (3.1.1)
       reline
-    honeybadger (5.26.1)
+    honeybadger (5.26.2)
       logger
+      ostruct
     hotwire-livereload (2.0.0)
       actioncable (>= 7.0.0)
       listen (>= 3.0.0)
@@ -281,7 +282,7 @@ GEM
       railties (>= 7.0)
       sqlite3
     logfmt (0.0.10)
-    logger (1.6.4)
+    logger (1.6.5)
     lograge (0.14.0)
       actionpack (>= 4)
       activesupport (>= 4)
