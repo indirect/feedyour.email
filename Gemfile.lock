@@ -495,7 +495,7 @@ GEM
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.23.0)
     stringio (3.1.2)
-    tailwindcss-rails (3.1.0)
+    tailwindcss-rails (3.2.0)
       railties (>= 7.0.0)
       tailwindcss-ruby
     tailwindcss-ruby (3.4.17-aarch64-linux)
@@ -583,7 +583,7 @@ DEPENDENCIES
   rubocop-rspec_rails (~> 2.30)
   rufus-scheduler (~> 3.9)
   standard (~> 1.43)
-  tailwindcss-rails (~> 3.1)
+  tailwindcss-rails (~> 3.2)
   turbo-rails (~> 2.0)
   web-console (~> 4.2)
 
