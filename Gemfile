@@ -56,7 +56,7 @@ gem "nilify_blanks", "~> 1.4"
 gem "ostruct", "~> 0.6.1"
 gem "progress_bar", "~> 1.3", require: false
 gem "propshaft", "~> 1.1.0"
-gem "puma", "~> 6.5"
+gem "puma", "~> 6.6"
 gem "puma-rufus-scheduler", "~> 0.1.0"
 gem "rack-canonical-host", "~> 1.3", require: false
 gem "rufus-scheduler", "~> 3.9"
