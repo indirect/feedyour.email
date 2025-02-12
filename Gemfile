@@ -32,7 +32,7 @@ group :development do
   gem "rubocop-rails", "~> 2.29", require: false
   gem "rubocop-rspec", "~> 3.4", require: false
   gem "rubocop-rspec_rails", "~> 2.30", require: false
-  gem "standard", "~> 1.44", require: false
+  gem "standard", "~> 1.45", require: false
   gem "web-console", "~> 4.2"
 end
 
