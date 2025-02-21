@@ -90,10 +90,16 @@ class PostMailbox < ApplicationMailbox
   def purge_cache(feed)
     return unless Rails.application.config.cloudflare_api_token
 
-    urls = [feed_url(feed), feed_url(feed, format: :atom), feed_url(feed, format: :json)]
+    urls = [
+      feed_url(feed),
+      feed_url(feed, format: :atom),
+      feed_url(feed, format: :json)
+    ]
 
     Cloudflare.connect(token: Rails.application.config.cloudflare_api_token) do |c|
-      c.zones.find_by_name("feedyour.email").purge_cache(files: urls) # rubocop:disable Rails/DynamicFindBy
+      zones = c.zones
+      zone = zones.find_by_name("feedyour.email") # rubocop:disable Rails/DynamicFindBy
+      zone.purge_cache(files: urls)
     end
   end
 end
