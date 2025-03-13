@@ -26,12 +26,12 @@ group :development do
   gem "guard-rubocop", "~> 1.5", require: false
   gem "guard-shell", "~> 0.7.2", require: false
   gem "hotwire-livereload", "~> 2.0"
-  gem "rubocop-capybara", "~> 2.21", require: false
-  gem "rubocop-factory_bot", "~> 2.26", require: false
+  gem "rubocop-capybara", "~> 2.22", require: false
+  gem "rubocop-factory_bot", "~> 2.27", require: false
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
-  gem "rubocop-rails", "~> 2.29", require: false
-  gem "rubocop-rspec", "~> 3.4", require: false
-  gem "rubocop-rspec_rails", "~> 2.30", require: false
+  gem "rubocop-rails", "~> 2.30", require: false
+  gem "rubocop-rspec", "~> 3.5", require: false
+  gem "rubocop-rspec_rails", "~> 2.31", require: false
   gem "standard", "~> 1.45", require: false
   gem "web-console", "~> 4.2"
 end
@@ -60,5 +60,5 @@ gem "puma", "~> 6.6"
 gem "puma-rufus-scheduler", "~> 0.1.0"
 gem "rack-canonical-host", "~> 1.3", require: false
 gem "rufus-scheduler", "~> 3.9"
-gem "tailwindcss-rails", "~> 3.3"
+gem "tailwindcss-rails", "~> 4.2"
 gem "turbo-rails", "~> 2.0"
