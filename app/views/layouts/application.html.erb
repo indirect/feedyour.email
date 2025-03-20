@@ -9,7 +9,7 @@
     <%= auto_discovery_link_tag(:atom, feed_url(@feed, format: "atom"), title: @feed.name) if @feed&.persisted? %>
     <%= auto_discovery_link_tag(:json, feed_url(@feed, format: "json"), title: @feed.name) if @feed&.persisted? %>
 
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <% if Rails.env.development? %>
