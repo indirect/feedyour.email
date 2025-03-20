@@ -28,7 +28,7 @@ FROM base AS build
 RUN --mount=type=cache,id=dev-apt-cache,sharing=locked,target=/var/cache/apt \
     --mount=type=cache,id=dev-apt-lib,sharing=locked,target=/var/lib/apt \
     apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git
+    apt-get install --no-install-recommends -y build-essential git libyaml-dev
 
 # Install application gems
 COPY --link Gemfile Gemfile.lock .ruby-version ./
