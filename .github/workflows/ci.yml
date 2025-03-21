@@ -1,8 +1,6 @@
 name: CI
 
 on:
-  push:
-    branches: [ "**", "!dependabot/**" ]
   pull_request:
 
 env:
@@ -48,3 +46,11 @@ jobs:
         if: always()
         with:
           sarif_file: tmp/sarif
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - run: bin/production deploy --build-only --remote-only -e "GIT_SHA=${{ github.sha }}"
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

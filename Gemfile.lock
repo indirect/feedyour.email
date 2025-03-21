@@ -14,6 +14,18 @@ GIT
     code-scanning-rubocop (0.6.1)
       rubocop (~> 1.0)
 
+GIT
+  remote: https://github.com/oldmoe/litestack.git
+  revision: e598e1b1f0d46f45df1e2c6213ff9b136b63d9bf
+  specs:
+    litestack (0.4.5)
+      erubi (~> 1)
+      oj (~> 3)
+      rack (~> 3)
+      rackup (~> 2)
+      sqlite3 (>= 1.6.0, < 3.0.0)
+      tilt (~> 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -240,21 +252,6 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    litestack (0.4.4)
-      erubi (~> 1)
-      oj (~> 3)
-      rack (~> 3)
-      rackup (~> 2)
-      sqlite3 (>= 1.6.0, < 2.0.0)
-      tilt (~> 2)
-    litestream (0.12.0)
-      actionpack (>= 7.0)
-      actionview (>= 7.0)
-      activejob (>= 7.0)
-      activesupport (>= 7.0)
-      logfmt (>= 0.0.10)
-      railties (>= 7.0)
-      sqlite3
     litestream (0.12.0-arm64-darwin)
       actionpack (>= 7.0)
       actionview (>= 7.0)
@@ -299,7 +296,6 @@ GEM
     method_source (1.1.0)
     metrics (0.12.1)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.8)
     minitest (5.25.5)
     msgpack (1.7.2)
     nenv (0.3.0)
@@ -485,8 +481,9 @@ GEM
     securerandom (0.4.1)
     shellany (0.0.1)
     smart_properties (1.17.0)
-    sqlite3 (1.7.3)
-      mini_portile2 (~> 2.8.0)
+    sqlite3 (2.6.0-arm64-darwin)
+    sqlite3 (2.6.0-x86_64-darwin)
+    sqlite3 (2.6.0-x86_64-linux-gnu)
     standard (1.47.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
@@ -562,7 +559,7 @@ DEPENDENCIES
   jb (~> 0.8.2)
   json-schema (~> 5.1)
   libxml-ruby (~> 5.0.3)
-  litestack (~> 0.4.4)
+  litestack (~> 0.4.5)!
   litestream (~> 0.12.0)
   lograge (~> 0.14.0)
   mail (< 2.9.0)
@@ -584,6 +581,7 @@ DEPENDENCIES
   rubocop-rspec (~> 3.5)
   rubocop-rspec_rails (~> 2.31)
   rufus-scheduler (~> 3.9)
+  sqlite3 (~> 2.6)
   standard (~> 1.47)
   tailwindcss-rails (~> 4.0)
   turbo-rails (~> 2.0)
