@@ -45,7 +45,7 @@ end
 gem "better_html", "~> 2.1"
 gem "bootsnap", "~> 1.18", require: false
 gem "brotli", "~> 0.6.0"
-gem "cloudflare", "~> 4.4"
+gem "cloudflare", "~> 4.4", github: "indirect/cloudflare"
 gem "cloudflare-rails", "~> 6.2"
 gem "data_migrate", "~> 11.3"
 gem "importmap-rails", "~> 2.1"
