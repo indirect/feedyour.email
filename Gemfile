@@ -60,6 +60,6 @@ gem "puma", "~> 6.6"
 gem "puma-rufus-scheduler", "~> 0.1.0"
 gem "rack-canonical-host", "~> 1.3", require: false
 gem "rufus-scheduler", "~> 3.9"
-gem "tailwindcss-rails", "~> 4.0"
+gem "tailwindcss-rails", "~> 4.2"
 gem "turbo-rails", "~> 2.0"
 gem "sqlite3", "~> 2.6"
