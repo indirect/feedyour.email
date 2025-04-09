@@ -29,7 +29,7 @@ group :development do
   gem "rubocop-capybara", "~> 2.22", require: false
   gem "rubocop-factory_bot", "~> 2.27", require: false
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
-  gem "rubocop-rails", "~> 2.30", require: false
+  gem "rubocop-rails", "~> 2.31", require: false
   gem "rubocop-rspec", "~> 3.5", require: false
   gem "rubocop-rspec_rails", "~> 2.31", require: false
   gem "standard", "~> 1.47", require: false
@@ -60,6 +60,6 @@ gem "puma", "~> 6.6"
 gem "puma-rufus-scheduler", "~> 0.1.0"
 gem "rack-canonical-host", "~> 1.3", require: false
 gem "rufus-scheduler", "~> 3.9"
-gem "tailwindcss-rails", "~> 4.0"
+gem "tailwindcss-rails", "~> 4.2"
 gem "turbo-rails", "~> 2.0"
 gem "sqlite3", "~> 2.6"
