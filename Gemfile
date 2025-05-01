@@ -9,7 +9,7 @@ group :development, :test do
   gem "json-schema", "~> 5.1", require: false
   gem "libxml-ruby", "~> 5.0.3"
   gem "pry-rails", "~> 0.3.11"
-  gem "rspec-rails", "~> 7.1"
+  gem "rspec-rails", "~> 8.0"
 end
 
 group :development do
