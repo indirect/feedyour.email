@@ -9,7 +9,7 @@ group :development, :test do
   gem "json-schema", "~> 5.1", require: false
   gem "libxml-ruby", "~> 5.0.3"
   gem "pry-rails", "~> 0.3.11"
-  gem "rspec-rails", "~> 7.1"
+  gem "rspec-rails", "~> 8.0"
 end
 
 group :development do
@@ -37,7 +37,7 @@ group :development do
 end
 
 group :production do
-  gem "honeybadger", "~> 5.27"
+  gem "honeybadger", "~> 5.28"
   gem "lograge", "~> 0.14.0"
   gem "rack-attack", "~> 6.7"
 end
