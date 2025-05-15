@@ -147,7 +147,7 @@ GEM
       smart_properties
     bigdecimal (3.1.9)
     bindex (0.8.1)
-    bootsnap (1.18.4)
+    bootsnap (1.18.5)
       msgpack (~> 1.2)
     brakeman (7.0.2)
       racc
@@ -303,7 +303,7 @@ GEM
     metrics (0.12.2)
     mini_mime (1.1.5)
     minitest (5.25.5)
-    msgpack (1.7.2)
+    msgpack (1.8.0)
     nenv (0.3.0)
     net-imap (0.5.7)
       date
