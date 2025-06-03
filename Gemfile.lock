@@ -136,8 +136,8 @@ GEM
     async-rest (0.19.1)
       async-http (~> 0.42)
       protocol-http (~> 0.45)
-    base64 (0.2.0)
-    benchmark (0.4.0)
+    base64 (0.3.0)
+    benchmark (0.4.1)
     better_html (2.1.1)
       actionview (>= 6.0)
       activesupport (>= 6.0)
@@ -145,7 +145,7 @@ GEM
       erubi (~> 1.4)
       parser (>= 2.4)
       smart_properties
-    bigdecimal (3.1.9)
+    bigdecimal (3.2.1)
     bindex (0.8.1)
     bootsnap (1.18.6)
       msgpack (~> 1.2)
@@ -179,7 +179,8 @@ GEM
     diff-lcs (1.6.1)
     dockerfile-rails (1.7.9)
       rails (>= 3.0.0)
-    drb (2.2.1)
+    drb (2.2.3)
+    erb (5.0.1)
     erb_lint (0.9.0)
       activesupport
       better_html (>= 2.0.1)
@@ -289,7 +290,7 @@ GEM
       activesupport (>= 4)
       railties (>= 4)
       request_store (~> 1.0)
-    loofah (2.24.0)
+    loofah (2.24.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     lumberjack (1.2.10)
@@ -360,7 +361,7 @@ GEM
       method_source (~> 1.0)
     pry-rails (0.3.11)
       pry (>= 0.13.0)
-    psych (5.2.4)
+    psych (5.2.6)
       date
       stringio
     public_suffix (6.0.1)
@@ -396,7 +397,7 @@ GEM
       activesupport (= 7.2.2.1)
       bundler (>= 1.15.0)
       railties (= 7.2.2.1)
-    rails-dom-testing (2.2.0)
+    rails-dom-testing (2.3.0)
       activesupport (>= 5.0.0)
       minitest
       nokogiri (>= 1.6)
@@ -412,11 +413,12 @@ GEM
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
-    rake (13.2.1)
+    rake (13.3.0)
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rdoc (6.13.1)
+    rdoc (6.14.0)
+      erb
       psych (>= 4.0.0)
     regexp_parser (2.10.0)
     reline (0.6.1)
@@ -515,7 +517,7 @@ GEM
     tilt (2.4.0)
     timeout (0.4.3)
     traces (0.15.2)
-    turbo-rails (2.0.13)
+    turbo-rails (2.0.16)
       actionpack (>= 7.1.0)
       railties (>= 7.1.0)
     tzinfo (2.0.6)
@@ -533,7 +535,7 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.7.2)
+    zeitwerk (2.7.3)
 
 PLATFORMS
   arm64-darwin-22
