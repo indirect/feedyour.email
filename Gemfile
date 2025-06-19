@@ -53,7 +53,7 @@ gem "jb", "~> 0.8.2"
 gem "litestack", "~> 0.4.5", github: "oldmoe/litestack"
 gem "litestream", "~> 0.14.0"
 gem "nilify_blanks", "~> 1.4"
-gem "ostruct", "~> 0.6.1"
+gem "ostruct", "~> 0.6.2"
 gem "progress_bar", "~> 1.3", require: false
 gem "propshaft", "~> 1.1.0"
 gem "puma", "~> 6.6"
