@@ -44,7 +44,7 @@ end
 
 gem "better_html", "~> 2.1"
 gem "bootsnap", "~> 1.18", require: false
-gem "brotli", "~> 0.6.0"
+gem "brotli", "~> 0.7.0"
 gem "cloudflare", "~> 4.4", github: "indirect/cloudflare"
 gem "cloudflare-rails", "~> 6.2"
 gem "data_migrate", "~> 11.3"
@@ -60,6 +60,6 @@ gem "puma", "~> 6.6"
 gem "puma-rufus-scheduler", "~> 0.1.0"
 gem "rack-canonical-host", "~> 1.3", require: false
 gem "rufus-scheduler", "~> 3.9"
-gem "tailwindcss-rails", "~> 4.2"
+gem "tailwindcss-rails", "~> 4.3"
 gem "turbo-rails", "~> 2.0"
 gem "sqlite3", "~> 2.7"
