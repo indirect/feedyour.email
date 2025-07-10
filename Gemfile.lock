@@ -250,7 +250,7 @@ GEM
       reline (>= 0.4.2)
     jb (0.8.2)
     json (2.12.0)
-    json-schema (5.1.1)
+    json-schema (5.2.1)
       addressable (~> 2.8)
       bigdecimal (~> 3.1)
     language_server-protocol (3.17.0.5)
@@ -360,7 +360,7 @@ GEM
     psych (5.2.6)
       date
       stringio
-    public_suffix (6.0.1)
+    public_suffix (6.0.2)
     puma (6.6.0)
       nio4r (~> 2.0)
     puma-rufus-scheduler (0.1.0)
@@ -564,7 +564,7 @@ DEPENDENCIES
   hotwire-livereload (~> 2.0)
   importmap-rails (~> 2.1)
   jb (~> 0.8.2)
-  json-schema (~> 5.1)
+  json-schema (~> 5.2)
   libxml-ruby (~> 5.0.4)
   litestack (~> 0.4.5)!
   litestream (~> 0.14.0)
