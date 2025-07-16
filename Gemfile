@@ -55,7 +55,7 @@ gem "litestream", "~> 0.14.0"
 gem "nilify_blanks", "~> 1.4"
 gem "ostruct", "~> 0.6.2"
 gem "progress_bar", "~> 1.3", require: false
-gem "propshaft", "~> 1.1.0"
+gem "propshaft", "~> 1.2.0"
 gem "puma", "~> 6.6"
 gem "puma-rufus-scheduler", "~> 0.1.0"
 gem "rack-canonical-host", "~> 1.3", require: false
