@@ -236,7 +236,7 @@ GEM
       railties (>= 7.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    importmap-rails (2.2.1)
+    importmap-rails (2.2.2)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
@@ -254,7 +254,7 @@ GEM
       addressable (~> 2.8)
       bigdecimal (~> 3.1)
     language_server-protocol (3.17.0.5)
-    libxml-ruby (5.0.4)
+    libxml-ruby (5.0.5)
     lint_roller (1.1.0)
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -360,7 +360,7 @@ GEM
       date
       stringio
     public_suffix (6.0.2)
-    puma (6.6.0)
+    puma (6.6.1)
       nio4r (~> 2.0)
     puma-rufus-scheduler (0.1.0)
     raabro (1.4.0)
@@ -564,7 +564,7 @@ DEPENDENCIES
   importmap-rails (~> 2.2)
   jb (~> 0.8.2)
   json-schema (~> 5.2)
-  libxml-ruby (~> 5.0.4)
+  libxml-ruby (~> 5.0.5)
   litestack (~> 0.4.5)!
   litestream (~> 0.14.0)
   lograge (~> 0.14.0)
