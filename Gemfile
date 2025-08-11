@@ -29,7 +29,7 @@ group :development do
   gem "rubocop-capybara", "~> 2.22", require: false
   gem "rubocop-factory_bot", "~> 2.27", require: false
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
-  gem "rubocop-rails", "~> 2.32", require: false
+  gem "rubocop-rails", "~> 2.33", require: false
   gem "rubocop-rspec", "~> 3.6", require: false
   gem "rubocop-rspec_rails", "~> 2.31", require: false
   gem "standard", "~> 1.50", require: false
