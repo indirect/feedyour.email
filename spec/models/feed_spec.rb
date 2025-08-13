@@ -69,21 +69,103 @@ RSpec.describe Feed, type: :model do
       }.to change { feed.reload.favicon_url }
     end
   end
+
+  describe "over_week_limit?" do
+    context "when not subscribed" do
+      before { feed.update!(subscribed_until: nil) }
+
+      it "is true when posts count equals config.week_limit" do
+        expect(feed).to_not be_over_week_limit
+        while feed.week_posts.count < Feed.config.week_limit
+          feed.posts.create!(from: "alice@example.com")
+        end
+        expect(feed.week_posts.count).to eq(Feed.config.week_limit)
+        expect(feed).to be_over_week_limit
+      end
+
+      it "is false when posts count is under config.week_limit" do
+        expect(feed).to_not be_over_week_limit
+        while feed.week_posts.count < (Feed.config.week_limit - 1)
+          feed.posts.create!(from: "alice@example.com")
+        end
+        expect(feed.week_posts.count).to be < Feed.config.week_limit
+        expect(feed).to_not be_over_week_limit
+      end
+
+      it "is true when posts count is over config.week_limit" do
+        expect(feed).to_not be_over_week_limit
+        while feed.week_posts.count < (Feed.config.week_limit + 1)
+          feed.posts.create!(from: "alice@example.com")
+        end
+        expect(feed.week_posts.count).to be > Feed.config.week_limit
+        expect(feed).to be_over_week_limit
+      end
+    end
+
+    context "when subscribed" do
+      before { feed.update!(subscribed_until: 1.day.from_now) }
+
+      it "is false when posts count equals config.week_limit" do
+        expect(feed).to_not be_over_week_limit
+        while feed.week_posts.count < Feed.config.week_limit
+          feed.posts.create!(from: "alice@example.com")
+        end
+        expect(feed.week_posts.count).to eq(Feed.config.week_limit)
+        expect(feed).to_not be_over_week_limit
+      end
+
+      it "is false when posts count is under config.week_limit" do
+        expect(feed).to_not be_over_week_limit
+        while feed.week_posts.count < (Feed.config.week_limit - 1)
+          feed.posts.create!(from: "alice@example.com")
+        end
+        expect(feed.week_posts.count).to be < Feed.config.week_limit
+        expect(feed).to_not be_over_week_limit
+      end
+
+      it "is false when posts count is over config.week_limit" do
+        expect(feed).to_not be_over_week_limit
+        while feed.week_posts.count < (Feed.config.week_limit + 1)
+          feed.posts.create!(from: "alice@example.com")
+        end
+        expect(feed.week_posts.count).to be > Feed.config.week_limit
+        expect(feed).to_not be_over_week_limit
+      end
+    end
+  end
+
+  describe "subscribed?" do
+    it "is false when subscribed_until is nil" do
+      feed.subscribed_until = nil
+      expect(feed).to_not be_subscribed
+    end
+
+    it "is false when subscribed_until is in the past" do
+      feed.subscribed_until = 1.day.ago
+      expect(feed).to_not be_subscribed
+    end
+
+    it "is true when subscribed_until is in the future" do
+      feed.subscribed_until = 1.minute.from_now
+      expect(feed).to be_subscribed
+    end
+  end
 end
 
 # == Schema Information
 #
 # Table name: feeds
 #
-#  id           :integer          not null, primary key
-#  expired_at   :datetime
-#  fetched_at   :datetime
-#  name         :string
-#  throttled_at :datetime
-#  token        :string           not null
-#  warned_at    :datetime
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id               :integer          not null, primary key
+#  expired_at       :datetime
+#  fetched_at       :datetime
+#  name             :string
+#  subscribed_until :datetime
+#  throttled_at     :datetime
+#  token            :string           not null
+#  warned_at        :datetime
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 # Indexes
 #

@@ -68,7 +68,7 @@ class Feed < ApplicationRecord
   end
 
   def over_week_limit?
-    week_posts.count >= config.week_limit
+    week_posts.count >= config.week_limit unless subscribed?
   end
 
   def warn_if_needed
@@ -95,6 +95,10 @@ class Feed < ApplicationRecord
   def stale?
     # feed has not been fetched in the last 3 months
     Time.current.after? fetched_at.advance(months: 3)
+  end
+
+  def subscribed?
+    subscribed_until && Time.current.before?(subscribed_until)
   end
 
   private
@@ -135,15 +139,16 @@ end
 #
 # Table name: feeds
 #
-#  id           :integer          not null, primary key
-#  expired_at   :datetime
-#  fetched_at   :datetime
-#  name         :string
-#  throttled_at :datetime
-#  token        :string           not null
-#  warned_at    :datetime
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id               :integer          not null, primary key
+#  expired_at       :datetime
+#  fetched_at       :datetime
+#  name             :string
+#  subscribed_until :datetime
+#  throttled_at     :datetime
+#  token            :string           not null
+#  warned_at        :datetime
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 # Indexes
 #
