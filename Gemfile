@@ -32,7 +32,7 @@ group :development do
   gem "rubocop-rails", "~> 2.33", require: false
   gem "rubocop-rspec", "~> 3.7", require: false
   gem "rubocop-rspec_rails", "~> 2.31", require: false
-  gem "standard", "~> 1.50", require: false
+  gem "standard", "~> 1.51", require: false
   gem "web-console", "~> 4.2"
 end
 
@@ -42,7 +42,7 @@ group :production do
   gem "rack-attack", "~> 6.7"
 end
 
-gem "better_html", "~> 2.1"
+gem "better_html", "~> 2.2"
 gem "bootsnap", "~> 1.18", require: false
 gem "brotli", "~> 0.7.0"
 gem "cloudflare", "~> 4.4", github: "indirect/cloudflare"
