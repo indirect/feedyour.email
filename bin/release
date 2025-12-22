@@ -10,7 +10,7 @@ end
 
 FileUtils.chdir APP_ROOT do
   puts "\n== Notifying Honeybadger of deploy =="
-  system! "bin/honeybadger deploy -r indirect/feedyour.email -s $GIT_SHA -u github-actions"
+  system! "bundle exec honeybadger deploy -r indirect/feedyour.email -s $GIT_SHA -u github-actions"
   # Migrations have to happen inside the app container,
   # see bin/docker-entrypoint
 end
