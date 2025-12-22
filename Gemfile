@@ -5,7 +5,7 @@ gem "mail", "< 2.9.0"
 
 group :development, :test do
   gem "assert_json", "~> 1.0.0", require: false
-  gem "debug", "~> 1.11", platforms: %i[mri mingw x64_mingw]
+  gem "debug", "~> 1.11", platforms: %i[mri]
   gem "json-schema", "~> 6.0", require: false
   gem "libxml-ruby", "~> 5.0.5"
   gem "pry-rails", "~> 0.3.11"
@@ -50,7 +50,7 @@ gem "cloudflare-rails", "~> 6.2"
 gem "data_migrate", "~> 11.3"
 gem "importmap-rails", "~> 2.2"
 gem "jb", "~> 0.8.2"
-gem "litestack", "~> 0.4.5", github: "oldmoe/litestack"
+gem "litestack", "~> 0.4.5", github: "indirect/litestack"
 gem "litestream", "~> 0.14.0"
 gem "nilify_blanks", "~> 1.4"
 gem "ostruct", "~> 0.6.3"

@@ -22,8 +22,8 @@ GIT
       async-rest (~> 0.18)
 
 GIT
-  remote: https://github.com/oldmoe/litestack.git
-  revision: e598e1b1f0d46f45df1e2c6213ff9b136b63d9bf
+  remote: https://github.com/indirect/litestack.git
+  revision: bf6822db519d3f42a96297d90dd0d00ab635b30c
   specs:
     litestack (0.4.5)
       erubi (~> 1)
@@ -595,7 +595,7 @@ DEPENDENCIES
   web-console (~> 4.2)
 
 RUBY VERSION
-   ruby 3.4.5p51
+   ruby 3.4.8p72
 
 BUNDLED WITH
    2.7.1
