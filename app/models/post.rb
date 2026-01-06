@@ -14,7 +14,7 @@ class Post < ApplicationRecord
   include Litesearch::Model
 
   def self.search(term)
-    super(term.gsub("'", "''"))
+    super(term.tr("'", " "))
   end
 
   litesearch do |schema|
