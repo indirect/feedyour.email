@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     return redirect_to feed_posts_path if params[:q].blank?
 
     index
-    @posts = @posts.search(params[:q].gsub(/[^a-zA-Z0-9_+*^():]/, "")).to_a
+    @posts = @posts.search(params[:q]).to_a
     render :index
   rescue ActiveRecord::StatementInvalid => e
     raise(e) unless e.cause.is_a?(SQLite3::SQLException)

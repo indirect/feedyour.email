@@ -13,6 +13,10 @@ class Post < ApplicationRecord
 
   include Litesearch::Model
 
+  def self.search(term)
+    super(term.tr("'", " "))
+  end
+
   litesearch do |schema|
     schema.field :text_body
     schema.field :subject
