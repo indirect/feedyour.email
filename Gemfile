@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby file: ".ruby-version"
-gem "rails", "~> 7.2"
-gem "mail", "< 2.9.0"
+
+gem "rails", "~> 8.0"
 
 group :development, :test do
   gem "assert_json", "~> 1.0.0", require: false
@@ -13,8 +13,8 @@ group :development, :test do
 end
 
 group :development do
-  gem "brakeman", "~> 7.1", require: false
   gem "annotaterb", "~> 4.23", require: false
+  gem "brakeman", "~> 8.0", require: false
   gem "bundler-audit", "~> 0.9.2", require: false
   gem "code-scanning-rubocop", "~> 0.6.1", require: false,
     github: "arthurnn/code-scanning-rubocop"
@@ -52,14 +52,15 @@ gem "importmap-rails", "~> 2.2"
 gem "jb", "~> 0.8.2"
 gem "litestack", "~> 0.4.5", github: "indirect/litestack"
 gem "litestream", "~> 0.14.0"
+gem "mail", "~> 2.9"
 gem "nilify_blanks", "~> 1.4"
 gem "ostruct", "~> 0.6.3"
 gem "progress_bar", "~> 1.3", require: false
-gem "propshaft", "~> 1.2.1"
+gem "propshaft", "~> 1.3"
 gem "puma", "~> 7.0"
 gem "puma-rufus-scheduler", "~> 0.1.0"
 gem "rack-canonical-host", "~> 1.3", require: false
 gem "rufus-scheduler", "~> 3.9"
+gem "sqlite3", "~> 2.7"
 gem "tailwindcss-rails", "~> 4.3"
 gem "turbo-rails", "~> 2.0"
-gem "sqlite3", "~> 2.7"
