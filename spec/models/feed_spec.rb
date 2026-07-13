@@ -8,8 +8,10 @@ RSpec.describe Feed, type: :model do
   end
 
   it "generates a token" do
-    expect(feed.token).to be_nil
-    expect { feed.save! }.to change { feed.token }
+    # Rails 7.1+ generates has_secure_token values in after_initialize by default,
+    # so feed.token is no longer nil before save. Verify the token is present and persists.
+    expect(feed.token).not_to be_nil
+    expect { feed.save! }.not_to change { feed.token }
   end
 
   it "enforces uniqueness on tokens" do

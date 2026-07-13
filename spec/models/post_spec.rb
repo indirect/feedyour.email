@@ -14,8 +14,10 @@ RSpec.describe Post, type: :model do
   end
 
   it "generates a token" do
-    expect(post.token).to be_nil
-    expect { post.save! }.to change { post.token }
+    # Rails 7.1+ generates has_secure_token values in after_initialize by default,
+    # so post.token is no longer nil before save. Verify the token is present and persists.
+    expect(post.token).not_to be_nil
+    expect { post.save! }.not_to change { post.token }
   end
 
   it "enforces uniqueness on tokens" do
