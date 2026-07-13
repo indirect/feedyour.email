@@ -1,13 +1,13 @@
 name: Backup database
- 
+
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 11 * * *'
- 
+    - cron: "0 11 */7 * *"
+
 env:
   FLY_APP_NAME: feedyouremail
- 
+
 jobs:
   backup-db:
     name: Backup DB
