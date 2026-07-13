@@ -8,8 +8,8 @@ class Post < ApplicationRecord
 
   scope :last_hour, -> { where("created_at > ?", 1.hour.ago) }
   scope :last_week, -> { where("created_at > ?", 1.week.ago) }
-  scope :not_system, -> { where.not(from: Rails.configuration.system_email) }
-  scope :system, -> { where(from: Rails.configuration.system_email) }
+  scope :not_system, -> { where.not(raw_from: Rails.configuration.system_email.format) }
+  scope :system, -> { where(raw_from: Rails.configuration.system_email.format) }
 
   include Litesearch::Model
 
@@ -23,7 +23,7 @@ class Post < ApplicationRecord
     schema.field :raw_from
   end
 
-  serialize :from, type: Mail::Address
+  serialize :from, coder: YAML, type: Mail::Address
   serialize :compressed_html_body, coder: BrotliSerializer
   serialize :compressed_text_body, coder: BrotliSerializer
 
