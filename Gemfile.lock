@@ -259,6 +259,13 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    litestream (0.14.0-aarch64-linux)
+      actionpack (>= 7.0)
+      actionview (>= 7.0)
+      activejob (>= 7.0)
+      activesupport (>= 7.0)
+      railties (>= 7.0)
+      sqlite3
     litestream (0.14.0-arm64-darwin)
       actionpack (>= 7.0)
       actionview (>= 7.0)
@@ -316,6 +323,8 @@ GEM
       activerecord (>= 4.0.0)
       activesupport (>= 4.0.0)
     nio4r (2.7.5)
+    nokogiri (1.19.4-aarch64-linux-gnu)
+      racc (~> 1.4)
     nokogiri (1.19.4-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.19.4-x86_64-darwin)
@@ -488,6 +497,7 @@ GEM
     securerandom (0.4.1)
     shellany (0.0.1)
     smart_properties (1.17.0)
+    sqlite3 (2.9.5-aarch64-linux-gnu)
     sqlite3 (2.9.5-arm64-darwin)
     sqlite3 (2.9.5-x86_64-darwin)
     sqlite3 (2.9.5-x86_64-linux-gnu)
@@ -507,6 +517,7 @@ GEM
     tailwindcss-rails (4.3.0)
       railties (>= 7.0.0)
       tailwindcss-ruby (~> 4.0)
+    tailwindcss-ruby (4.1.11-aarch64-linux-gnu)
     tailwindcss-ruby (4.1.11-arm64-darwin)
     tailwindcss-ruby (4.1.11-x86_64-darwin)
     tailwindcss-ruby (4.1.11-x86_64-linux-gnu)
@@ -537,6 +548,7 @@ GEM
     zeitwerk (2.7.3)
 
 PLATFORMS
+  aarch64-linux
   arm64-darwin-20
   arm64-darwin-22
   arm64-darwin-23
