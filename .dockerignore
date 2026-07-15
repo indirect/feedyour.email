@@ -4,7 +4,7 @@
 /.git/
 
 # Ignore bundler config.
-/.bundle
+/.bundle/
 
 # Ignore all environment files (except templates).
 /.env*
@@ -39,3 +39,6 @@
 
 # Ignore editor tooling.
 /.ruby-lsp
+
+# Docker images don't need specs
+/spec/
