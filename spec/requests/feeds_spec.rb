@@ -3,6 +3,7 @@ require "support/validate_feed"
 
 RSpec.describe "/feeds", type: :request do
   include ValidateFeed
+
   let(:valid_attributes) { {token: "somefeed"} }
   let(:feed) { Feed.create! valid_attributes }
 

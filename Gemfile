@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby file: ".ruby-version"
 
-gem "rails", "~> 8.0"
+gem "rails", "~> 8.1"
 
 group :development, :test do
   gem "assert_json", "~> 1.0.0", require: false
@@ -46,7 +46,7 @@ gem "better_html", "~> 2.1"
 gem "bootsnap", "~> 1.18", require: false
 gem "brotli", "~> 0.7.0"
 gem "cloudflare", "~> 4.4", github: "indirect/cloudflare"
-gem "cloudflare-rails", "~> 6.2"
+gem "cloudflare-rails", "~> 7.0"
 gem "data_migrate", "~> 11.3"
 gem "importmap-rails", "~> 2.2"
 gem "jb", "~> 0.8.2"
