@@ -55,6 +55,7 @@ gem "propshaft", "~> 1.3"
 gem "puma-rufus-scheduler", "~> 0.1.0"
 gem "puma", "~> 8.0"
 gem "rack-canonical-host", "~> 1.3", require: false
+gem "reactionview", "~> 0.3.0"
 gem "rufus-scheduler", "~> 3.9"
 gem "sqlite3", "~> 2.7"
 gem "tailwindcss-rails", "~> 4.3"

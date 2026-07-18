@@ -389,6 +389,9 @@ GEM
       prism (>= 1.6.0)
       rbs (>= 4.0.0)
       tsort
+    reactionview (0.3.0)
+      actionview (>= 7.0)
+      herb (>= 0.9.0, < 1.0.0)
     regexp_parser (2.12.0)
     reline (0.6.3)
       io-console (~> 0.5)
@@ -547,6 +550,7 @@ DEPENDENCIES
   rack-attack (~> 6.7)
   rack-canonical-host (~> 1.3)
   rails (~> 8.1)
+  reactionview (~> 0.3.0)
   rspec-rails (~> 8.0)
   rubocop-capybara (~> 3.0)
   rubocop-factory_bot (~> 2.27)
