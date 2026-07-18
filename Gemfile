@@ -21,7 +21,7 @@ group :development do
   gem "dockerfile-rails", "~> 1.7"
   gem "erb_lint", "~> 0.9.0", require: false
   gem "hotwire-livereload", "~> 2.0"
-  gem "rubocop-capybara", "~> 2.22", require: false
+  gem "rubocop-capybara", "~> 3.0", require: false
   gem "rubocop-factory_bot", "~> 2.27", require: false
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
   gem "rubocop-rails", "~> 2.33", require: false
