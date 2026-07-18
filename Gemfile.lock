@@ -132,13 +132,6 @@ GEM
       async-http (~> 0.42)
       protocol-url (~> 0.2)
     base64 (0.3.0)
-    better_html (2.2.0)
-      actionview (>= 7.0)
-      activesupport (>= 7.0)
-      ast (~> 2.0)
-      erubi (~> 1.4)
-      parser (>= 2.4)
-      smart_properties
     bigdecimal (4.1.2)
     bindex (0.8.1)
     bootsnap (1.24.6)
@@ -175,13 +168,6 @@ GEM
       rails (>= 3.0.0)
     drb (2.2.3)
     erb (6.0.5)
-    erb_lint (0.9.0)
-      activesupport
-      better_html (>= 2.0.1)
-      parser (>= 2.7.1.4)
-      rainbow
-      rubocop (>= 1)
-      smart_properties
     erubi (1.13.1)
     et-orbi (1.4.0)
       tzinfo
@@ -198,6 +184,10 @@ GEM
       raabro (~> 1.4)
     globalid (1.4.0)
       activesupport (>= 6.1)
+    herb (0.10.2-aarch64-linux-gnu)
+    herb (0.10.2-arm64-darwin)
+    herb (0.10.2-x86_64-darwin)
+    herb (0.10.2-x86_64-linux-gnu)
     highline (3.1.2)
       reline
     honeybadger (6.9.1)
@@ -465,7 +455,6 @@ GEM
     rufus-scheduler (3.9.2)
       fugit (~> 1.1, >= 1.11.1)
     securerandom (0.4.1)
-    smart_properties (1.17.0)
     sqlite3 (2.9.5-aarch64-linux-gnu)
     sqlite3 (2.9.5-arm64-darwin)
     sqlite3 (2.9.5-x86_64-darwin)
@@ -526,7 +515,6 @@ PLATFORMS
 DEPENDENCIES
   annotaterb (~> 4.23)
   assert_json (~> 1.0.0)
-  better_html (~> 2.1)
   bootsnap (~> 1.18)
   brakeman (~> 8.0)
   brotli (~> 0.8.0)
@@ -537,7 +525,7 @@ DEPENDENCIES
   data_migrate (~> 11.3)
   debug (~> 1.11)
   dockerfile-rails (~> 1.7)
-  erb_lint (~> 0.9.0)
+  herb (~> 0.10.2)
   honeybadger (~> 6.1)
   hotwire-livereload (~> 2.0)
   image_processing (~> 2.0)
