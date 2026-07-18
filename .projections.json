@@ -1,8 +1,20 @@
 {
+  "app/models/*.rb": {
+    "alternate": "spec/models/{}_spec.rb",
+    "related": ["db/schema.rb"],
+    "define": "create_table \"{|plural}\"",
+    "type": "model"
+  },
+  "spec/models/*_spec.rb": {
+    "alternate": "app/models/{}.rb",
+    "type": "model_spec"
+  },
   "app/controllers/*_controller.rb": {
-    "alternate": "spec/requests/{}_spec.rb"
+    "alternate": "spec/requests/{}_spec.rb",
+    "type": "controller"
   },
   "spec/requests/*_spec.rb": {
-    "alternate": "app/controllers/{}_controller.rb"
+    "alternate": "app/controllers/{}_controller.rb",
+    "type": "request_spec"
   }
 }

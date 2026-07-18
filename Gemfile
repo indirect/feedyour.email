@@ -20,11 +20,6 @@ group :development do
     github: "arthurnn/code-scanning-rubocop"
   gem "dockerfile-rails", "~> 1.7"
   gem "erb_lint", "~> 0.9.0", require: false
-  gem "guard-bundler-audit", "~> 0.1.5", require: false
-  gem "guard-erb_lint", github: "Driversnote-Dev/guard-erb_lint", require: false
-  gem "guard-rspec", "~> 4.7", require: false
-  gem "guard-rubocop", "~> 1.5", require: false
-  gem "guard-shell", "~> 0.7.2", require: false
   gem "hotwire-livereload", "~> 2.0"
   gem "rubocop-capybara", "~> 2.22", require: false
   gem "rubocop-factory_bot", "~> 2.27", require: false
@@ -44,7 +39,7 @@ end
 
 gem "better_html", "~> 2.1"
 gem "bootsnap", "~> 1.18", require: false
-gem "brotli", "~> 0.7.0"
+gem "brotli", "~> 0.8.0"
 gem "cloudflare", "~> 4.4", github: "indirect/cloudflare"
 gem "cloudflare-rails", "~> 7.0"
 gem "data_migrate", "~> 11.3"
