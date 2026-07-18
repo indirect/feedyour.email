@@ -1,7 +1,7 @@
 # syntax = docker/dockerfile:1
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
-ARG RUBY_VERSION=3.4.8
+ARG RUBY_VERSION=4.0.6
 FROM ruby:$RUBY_VERSION-slim AS base
 
 ARG GIT_SHA
@@ -18,7 +18,7 @@ ENV BUNDLE_DEPLOYMENT="1" \
 
 # Update gems and bundler
 RUN gem update --system --no-document && \
-    gem install -N bundler -v 2.7.2
+    gem install -N bundler -v 4.0.3
 
 
 # Throw-away build stage to reduce size of final image
