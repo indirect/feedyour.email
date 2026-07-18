@@ -3,8 +3,8 @@ module ValidateFeed
 
   matcher :be_valid_atom_feed do
     match do |body|
-      require "xml/libxml"
-      XML::Document.string(body).validate_relaxng(ValidateFeed.atom_schema)
+      require "libxml-ruby"
+      LibXML::XML::Document.string(body).validate_relaxng(ValidateFeed.atom_schema)
     rescue LibXML::XML::Error => e
       @message = e.message
       false
@@ -33,9 +33,9 @@ module ValidateFeed
   end
 
   def self.atom_schema
-    require "xml/libxml"
-    @atom_schema ||= XML::RelaxNG.document(
-      XML::Document.file("spec/support/atom.rng.xml")
+    require "libxml-ruby"
+    @atom_schema ||= LibXML::XML::RelaxNG.document(
+      LibXML::XML::Document.file("spec/support/atom.rng.xml")
     )
   end
 end

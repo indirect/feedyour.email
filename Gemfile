@@ -7,7 +7,7 @@ group :development, :test do
   gem "assert_json", "~> 1.0.0", require: false
   gem "debug", "~> 1.11", platforms: %i[mri]
   gem "json-schema", "~> 6.0", require: false
-  gem "libxml-ruby", "~> 5.0.5"
+  gem "libxml-ruby", "~> 6.0"
   gem "pry-rails", "~> 0.3.11"
   gem "rspec-rails", "~> 8.0"
 end

@@ -230,7 +230,7 @@ GEM
       addressable (~> 2.8)
       bigdecimal (>= 3.1, < 5)
     language_server-protocol (3.17.0.6)
-    libxml-ruby (5.0.6)
+    libxml-ruby (6.0.0)
     lint_roller (1.1.0)
     listen (3.10.0)
       logger
@@ -551,7 +551,7 @@ DEPENDENCIES
   importmap-rails (~> 2.2)
   jb (~> 0.8.2)
   json-schema (~> 6.0)
-  libxml-ruby (~> 5.0.5)
+  libxml-ruby (~> 6.0)
   litestack (~> 0.4.5)!
   litestream (~> 0.14.0)
   lograge (~> 0.14.0)
