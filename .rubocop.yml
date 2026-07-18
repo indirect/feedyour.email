@@ -3,8 +3,10 @@ inherit_mode:
   merge:
     - Exclude
 
-require:
+plugins:
   - rubocop-performance
+
+require:
   - standard/cop/block_single_line_braces
   - ./lib/cops/lint/env.rb
 

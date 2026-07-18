@@ -1,3 +1,3 @@
-require "action_mailbox/base_controller"
-require "throttle_by_feed"
-ActionMailbox::BaseController.include ThrottleByFeed
+Rails.application.config.after_initialize do
+  ActionMailbox::BaseController.include ThrottleByFeed
+end
