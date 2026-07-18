@@ -2,4 +2,3 @@
 
 set -v
 bin/rubocop --autocorrect-all
-bin/erb_lint --lint-all --autocorrect
