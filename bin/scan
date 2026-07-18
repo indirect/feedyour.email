@@ -1,0 +1,5 @@
+#!/bin/bash
+set -euo pipefail
+
+bin/bundler-audit --update
+bin/brakeman -q -w2
