@@ -7,7 +7,7 @@ group :development, :test do
   gem "assert_json", "~> 1.0.0", require: false
   gem "debug", "~> 1.11", platforms: %i[mri]
   gem "json-schema", "~> 6.0", require: false
-  gem "libxml-ruby", "~> 5.0.5"
+  gem "libxml-ruby", "~> 6.0.0"
   gem "pry-rails", "~> 0.3.11"
   gem "rspec-rails", "~> 8.0"
 end
@@ -26,7 +26,7 @@ group :development do
   gem "guard-rubocop", "~> 1.5", require: false
   gem "guard-shell", "~> 0.7.2", require: false
   gem "hotwire-livereload", "~> 2.0"
-  gem "rubocop-capybara", "~> 2.22", require: false
+  gem "rubocop-capybara", "~> 3.0", require: false
   gem "rubocop-factory_bot", "~> 2.27", require: false
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
   gem "rubocop-rails", "~> 2.33", require: false
@@ -38,13 +38,13 @@ end
 
 group :production do
   gem "honeybadger", "~> 6.1"
-  gem "lograge", "~> 0.14.0"
+  gem "lograge", "~> 0.15.0"
   gem "rack-attack", "~> 6.7"
 end
 
 gem "better_html", "~> 2.1"
 gem "bootsnap", "~> 1.18", require: false
-gem "brotli", "~> 0.7.0"
+gem "brotli", "~> 0.8.0"
 gem "cloudflare", "~> 4.4", github: "indirect/cloudflare"
 gem "cloudflare-rails", "~> 7.0"
 gem "data_migrate", "~> 11.3"
@@ -57,7 +57,7 @@ gem "nilify_blanks", "~> 1.4"
 gem "ostruct", "~> 0.6.3"
 gem "progress_bar", "~> 1.3", require: false
 gem "propshaft", "~> 1.3"
-gem "puma", "~> 7.0"
+gem "puma", "~> 8.0"
 gem "puma-rufus-scheduler", "~> 0.1.0"
 gem "rack-canonical-host", "~> 1.3", require: false
 gem "rufus-scheduler", "~> 3.9"
