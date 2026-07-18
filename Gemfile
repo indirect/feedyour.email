@@ -64,3 +64,5 @@ gem "rufus-scheduler", "~> 3.9"
 gem "sqlite3", "~> 2.7"
 gem "tailwindcss-rails", "~> 4.3"
 gem "turbo-rails", "~> 2.0"
+
+gem "image_processing", "~> 2.0"
