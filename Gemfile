@@ -1,13 +1,13 @@
 source "https://rubygems.org"
 ruby file: ".ruby-version"
 
-gem "rails", "~> 8.0"
+gem "rails", "~> 8.1"
 
 group :development, :test do
   gem "assert_json", "~> 1.0.0", require: false
   gem "debug", "~> 1.11", platforms: %i[mri]
-  gem "json-schema", "~> 6.0", require: false
-  gem "libxml-ruby", "~> 5.0.5"
+  gem "json-schema", "~> 6.2", require: false
+  gem "libxml-ruby", "~> 6.0.0"
   gem "pry-rails", "~> 0.3.11"
   gem "rspec-rails", "~> 8.0"
 end
@@ -15,7 +15,7 @@ end
 group :development do
   gem "annotaterb", "~> 4.23", require: false
   gem "brakeman", "~> 8.0", require: false
-  gem "bundler-audit", "~> 0.9.2", require: false
+  gem "bundler-audit", "~> 0.9.3", require: false
   gem "code-scanning-rubocop", "~> 0.6.1", require: false,
     github: "arthurnn/code-scanning-rubocop"
   gem "dockerfile-rails", "~> 1.7"
@@ -25,28 +25,28 @@ group :development do
   gem "guard-rspec", "~> 4.7", require: false
   gem "guard-rubocop", "~> 1.5", require: false
   gem "guard-shell", "~> 0.7.2", require: false
-  gem "hotwire-livereload", "~> 2.0"
-  gem "rubocop-capybara", "~> 2.22", require: false
-  gem "rubocop-factory_bot", "~> 2.27", require: false
+  gem "hotwire-livereload", "~> 2.1"
+  gem "rubocop-capybara", "~> 3.0", require: false
+  gem "rubocop-factory_bot", "~> 2.28", require: false
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
-  gem "rubocop-rails", "~> 2.33", require: false
-  gem "rubocop-rspec", "~> 3.7", require: false
-  gem "rubocop-rspec_rails", "~> 2.31", require: false
-  gem "standard", "~> 1.50", require: false
-  gem "web-console", "~> 4.2"
+  gem "rubocop-rails", "~> 2.36", require: false
+  gem "rubocop-rspec", "~> 3.10", require: false
+  gem "rubocop-rspec_rails", "~> 2.32", require: false
+  gem "standard", "~> 1.56", require: false
+  gem "web-console", "~> 4.3"
 end
 
 group :production do
-  gem "honeybadger", "~> 6.1"
-  gem "lograge", "~> 0.14.0"
-  gem "rack-attack", "~> 6.7"
+  gem "honeybadger", "~> 6.9"
+  gem "lograge", "~> 0.15.0"
+  gem "rack-attack", "~> 6.8"
 end
 
-gem "better_html", "~> 2.1"
-gem "bootsnap", "~> 1.18", require: false
-gem "brotli", "~> 0.7.0"
+gem "better_html", "~> 2.2"
+gem "bootsnap", "~> 1.24", require: false
+gem "brotli", "~> 0.8.0"
 gem "cloudflare", "~> 4.4", github: "indirect/cloudflare"
-gem "cloudflare-rails", "~> 6.2"
+gem "cloudflare-rails", "~> 7.0"
 gem "data_migrate", "~> 11.3"
 gem "importmap-rails", "~> 2.2"
 gem "jb", "~> 0.8.2"
@@ -57,10 +57,10 @@ gem "nilify_blanks", "~> 1.4"
 gem "ostruct", "~> 0.6.3"
 gem "progress_bar", "~> 1.3", require: false
 gem "propshaft", "~> 1.3"
-gem "puma", "~> 7.0"
+gem "puma", "~> 8.0"
 gem "puma-rufus-scheduler", "~> 0.1.0"
 gem "rack-canonical-host", "~> 1.3", require: false
 gem "rufus-scheduler", "~> 3.9"
 gem "sqlite3", "~> 2.7"
-gem "tailwindcss-rails", "~> 4.3"
+gem "tailwindcss-rails", "~> 4.6"
 gem "turbo-rails", "~> 2.0"
