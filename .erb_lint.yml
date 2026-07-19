@@ -24,9 +24,7 @@ linters:
       # Enabling this adds a frozen string literal magic comment to every block.
       Style/FrozenStringLiteralComment:
         Enabled: false
-      # erb_lint reports errors with this cop.
-      Style/MultilineTernaryOperator:
-        Enabled: false
+
       # False flags for view files. ViewComponents should never see this, though, as they should never need to assign in a view.
       Lint/UselessAssignment:
         Exclude:
