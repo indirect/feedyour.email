@@ -13,7 +13,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "annotaterb", "~> 4.23", require: false
+  gem "annotaterb", "~> 4.24", require: false
   gem "brakeman", "~> 8.0", require: false
   gem "bundler-audit", "~> 0.9.2", require: false
   gem "code-scanning-rubocop", "~> 0.6.1", require: false,
