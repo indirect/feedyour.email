@@ -20,7 +20,6 @@ ENV BUNDLE_DEPLOYMENT="1" \
 RUN gem update --system --no-document && \
     gem install -N bundler -v 4.0.3
 
-
 # Throw-away build stage to reduce size of final image
 FROM base AS build
 
@@ -28,7 +27,7 @@ FROM base AS build
 RUN --mount=type=cache,id=dev-apt-cache,sharing=locked,target=/var/cache/apt \
     --mount=type=cache,id=dev-apt-lib,sharing=locked,target=/var/lib/apt \
     apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libyaml-dev libssl-dev
+    apt-get install --no-install-recommends -y build-essential git libyaml-dev libssl-dev libvips
 
 # Install application gems
 COPY --link Gemfile Gemfile.lock .ruby-version ./
@@ -59,7 +58,7 @@ FROM base
 RUN --mount=type=cache,id=dev-apt-cache,sharing=locked,target=/var/cache/apt \
     --mount=type=cache,id=dev-apt-lib,sharing=locked,target=/var/lib/apt \
     apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libjemalloc2
+    apt-get install --no-install-recommends -y curl libjemalloc2 libvips
 
 # Copy built artifacts: gems, application
 COPY --from=build /usr/local/bundle /usr/local/bundle
