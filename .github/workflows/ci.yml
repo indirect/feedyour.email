@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - run: sudo apt-get install libvips
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
