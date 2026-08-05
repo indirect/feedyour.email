@@ -19,7 +19,7 @@ group :development do
   gem "code-scanning-rubocop", "~> 0.6.1", require: false,
     github: "arthurnn/code-scanning-rubocop"
   gem "dockerfile-rails", "~> 1.7"
-  gem "herb", "~> 0.10.2", require: false
+  gem "herb", "~> 0.10.3", require: false
   gem "hotwire-livereload", "~> 2.0"
   gem "rubocop-capybara", "~> 3.0", require: false
   gem "rubocop-factory_bot", "~> 2.27", require: false
