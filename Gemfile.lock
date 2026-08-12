@@ -134,8 +134,8 @@ GEM
     base64 (0.3.0)
     bigdecimal (4.1.2)
     bindex (0.8.1)
-    bootsnap (1.24.6)
-      msgpack (~> 1.2)
+    bootsnap (1.25.0)
+      msgpack (~> 1.5)
     brakeman (8.0.5)
       racc
     brotli (0.8.0)
@@ -269,7 +269,7 @@ GEM
     minitest (6.0.6)
       drb (~> 2.0)
       prism (~> 1.5)
-    msgpack (1.8.3)
+    msgpack (1.8.4)
     net-imap (0.6.4.1)
       date
       net-protocol
@@ -521,7 +521,7 @@ PLATFORMS
 DEPENDENCIES
   annotaterb (~> 4.24)
   assert_json (~> 1.0.0)
-  bootsnap (~> 1.18)
+  bootsnap (~> 1.25)
   brakeman (~> 8.0)
   brotli (~> 0.8.0)
   bundler-audit (~> 0.9.2)

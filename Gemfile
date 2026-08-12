@@ -37,7 +37,7 @@ group :production do
   gem "rack-attack", "~> 6.7"
 end
 
-gem "bootsnap", "~> 1.18", require: false
+gem "bootsnap", "~> 1.25", require: false
 gem "brotli", "~> 0.8.0"
 gem "cloudflare-rails", "~> 7.0"
 gem "cloudflare", "~> 4.4", github: "indirect/cloudflare"
