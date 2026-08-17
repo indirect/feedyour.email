@@ -58,6 +58,6 @@ gem "rack-canonical-host", "~> 1.3", require: false
 gem "reactionview", "~> 0.3.0"
 gem "ruby-vips", "~> 2.3"
 gem "rufus-scheduler", "~> 3.9"
-gem "sqlite3", "~> 2.7"
+gem "sqlite3", "~> 2.9"
 gem "tailwindcss-rails", "~> 4.3"
 gem "turbo-rails", "~> 2.0"
