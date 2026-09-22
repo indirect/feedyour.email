@@ -103,7 +103,7 @@ GEM
       uri (>= 0.13.1)
     addressable (2.9.0)
       public_suffix (>= 2.0.2, < 8.0)
-    annotaterb (4.24.0)
+    annotaterb (4.25.0)
       activerecord (>= 6.0.0)
       activesupport (>= 6.0.0)
     assert_json (1.0.0)
@@ -194,7 +194,7 @@ GEM
     herb (0.10.4-x86_64-linux-gnu)
     highline (3.1.2)
       reline
-    honeybadger (6.9.1)
+    honeybadger (6.9.2)
       logger
       ostruct
     hotwire-livereload (2.1.1)
@@ -524,7 +524,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  annotaterb (~> 4.24)
+  annotaterb (~> 4.25)
   assert_json (~> 1.0.0)
   bootsnap (~> 1.26)
   brakeman (~> 8.0)
@@ -537,7 +537,7 @@ DEPENDENCIES
   debug (~> 1.11)
   dockerfile-rails (~> 1.7)
   herb (~> 0.10.4)
-  honeybadger (~> 6.1)
+  honeybadger (~> 6.9)
   hotwire-livereload (~> 2.0)
   image_processing (~> 2.1)
   importmap-rails (~> 2.2)

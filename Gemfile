@@ -13,7 +13,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "annotaterb", "~> 4.24", require: false
+  gem "annotaterb", "~> 4.25", require: false
   gem "brakeman", "~> 8.0", require: false
   gem "bundler-audit", "~> 0.9.2", require: false
   gem "code-scanning-rubocop", "~> 0.6.1", require: false,
@@ -32,7 +32,7 @@ group :development do
 end
 
 group :production do
-  gem "honeybadger", "~> 6.1"
+  gem "honeybadger", "~> 6.9"
   gem "lograge", "~> 0.15.0"
   gem "rack-attack", "~> 6.7"
 end
