@@ -19,7 +19,7 @@ group :development do
   gem "code-scanning-rubocop", "~> 0.6.1", require: false,
     github: "arthurnn/code-scanning-rubocop"
   gem "dockerfile-rails", "~> 1.7"
-  gem "herb", "~> 0.10.4", require: false
+  gem "herb", "~> 0.11.0", require: false
   gem "hotwire-livereload", "~> 2.0"
   gem "rubocop-capybara", "~> 3.0", require: false
   gem "rubocop-factory_bot", "~> 2.27", require: false
@@ -55,7 +55,7 @@ gem "propshaft", "~> 1.3"
 gem "puma-rufus-scheduler", "~> 0.1.0"
 gem "puma", "~> 8.0"
 gem "rack-canonical-host", "~> 1.3", require: false
-gem "reactionview", "~> 0.4.1"
+gem "reactionview", "~> 0.6.0"
 gem "ruby-vips", "~> 2.3"
 gem "rufus-scheduler", "~> 3.9"
 gem "sqlite3", "~> 2.9"
