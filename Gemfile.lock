@@ -136,7 +136,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.26.0)
       msgpack (~> 1.5)
-    brakeman (8.0.6)
+    brakeman (8.1.0)
       racc
     brotli (0.8.0)
     builder (3.3.0)
@@ -194,7 +194,7 @@ GEM
     herb (0.11.0-x86_64-linux-gnu)
     highline (3.1.2)
       reline
-    honeybadger (6.9.2)
+    honeybadger (6.9.3)
       logger
       ostruct
     hotwire-livereload (2.1.1)
@@ -203,7 +203,7 @@ GEM
       railties (>= 7.0.0)
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
-    image_processing (2.1.0)
+    image_processing (2.2.0)
     importmap-rails (2.2.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -252,9 +252,10 @@ GEM
       railties (>= 7.0)
       sqlite3
     logger (1.7.0)
-    lograge (0.15.0)
+    lograge (0.15.1)
       actionpack (>= 4)
       activesupport (>= 4)
+      logger
       railties (>= 4)
       request_store (~> 1.0)
     loofah (2.25.2)
@@ -388,7 +389,7 @@ GEM
       logger
       prism (>= 1.6.0)
       tsort
-    rdoc (8.0.0)
+    rdoc (8.1.0)
       erb
       prism (>= 1.6.0)
       rbs (>= 4.0.0)
@@ -529,7 +530,7 @@ DEPENDENCIES
   annotaterb (~> 4.25)
   assert_json (~> 1.0.0)
   bootsnap (~> 1.26)
-  brakeman (~> 8.0)
+  brakeman (~> 8.1)
   brotli (~> 0.8.0)
   bundler-audit (~> 0.9.2)
   cloudflare (~> 4.4)!
@@ -541,14 +542,14 @@ DEPENDENCIES
   herb (~> 0.11.0)
   honeybadger (~> 6.9)
   hotwire-livereload (~> 2.0)
-  image_processing (~> 2.1)
+  image_processing (~> 2.2)
   importmap-rails (~> 2.2)
   jb (~> 0.8.2)
   json-schema (~> 6.0)
   libxml-ruby (~> 6.0)
   litestack (~> 0.4.5)!
   litestream (~> 0.14.0)
-  lograge (~> 0.15.0)
+  lograge (~> 0.15.1)
   mail (~> 2.9)
   nilify_blanks (~> 1.4)
   ostruct (~> 0.6.3)
