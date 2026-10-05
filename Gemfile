@@ -14,7 +14,7 @@ end
 
 group :development do
   gem "annotaterb", "~> 4.25", require: false
-  gem "brakeman", "~> 8.0", require: false
+  gem "brakeman", "~> 8.1", require: false
   gem "bundler-audit", "~> 0.9.2", require: false
   gem "code-scanning-rubocop", "~> 0.6.1", require: false,
     github: "arthurnn/code-scanning-rubocop"
@@ -33,7 +33,7 @@ end
 
 group :production do
   gem "honeybadger", "~> 6.9"
-  gem "lograge", "~> 0.15.0"
+  gem "lograge", "~> 0.15.1"
   gem "rack-attack", "~> 6.7"
 end
 
@@ -42,7 +42,7 @@ gem "brotli", "~> 0.8.0"
 gem "cloudflare-rails", "~> 7.0"
 gem "cloudflare", "~> 4.4", github: "indirect/cloudflare"
 gem "data_migrate", "~> 11.3"
-gem "image_processing", "~> 2.1"
+gem "image_processing", "~> 2.2"
 gem "importmap-rails", "~> 2.2"
 gem "jb", "~> 0.8.2"
 gem "litestack", "~> 0.4.5", github: "indirect/litestack"
