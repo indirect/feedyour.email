@@ -6,7 +6,7 @@ gem "rails", "~> 8.1"
 group :development, :test do
   gem "assert_json", "~> 1.0.0", require: false
   gem "debug", "~> 1.11", platforms: %i[mri]
-  gem "json-schema", "~> 6.0", require: false
+  gem "json-schema", "~> 6.2", require: false
   gem "libxml-ruby", "~> 6.0"
   gem "pry-rails", "~> 0.3.11"
   gem "rspec-rails", "~> 8.0"
@@ -24,7 +24,7 @@ group :development do
   gem "rubocop-capybara", "~> 3.0", require: false
   gem "rubocop-factory_bot", "~> 2.27", require: false
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
-  gem "rubocop-rails", "~> 2.33", require: false
+  gem "rubocop-rails", "~> 2.38", require: false
   gem "rubocop-rspec_rails", "~> 2.31", require: false
   gem "rubocop-rspec", "~> 3.7", require: false
   gem "standard", "~> 1.50", require: false
