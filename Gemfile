@@ -25,7 +25,7 @@ group :development do
   gem "rubocop-factory_bot", "~> 2.27", require: false
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
   gem "rubocop-rails", "~> 2.38", require: false
-  gem "rubocop-rspec_rails", "~> 2.31", require: false
+  gem "rubocop-rspec_rails", "~> 2.33", require: false
   gem "rubocop-rspec", "~> 3.7", require: false
   gem "standard", "~> 1.50", require: false
   gem "web-console", "~> 4.2"
@@ -46,9 +46,9 @@ gem "image_processing", "~> 2.2"
 gem "importmap-rails", "~> 2.2"
 gem "jb", "~> 0.8.2"
 gem "litestack", "~> 0.4.5", github: "indirect/litestack"
-gem "litestream", "~> 0.14.0"
+gem "litestream", "~> 0.16.0"
 gem "mail", "~> 2.9"
-gem "nilify_blanks", "~> 1.4"
+gem "nilify_blanks", "~> 2.0"
 gem "ostruct", "~> 0.6.3"
 gem "progress_bar", "~> 1.3", require: false
 gem "propshaft", "~> 1.3"
@@ -58,6 +58,6 @@ gem "rack-canonical-host", "~> 1.3", require: false
 gem "reactionview", "~> 0.6.0"
 gem "ruby-vips", "~> 2.3"
 gem "rufus-scheduler", "~> 3.9"
-gem "sqlite3", "~> 2.9"
+gem "sqlite3", "~> 2.10"
 gem "tailwindcss-rails", "~> 4.3"
 gem "turbo-rails", "~> 2.0"
