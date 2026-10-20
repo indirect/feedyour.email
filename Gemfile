@@ -21,7 +21,7 @@ group :development do
   gem "dockerfile-rails", "~> 1.7"
   gem "herb", "~> 0.11.0", require: false
   gem "hotwire-livereload", "~> 2.0"
-  gem "rubocop-capybara", "~> 3.0", require: false
+  gem "rubocop-capybara", "~> 3.1", require: false
   gem "rubocop-factory_bot", "~> 2.27", require: false
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
   gem "rubocop-rails", "~> 2.38", require: false
@@ -46,7 +46,7 @@ gem "image_processing", "~> 2.2"
 gem "importmap-rails", "~> 2.2"
 gem "jb", "~> 0.8.2"
 gem "litestack", "~> 0.4.5", github: "indirect/litestack"
-gem "litestream", "~> 0.16.0"
+gem "litestream", "~> 0.16.1"
 gem "mail", "~> 2.9"
 gem "nilify_blanks", "~> 2.0"
 gem "ostruct", "~> 0.6.3"
