@@ -19,7 +19,7 @@ group :development do
   gem "code-scanning-rubocop", "~> 0.6.1", require: false,
     github: "arthurnn/code-scanning-rubocop"
   gem "dockerfile-rails", "~> 1.7"
-  gem "herb", "~> 0.11.0", require: false
+  gem "herb", "~> 0.11.1", require: false
   gem "hotwire-livereload", "~> 2.0"
   gem "rubocop-capybara", "~> 3.1", require: false
   gem "rubocop-factory_bot", "~> 2.27", require: false
@@ -32,19 +32,19 @@ group :development do
 end
 
 group :production do
-  gem "honeybadger", "~> 6.9"
+  gem "honeybadger", "~> 6.10"
   gem "lograge", "~> 0.15.1"
   gem "rack-attack", "~> 6.7"
 end
 
 gem "bootsnap", "~> 1.26", require: false
-gem "brotli", "~> 0.8.0"
+gem "brotli", "~> 0.9.2"
 gem "cloudflare-rails", "~> 7.0"
 gem "cloudflare", "~> 4.4", github: "indirect/cloudflare"
 gem "data_migrate", "~> 11.3"
 gem "image_processing", "~> 2.2"
 gem "importmap-rails", "~> 2.2"
-gem "jb", "~> 0.8.2"
+gem "jb", "~> 0.9.0"
 gem "litestack", "~> 0.4.5", github: "indirect/litestack"
 gem "litestream", "~> 0.16.1"
 gem "mail", "~> 2.9"
@@ -59,5 +59,5 @@ gem "reactionview", "~> 0.6.0"
 gem "ruby-vips", "~> 2.3"
 gem "rufus-scheduler", "~> 3.9"
 gem "sqlite3", "~> 2.10"
-gem "tailwindcss-rails", "~> 4.3"
+gem "tailwindcss-rails", "~> 4.7"
 gem "turbo-rails", "~> 2.0"
