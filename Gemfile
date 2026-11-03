@@ -13,7 +13,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "annotaterb", "~> 4.25", require: false
+  gem "annotaterb", "~> 4.26", require: false
   gem "brakeman", "~> 8.1", require: false
   gem "bundler-audit", "~> 0.9.2", require: false
   gem "code-scanning-rubocop", "~> 0.6.1", require: false,
@@ -44,7 +44,7 @@ gem "cloudflare", "~> 4.4", github: "indirect/cloudflare"
 gem "data_migrate", "~> 11.3"
 gem "image_processing", "~> 2.2"
 gem "importmap-rails", "~> 2.2"
-gem "jb", "~> 0.9.0"
+gem "jb", "~> 0.9.1"
 gem "litestack", "~> 0.4.5", github: "indirect/litestack"
 gem "litestream", "~> 0.16.1"
 gem "mail", "~> 2.9"
