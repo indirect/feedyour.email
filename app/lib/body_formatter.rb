@@ -7,10 +7,10 @@ class BodyFormatter
     return if @html_body.blank?
 
     case from_name
-    when "Matt Levine"
+    when /\AMatt Levine/
       body = @html_body
         .gsub("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\r\n", "")
-        .gsub("</style>", "[class^=\"liveintent\"] { display: none !important; }</style>")
+        .gsub("</style>", "[class^=\"liveintent\"], .mq-lihide, .mq-lishow, img[src*=\"sli.bloomberg.com\"], figure a img[alt]:not([alt=\"\"]), a[title*=\"Podcast\"] figure { display: none !important; }</style>")
         .gsub("</head>", ApplicationController.render(partial: "posts/injected_header"))
         .gsub(/<table class="footer".*/m, "</body></html>")
       return body if body.match?(/class="footnote-content"/)
