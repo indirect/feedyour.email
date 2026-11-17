@@ -38,7 +38,7 @@ group :production do
 end
 
 gem "bootsnap", "~> 1.26", require: false
-gem "brotli", "~> 0.9.2"
+gem "brotli", "~> 0.9.3"
 gem "cloudflare-rails", "~> 7.0"
 gem "cloudflare", "~> 4.4", github: "indirect/cloudflare"
 gem "data_migrate", "~> 11.3"
