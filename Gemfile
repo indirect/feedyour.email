@@ -20,7 +20,7 @@ group :development do
     github: "arthurnn/code-scanning-rubocop"
   gem "dockerfile-rails", "~> 1.7"
   gem "herb", "~> 0.11.2", require: false
-  gem "hotwire-livereload", "~> 2.0"
+  gem "hotwire-livereload", "~> 2.1"
   gem "rubocop-capybara", "~> 3.1", require: false
   gem "rubocop-factory_bot", "~> 2.27", require: false
   gem "rubocop-gemfile", "~> 0.1.0.beta3", require: false
@@ -33,7 +33,7 @@ end
 
 group :production do
   gem "honeybadger", "~> 6.10"
-  gem "lograge", "~> 0.15.1"
+  gem "lograge", "~> 0.16.0"
   gem "rack-attack", "~> 6.7"
 end
 
@@ -53,7 +53,7 @@ gem "ostruct", "~> 0.6.3"
 gem "progress_bar", "~> 1.3", require: false
 gem "propshaft", "~> 1.3"
 gem "puma-rufus-scheduler", "~> 0.1.0"
-gem "puma", "~> 8.0"
+gem "puma", "~> 8.1"
 gem "rack-canonical-host", "~> 1.3", require: false
 gem "reactionview", "~> 0.6.1"
 gem "ruby-vips", "~> 2.3"
