@@ -286,7 +286,6 @@ GEM
     marcel (1.2.1)
     method_source (1.1.0)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.9)
     minitest (6.1.0)
       drb (~> 2.0)
       prism (>= 1.5, < 3)
@@ -304,9 +303,6 @@ GEM
       activerecord (>= 6.1)
       activesupport (>= 6.1)
     nio4r (2.7.5)
-    nokogiri (1.19.7)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
     nokogiri (1.19.7-aarch64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.19.7-arm64-darwin)
@@ -486,8 +482,6 @@ GEM
     rufus-scheduler (3.9.2)
       fugit (~> 1.1, >= 1.11.1)
     securerandom (0.4.1)
-    sqlite3 (2.10.2)
-      mini_portile2 (~> 2.8.0)
     sqlite3 (2.10.2-aarch64-linux-gnu)
     sqlite3 (2.10.2-arm64-darwin)
     sqlite3 (2.10.2-x86_64-darwin)
@@ -598,7 +592,7 @@ DEPENDENCIES
   web-console (~> 4.2)
 
 RUBY VERSION
-  ruby 4.0.6
+  ruby 4.0.10
 
 BUNDLED WITH
   4.0.16
